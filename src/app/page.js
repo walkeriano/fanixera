@@ -46,6 +46,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <Viewall/>
+        <div className={styles.blurBlue}></div>
       </main>
     </>
   );

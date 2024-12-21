@@ -3,6 +3,34 @@
     height: 90px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+
+
+.sectionbtns{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    border: 1px solid red;
+    gap: 15px;
+}
+
+.btnmenu{
+    height: 35px;
+    background-color: black;
+    padding: 0px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSearch{
+    height: 45px;
+    background-color: black;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
 }
