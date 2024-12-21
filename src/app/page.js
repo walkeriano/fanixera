@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "./page.module.css";
 import Header from "@/components/header/header";
 import Viewall from "@/components/viewall/viewall";
+import Categories from "@/components/categories/categories";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
+        <Categories />
         <Viewall/>
         <div className={styles.blurBlue}></div>
       </main>

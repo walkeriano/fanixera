@@ -1,0 +1,25 @@
+.categoriesContainer{
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    padding-left: 20px;
+}
+
+
+.itemCategorie{
+    width: 165px;
+    padding: 0px 25px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 50px;
+    background: linear-gradient( 35deg, #0080FF,#0024D6,#9A00C4, #9D0054);
+}
+
+.itemCategorie h3{
+    width: auto;
+    font-size: 1.0rem;
+    letter-spacing: 0.5px;
+}
