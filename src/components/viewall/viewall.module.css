@@ -3,7 +3,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 0px;
-    border: 1px solid red;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
     height: 85svh;
+    gap: 5px;
+}
+
+.rieles{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    overflow: auto;
+}
+
+.rieles::-webkit-scrollbar {
+    display: none; /* WebKit Browsers */
+  }
+
+.boxad{
+    width: 100%;
+    min-height: 350px;
+    background-color: rgb(12, 12, 12);
+    border-radius: 20px;
 }
