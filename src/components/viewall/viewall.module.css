@@ -1,33 +1,87 @@
-.viewall{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 15px;
-    padding-left: 5px;
-    padding-right: 5px;
-    height: 85svh;
-    gap: 5px;
+.viewall {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 100svh;
+  gap: 5px;
 }
 
-.rieles{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
-    overflow: auto;
+.rieles {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  overflow: auto;
 }
 
 .rieles::-webkit-scrollbar {
-    display: none; /* WebKit Browsers */
-  }
-
-.boxad{
-    width: 100%;
-    min-height: 350px;
-    background-color: rgb(12, 12, 12);
-    border-radius: 20px;
+  display: none; /* WebKit Browsers */
 }
+
+
+.boxad {
+  width: 100%;
+  min-height: 350px;
+  background-color: rgb(12, 12, 12);
+  border-radius: 20px;
+  animation: spinEffect 2s linear; /* Aplicar animación */
+}
+
+/* Animación de tragamonedas */
+@keyframes spinEffect {
+  0% {
+    transform: translateY(-100%); /* Posición inicial */
+    opacity: 0.0;
+  }
+  25% {
+    transform: translateY(-75%); /* Desplaza hacia arriba fuera del carril */
+    opacity: 1.0;
+  }
+  50% {
+    transform: translateY(-50%); /* Sigue desplazándose */
+    opacity: 1.0;
+  }
+  75% {
+    transform: translateY(-25%); /* Más movimiento hacia arriba */
+    opacity: 1.0;
+  }
+  100% {
+    transform: translateY(0); /* Vuelve a la posición inicial */
+    opacity: 1.0;
+  }
+}
+
+.rieles:first-child .boxad{
+    animation: spinEffectTwo 2s linear; /* Aplicar animación */
+}
+
+/* Animación de tragamonedas */
+@keyframes spinEffectTwo {
+    0% {
+      transform: translateY(100%); /* Posición inicial */
+      opacity: 0.0;
+    }
+    25% {
+      transform: translateY(75%); /* Desplaza hacia arriba fuera del carril */
+      opacity: 1.0;
+    }
+    50% {
+      transform: translateY(50%); /* Sigue desplazándose */
+      opacity: 1.0;
+    }
+    75% {
+      transform: translateY(25%); /* Más movimiento hacia arriba */
+      opacity: 1.0;
+    }
+    100% {
+      transform: translateY(0); /* Vuelve a la posición inicial */
+      opacity: 1.0;
+    }
+  }
