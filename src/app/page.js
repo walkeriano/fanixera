@@ -1,14 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "./page.module.css";
 import Header from "@/components/header/header";
 import Viewall from "@/components/viewall/viewall";
 import Categories from "@/components/categories/categories";
 import Image from "next/image";
+import LoaderIntro from "@/components/loaderIntro/loaderIntro";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5300);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -54,15 +64,26 @@ export default function Home() {
         <link rel="canonical" href="https://quesadacoach.com" />
       </Head>
       <main className={styles.main}>
-        <Header />
-        <button className={styles.btnAleatorio}>
-          <Image src="/window.svg" alt="icon-random" width={50} height={50} />
-        </button>
-        <Categories
-          activeCategory={activeCategory}
-          setActiveCategory={setActiveCategory}
-        />
-        <Viewall selectedCategory={activeCategory} />
+        {loading ? (
+          <LoaderIntro/>
+        ) : (
+          <>
+            <Header />
+            <button className={styles.btnAleatorio}>
+              <Image
+                src="/window.svg"
+                alt="icon-random"
+                width={50}
+                height={50}
+              />
+            </button>
+            <Categories
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+            />
+            <Viewall selectedCategory={activeCategory} />
+          </>
+        )}
         <div className={styles.blurBlue}></div>
       </main>
     </>
