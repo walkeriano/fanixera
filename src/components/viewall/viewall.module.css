@@ -32,6 +32,30 @@
   background-color: rgb(12, 12, 12);
   border-radius: 20px;
   animation: spinEffect 2s linear; /* Aplicar animación */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.boxImage{
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.boxImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Animación de tragamonedas */

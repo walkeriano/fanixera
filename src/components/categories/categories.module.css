@@ -1,25 +1,55 @@
-.categoriesContainer{
-    width: 100%;
-    height: 50px;
-    z-index: 1;
-    padding-left: 20px;
+.categoriesContainer {
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+  padding-left: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+  gap: 20px;
 }
 
-
-.itemCategorie{
-    width: 165px;
-    padding: 0px 25px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 50px;
-    background: linear-gradient( 35deg, #0080FF,#0024D6,#9A00C4, #9D0054);
+.categoriesContainer::-webkit-scrollbar {
+  background-color: rgba(0, 0, 255, 0.136);
+  height: 0px;
 }
 
-.itemCategorie h3{
-    width: auto;
-    font-size: 1.0rem;
-    letter-spacing: 0.5px;
+.categoriesContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 72, 255, 0.358);
+  border-radius: 50px;
+}
+
+.categoriesContainer::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.itemCategorie {
+  min-width: auto;
+  padding: 0px 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.itemCategorie h3 {
+  width: auto;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.itemCategorie:hover{
+    opacity: 1;
+}
+
+.active {
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  opacity: 1;
 }

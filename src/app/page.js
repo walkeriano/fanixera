@@ -1,3 +1,5 @@
+"use client";
+import React, {useState} from "react";
 import Head from "next/head";
 import styles from "./page.module.css";
 import Header from "@/components/header/header";
@@ -5,6 +7,9 @@ import Viewall from "@/components/viewall/viewall";
 import Categories from "@/components/categories/categories";
 
 export default function Home() {
+  const [activeCategory, setActiveCategory] = useState(null);
+
+
   return (
     <>
       <Head>
@@ -46,8 +51,8 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
-        <Categories />
-        <Viewall/>
+        <Categories activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
+        <Viewall selectedCategory={activeCategory}/>
         <div className={styles.blurBlue}></div>
       </main>
     </>
