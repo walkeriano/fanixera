@@ -24,6 +24,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.btnmenu:hover{
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
 }
 
 .menuShow {
