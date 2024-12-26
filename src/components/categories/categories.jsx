@@ -30,7 +30,7 @@ export default function Categories({ activeCategory, setActiveCategory }) {
           }`}
           onClick={() => handleCategoryClick(rutina.name)}
         >
-          <Image src={rutina?.image} alt="icon-menu" width={30} height={30} />
+          <Image src={rutina?.image} alt="icon-menu" width={25} height={25} />
           <h3>{rutina?.name}</h3>
         </div>
       ))}
