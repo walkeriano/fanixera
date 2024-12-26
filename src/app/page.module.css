@@ -28,8 +28,8 @@
   position: fixed;
   bottom: 0px;
   z-index: 1;
-  width: 65px;
-  height: 65px;
+  width: 70px;
+  height: 70px;
   border-radius: 50px 50px 0px 0px;
   border: none;
   background: linear-gradient( 35deg, #0080FF,#0024D6,#9A00C4, #9D0054);

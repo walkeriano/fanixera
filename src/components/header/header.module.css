@@ -1,37 +1,121 @@
-.header{
-    width: 100%;
-    min-height: 65px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 15px;
-    margin-bottom: 5px;
+.header {
+  width: 100%;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 15px;
+  margin-bottom: 5px;
+  position: relative;
 }
 
-
-.sectionbtns{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.sectionbtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-.btnmenu{
-    height: 30px;
-    background-color: black;
-    padding: 0px 15px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btnmenu {
+  height: 30px;
+  background-color: black;
+  padding: 0px 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btnSearch{
-    height: 40px;
-    background-color: black;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
+.menuShow {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 10;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  gap: 30px;
+  padding-left: 10%;
+}
+
+.linkDirect {
+  color: white;
+  text-decoration: none;
+  font-size: 7.2vw;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  width: 75%;
+  line-height: 1.1;
+  animation: introMenu 1s ease-in-out;
+}
+
+.linkDirect:hover {
+  border-bottom: 2px solid white;
+}
+
+.btnCloseMenu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legal {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.legal span {
+  font-size: 1rem;
+}
+
+.btnSearch {
+  height: 40px;
+  background-color: black;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+/* Definimos la animación */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes introMenu {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }

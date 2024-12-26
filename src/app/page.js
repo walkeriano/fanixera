@@ -7,7 +7,6 @@ import Viewall from "@/components/viewall/viewall";
 import Categories from "@/components/categories/categories";
 import Image from "next/image";
 
-
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -57,7 +56,7 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <button className={styles.btnAleatorio}>
-        <Image src="/window.svg" alt="icon-random" width={45} height={45} />
+          <Image src="/window.svg" alt="icon-random" width={50} height={50} />
         </button>
         <Categories
           activeCategory={activeCategory}
