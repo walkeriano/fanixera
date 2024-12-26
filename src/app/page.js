@@ -1,19 +1,20 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import styles from "./page.module.css";
 import Header from "@/components/header/header";
 import Viewall from "@/components/viewall/viewall";
 import Categories from "@/components/categories/categories";
+import Image from "next/image";
+
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
 
-
   return (
     <>
       <Head>
-      <meta charSet="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
           Quesada Coach App - Planes de entrenamiento y nutrición personalizados
@@ -30,7 +31,11 @@ export default function Home() {
           content="fitness, Quesada Coach, alimentación saludalbe, bienestar, entrenamiento personalizado"
         />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://quesadacoach.com/logo512.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://quesadacoach.com/logo512.png"
+        />
         <meta
           property="og:title"
           content="Quesada Coach App - Planes de entrenamiento y nutrición personalizados
@@ -51,8 +56,14 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
-        <Categories activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
-        <Viewall selectedCategory={activeCategory}/>
+        <button className={styles.btnAleatorio}>
+        <Image src="/window.svg" alt="icon-random" width={45} height={45} />
+        </button>
+        <Categories
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+        />
+        <Viewall selectedCategory={activeCategory} />
         <div className={styles.blurBlue}></div>
       </main>
     </>
