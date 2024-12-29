@@ -7,6 +7,7 @@ import Viewall from "@/components/viewall/viewall";
 import Categories from "@/components/categories/categories";
 import Image from "next/image";
 import LoaderIntro from "@/components/loaderIntro/loaderIntro";
+import Link from "next/link";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -65,18 +66,27 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         {loading ? (
-          <LoaderIntro/>
+          <LoaderIntro />
         ) : (
           <>
             <Header />
-            <button className={styles.btnAleatorio}>
-              <Image
-                src="/window.svg"
-                alt="icon-random"
-                width={50}
-                height={50}
-              />
-            </button>
+            <section className={styles.btnSection}>
+              <Link href="/" className={styles.btnitemSelect}>
+                mi perfil
+              </Link>
+              <button className={styles.btnAleatorio}>
+                <Image
+                  src="/window.svg"
+                  alt="icon-random"
+                  width={50}
+                  height={50}
+                />
+              </button>
+              <Link href="/"  className={styles.btnitemSelect}>
+                buscar
+              </Link>
+            </section>
+
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
