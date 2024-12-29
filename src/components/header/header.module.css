@@ -1,11 +1,10 @@
 .header {
   width: 100%;
-  min-height: 65px;
+  min-height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 15px;
-  margin-bottom: 5px;
   position: relative;
 }
 
@@ -91,16 +90,6 @@
 
 .legal span {
   font-size: 1rem;
-}
-
-.btnSearch {
-  height: 40px;
-  background-color: black;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
 }
 
 /* Definimos la animación */
