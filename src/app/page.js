@@ -72,7 +72,12 @@ export default function Home() {
             <Header />
             <section className={styles.btnSection}>
               <Link href="/" className={styles.btnitemSelect}>
-                Perfil
+                <Image
+                  src="/file.svg"
+                  alt="icon-random"
+                  width={23}
+                  height={23}
+                />
               </Link>
               <button className={styles.btnAleatorio}>
                 <Image
@@ -82,8 +87,13 @@ export default function Home() {
                   height={50}
                 />
               </button>
-              <Link href="/"  className={styles.btnitemSelect}>
-                Buscar
+              <Link href="/" className={styles.btnitemSelect}>
+                <Image
+                  src="/user.svg"
+                  alt="icon-random"
+                  width={25}
+                  height={25}
+                />
               </Link>
             </section>
             <Categories
