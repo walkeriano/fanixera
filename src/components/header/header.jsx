@@ -30,6 +30,10 @@ export default function Header() {
             <Link href="/" className={styles.linkDirect}>
               Atención al cliente
             </Link>
+            <div className={styles.imgbgmenu}>
+            <Image src="/window.svg" alt="icon-random" fill={true} />
+            </div>
+            
             <p className={styles.legal}>
               Desarrollado por
               <br />
