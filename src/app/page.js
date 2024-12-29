@@ -72,7 +72,7 @@ export default function Home() {
             <Header />
             <section className={styles.btnSection}>
               <Link href="/" className={styles.btnitemSelect}>
-                mi perfil
+                Perfil
               </Link>
               <button className={styles.btnAleatorio}>
                 <Image
@@ -83,10 +83,9 @@ export default function Home() {
                 />
               </button>
               <Link href="/"  className={styles.btnitemSelect}>
-                buscar
+                Buscar
               </Link>
             </section>
-
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}

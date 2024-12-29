@@ -21,7 +21,12 @@ export default function viewall({ selectedCategory }) {
       <section className={styles.rieles}>
         {firstRail.map((promo) => (
           <div key={promo.id} className={styles.boxad}>
-            <p>{promo?.promcardName}</p>
+            <Image
+              src="/prom.png"
+              alt="image-marca"
+              fill={true}
+              className={styles.imgAd}
+            />
             <div className={styles.boxImage}>
               <Image
                 src={promo?.user.image}
@@ -36,7 +41,12 @@ export default function viewall({ selectedCategory }) {
       <section className={styles.rieles}>
         {secondRail.map((promo) => (
           <div key={promo.id} className={styles.boxad}>
-            <p>{promo?.promcardName}</p>
+            <Image
+              src="/prom.png"
+              alt="image-marca"
+              fill={true}
+              className={styles.imgAd}
+            />
             <div className={styles.boxImage}>
               <Image
                 src={promo?.user.image}
