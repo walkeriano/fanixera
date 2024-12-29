@@ -58,6 +58,26 @@ export default function viewall({ selectedCategory }) {
           </div>
         ))}
       </section>
+      <section className={styles.rieles}>
+        {secondRail.map((promo) => (
+          <div key={promo.id} className={styles.boxad}>
+            <Image
+              src="/prom.png"
+              alt="image-marca"
+              fill={true}
+              className={styles.imgAd}
+            />
+            <div className={styles.boxImage}>
+              <Image
+                src={promo?.user.image}
+                alt="image-marca"
+                width={30}
+                height={30}
+              />
+            </div>
+          </div>
+        ))}
+      </section>
     </section>
   );
 }
