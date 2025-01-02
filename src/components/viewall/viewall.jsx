@@ -1,6 +1,7 @@
 import styles from "./viewall.module.css";
 import usePromotions from "@/state/hook/usePromotions";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function viewall({ selectedCategory }) {
   const { promotions, loading, error } = usePromotions(selectedCategory);
@@ -20,7 +21,7 @@ export default function viewall({ selectedCategory }) {
     <section className={styles.viewall}>
       <section className={styles.rieles}>
         {firstRail.map((promo) => (
-          <div key={promo.id} className={styles.boxad}>
+          <Link href="/detalle-marca" key={promo.id} className={styles.boxad}>
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -35,12 +36,12 @@ export default function viewall({ selectedCategory }) {
                 height={30}
               />
             </div>
-          </div>
+          </Link>
         ))}
       </section>
       <section className={styles.rieles}>
         {secondRail.map((promo) => (
-          <div key={promo.id} className={styles.boxad}>
+          <Link href="/detalle-marca" key={promo.id} className={styles.boxad}>
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -55,12 +56,12 @@ export default function viewall({ selectedCategory }) {
                 height={30}
               />
             </div>
-          </div>
+          </Link>
         ))}
       </section>
       <section className={styles.rieles}>
         {secondRail.map((promo) => (
-          <div key={promo.id} className={styles.boxad}>
+          <Link href="/detalle-marca" key={promo.id} className={styles.boxad}>
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -75,7 +76,7 @@ export default function viewall({ selectedCategory }) {
                 height={30}
               />
             </div>
-          </div>
+          </Link>
         ))}
       </section>
     </section>

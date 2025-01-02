@@ -1,6 +1,7 @@
 "use client";
 import Head from "next/head";
 import styles from "./page.module.css";
+import HeaderDetalle from "@/components/headerDetalle/headerDetalle";
 
 export default function DetalleMarca() {
   return (
@@ -46,7 +47,8 @@ export default function DetalleMarca() {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://quesadacoach.com" />
       </Head>
-      <main className={styles.main}>hello world
+      <main className={styles.main}>
+        <HeaderDetalle />
       <div className={styles.blurBlue}></div>
       </main>
     </>
