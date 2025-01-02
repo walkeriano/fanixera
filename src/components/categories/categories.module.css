@@ -1,15 +1,16 @@
 .categoriesContainer {
-  width: 100%;
+  width: 95%;
   min-height: 40px;
+  border-radius: 50px;
   z-index: 1;
-  padding-left: 10px;
-  padding-right: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   overflow-y: hidden;
   overflow-x: auto;
-  gap: 20px;
+  background: linear-gradient(35deg, #0080ff89, #0024d683, #9a00c485, #9d00547e);
+  background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
 }
 
 .categoriesContainer::-webkit-scrollbar {
@@ -28,16 +29,18 @@
 
 .itemCategorie {
   min-width: auto;
-  padding: 0px 15px;
-  height: 40px;
+  padding: 8px 15px 10px 15px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-radius: 100px;
+  border-radius: 50px;
   background: transparent;
   cursor: pointer;
   opacity: 0.7;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
 }
 
 .itemCategorie h3 {
@@ -52,9 +55,12 @@
 
 .active {
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-  opacity: 1;
   background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveGradient 4s ease-in-out infinite;
+  opacity: 1;
+  border-radius: 50px;
+  border-top: 2px solid rgba(255, 255, 255, 0.327);
+  border-left: 2px solid rgba(255, 255, 255, 0.327);
 }
 
 @keyframes moveGradient {

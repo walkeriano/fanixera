@@ -7,7 +7,7 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(true);
   return (
     <section className={styles.header}>
-      <Image src="/next.svg" width={90} height={35} alt="logo-fanixera" />
+      <Image src="/next.svg" width={100} height={45} alt="logo-fanixera" />
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
@@ -22,7 +22,7 @@ export default function Header() {
               x
             </button>
             <Link href="/" className={styles.linkDirect}>
-              ¿Qué es Faxr?
+              ¿Qué es Tomi Cibermarketing?
             </Link>
             <Link href="/" className={styles.linkDirect}>
               Socios Net

@@ -1,11 +1,12 @@
 .header {
   width: 100%;
-  min-height: 55px;
+  min-height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 15px;
   position: relative;
+  
 }
 
 .sectionbtns {
