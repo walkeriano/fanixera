@@ -35,6 +35,13 @@
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveGradient 4s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnAleatorio img{
+  margin-bottom: -5px;
 }
 
 /* Definimos la animación */
