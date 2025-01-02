@@ -32,11 +32,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
     left: 10px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.398);
     padding-right:10px;
     border-radius: 50px;
+    backdrop-filter: blur(10px);
 }
 
 .marcaDatos h3{
