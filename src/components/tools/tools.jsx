@@ -29,7 +29,7 @@ export default function Tools() {
         </section>
       )}
       <button className={styles.btnAleatorio}>
-        <Image src="/window.svg" alt="icon-random" width={50} height={50} />
+        <Image src="/window.svg" alt="icon-random" width={45} height={50} />
       </button>
       <Link href="/" className={styles.btnitemSelect}>
         <Image src="/user.svg" alt="icon-random" width={25} height={25} />
