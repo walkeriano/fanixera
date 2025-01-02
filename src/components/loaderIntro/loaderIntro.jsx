@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function IntroLoader() {
   return (
     <section className={styles.containerLoader}>
-      <Image src="/next.svg" width={160} height={80} alt="logo-fanixera" />
-      <h1>Cibermarketing</h1>
+      <Image src="/next.png" width={200} height={80} alt="logo-fanixera" />
+      <h1>TOMI CIBERMARKETING</h1>
       <div className={styles.loader}></div>
     </section>
   );

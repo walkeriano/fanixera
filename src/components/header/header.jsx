@@ -7,7 +7,7 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(true);
   return (
     <section className={styles.header}>
-      <Image src="/next.svg" width={100} height={45} alt="logo-fanixera" />
+      <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
