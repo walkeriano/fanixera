@@ -2,6 +2,7 @@
 import Head from "next/head";
 import styles from "./page.module.css";
 import HeaderDetalle from "@/components/headerDetalle/headerDetalle";
+import InfoCard from "@/components/infoCard/infoCard";
 
 export default function DetalleMarca() {
   return (
@@ -49,7 +50,8 @@ export default function DetalleMarca() {
       </Head>
       <main className={styles.main}>
         <HeaderDetalle />
-      <div className={styles.blurBlue}></div>
+        <InfoCard/>
+        <div className={styles.blurBlue}></div>
       </main>
     </>
   );

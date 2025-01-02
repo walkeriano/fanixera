@@ -1,0 +1,107 @@
+.allInfoCard{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+.partOne{
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgPromo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.marcaDatos{
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    left: 10px;
+    background-color: black;
+    padding-right:10px;
+    border-radius: 50px;
+}
+
+.marcaDatos h3{
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.imgBox{
+    width: 35px;
+    aspect-ratio: 1;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partTwo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.partTwo h2{
+    width: 100%;
+    font-size: 7vw;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.boxDatosRelevantes{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.datoImportant{
+    height: 100px;
+    width: 35%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.datoImportant h3{
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.titleBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.titleBox p{
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
