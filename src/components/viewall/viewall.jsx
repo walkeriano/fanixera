@@ -21,7 +21,7 @@ export default function viewall({ selectedCategory }) {
     <section className={styles.viewall}>
       <section className={styles.rieles}>
         {firstRail.map((promo) => (
-          <Link href="/detalle-marca" key={promo.id} className={styles.boxad}>
+          <Link href={`/detalle-marca/${promo.id}`} key={promo.id} className={styles.boxad}>
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -41,7 +41,7 @@ export default function viewall({ selectedCategory }) {
       </section>
       <section className={styles.rieles}>
         {secondRail.map((promo) => (
-          <Link href="/detalle-marca" key={promo.id} className={styles.boxad}>
+          <Link href={`/detalle-marca/${promo.id}`} key={promo.id} className={styles.boxad}>
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -61,7 +61,7 @@ export default function viewall({ selectedCategory }) {
       </section>
       <section className={styles.rieles}>
         {secondRail.map((promo) => (
-          <Link href="/detalle-marca" key={promo.id} className={styles.boxad}>
+          <Link href={`/detalle-marca/${promo.id}`} key={promo.id} className={styles.boxad}>
             <Image
               src="/prom.png"
               alt="image-marca"

@@ -1,10 +1,13 @@
 "use client";
+import { useParams } from "next/navigation";
 import Head from "next/head";
 import styles from "./page.module.css";
 import HeaderDetalle from "@/components/headerDetalle/headerDetalle";
 import InfoCard from "@/components/infoCard/infoCard";
 
 export default function DetalleMarca() {
+  const { id } = useParams();
+
   return (
     <>
       <Head>
@@ -50,7 +53,7 @@ export default function DetalleMarca() {
       </Head>
       <main className={styles.main}>
         <HeaderDetalle />
-        <InfoCard/>
+        <InfoCard id={id}/>
         <div className={styles.blurBlue}></div>
       </main>
     </>

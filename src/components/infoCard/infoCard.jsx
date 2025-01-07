@@ -1,7 +1,28 @@
+import React, { useState, useEffect } from "react";
 import styles from "./infoCard.module.css";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faArrowRightArrowLeft,
+  faCalendarCheck,
+  faChevronDown,
+  faFlagCheckered,
+  faClockRotateLeft,
+  faLocationCrosshairs,
+  faExpand,
+} from "@fortawesome/free-solid-svg-icons";
+import useDetailPromotion from "@/state/hook/useDetailPromotion";
 
-export default function InfoCard() {
+export default function InfoCard({ id }) {
+  const [showTyc, setShowTyc] = useState(true);
+  
+  const { promotion, loading, error } = useDetailPromotion(id);
+
+  if (loading) return <p>Cargando detalles de la promoción...</p>;
+  if (error) return <p>{error}</p>;
+  if (!promotion) return <p>No se encontraron detalles de la promoción</p>;
+
   return (
     <section className={styles.allInfoCard}>
       <section className={styles.partOne}>
@@ -30,14 +51,22 @@ export default function InfoCard() {
           </section>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
-              <Image src="/i-user.svg" alt="i-detalle" width={15} height={15} />
+              <FontAwesomeIcon
+                icon={faUser}
+                size="2x"
+                className={styles.icon}
+              />
               <p>Reservas</p>
             </div>
             <h3>120</h3>
           </section>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
-              <Image src="/arrows.svg" alt="i-detalle" width={20} height={15} />
+              <FontAwesomeIcon
+                icon={faArrowRightArrowLeft}
+                size="2x"
+                className={styles.icon}
+              />
               <p>Interés</p>
             </div>
             <h3>350</h3>
@@ -46,45 +75,93 @@ export default function InfoCard() {
       </section>
       <section className={styles.partTre}>
         <section className={styles.itemInfo}>
-          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <FontAwesomeIcon
+            icon={faFlagCheckered}
+            size="2x"
+            className={styles.icon}
+          />
+          <section className={styles.infoGeneralDato}>
+            <div className={styles.flexDatoTitle}>
+              <p>Válidez</p>
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                size="2x"
+                className={styles.icon}
+              />
+            </div>
+            <p className={styles.datoInfo}>Online y tienda</p>
+          </section>
+        </section>
+        <section className={styles.itemInfo}>
+          <FontAwesomeIcon
+            icon={faCalendarCheck}
+            size="2x"
+            className={styles.icon}
+          />
           <section className={styles.infoGeneralDato}>
             <div className={styles.flexDatoTitle}>
               <p>Duración</p>
-              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                size="2x"
+                className={styles.icon}
+              />
             </div>
             <p className={styles.datoInfo}>12/21/25</p>
           </section>
         </section>
         <section className={styles.itemInfo}>
-          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <FontAwesomeIcon
+            icon={faClockRotateLeft}
+            size="2x"
+            className={styles.icon}
+          />
           <section className={styles.infoGeneralDato}>
             <div className={styles.flexDatoTitle}>
-              <p>Duración</p>
-              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+              <p>Atención</p>
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                size="2x"
+                className={styles.icon}
+              />
             </div>
             <p className={styles.datoInfo}>12/21/25</p>
           </section>
         </section>
         <section className={styles.itemInfo}>
-          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <FontAwesomeIcon
+            icon={faLocationCrosshairs}
+            size="2x"
+            className={styles.icon}
+          />
           <section className={styles.infoGeneralDato}>
             <div className={styles.flexDatoTitle}>
-              <p>Duración</p>
-              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+              <p>Ubicación</p>
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                size="2x"
+                className={styles.icon}
+              />
             </div>
-            <p className={styles.datoInfo}>12/21/25</p>
+            <p className={styles.datoInfo}>Vilanova i la grel...</p>
           </section>
         </section>
-        <section className={styles.itemInfo}>
-          <Image src="/" alt="icon-info-dato" width={45} height={45} />
-          <section className={styles.infoGeneralDato}>
-            <div className={styles.flexDatoTitle}>
-              <p>Duración</p>
-              <Image src="/" alt="icon-info-dato" width={20} height={20} />
-            </div>
-            <p className={styles.datoInfo}>12/21/25</p>
+      </section>
+      <section className={styles.partFour}>
+        {showTyc ? (
+          <section className={styles.offTc} onClick={()=>setShowTyc(false)}>
+            <p>Términos y condiciones</p>
+            <FontAwesomeIcon
+              icon={faExpand}
+              size="2x"
+              className={styles.icon}
+            />
           </section>
-        </section>
+        ) : (
+          <section onClick={()=>setShowTyc(true)}>
+            todos los detalles 
+          </section>
+        )}
       </section>
     </section>
   );

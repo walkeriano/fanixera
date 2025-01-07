@@ -110,31 +110,36 @@
     letter-spacing: 0.5px;
 }
 
+.titleBox .icon{
+    font-size: 1rem;
+}
+
 .partTre{
     border: 1px solid red;
     width: 100%;
-    height: 85px;
+    height: 80px;
     gap: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     overflow: scroll;
     padding-left: 5%;
+    padding-right: 5%;
 }
 
 .itemInfo{
-    min-width: 200px;
+    min-width: 220px;
     height: 100%;
     background-color: #141414;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
-.itemInfo img{
-    border: 1px solid red;
+.itemInfo .icon{
+    font-size: 2.2rem;
 }
 
 .infoGeneralDato{
@@ -142,11 +147,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 7px;
+    gap: 10px;
 }
 
 .flexDatoTitle{
-    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,11 +158,43 @@
 }
 
 .flexDatoTitle p{
-    font-size: 1.0rem;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
+}
+
+.flexDatoTitle .icon{
+    font-size: 0.8rem;
 }
 
 .datoInfo{
     font-size: 1rem;
     letter-spacing: 0.5px;
+}
+
+.partFour{
+    border: 1px solid red;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offTc{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 25px;
+    border-radius: 100px;
+    background-color: #141414;
+}
+
+.offTc p{
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.offTc .icon{
+    font-size: 1.3rem;
 }
