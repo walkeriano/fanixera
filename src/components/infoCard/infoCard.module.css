@@ -1,200 +1,223 @@
-.allInfoCard{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.allInfoCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-
-.partOne{
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 25px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.partOne {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.imgPromo{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
+.imgPromo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
 }
 
-.marcaDatos{
-    position: absolute;
-    z-index: 1;
-    bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.398);
-    padding-right:10px;
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
+.marcaDatos {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.398);
+  padding-right: 10px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
 }
 
-.marcaDatos h3{
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+.marcaDatos h3 {
+  max-width: 120px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
 }
 
-.imgBox{
-    width: 35px;
-    aspect-ratio: 1;
-    background-color: black;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.imgBox {
+  width: 35px;
+  aspect-ratio: 1;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.partTwo{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    border: 1px solid red;
+.imgBox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.partTwo h2{
-    width: 100%;
-    font-size: 7vw;
-    letter-spacing: 2px;
-    line-height: 1.2;
-    border: 1px solid red;
+.partTwo {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid red;
 }
 
-.boxDatosRelevantes{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    border: 1px solid red;
+.partTwo h2 {
+  width: 100%;
+  display: -webkit-box;
+  display: box; /* Propiedad estándar */
+  -webkit-box-orient: vertical;
+  box-orient: vertical; /* Propiedad estándar */
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Propiedad estándar */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1; /* Ajusta según tu diseño */
+  max-height: calc(1.5em * 3); /* Ajusta si cambias la line-height */
+  word-break: break-word;
+  font-size: 7vw;
+  letter-spacing: 1px;
+  border: 1px solid red;
+  text-transform: capitalize;
 }
 
-.datoImportant{
-    height: 80px;
-    width: 35%;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 10px;
+.boxDatosRelevantes {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid red;
 }
 
-.datoImportant h3{
-    font-size: 1.3rem;
-    letter-spacing: 1px;
+.datoImportant {
+  height: 80px;
+  width: 35%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
 }
 
-.titleBox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
+.datoImportant h3 {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
 }
 
-.titleBox p{
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+.titleBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 }
 
-.titleBox .icon{
-    font-size: 1rem;
+.titleBox p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
-.partTre{
-    border: 1px solid red;
-    width: 100%;
-    height: 80px;
-    gap: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: scroll;
-    padding-left: 5%;
-    padding-right: 5%;
+.titleBox .icon {
+  font-size: 1rem;
 }
 
-.itemInfo{
-    min-width: 220px;
-    height: 100%;
-    background-color: #141414;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.partTre {
+  border: 1px solid red;
+  width: 100%;
+  height: 80px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: scroll;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.itemInfo .icon{
-    font-size: 2.2rem;
+.itemInfo {
+  min-width: 220px;
+  height: 100%;
+  background-color: #141414;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-.infoGeneralDato{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 10px;
+.itemInfo .icon {
+  font-size: 2.2rem;
 }
 
-.flexDatoTitle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+.infoGeneralDato {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
 }
 
-.flexDatoTitle p{
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+.flexDatoTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
-.flexDatoTitle .icon{
-    font-size: 0.8rem;
+.flexDatoTitle p {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
 
-.datoInfo{
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+.flexDatoTitle .icon {
+  font-size: 0.8rem;
 }
 
-.partFour{
-    border: 1px solid red;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.datoInfo {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
-.offTc{
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 25px;
-    border-radius: 100px;
-    background-color: #141414;
+.partFour {
+  border: 1px solid red;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.offTc p{
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+.offTc {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 25px;
+  border-radius: 100px;
+  background-color: #141414;
 }
 
-.offTc .icon{
-    font-size: 1.3rem;
+.offTc p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.offTc .icon {
+  font-size: 1.3rem;
 }

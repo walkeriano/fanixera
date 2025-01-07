@@ -16,7 +16,7 @@ import useDetailPromotion from "@/state/hook/useDetailPromotion";
 
 export default function InfoCard({ id }) {
   const [showTyc, setShowTyc] = useState(true);
-  
+
   const { promotion, loading, error } = useDetailPromotion(id);
 
   if (loading) return <p>Cargando detalles de la promoción...</p>;
@@ -28,9 +28,9 @@ export default function InfoCard({ id }) {
       <section className={styles.partOne}>
         <section className={styles.marcaDatos}>
           <div className={styles.imgBox}>
-            <Image src="/user.svg" alt="icon-user" width={20} height={20} />
+            <Image src={promotion?.user.image} alt="icon-user" fill={true} />
           </div>
-          <h3>Kentucky fried chicken</h3>
+          <h3>{promotion?.user.brandName}</h3>
         </section>
         <Image
           src="/prom.png"
@@ -40,7 +40,7 @@ export default function InfoCard({ id }) {
         />
       </section>
       <section className={styles.partTwo}>
-        <h2>38% dscto. en tacos crispy + gaseosa 500ml - black friday</h2>
+        <h2>{promotion?.promcardName} dasdasdasd asds adasdsa dasdasdsa dsadsadsadsadsadsadsadas</h2>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
@@ -149,7 +149,7 @@ export default function InfoCard({ id }) {
       </section>
       <section className={styles.partFour}>
         {showTyc ? (
-          <section className={styles.offTc} onClick={()=>setShowTyc(false)}>
+          <section className={styles.offTc} onClick={() => setShowTyc(false)}>
             <p>Términos y condiciones</p>
             <FontAwesomeIcon
               icon={faExpand}
@@ -158,9 +158,7 @@ export default function InfoCard({ id }) {
             />
           </section>
         ) : (
-          <section onClick={()=>setShowTyc(true)}>
-            todos los detalles 
-          </section>
+          <section onClick={() => setShowTyc(true)}>todos los detalles</section>
         )}
       </section>
     </section>
