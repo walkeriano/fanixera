@@ -13,6 +13,7 @@ import {
   faExpand,
 } from "@fortawesome/free-solid-svg-icons";
 import useDetailPromotion from "@/state/hook/useDetailPromotion";
+import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
 
 export default function InfoCard({ id }) {
   const [showTyc, setShowTyc] = useState(true);
@@ -161,6 +162,7 @@ export default function InfoCard({ id }) {
           <section onClick={() => setShowTyc(true)}>todos los detalles</section>
         )}
       </section>
+      <VerifiedBrand/>
     </section>
   );
 }
