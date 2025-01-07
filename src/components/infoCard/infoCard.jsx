@@ -44,7 +44,48 @@ export default function InfoCard() {
           </section>
         </section>
       </section>
-      <section className={styles.partTre}></section>
+      <section className={styles.partTre}>
+        <section className={styles.itemInfo}>
+          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <section className={styles.infoGeneralDato}>
+            <div className={styles.flexDatoTitle}>
+              <p>Duración</p>
+              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+            </div>
+            <p className={styles.datoInfo}>12/21/25</p>
+          </section>
+        </section>
+        <section className={styles.itemInfo}>
+          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <section className={styles.infoGeneralDato}>
+            <div className={styles.flexDatoTitle}>
+              <p>Duración</p>
+              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+            </div>
+            <p className={styles.datoInfo}>12/21/25</p>
+          </section>
+        </section>
+        <section className={styles.itemInfo}>
+          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <section className={styles.infoGeneralDato}>
+            <div className={styles.flexDatoTitle}>
+              <p>Duración</p>
+              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+            </div>
+            <p className={styles.datoInfo}>12/21/25</p>
+          </section>
+        </section>
+        <section className={styles.itemInfo}>
+          <Image src="/" alt="icon-info-dato" width={45} height={45} />
+          <section className={styles.infoGeneralDato}>
+            <div className={styles.flexDatoTitle}>
+              <p>Duración</p>
+              <Image src="/" alt="icon-info-dato" width={20} height={20} />
+            </div>
+            <p className={styles.datoInfo}>12/21/25</p>
+          </section>
+        </section>
+      </section>
     </section>
   );
 }

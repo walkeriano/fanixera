@@ -1,10 +1,10 @@
 .allInfoCard{
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 
@@ -56,12 +56,13 @@
 }
 
 .partTwo{
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    border: 1px solid red;
 }
 
 .partTwo h2{
@@ -69,6 +70,7 @@
     font-size: 7vw;
     letter-spacing: 2px;
     line-height: 1.2;
+    border: 1px solid red;
 }
 
 .boxDatosRelevantes{
@@ -77,10 +79,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    border: 1px solid red;
 }
 
 .datoImportant{
-    height: 100px;
+    height: 80px;
     width: 35%;
     border-radius: 25px;
     display: flex;
@@ -103,6 +106,59 @@
 }
 
 .titleBox p{
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.partTre{
+    border: 1px solid red;
+    width: 100%;
+    height: 85px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: scroll;
+    padding-left: 5%;
+}
+
+.itemInfo{
+    min-width: 200px;
+    height: 100%;
+    background-color: #141414;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.itemInfo img{
+    border: 1px solid red;
+}
+
+.infoGeneralDato{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 7px;
+}
+
+.flexDatoTitle{
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.flexDatoTitle p{
+    font-size: 1.0rem;
+    letter-spacing: 0.5px;
+}
+
+.datoInfo{
     font-size: 1rem;
     letter-spacing: 0.5px;
 }
