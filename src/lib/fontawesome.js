@@ -9,9 +9,14 @@ import {
   faClockRotateLeft,
   faLocationCrosshairs,
   faExpand,
-  faLink
+  faLink,
+  faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -27,5 +32,8 @@ library.add(
   faClockRotateLeft,
   faLocationCrosshairs,
   faExpand,
-  faLink
+  faLink,
+  faArrowUpRightFromSquare,
+  faInstagram,
+  faTiktok
 );

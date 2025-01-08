@@ -6,7 +6,7 @@
   justify-content: center;
   margin-top: 55px;
   margin-bottom: 100px;
-  gap: 40px;
+  gap: 30px;
 }
 
 .imgBrand {
@@ -39,6 +39,9 @@
   animation: moveGradient 9s ease-in-out infinite;
   border-radius: 45%;
   z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Definimos la animación */
@@ -94,4 +97,53 @@
 
 .linkWebsite .icon{
   font-size: 1.4rem;
+}
+
+.channelBtns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.perfilGo{
+  height: 45px;
+  background-color: #141414;
+  padding: 0px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  gap: 10px;
+}
+
+.perfilGo .icon{
+  font-size: 1rem;
+}
+
+.flexChannels{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.channel{
+  background-color: #141414;
+  height: 45px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.channel .icon{
+  font-size: 1.2rem;
+  color: white;
 }
