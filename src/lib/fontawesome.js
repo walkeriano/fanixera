@@ -8,7 +8,8 @@ import {
   faFlagCheckered,
   faClockRotateLeft,
   faLocationCrosshairs,
-  faExpand
+  faExpand,
+  faLink
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -25,5 +26,6 @@ library.add(
   faFlagCheckered,
   faClockRotateLeft,
   faLocationCrosshairs,
-  faExpand
+  faExpand,
+  faLink
 );

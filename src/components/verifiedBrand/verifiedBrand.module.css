@@ -4,12 +4,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 55px;
+  margin-bottom: 100px;
+  gap: 40px;
 }
 
 .imgBrand {
   background-color: black;
-  width: 50%;
+  width: 40%;
   aspect-ratio: 1;
   border-radius: 50%;
   position: relative;
@@ -30,7 +32,7 @@
 
 .imgBrand span {
   position: absolute;
-  width: 105%;
+  width: 104%;
   aspect-ratio: 1;
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
@@ -56,4 +58,40 @@
     background-position: 0% 50%;
     
   }
+}
+
+
+.infoBrand{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.infoBrand p{
+  font-size: 1rem;
+  color: grey;
+  letter-spacing: 1px;
+}
+
+.infoBrand h3{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: white;
+}
+
+.linkWebsite{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.linkWebsite .icon{
+  font-size: 1.4rem;
 }
