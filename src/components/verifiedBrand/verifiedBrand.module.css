@@ -92,6 +92,10 @@
   font-size: 1.1rem;
   text-decoration: none;
   letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 50px;
+  background-color: black;
+  color: blue;
 }
 
 .linkWebsite .icon{

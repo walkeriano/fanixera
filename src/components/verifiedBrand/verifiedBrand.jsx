@@ -22,7 +22,6 @@ export default function VerifiedBrand() {
       <section className={styles.infoBrand}>
         <p>Restaurante</p>
         <h3>Kentucky Fried Chicken</h3>
-
         <Link className={styles.linkWebsite} href="/">
           kfcperu.com
           <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
