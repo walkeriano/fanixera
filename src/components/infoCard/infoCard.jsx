@@ -14,6 +14,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useDetailPromotion from "@/state/hook/useDetailPromotion";
 import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
+import DetalleBeneficio from "@/components/detalleBeneficio/detalleBeneficio";
+import LogicMain from "@/components/logicMain/logicMain";
 
 export default function InfoCard({ id }) {
   const [showTyc, setShowTyc] = useState(true);
@@ -163,6 +165,8 @@ export default function InfoCard({ id }) {
         )}
       </section>
       <VerifiedBrand/>
+      <DetalleBeneficio/>
+      <LogicMain/>
     </section>
   );
 }

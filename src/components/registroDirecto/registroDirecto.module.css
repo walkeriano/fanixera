@@ -1,0 +1,137 @@
+.boxRegistroDirecto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.circleIcon {
+  border: 2px solid rgb(87, 87, 87);
+  background-color: black;
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.circleIcon .icon {
+  font-size: 3rem;
+  color: rgb(87, 87, 87);
+}
+
+.circleIcon span {
+  position: absolute;
+  background-color: rgb(87, 87, 87);
+  top: -3px;
+  right: -3px;
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleIcon span .icon {
+  font-size: 1rem;
+  color: black;
+}
+
+.titleSection h4 {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.titleSection p {
+  width: 90%;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: grey;
+  font-size: 0.9rem;
+}
+
+/* Definimos la animación */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+.linkSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.linkContactBrand{
+    border: 2px solid white;
+    height: 60px;
+    border-radius: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    color: white;
+    text-decoration: none;
+    padding: 0px 25px;
+}
+
+.linkContactBrand:first-child{
+    border: 2px solid white;
+    background-color: white;
+    color:black;
+}
+
+.linkContactBrand:nth-child(2){
+    border: 2px solid rgb(0, 0, 147);
+    background-color: rgb(0, 0, 147);
+}
+
+.linkContactBrand:nth-child(3){
+    border: 0px solid rgb(0, 0, 147);
+    background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+    background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+    animation: moveGradient 9s ease-in-out infinite;
+}
+
+.linkContactBrand:nth-child(4){
+    border: 0px solid rgb(0, 0, 147);
+    background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+    background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+    animation: moveGradient 9s ease-in-out infinite;
+}
+
+
+
+
+.linkContactBrand .icon{
+    font-size: 1.5rem;
+}

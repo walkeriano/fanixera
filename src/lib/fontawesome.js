@@ -11,11 +11,16 @@ import {
   faExpand,
   faLink,
   faArrowUpRightFromSquare,
+  faUserSecret,
+  faBell,
+  faUserShield,
+  faUserPen
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faInstagram,
   faTiktok,
+  faGooglePlusG,
 } from "@fortawesome/free-brands-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -35,5 +40,10 @@ library.add(
   faLink,
   faArrowUpRightFromSquare,
   faInstagram,
-  faTiktok
+  faTiktok,
+  faUserSecret,
+  faBell,
+  faGooglePlusG,
+  faUserShield,
+  faUserPen
 );

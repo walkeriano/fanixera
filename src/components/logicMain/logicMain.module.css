@@ -1,0 +1,39 @@
+.logicMainContainer{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.titleSection{
+    background-color: #141414;
+    height: 45px;
+    padding: 0px 0px 0px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 60px;
+}
+
+.boxSectionIcon{
+    height: 45px;
+    aspect-ratio: 1;
+    background-color: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxSectionIcon .icon{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.containerLogic{
+    width: 90%;
+    margin-bottom: 100px;
+}
