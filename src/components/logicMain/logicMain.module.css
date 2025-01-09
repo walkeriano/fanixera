@@ -8,14 +8,13 @@
 }
 
 .titleSection{
-    background-color: #141414;
-    height: 45px;
-    padding: 0px 0px 0px 20px;
+    border-bottom: 1px solid #4b4b4b;
+    height: 55px;
+    padding: 0px 0px 0px 10px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 60px;
 }
 
 .titleSection h4{
@@ -26,7 +25,6 @@
 .boxSectionIcon{
     height: 45px;
     aspect-ratio: 1;
-    background-color: black;
     border-radius: 50%;
     display: flex;
     align-items: center;
