@@ -79,7 +79,7 @@
 .partTwo h2 {
   width: 100%;
   display: -webkit-box;
-  display: box; /* Propiedad estándar */
+  display: flex; /* Propiedad estándar */
   -webkit-box-orient: vertical;
   box-orient: vertical; /* Propiedad estándar */
   -webkit-line-clamp: 3;
