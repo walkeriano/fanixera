@@ -95,6 +95,7 @@ export default function InfoCard({ id }) {
             <p className={styles.datoInfo}>Online y tienda</p>
           </section>
         </section>
+        <span></span>
         <section className={styles.itemInfo}>
           <FontAwesomeIcon
             icon={faCalendarCheck}
@@ -113,6 +114,7 @@ export default function InfoCard({ id }) {
             <p className={styles.datoInfo}>12/21/25</p>
           </section>
         </section>
+        <span></span>
         <section className={styles.itemInfo}>
           <FontAwesomeIcon
             icon={faClockRotateLeft}
@@ -131,6 +133,7 @@ export default function InfoCard({ id }) {
             <p className={styles.datoInfo}>12/21/25</p>
           </section>
         </section>
+        <span></span>
         <section className={styles.itemInfo}>
           <FontAwesomeIcon
             icon={faLocationCrosshairs}
