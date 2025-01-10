@@ -2,8 +2,8 @@ import styles from "./detalleBeneficio.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLink,
-  faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 export default function DetalleBeneficio() {
   return (
@@ -16,14 +16,17 @@ export default function DetalleBeneficio() {
       </section>
       <section className={styles.flexInfo}>
         <section className={styles.infoAll}>
-          <h5>hello motherfucker</h5>
+          <h5>hello motherfucker dsadsadsa dsads</h5>
           <div className={styles.moreDetails}>
             <p>lune</p>
             <p>lunes</p>
             <p>martes</p>
+            <p>martes</p>
           </div>
         </section>
-        <section className={styles.boxImage}></section>
+        <section className={styles.boxImage}>
+          <Image src="/prom.png" alt="image-beneficio" fill={true} />
+        </section>
       </section>
     </section>
   );
