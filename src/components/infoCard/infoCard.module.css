@@ -115,6 +115,7 @@
   font-size: 1.3rem;
   letter-spacing: 1px;
   line-height: 1;
+  color: rgb(156, 156, 156);
 }
 
 .titleBox {
@@ -169,7 +170,7 @@
 
 .itemInfo .icon {
   font-size: 2.0rem;
-  color: rgb(156, 156, 156);
+  color: white;
 }
 
 .infoGeneralDato {
@@ -191,7 +192,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   line-height: 1;
-  color: rgb(156, 156, 156);
+  color:white;
 }
 
 .flexDatoTitle .icon {
