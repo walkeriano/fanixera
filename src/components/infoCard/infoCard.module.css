@@ -89,7 +89,7 @@
   line-height: 1.1; /* Ajusta según tu diseño */
   max-height: calc(1.5em * 3); /* Ajusta si cambias la line-height */
   word-break: break-word;
-  font-size: 7vw;
+  font-size: 6.6vw;
   letter-spacing: 1px;
   text-transform: capitalize;
 }
@@ -124,15 +124,19 @@
   gap: 7px;
 }
 
+
 .titleBox p {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
+  color: rgb(156, 156, 156);
 }
 
 .titleBox .icon {
   font-size: 0.9rem;
+  color: rgb(156, 156, 156);
+  margin-top: -2px;
 }
 
 .partTre {
@@ -143,7 +147,7 @@
   justify-content: flex-start;
   overflow: scroll;
   margin-top: 10px;
-  background-color: #141414;
+  background-color: #0d0d0d;
   border-radius: 15px;
 }
 
@@ -159,11 +163,12 @@
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  padding-left: 20px;
+  padding-left: 25px;
 }
 
 .itemInfo .icon {
   font-size: 2.0rem;
+  color: rgb(156, 156, 156);
 }
 
 .infoGeneralDato {
@@ -171,7 +176,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  gap: 7px;
 }
 
 .flexDatoTitle {
@@ -182,10 +187,10 @@
 }
 
 .flexDatoTitle p {
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
   line-height: 1;
+  color: rgb(156, 156, 156);
 }
 
 .flexDatoTitle .icon {
@@ -213,7 +218,7 @@
   justify-content: space-between;
   padding: 0px 25px;
   border-radius: 100px;
-  background-color: #141414;
+  background-color: #0d0d0d;
 }
 
 .offTc p {

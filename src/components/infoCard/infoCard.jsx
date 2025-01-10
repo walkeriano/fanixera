@@ -11,6 +11,8 @@ import {
   faClockRotateLeft,
   faLocationCrosshairs,
   faExpand,
+  faLayerGroup,
+  faBookmark
 } from "@fortawesome/free-solid-svg-icons";
 import useDetailPromotion from "@/state/hook/useDetailPromotion";
 import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
@@ -43,11 +45,18 @@ export default function InfoCard({ id }) {
         />
       </section>
       <section className={styles.partTwo}>
-        <h2>{promotion?.promcardName} dasdasdasd asdsdsa adasdsa dasdasdsa dsadsadsadsadsadsadsadasdsadsadsasdsadsa</h2>
+        <h2>
+          {promotion?.promcardName} dasdasdasd asdsdsa adasdsa dasdasdsa
+          dsadsadsadsadsadsadsadasdsadsadsasdsadsa
+        </h2>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
-              <Image src="/window.svg" alt="i-detalle" width={17} height={20} />
+              <FontAwesomeIcon
+                icon={faLayerGroup}
+                size="2x"
+                className={styles.icon}
+              />
               <p>Stock</p>
             </div>
             <h3>50/150</h3>
@@ -55,7 +64,7 @@ export default function InfoCard({ id }) {
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
               <FontAwesomeIcon
-                icon={faUser}
+                icon={faBookmark}
                 size="2x"
                 className={styles.icon}
               />
@@ -70,7 +79,7 @@ export default function InfoCard({ id }) {
                 size="2x"
                 className={styles.icon}
               />
-              <p>Interés</p>
+              <p>Visitas</p>
             </div>
             <h3>350</h3>
           </section>
@@ -167,9 +176,9 @@ export default function InfoCard({ id }) {
           <section onClick={() => setShowTyc(true)}>todos los detalles</section>
         )}
       </section>
-      <VerifiedBrand/>
-      <DetalleBeneficio/>
-      <LogicMain/>
+      <VerifiedBrand />
+      <DetalleBeneficio />
+      <LogicMain />
     </section>
   );
 }

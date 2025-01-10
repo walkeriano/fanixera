@@ -95,7 +95,7 @@
   letter-spacing: 1px;
   padding: 10px 12px 10px 15px;
   border-radius: 50px;
-  background-color: #141414;
+  background-color: #0d0d0d;
   color: white;
 }
 
@@ -114,7 +114,7 @@
 
 .perfilGo{
   height: 45px;
-  background-color: #141414;
+  background-color: #0d0d0d;
   padding: 0px 20px;
   border-radius: 50px;
   font-size: 1rem;
@@ -139,7 +139,7 @@
 }
 
 .channel{
-  background-color: #141414;
+  background-color: #0d0d0d;
   height: 45px;
   aspect-ratio: 1;
   display: flex;
