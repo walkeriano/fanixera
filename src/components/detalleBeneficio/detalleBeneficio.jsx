@@ -16,15 +16,14 @@ export default function DetalleBeneficio() {
       </section>
       <section className={styles.flexInfo}>
         <section className={styles.infoAll}>
-            <h5>hello motherfucker</h5>
-            <div className={styles.moreDetails}>
-                <p>lune</p>
-                <p>lunes</p>
-                <p>martes</p>
-            </div>
+          <h5>hello motherfucker</h5>
+          <div className={styles.moreDetails}>
+            <p>lune</p>
+            <p>lunes</p>
+            <p>martes</p>
+          </div>
         </section>
-        <section className={styles.boxImage}>
-        </section>
+        <section className={styles.boxImage}></section>
       </section>
     </section>
   );

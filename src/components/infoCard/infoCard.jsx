@@ -43,11 +43,11 @@ export default function InfoCard({ id }) {
         />
       </section>
       <section className={styles.partTwo}>
-        <h2>{promotion?.promcardName} dasdasdasd asds adasdsa dasdasdsa dsadsadsadsadsadsadsadas</h2>
+        <h2>{promotion?.promcardName} dasdasdasd asdsdsa adasdsa dasdasdsa dsadsadsadsadsadsadsadasdsadsadsasdsadsa</h2>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
-              <Image src="/window.svg" alt="i-detalle" width={20} height={23} />
+              <Image src="/window.svg" alt="i-detalle" width={17} height={20} />
               <p>Stock</p>
             </div>
             <h3>50/150</h3>

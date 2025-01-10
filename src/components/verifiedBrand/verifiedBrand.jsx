@@ -22,20 +22,20 @@ export default function VerifiedBrand() {
       <section className={styles.infoBrand}>
         <p>Restaurante</p>
         <h3>Kentucky Fried Chicken</h3>
-        <Link className={styles.linkWebsite} href="/">
-          kfcperu.com
-          <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
-        </Link>
-      </section>
-      <section className={styles.channelBtns}>
-        <Link className={styles.perfilGo} href="/">
-          Ver más
-          <FontAwesomeIcon
-            icon={faArrowUpRightFromSquare}
-            size="2x"
-            className={styles.icon}
-          />
-        </Link>
+        <section className={styles.channelBtns}>
+          <Link className={styles.linkWebsite} href="/">
+            kfcperu.com
+            <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+          </Link>
+          <Link className={styles.perfilGo} href="/">
+            Perfil
+            <FontAwesomeIcon
+              icon={faArrowUpRightFromSquare}
+              size="2x"
+              className={styles.icon}
+            />
+          </Link>
+        </section>
         <div className={styles.flexChannels}>
           <Link href="/" className={styles.channel}>
             <FontAwesomeIcon
@@ -45,10 +45,18 @@ export default function VerifiedBrand() {
             />
           </Link>
           <Link href="/" className={styles.channel}>
-            <FontAwesomeIcon icon={faInstagram} size="2x" className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faInstagram}
+              size="2x"
+              className={styles.icon}
+            />
           </Link>
           <Link href="/" className={styles.channel}>
-            <FontAwesomeIcon icon={faTiktok} size="2x" className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faTiktok}
+              size="2x"
+              className={styles.icon}
+            />
           </Link>
         </div>
       </section>
