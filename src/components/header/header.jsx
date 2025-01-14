@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(true);
@@ -21,24 +23,53 @@ export default function Header() {
             >
               x
             </button>
-            <Link href="/" className={styles.linkDirect}>
-              ¿Qué es Tomi Cibermarketing?
+            <Link href="/explicacion" className={styles.linkDirect}>
+              ¿Qué es Tomi?
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                size="2x"
+                className={styles.icon}
+              />
             </Link>
             <Link href="/" className={styles.linkDirect}>
+              Beneficios
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link href="/socios-net" className={styles.linkDirect}>
               Socios Net
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                size="2x"
+                className={styles.icon}
+              />
             </Link>
             <Link href="/" className={styles.linkDirect}>
               Atención al cliente
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                size="2x"
+                className={styles.icon}
+              />
             </Link>
             <div className={styles.imgbgmenu}>
-            <Image src="/window.svg" alt="icon-random" fill={true} />
+              <Image src="/window.svg" alt="icon-random" fill={true} />
             </div>
-            
-            <p className={styles.legal}>
-              Desarrollado por
-              <br />
-              <span>Tomi Cibermarketing S.A.C</span>
-            </p>
+            <section className={styles.legal}>
+              <Image
+                src="/next.png"
+                width={85}
+                height={40}
+                alt="logo-fanixera"
+              />
+              <div>
+                <p>Desarrollado por:</p>
+                <h4>Tomi Cibermarketing S.A.C</h4>
+              </div>
+            </section>
           </section>
         )}
       </section>

@@ -53,18 +53,26 @@
 .linkDirect {
   color: white;
   text-decoration: none;
-  font-size: 7.2vw;
+  font-size: 7vw;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
-  width: 75%;
+  width: 80%;
   line-height: 1.1;
   animation: introMenu 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .linkDirect:hover {
   border-bottom: 2px solid white;
+}
+
+.linkDirect .icon{
+  font-size: 1.3rem;
 }
 
 .imgbgmenu{
@@ -101,13 +109,30 @@
 .legal {
   position: absolute;
   bottom: 20px;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-.legal span {
-  font-size: 1rem;
+.legal div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.legal div p{
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+.legal div h4{
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /* Definimos la animación */

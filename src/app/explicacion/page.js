@@ -1,14 +1,13 @@
 "use client";
-import { useParams } from "next/navigation";
-import Head from "next/head";
 import styles from "./page.module.css";
-import HeaderDetalle from "@/components/headerDetalle/headerDetalle";
-import InfoCard from "@/components/infoCard/infoCard";
+import Head from "next/head";
+import Header from "@/components/header/header";
+import Presentacion from "@/components/presentacion/presentacion";
+import SliderCategories from "@/components/sliderCategories/sliderCategories";
+import Funcionamiento from "@/components/funcionamiento/funcionamiento";
+import IntroSociosNet from "@/components/introSociosNet/introSociosNet";
 import Footer from "@/components/footer/footer";
-
-export default function DetalleMarca() {
-  const { id } = useParams();
-
+export default function Explicacion() {
   return (
     <>
       <Head>
@@ -53,8 +52,11 @@ export default function DetalleMarca() {
         <link rel="canonical" href="https://quesadacoach.com" />
       </Head>
       <main className={styles.main}>
-        <HeaderDetalle />
-        <InfoCard id={id}/>
+        <Header />
+        <Presentacion />
+        <Funcionamiento />
+        <SliderCategories />
+        <IntroSociosNet />
         <Footer />
         <div className={styles.blurBlue}></div>
       </main>

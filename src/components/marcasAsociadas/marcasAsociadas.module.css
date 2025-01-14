@@ -1,0 +1,36 @@
+.containerTodasMarcas{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.containerTodasMarcas h3{
+    font-size: 6.7vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.flexImagesBrand{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.boxImages{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.boxImages img{
+    border-radius: 50%;
+}
