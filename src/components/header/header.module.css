@@ -65,6 +65,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
+  z-index: 1;
 }
 
 .linkDirect:hover {
@@ -78,9 +79,9 @@
 .imgbgmenu{
   position:absolute;
   width: 100%;
-  height: 330px;
-  top:-20px;
-  left: -30px;
+  height: 320px;
+  top:-30px;
+  right: -30px;
   opacity: 0.2;
 }
 
@@ -88,22 +89,27 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: left;
+  object-position: right;
 }
 
 .btnCloseMenu {
   position: absolute;
   top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
+  left: 20px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   border: none;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+}
+
+.btnCloseMenu .icon{
+  color:white;
+  font-size: 2rem;
 }
 
 .legal {

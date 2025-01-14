@@ -17,7 +17,8 @@ import {
   faUserPen,
   faShieldHalved,
   faLayerGroup,
-  faBookmark
+  faBookmark,
+  faDeleteLeft
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -51,5 +52,6 @@ library.add(
   faUserPen,
   faShieldHalved,
   faLayerGroup,
-  faBookmark
+  faBookmark,
+  faDeleteLeft
 );
