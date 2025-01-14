@@ -5,7 +5,8 @@ import Header from "@/components/header/header";
 import AccesSociosNet from "@/components/accesSociosNet/accesSociosNet";
 import BeneficiosSociosNet from "@/components/beneficiosSociosNet/beneficiosSociosNet";
 import MarcasAsociadas from "@/components/marcasAsociadas/marcasAsociadas";
-
+import CallToAction from "@/components/callToAction/callToAction";
+import Footer from "@/components/footer/footer";
 export default function SociosNet() {
   return (
     <>
@@ -55,6 +56,8 @@ export default function SociosNet() {
         <AccesSociosNet />
         <BeneficiosSociosNet />
         <MarcasAsociadas />
+        <CallToAction />
+        <Footer />
         <div className={styles.blurBlue}></div>
       </main>
     </>
