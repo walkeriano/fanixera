@@ -13,7 +13,7 @@ export default function FormAccesSociosNet() {
         <h2>Iniciar sesión</h2>
         <p>Ingresar credenciales</p>
       </section>
-      <form action="" className={styles.formularioRegistro}>
+      <form  className={styles.formularioRegistro}>
         <label>
           <input type="email" placeholder="Ingresar email" />
           <FontAwesomeIcon
@@ -32,6 +32,14 @@ export default function FormAccesSociosNet() {
         </label>
         <button type="submit" className={styles.btnAction}>
           Ingresar
+          <FontAwesomeIcon
+            icon={faArrowUpRightFromSquare}
+            size="2x"
+            className={styles.icon}
+          />
+        </button>
+        <button type="submit" className={styles.btnAction}>
+          Comprar suscripción
           <FontAwesomeIcon
             icon={faArrowUpRightFromSquare}
             size="2x"
