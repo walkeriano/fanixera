@@ -1,5 +1,6 @@
 import styles from "./accesSociosNet.module.css";
 import Image from "next/image";
+import FormAccesSociosNet from "../formAccesSociosNet/formAccesSociosNet";
 
 export default function AccesSociosNet() {
   return (
@@ -12,8 +13,7 @@ export default function AccesSociosNet() {
         </div>
       </section>
       <section className={styles.containerAccesos}>
-        <section></section>
-        <section></section>
+        <FormAccesSociosNet />
       </section>
     </section>
   );

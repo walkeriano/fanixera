@@ -43,6 +43,14 @@ export default function Header() {
                 className={styles.icon}
               />
             </Link>
+            <Link href="/" className={styles.linkDirect}>
+              mi perfil
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
             <Link href="/socios-net" className={styles.linkDirect}>
               Socios Net
               <FontAwesomeIcon
@@ -52,7 +60,7 @@ export default function Header() {
               />
             </Link>
             <Link href="/" className={styles.linkDirect}>
-              Atención al cliente
+              contacto
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
                 size="2x"
