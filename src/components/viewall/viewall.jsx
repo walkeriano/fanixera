@@ -7,19 +7,17 @@ import Tools from "@/components/tools/tools";
 
 export default function viewall({ selectedCategory }) {
   const { promotions, loading, error } = usePromotions(selectedCategory);
-  const [ shuffledPromotions, setShuffledPromotions ] = useState([]);
-  const [ animate, setAnimate ] = useState(false);
+  const [shuffledPromotions, setShuffledPromotions] = useState([]);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     // Cuando las promociones cambian, las actualizamos en el estado local
     setShuffledPromotions(promotions);
   }, [promotions]);
 
-
   const randomizePromotions = () => {
     // Activar la animación
     setAnimate(true);
-
     // Lógica para mezclar las promociones aleatoriamente
     const shuffled = [...shuffledPromotions];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -42,18 +40,22 @@ export default function viewall({ selectedCategory }) {
     return <p>No hay promociones disponibles</p>;
   }
 
-  // Dividimos las promociones en tres partes
-  const splitIndex1 = Math.ceil(promotions.length / 3);
+  // Dividimos las promociones mezcladas en tres partes
+  const splitIndex1 = Math.ceil(shuffledPromotions.length / 3);
   const splitIndex2 = splitIndex1 * 2;
-  const firstRail = promotions.slice(0, splitIndex1);
-  const secondRail = promotions.slice(splitIndex1, splitIndex2);
-  const thirdRail = promotions.slice(splitIndex2);
+  const firstRail = shuffledPromotions.slice(0, splitIndex1);
+  const secondRail = shuffledPromotions.slice(splitIndex1, splitIndex2);
+  const thirdRail = shuffledPromotions.slice(splitIndex2);
 
   return (
     <section className={styles.viewall}>
-      <section className={`${styles.rieles} ${animate ? styles.animate : ''}`}>
+      <section className={`${styles.rieles} ${animate ? styles.animate : ""}`}>
         {firstRail.map((promo) => (
-          <Link href={`/detalle-marca/${promo.id}`} key={promo.id} className={styles.boxad}>
+          <Link
+            href={`/detalle-marca/${promo.id}`}
+            key={promo.id}
+            className={styles.boxad}
+          >
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -71,9 +73,13 @@ export default function viewall({ selectedCategory }) {
           </Link>
         ))}
       </section>
-      <section className={`${styles.rieles} ${animate ? styles.animate : ''}`}>
+      <section className={`${styles.rieles} ${animate ? styles.animate : ""}`}>
         {secondRail.map((promo) => (
-          <Link href={`/detalle-marca/${promo.id}`} key={promo.id} className={styles.boxad}>
+          <Link
+            href={`/detalle-marca/${promo.id}`}
+            key={promo.id}
+            className={styles.boxad}
+          >
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -91,9 +97,13 @@ export default function viewall({ selectedCategory }) {
           </Link>
         ))}
       </section>
-      <section className={`${styles.rieles} ${animate ? styles.animate : ''}`}>
+      <section className={`${styles.rieles} ${animate ? styles.animate : ""}`}>
         {thirdRail.map((promo) => (
-          <Link href={`/detalle-marca/${promo.id}`} key={promo.id} className={styles.boxad}>
+          <Link
+            href={`/detalle-marca/${promo.id}`}
+            key={promo.id}
+            className={styles.boxad}
+          >
             <Image
               src="/prom.png"
               alt="image-marca"
@@ -111,7 +121,7 @@ export default function viewall({ selectedCategory }) {
           </Link>
         ))}
       </section>
-      <Tools onRandomize={randomizePromotions}/>
+      <Tools onRandomize={randomizePromotions} />
     </section>
   );
 }

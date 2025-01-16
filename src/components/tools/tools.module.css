@@ -69,7 +69,7 @@
 
 .boxInput {
   position: absolute;
-  top: 0px;
+  bottom: 80px;
   width: 100%;
   left: 0px;
   display: flex;
