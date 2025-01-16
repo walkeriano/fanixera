@@ -49,12 +49,12 @@ export default function viewall({ selectedCategory }) {
 
   return (
     <section className={styles.viewall}>
-      <section className={`${styles.rieles} ${animate ? styles.animate : ""}`}>
+      <section className={styles.rieles}>
         {firstRail.map((promo) => (
           <Link
             href={`/detalle-marca/${promo.id}`}
             key={promo.id}
-            className={styles.boxad}
+            className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
               src="/prom.png"
@@ -73,12 +73,12 @@ export default function viewall({ selectedCategory }) {
           </Link>
         ))}
       </section>
-      <section className={`${styles.rieles} ${animate ? styles.animate : ""}`}>
+      <section  className={styles.rieles}>
         {secondRail.map((promo) => (
           <Link
             href={`/detalle-marca/${promo.id}`}
             key={promo.id}
-            className={styles.boxad}
+            className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
               src="/prom.png"
@@ -97,12 +97,12 @@ export default function viewall({ selectedCategory }) {
           </Link>
         ))}
       </section>
-      <section className={`${styles.rieles} ${animate ? styles.animate : ""}`}>
+      <section  className={styles.rieles}>
         {thirdRail.map((promo) => (
           <Link
             href={`/detalle-marca/${promo.id}`}
             key={promo.id}
-            className={styles.boxad}
+            className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
               src="/prom.png"

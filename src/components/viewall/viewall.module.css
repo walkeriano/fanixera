@@ -35,18 +35,8 @@
   display: none; /* WebKit Browsers */
 }
 
-.rieles.animate {
-  animation: slideIn 0.2s ease-out forwards;
-}
 
-@keyframes slideIn {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+
 
 
 .boxad {
@@ -58,6 +48,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.boxad.animate {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+
+@keyframes slideIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .imgAd{
