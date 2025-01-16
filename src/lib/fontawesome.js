@@ -22,6 +22,7 @@ import {
   faAt,
   faKey,
   faXmark,
+  faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -60,4 +61,5 @@ library.add(
   faAt,
   faKey,
   faXmark,
+  faMagnifyingGlass
 );

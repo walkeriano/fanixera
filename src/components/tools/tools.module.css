@@ -25,6 +25,11 @@
   color: white;
   text-decoration: none;
   letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.btnitemSelect .icon{
+  font-size: 1.3rem;
 }
 
 .btnAleatorio {
@@ -38,6 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .btnAleatorio img{
@@ -60,6 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .btnBack .icon{
@@ -81,12 +88,20 @@
   width: 65%;
   height: 50px;
   border: 1px solid #212121;
-  padding-left: 10px;
+  padding-left: 15px;
   outline: none;
   background-color: #0d0d0d;
-  font-size: 16px;
   border-radius: 50px 0px 0px 50px;
   padding-left: 15px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.inputSearch::placeholder{
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .btnSearch {
@@ -100,12 +115,13 @@
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveGradient 4s ease-in-out infinite;
+  cursor: pointer;
 }
 
 
 .btnSearch .icon{
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 

@@ -10,7 +10,6 @@ import LoaderIntro from "@/components/loaderIntro/loaderIntro";
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [loading, setLoading] = useState(true);
-
   
 
   useEffect(() => {

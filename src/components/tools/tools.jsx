@@ -3,7 +3,7 @@ import styles from "./tools.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function Tools({ onRandomize }) {
   const [searchSpace, setSearchSpace] = useState(true);
@@ -15,7 +15,11 @@ export default function Tools({ onRandomize }) {
           onClick={() => setSearchSpace(false)}
           className={styles.btnitemSelect}
         >
-          <Image src="/file.svg" alt="icon-random" width={23} height={23} />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            size="2x"
+            className={styles.icon}
+          />
         </section>
       ) : (
         <section className={styles.containerSearch}>
@@ -33,7 +37,7 @@ export default function Tools({ onRandomize }) {
             />
             <button className={styles.btnSearch}>
               <FontAwesomeIcon
-                icon={faLink}
+                icon={faMagnifyingGlass}
                 size="2x"
                 className={styles.icon}
               />
