@@ -6,11 +6,12 @@ import Header from "@/components/header/header";
 import Viewall from "@/components/viewall/viewall";
 import Categories from "@/components/categories/categories";
 import LoaderIntro from "@/components/loaderIntro/loaderIntro";
-import Tools from "@/components/tools/tools";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -69,7 +70,6 @@ export default function Home() {
         ) : (
           <>
             <Header />
-            <Tools />
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}

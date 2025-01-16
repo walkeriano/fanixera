@@ -20,7 +20,8 @@ import {
   faBookmark,
   faDeleteLeft,
   faAt,
-  faKey
+  faKey,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -57,5 +58,6 @@ library.add(
   faBookmark,
   faDeleteLeft,
   faAt,
-  faKey
+  faKey,
+  faXmark,
 );
