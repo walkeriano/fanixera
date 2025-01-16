@@ -3,7 +3,12 @@ import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare, faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faDeleteLeft,
+  faEllipsis,
+  faMagnifyingGlass
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(true);
@@ -12,9 +17,22 @@ export default function Header() {
       <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
       <section className={styles.sectionbtns}>
         {showMenu ? (
-          <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
-            <Image src="/globe.svg" alt="icon-menu" width={30} height={20} />
-          </div>
+          <>
+            <div className={styles.btnSearchOn}>
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                size="2x"
+                className={styles.icon}
+              />
+            </div>
+            <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
+              <FontAwesomeIcon
+                icon={faEllipsis}
+                size="2x"
+                className={styles.icon}
+              />
+            </div>
+          </>
         ) : (
           <section className={styles.menuShow}>
             <button

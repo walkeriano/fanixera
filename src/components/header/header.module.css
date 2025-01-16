@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .btnmenu {
@@ -27,8 +27,26 @@
   cursor: pointer;
 }
 
+.btnmenu .icon{
+  font-size: 1.7rem;
+}
+
 .btnmenu:hover{
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+}
+
+.btnSearchOn{
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnSearchOn .icon{
+  font-size: 1.1rem;
 }
 
 .menuShow {
