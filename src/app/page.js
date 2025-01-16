@@ -10,6 +10,7 @@ import LoaderIntro from "@/components/loaderIntro/loaderIntro";
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showSearch, setShowSearch] = useState(true);
   
 
   useEffect(() => {
@@ -68,10 +69,11 @@ export default function Home() {
           <LoaderIntro />
         ) : (
           <>
-            <Header />
+            <Header showSearch={showSearch} setShowSearch={setShowSearch} />
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
+              showSearch={showSearch}
             />
             <Viewall selectedCategory={activeCategory} />
           </>

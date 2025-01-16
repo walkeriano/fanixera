@@ -7,24 +7,40 @@ import {
   faArrowUpRightFromSquare,
   faDeleteLeft,
   faEllipsis,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Header() {
+export default function Header({ showSearch, setShowSearch }) {
   const [showMenu, setShowMenu] = useState(true);
+  const toggleSearch = () => {
+    setShowSearch((prev) => !prev); // Alternar el estado de showSearch
+  };
+
   return (
     <section className={styles.header}>
       <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
-            <div className={styles.btnSearchOn}>
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                size="2x"
-                className={styles.icon}
-              />
-            </div>
+            {showSearch ? (
+              <div onClick={toggleSearch} className={styles.btnSearchOn}>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </div>
+            ) : (
+              <button onClick={toggleSearch} className={styles.btnSearchOf}>
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </button>
+            )}
+
             <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
               <FontAwesomeIcon
                 icon={faEllipsis}

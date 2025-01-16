@@ -31,7 +31,7 @@
   font-size: 1.7rem;
 }
 
-.btnmenu:hover{
+.btnmenu:hover, .btnSearchOn:hover, .btnSearchOff:hover{
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
 }
 
@@ -43,10 +43,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .btnSearchOn .icon{
   font-size: 1.1rem;
+}
+
+.btnSearchOf{
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(189, 0, 0);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btnSearchOf .icon{
+  font-size: 1.2rem;
 }
 
 .menuShow {

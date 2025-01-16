@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import styles from "./categories.module.css";
 import Image from "next/image";
 import useCategories from "@/state/hook/useCategories";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export default function Categories({ activeCategory, setActiveCategory }) {
+export default function Categories({ activeCategory, setActiveCategory, showSearch }) {
   const { rutinas, loading, error } = useCategories();
 
-    // Establecer la primera categoría como activa por defecto
-    useEffect(() => {
-      if (rutinas.length > 0 && !activeCategory) {
-        setActiveCategory(rutinas[0].name); // Establecer la primera categoría
-      }
-    }, [rutinas, activeCategory, setActiveCategory]);
+  // Establecer la primera categoría como activa por defecto
+  useEffect(() => {
+    if (rutinas.length > 0 && !activeCategory) {
+      setActiveCategory(rutinas[0].name); // Establecer la primera categoría
+    }
+  }, [rutinas, activeCategory, setActiveCategory]);
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>{error}</p>;
@@ -22,18 +24,39 @@ export default function Categories({ activeCategory, setActiveCategory }) {
 
   return (
     <section className={styles.categoriesContainer}>
-      {rutinas.map((rutina) => (
-        <div
-          key={rutina.id}
-          className={`${styles.itemCategorie} ${
-            activeCategory === rutina.name ? styles.active : ""
-          }`}
-          onClick={() => handleCategoryClick(rutina.name)}
-        >
-          <Image src={rutina?.image} alt="icon-menu" width={25} height={25} />
-          <h3>{rutina?.name}</h3>
-        </div>
-      ))}
+      {showSearch ? (
+        <>
+          {rutinas.map((rutina) => (
+            <div
+              key={rutina.id}
+              className={`${styles.itemCategorie} ${
+                activeCategory === rutina.name ? styles.active : ""
+              }`}
+              onClick={() => handleCategoryClick(rutina.name)}
+            >
+              <Image
+                src={rutina?.image}
+                alt="icon-menu"
+                width={25}
+                height={25}
+              />
+              <h3>{rutina?.name}</h3>
+            </div>
+          ))}
+        </>
+      ) : (
+        <section className={styles.containerSearch}>
+          <input type="text" placeholder="Escribir nombre..." />
+          <button className={styles.searchBtn}>
+            Buscar{" "}
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              size="2x"
+              className={styles.icon}
+            />
+          </button>
+        </section>
+      )}
     </section>
   );
 }
