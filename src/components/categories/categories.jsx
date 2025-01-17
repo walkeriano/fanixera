@@ -5,8 +5,14 @@ import useCategories from "@/state/hook/useCategories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export default function Categories({ activeCategory, setActiveCategory, showSearch }) {
+export default function Categories({
+  activeCategory,
+  setActiveCategory,
+  showSearch,
+  onSearch,
+}) {
   const { rutinas, loading, error } = useCategories();
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Establecer la primera categoría como activa por defecto
   useEffect(() => {
@@ -14,6 +20,14 @@ export default function Categories({ activeCategory, setActiveCategory, showSear
       setActiveCategory(rutinas[0].name); // Establecer la primera categoría
     }
   }, [rutinas, activeCategory, setActiveCategory]);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value); // Actualiza el estado local, pero no ejecuta la búsqueda
+  };
+
+  const handleSearchClick = () => {
+    onSearch(searchTerm); // Ejecuta la búsqueda solo cuando se presiona el botón
+  };
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>{error}</p>;
@@ -46,9 +60,14 @@ export default function Categories({ activeCategory, setActiveCategory, showSear
         </>
       ) : (
         <section className={styles.containerSearch}>
-          <input type="text" placeholder="Escribir nombre..." />
-          <button className={styles.searchBtn}>
-            Buscar{" "}
+          <input
+            type="text"
+            placeholder="Escribir nombre..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button className={styles.searchBtn} onClick={handleSearchClick}>
+            Buscar
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               size="2x"

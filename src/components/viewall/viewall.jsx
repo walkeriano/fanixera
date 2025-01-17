@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import styles from "./viewall.module.css";
 import usePromotions from "@/state/hook/usePromotions";
+import useSearchPromotions from "@/state/hook/useSearchPromotions";
 import Image from "next/image";
 import Link from "next/link";
 import Tools from "@/components/tools/tools";
 
-export default function viewall({ selectedCategory }) {
+export default function viewall({ selectedCategory, searchTerm }) {
   const { promotions, loading, error } = usePromotions(selectedCategory);
+  const { filteredPromotions, loading: searchLoading, error: searchError } = useSearchPromotions(searchTerm);
   const [shuffledPromotions, setShuffledPromotions] = useState([]);
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Cuando las promociones cambian, las actualizamos en el estado local
-    setShuffledPromotions(promotions);
-  }, [promotions]);
+    if (searchTerm.trim()) {
+      setShuffledPromotions(filteredPromotions);
+    } else {
+      setShuffledPromotions(promotions);
+    }
+  }, [promotions, filteredPromotions, searchTerm]);
 
   const randomizePromotions = () => {
     // Activar la animación
@@ -33,8 +38,8 @@ export default function viewall({ selectedCategory }) {
     }, 500); // Duración de la animación (500ms)
   };
 
-  if (loading) return <p>Loading promotions...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading || searchLoading) return <p>Loading promotions...</p>;
+  if (error || searchError) return <p>{error || searchError}</p>;
 
   if (shuffledPromotions.length === 0) {
     return <p>No hay promociones disponibles</p>;
@@ -52,8 +57,8 @@ export default function viewall({ selectedCategory }) {
       <section className={styles.rieles}>
         {firstRail.map((promo) => (
           <Link
-            href={`/detalle-marca/${promo.id}`}
-            key={promo.id}
+          href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
+          key={`first-${promo.id}`} 
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
@@ -76,8 +81,8 @@ export default function viewall({ selectedCategory }) {
       <section  className={styles.rieles}>
         {secondRail.map((promo) => (
           <Link
-            href={`/detalle-marca/${promo.id}`}
-            key={promo.id}
+          href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
+          key={`second-${promo.id}`}
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
@@ -100,8 +105,8 @@ export default function viewall({ selectedCategory }) {
       <section  className={styles.rieles}>
         {thirdRail.map((promo) => (
           <Link
-            href={`/detalle-marca/${promo.id}`}
-            key={promo.id}
+          href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
+          key={`third-${promo.id}`} // Asegúrate de que este key sea único
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image

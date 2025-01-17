@@ -11,7 +11,8 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showSearch, setShowSearch] = useState(true);
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -74,8 +75,9 @@ export default function Home() {
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
               showSearch={showSearch}
+              onSearch={setSearchTerm}
             />
-            <Viewall selectedCategory={activeCategory} />
+            <Viewall selectedCategory={activeCategory} searchTerm={searchTerm}/>
           </>
         )}
         <div className={styles.blurBlue}></div>

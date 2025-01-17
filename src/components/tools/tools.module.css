@@ -42,7 +42,6 @@
 }
 
 
-/* Definimos la animación */
 @keyframes moveGradient {
   0% {
     background-position: 0% 50%;

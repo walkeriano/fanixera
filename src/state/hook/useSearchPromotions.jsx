@@ -8,7 +8,6 @@ const useSearchPromotions = (searchTerm) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Si no hay término de búsqueda, no realizamos la búsqueda
     if (searchTerm.trim() === "") {
       setFilteredPromotions([]);
       return;
@@ -19,20 +18,19 @@ const useSearchPromotions = (searchTerm) => {
       setError(null);
 
       try {
-        // Crear la referencia a la colección de promociones
         const promotionsRef = collection(db, "promotions");
-
-        // Crear la consulta que busca el campo "promcardName" que contenga el término de búsqueda
         const q = query(
           promotionsRef,
-          where("promcardName", ">=", searchTerm), // Realizamos una búsqueda por "mayor o igual" (prefix match)
-          where("promcardName", "<=", searchTerm + "\uf8ff") // Aseguramos que la búsqueda sea por coincidencia completa (rango)
+          where("promcardName", ">=", searchTerm),
+          where("promcardName", "<=", searchTerm + "\uf8ff")
         );
 
-        // Obtener los resultados de la consulta
         const querySnapshot = await getDocs(q);
 
-        const results = querySnapshot.docs.map((doc) => doc.data()); // Extraer datos de los documentos
+        const results = querySnapshot.docs.map((doc) => ({
+          id: doc.id, // Agregar el id aquí
+          ...doc.data(),
+        }));
 
         setFilteredPromotions(results);
       } catch (error) {
@@ -43,7 +41,7 @@ const useSearchPromotions = (searchTerm) => {
     };
 
     searchPromotions();
-  }, [searchTerm]); // Cuando el término de búsqueda cambie, ejecutamos la búsqueda
+  }, [searchTerm]);
 
   return { filteredPromotions, loading, error };
 };
