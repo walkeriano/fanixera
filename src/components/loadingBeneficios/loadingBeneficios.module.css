@@ -26,13 +26,13 @@
 .boxAdTwo {
   width: 100%;
   min-height: 350px;
-  background-color: black;
+  background-color: rgb(12, 12, 12);
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  animation: opacityEffect 1s linear infinite;
+  animation: opacityEffect 0.3s linear infinite;
 }
 
 

@@ -67,14 +67,14 @@ export default function viewall({ selectedCategory, searchTerm }) {
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
-              src="/prom.png"
+              src={promo?.squareImageUrl || "/prom.png"}
               alt="image-marca"
               fill={true}
               className={styles.imgAd}
             />
             <div className={styles.boxImage}>
               <Image
-                src={promo?.user.image}
+                src={promo?.user.image || "/prom.png"}
                 alt="image-marca"
                 width={30}
                 height={30}
@@ -91,14 +91,14 @@ export default function viewall({ selectedCategory, searchTerm }) {
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
-              src="/prom.png"
+              src={promo?.squareImageUrl || "/prom.png"}
               alt="image-marca"
               fill={true}
               className={styles.imgAd}
             />
             <div className={styles.boxImage}>
               <Image
-                src={promo?.user.image}
+                src={promo?.user.image || "/prom.png"}
                 alt="image-marca"
                 width={30}
                 height={30}
@@ -115,14 +115,14 @@ export default function viewall({ selectedCategory, searchTerm }) {
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
-              src="/prom.png"
+              src={promo?.squareImageUrl || "/prom.png"}
               alt="image-marca"
               fill={true}
               className={styles.imgAd}
             />
             <div className={styles.boxImage}>
               <Image
-                src={promo?.user.image}
+                src={promo?.user.image || "/prom.png"}
                 alt="image-marca"
                 width={30}
                 height={30}
