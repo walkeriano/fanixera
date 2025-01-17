@@ -19,12 +19,7 @@ export default function Categories({
     if (rutinas.length > 0 && !activeCategory) {
       setActiveCategory(rutinas[0].name);
     }
-  
-    // Restablecer la categoría activa si se limpia el término de búsqueda
-    if (searchTerm.trim() === "") {
-      setActiveCategory(rutinas[0]?.name || ""); // Establecer la primera categoría o un valor predeterminado
-    }
-  }, [rutinas, activeCategory, searchTerm, setActiveCategory]);
+  }, [rutinas, activeCategory, setActiveCategory]); // No dependemos de `searchTerm` aquí.
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value); // Actualiza el estado local, pero no ejecuta la búsqueda
@@ -33,6 +28,13 @@ export default function Categories({
   const handleSearchClick = () => {
     onSearch(searchTerm); // Ejecuta la búsqueda solo cuando se presiona el botón
   };
+
+  // Restablecer la categoría activa cuando se borra el término de búsqueda
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setActiveCategory(rutinas[0]?.name || ""); // Establecer la primera categoría o un valor predeterminado
+    }
+  }, [searchTerm, setActiveCategory, rutinas]);
 
   if (loading) return <p>Loading</p>;
   if (error) return <p>{error}</p>;
