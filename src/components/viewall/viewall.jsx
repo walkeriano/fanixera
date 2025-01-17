@@ -5,6 +5,7 @@ import useSearchPromotions from "@/state/hook/useSearchPromotions";
 import Image from "next/image";
 import Link from "next/link";
 import Tools from "@/components/tools/tools";
+import LoadingBeneficios from "@/components/loadingBeneficios/loadingBeneficios";
 
 export default function viewall({ selectedCategory, searchTerm }) {
   const { promotions, loading, error } = usePromotions(selectedCategory);
@@ -42,7 +43,7 @@ export default function viewall({ selectedCategory, searchTerm }) {
     }, 500); // Duración de la animación (500ms)
   };
 
-  if (loading || searchLoading) return <p>Loading promotions...</p>;
+  if (loading || searchLoading) return <LoadingBeneficios/>;
   if (error || searchError) return <p>{error || searchError}</p>;
 
   if (shuffledPromotions.length === 0) {
