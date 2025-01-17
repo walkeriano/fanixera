@@ -11,10 +11,14 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Header({ showSearch, setShowSearch }) {
+export default function Header({ showSearch, setShowSearch, resetSearch }) {
   const [showMenu, setShowMenu] = useState(true);
+
   const toggleSearch = () => {
     setShowSearch((prev) => !prev); // Alternar el estado de showSearch
+    if (!showSearch) {
+      resetSearch(); // Limpiar los resultados de la búsqueda
+    }
   };
 
   return (

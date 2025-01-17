@@ -14,12 +14,17 @@ export default function Categories({
   const { rutinas, loading, error } = useCategories();
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Establecer la primera categoría como activa por defecto
   useEffect(() => {
+    // Establecer la primera categoría como activa por defecto si no hay una activa
     if (rutinas.length > 0 && !activeCategory) {
-      setActiveCategory(rutinas[0].name); // Establecer la primera categoría
+      setActiveCategory(rutinas[0].name);
     }
-  }, [rutinas, activeCategory, setActiveCategory]);
+  
+    // Restablecer la categoría activa si se limpia el término de búsqueda
+    if (searchTerm.trim() === "") {
+      setActiveCategory(rutinas[0]?.name || ""); // Establecer la primera categoría o un valor predeterminado
+    }
+  }, [rutinas, activeCategory, searchTerm, setActiveCategory]);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value); // Actualiza el estado local, pero no ejecuta la búsqueda

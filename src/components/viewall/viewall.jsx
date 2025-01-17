@@ -8,7 +8,11 @@ import Tools from "@/components/tools/tools";
 
 export default function viewall({ selectedCategory, searchTerm }) {
   const { promotions, loading, error } = usePromotions(selectedCategory);
-  const { filteredPromotions, loading: searchLoading, error: searchError } = useSearchPromotions(searchTerm);
+  const {
+    filteredPromotions,
+    loading: searchLoading,
+    error: searchError,
+  } = useSearchPromotions(searchTerm);
   const [shuffledPromotions, setShuffledPromotions] = useState([]);
   const [animate, setAnimate] = useState(false);
 
@@ -30,7 +34,7 @@ export default function viewall({ selectedCategory, searchTerm }) {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Intercambiar elementos
     }
     setShuffledPromotions(shuffled); // Actualizamos el estado con el nuevo orden
-    
+
     console.log("Shuffled Promotions");
     // Desactivar la animación después de un tiempo
     setTimeout(() => {
@@ -57,8 +61,8 @@ export default function viewall({ selectedCategory, searchTerm }) {
       <section className={styles.rieles}>
         {firstRail.map((promo) => (
           <Link
-          href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
-          key={`first-${promo.id}`} 
+            href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
+            key={`first-${promo.id}`}
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
@@ -78,11 +82,11 @@ export default function viewall({ selectedCategory, searchTerm }) {
           </Link>
         ))}
       </section>
-      <section  className={styles.rieles}>
+      <section className={styles.rieles}>
         {secondRail.map((promo) => (
           <Link
-          href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
-          key={`second-${promo.id}`}
+            href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
+            key={`second-${promo.id}`}
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
@@ -102,11 +106,11 @@ export default function viewall({ selectedCategory, searchTerm }) {
           </Link>
         ))}
       </section>
-      <section  className={styles.rieles}>
+      <section className={styles.rieles}>
         {thirdRail.map((promo) => (
           <Link
-          href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
-          key={`third-${promo.id}`} // Asegúrate de que este key sea único
+            href={`/detalle-marca/${promo.id}`} // Usar `index` como respaldo si `promo.id` es undefined
+            key={`third-${promo.id}`} // Asegúrate de que este key sea único
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image

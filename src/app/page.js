@@ -13,6 +13,11 @@ export default function Home() {
   const [showSearch, setShowSearch] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const resetSearch = () => {
+    setSearchTerm(""); // Limpiar el término de búsqueda
+    setActiveCategory(null); // Opcional: restablecer la categoría activa
+  };
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -70,7 +75,7 @@ export default function Home() {
           <LoaderIntro />
         ) : (
           <>
-            <Header showSearch={showSearch} setShowSearch={setShowSearch} />
+            <Header showSearch={showSearch} setShowSearch={setShowSearch} resetSearch={resetSearch} />
             <Categories
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}
