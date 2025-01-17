@@ -19,10 +19,15 @@ const useSearchPromotions = (searchTerm) => {
 
       try {
         const promotionsRef = collection(db, "promotions");
+
+        // Convertir el término de búsqueda a minúsculas
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+        // Realizamos la consulta usando el término de búsqueda en minúsculas
         const q = query(
           promotionsRef,
-          where("promcardName", ">=", searchTerm),
-          where("promcardName", "<=", searchTerm + "\uf8ff")
+          where("promcardName", ">=", lowerCaseSearchTerm),
+          where("promcardName", "<=", lowerCaseSearchTerm + "\uf8ff")
         );
 
         const querySnapshot = await getDocs(q);
