@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faAt,
-  faKey,
+  faEyeSlash,
+  faEye
 } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 
@@ -36,7 +37,7 @@ export default function FormAccesSociosNet() {
     <section className={styles.containerForm}>
       <section className={styles.titleAcces}>
         <h2>Iniciar sesión</h2>
-        <p>Ingresar credenciales</p>
+        <p>Ingresar credenciales de marca</p>
       </section>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -45,7 +46,7 @@ export default function FormAccesSociosNet() {
         <label>
           <input
             type="text"
-            placeholder="Ingresar email"
+            placeholder="Email de acceso..."
             className={
               touchedFields.email
                 ? errors.email
@@ -64,12 +65,12 @@ export default function FormAccesSociosNet() {
           <FontAwesomeIcon icon={faAt} size="2x" className={styles.icon} />
         </label>
         {errors.email && (
-          <span className={styles.error}>{errors.email.message}</span>
+          <span className={styles.error}>{errors.email.message}*</span>
         )}
         <label>
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Ingresar password"
+            placeholder="Contraseña..."
             className={
               touchedFields.password
                 ? errors.password
@@ -89,15 +90,17 @@ export default function FormAccesSociosNet() {
               },
             })}
           />
-          <div onClick={() => setShowPassword(!showPassword)}>
-          <FontAwesomeIcon icon={faKey} size="2x" className={styles.icon} />
+          <div onClick={() => setShowPassword(!showPassword)} className={styles.btnShowPassword}>
+            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} size="2x" className={styles.iconPasword} />
           </div>
           
         </label>
+        <p className={styles.indication}>
+            *Mínimo 6 carácteres entre números y letras
+          </p>
         {errors.password && (
-          <span className={styles.error}>{errors.password.message}</span>
+          <span className={styles.error}>{errors.password.message}*</span>
         )}
-
         {error && <span className={styles.error}>{error}</span>}
         <button  type="submit" className={styles.btnAction}>
           Ingresar

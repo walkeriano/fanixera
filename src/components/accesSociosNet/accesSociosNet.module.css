@@ -83,6 +83,10 @@
   color: #777777;
 }
 
+.inactive:hover{
+    color: white;
+}
+
 @keyframes moveGradient {
   0% {
     background-position: 0% 50%;

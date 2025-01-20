@@ -6,10 +6,10 @@ import styles from "./formRegistro.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
+  faAt,
   faEyeSlash,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-
 
 export default function FormRegistro() {
   const { user, register: registerUser } = useContext(AuthContext);
@@ -40,13 +40,19 @@ export default function FormRegistro() {
   };
 
   return (
-    <section className={styles.containerRegistro}>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <div className={styles.boxInput}>
-          <label>Email de acceso:</label>
+    <section className={styles.containerForm}>
+      <section className={styles.titleAcces}>
+        <h2>Registrar cuenta</h2>
+        <p>Crear credenciales de marca</p>
+      </section>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.formularioRegistro}
+      >
+        <label>
           <input
             type="email"
-            placeholder="Escribir aqui.."
+            placeholder="Email de acceso.."
             className={
               touchedFields.email
                 ? errors.email
@@ -62,15 +68,15 @@ export default function FormRegistro() {
               },
             })}
           />
-          {errors.email && (
-            <span className={styles.error}>{errors.email.message}</span>
-          )}
-        </div>
-        <div className={styles.boxInput}>
-          <label>Contraseña:</label>
+          <FontAwesomeIcon icon={faAt} size="2x" className={styles.icon} />
+        </label>
+        {errors.email && (
+          <span className={styles.error}>{errors.email.message}</span>
+        )}
+        <label>
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Escribir aqui.."
+            placeholder="Nueva contraseña.."
             className={
               touchedFields.password
                 ? errors.password
@@ -90,32 +96,30 @@ export default function FormRegistro() {
               },
             })}
           />
-          <button
-            type="button"
-            className={styles.togglePassword}
+          <div
+            className={styles.btnShowPassword}
             onClick={() => setShowPassword(!showPassword)} // Alterna la visibilidad
           >
             <FontAwesomeIcon
               icon={showPassword ? faEyeSlash : faEye}
-              className={styles.icon}
-            />
-          </button>
-          <p className={styles.indication}>
-            *Mínimo 6 carácteres entre números y letras
-          </p>
-          {errors.password && (
-            <span className={styles.error}>{errors.password.message}</span>
-          )}
-        </div>
-        <button type="submit" className={styles.btnAcces}>
-          Registrar
-          <span>
-            <FontAwesomeIcon
-              icon={faArrowRight}
               size="2x"
-              className={styles.icon}
+              className={styles.iconPasword}
             />
-          </span>
+          </div>
+        </label>
+        {errors.password && (
+          <span className={styles.error}>{errors.password.message}</span>
+        )}
+        <p className={styles.indication}>
+          *Mínimo 6 carácteres entre números y letras
+        </p>
+        <button type="submit" className={styles.btnAction}>
+          Registrar
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            size="2x"
+            className={styles.icon}
+          />
         </button>
       </form>
     </section>

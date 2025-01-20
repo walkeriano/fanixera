@@ -23,7 +23,9 @@ import {
   faKey,
   faXmark,
   faMagnifyingGlass,
-  faEllipsis
+  faEllipsis,
+  faEyeSlash,
+  faEye
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -63,5 +65,7 @@ library.add(
   faKey,
   faXmark,
   faMagnifyingGlass,
-  faEllipsis
+  faEllipsis,
+  faEyeSlash,
+  faEye
 );
