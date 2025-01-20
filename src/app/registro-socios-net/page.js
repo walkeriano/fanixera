@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import Head from "next/head";
 import HeaderSesion from "@/components/headerSesion/headerSesion";
 import NuevoExpediente from "@/components/nuevoExpediente/nuevoExpediente";
+import Footer from "@/components/footer/footer";
 
 export default function RegistroSociosNet() {
   return (
@@ -25,6 +26,7 @@ export default function RegistroSociosNet() {
       <main className={styles.main}>
         <HeaderSesion />
         <NuevoExpediente />
+        <Footer />
         <div className={styles.blurBlue}></div>
       </main>
     </>

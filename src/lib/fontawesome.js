@@ -30,7 +30,11 @@ import {
   faFingerprint,
   faImage,
   faCamera,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faFileShield,
+  faListOl,
+  faCommentMedical,
+  faLocationArrow
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -77,5 +81,9 @@ library.add(
   faFingerprint,
   faImage,
   faCamera,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faFileShield,
+  faListOl,
+  faCommentMedical,
+  faLocationArrow
 );

@@ -2,7 +2,24 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./nuevoExpediente.module.css";
 import AuthContext from "@/state/auth/auth-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faStore, faAt, faFingerprint, faImage, faCamera,faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLink,
+  faStore,
+  faAt,
+  faFingerprint,
+  faImage,
+  faCamera,
+  faTriangleExclamation,
+  faFileShield,
+  faListOl,
+  faCommentMedical,
+  faLocationArrow
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function NuevoExpediente() {
   const { user } = useContext(AuthContext);
@@ -19,7 +36,11 @@ export default function NuevoExpediente() {
         <section className={styles.idExpediente}>
           <section className={styles.titleSection}>
             <h3>1. Identidad de marca</h3>
-            <FontAwesomeIcon icon={faFingerprint} size="2x" className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faFingerprint}
+              size="2x"
+              className={styles.icon}
+            />
           </section>
           <section className={styles.boxVerifyUser}>
             <div className={styles.itemVerify}>
@@ -50,11 +71,15 @@ export default function NuevoExpediente() {
       <section className={styles.boxForm}>
         <section className={styles.itemForm}>
           <section className={styles.titleSection}>
-            <h3>1. Imagen de marca</h3>
+            <h3>2. Logotipo de marca</h3>
             <FontAwesomeIcon icon={faImage} size="2x" className={styles.icon} />
           </section>
           <section className={styles.imagePerfil}>
-            <FontAwesomeIcon icon={faCamera} size="2x" className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faCamera}
+              size="2x"
+              className={styles.icon}
+            />
             <p>Adjuntar aqui...</p>
           </section>
           <section className={styles.boxDetalles}>
@@ -72,24 +97,74 @@ export default function NuevoExpediente() {
         </section>
         <section className={styles.itemForm}>
           <section className={styles.titleSection}>
-            <h3>2. Datos corporativos</h3>
-            <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+            <h3>3. Datos informativos</h3>
+            <FontAwesomeIcon icon={faFileShield} size="2x" className={styles.icon} />
           </section>
-          <section>
-            <input type="text" placeholder="Nº Ruc..." />
-            <input type="text" placeholder="Categoría..." />
-            <input type="text" placeholder="Descripción..." />
+          <section className={styles.flexInputs}>
+            <label>
+              <input type="text" placeholder="Nº de Ruc empresarial..." />
+              <FontAwesomeIcon
+                icon={faListOl}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
+            <label>
+              <input type="text" placeholder="Categoría..." />
+              <FontAwesomeIcon
+                icon={faLink}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
+            <label>
+              <input type="text" placeholder="Descripción..." />
+              <FontAwesomeIcon
+                icon={faCommentMedical}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
           </section>
         </section>
         <section className={styles.itemForm}>
           <section className={styles.titleSection}>
             <h3>3. Canales de contacto</h3>
-            <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+            <FontAwesomeIcon icon={faLocationArrow} size="2x" className={styles.icon} />
           </section>
-          <section>
-            <input type="text" placeholder="website..." />
-            <input type="text" placeholder="Categoría..." />
-            <input type="text" placeholder="Descripción..." />
+          <section className={styles.flexInputs}>
+            <label>
+              <input type="text" placeholder="Sitio web..." />
+              <FontAwesomeIcon
+                icon={faLink}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
+            <label>
+              <input type="text" placeholder="Facebook..." />
+              <FontAwesomeIcon
+                icon={faFacebook}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
+            <label>
+              <input type="text" placeholder="Instagram..." />
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
+            <label>
+              <input type="text" placeholder="Tiktok..." />
+              <FontAwesomeIcon
+                icon={faTiktok}
+                size="2x"
+                className={styles.icon}
+              />
+            </label>
           </section>
         </section>
       </section>

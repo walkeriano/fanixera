@@ -1,230 +1,290 @@
-.containerExpediente{
-    color: white;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 30px;
+.containerExpediente {
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
 }
 
-
-.identidadUsuario{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.identidadUsuario {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-.identidadUsuario h2{
-    font-size: 7.2vw;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    line-height: 1.1;
-    text-align: center;
+.identidadUsuario h2 {
+  font-size: 7.2vw;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
 }
 
-.identidadUsuario h2 span{
-    font-weight: 200;
+.identidadUsuario h2 span {
+  font-weight: 200;
 }
 
-.pId{
-    text-align: center;
-    width: 80%;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    line-height: 1.1;
-    color: grey;
+.pId {
+  text-align: center;
+  width: 80%;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  color: grey;
 }
 
-.idExpediente{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+.idExpediente {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.boxForm{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+.boxForm {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-.itemForm{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 60px;
+.itemForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 60px;
 }
 
-.titleSection{
-    width: 100%;
-    height: 37px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    position: relative;
+.titleSection {
+  width: 100%;
+  height: 37px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
 }
 
 .titleSection::after {
-    content: "";
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 250% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  border-radius: 50px;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.titleSection h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.titleSection .icon {
+  font-size: 1.2rem;
+}
+
+.imagePerfil {
+  width: 40vw;
+  aspect-ratio: 1;
+  background-color: #0d0d0d;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #212121;
+  margin-top: 50px;
+  gap: 10px;
+}
+
+.imagePerfil p {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  color: #212121;
+}
+
+.imagePerfil .icon {
+  font-size: 2.3rem;
+  color: #212121;
+}
+
+.boxDetalles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxDetalles p {
+  font-size: 0.8rem;
+  color: grey;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.notificación {
+  background-color: #0d0d0d;
+  border: 1px solid #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.notificación::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  aspect-ratio: 1;
+  background-color: #0d0d0d;
+  top: -7px;
+  transform: rotate(45deg);
+}
+
+.notificación h4 {
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.notificación .icon {
+  font-size: 1.1rem;
+}
+
+.boxVerifyUser {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.itemVerify {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.flexDescription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: grey;
+}
+
+.flexDescription p {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.flexDescription .icon {
+  font-size: 1rem;
+}
+
+.itemVerify h3 {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.flexInputs {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.flexInputs label{
     width: 100%;
-    height: 2px;
-    background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-    background-size: 250% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
-    animation: moveGradient 4s ease-in-out infinite;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    border-radius: 50px;
-  }
-  
-  @keyframes moveGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-.titleSection h3{
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.titleSection .icon{
-    font-size: 1.2rem;
-}
-
-.imagePerfil{
-    width: 40vw;
-    aspect-ratio: 1;
-    background-color: #0d0d0d;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #212121;
-    margin-top: 50px;
-    gap: 10px;
-}
-
-.imagePerfil p{
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    color: #212121;
-}
-
-.imagePerfil .icon{
-    font-size: 2.3rem;
-    color: #212121;
-}
-
-.boxDetalles{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.boxDetalles p{
-    font-size: 0.8rem;
-    color: grey;
-    letter-spacing: 0.5px;
-    line-height: 1;
-    margin-bottom: 5px;
-}
-
-.notificación{
-    background-color: #0d0d0d;
-    border: 1px solid #212121;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px 20px;
-    border-radius: 50px;
+    height: 65px;
     position: relative;
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.notificación::after{
-    content: "";
+.flexInputs label input {
+  border: 1px solid #212121;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  border-radius: 50px;
+  padding-left: 20px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  outline: none;
+}
+
+.flexInputs label .icon{
     position: absolute;
-    width: 15px;
-    aspect-ratio: 1;
-    background-color: #0d0d0d;
-    top: -7px;
-    transform: rotate(45deg);
+    right: 20px;
+    font-size: 1.4rem;
+    color: #212121;
 }
 
-
-
-.notificación h4{
-    font-size: 1rem;
-    z-index: 1;
+.flexInputs label input::placeholder {
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
-.notificación .icon{
-    font-size: 1.1rem;
+.flexInputs label input:hover,
+.flexInputs label input:focus,
+.flexInputs label input:active {
+  border: 1px solid #006fff;
 }
 
-.boxVerifyUser{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-}
-
-.itemVerify{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.flexDescription{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: grey;
-}
-
-.flexDescription p{
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-}
-
-.flexDescription .icon{
-    font-size: 1rem;
-}
-
-.itemVerify h3{
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
+.flexInputs label input:-webkit-autofill,
+.flexInputs label input:-webkit-autofill:hover,
+.flexInputs label input:-webkit-autofill:focus,
+.flexInputs label input:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important; /* Cambia el color del texto */
+  -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
+  box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
