@@ -34,7 +34,7 @@ export default function FormRegistro() {
         createdAt: new Date(),
       });
       console.log("Registro exitoso");
-      router.push("/explicacion");
+      router.push("/registro-socios-net");
     } catch (err) {
       const error = handleFirebaseError(err);
       setErrorMessage(error);
