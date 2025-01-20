@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async ({ email, password }) => {
+  const register = async ({ email, password, nombreMarca }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const userId = userCredential.user.uid; 
@@ -77,6 +77,7 @@ export const AuthProvider = ({ children }) => {
       
       await setDoc(doc(db, "users", userId), {
         email: email,
+        nombreMarca: nombreMarca,
         createdAt: new Date(),
       });
 

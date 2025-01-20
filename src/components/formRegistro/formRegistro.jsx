@@ -9,10 +9,11 @@ import {
   faAt,
   faEyeSlash,
   faEye,
+  faStore
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function FormRegistro() {
-  const { user, register: registerUser } = useContext(AuthContext);
+  const { register: registerUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const {
@@ -29,6 +30,7 @@ export default function FormRegistro() {
       await registerUser({
         email: data.email,
         password: data.password,
+        nombreMarca: data.nombreMarca,
         createdAt: new Date(),
       });
       console.log("Registro exitoso");
@@ -51,8 +53,32 @@ export default function FormRegistro() {
       >
         <label>
           <input
+            type="text"
+            placeholder="Nombre de la marca..."
+            className={
+              touchedFields.nombreMarca
+                ? errors.nombreMarca
+                  ? styles.invalid
+                  : styles.valid
+                : ""
+            }
+            {...register("nombreMarca", {
+              required: "El nombre de la marca es obligatorio*",
+              minLength: {
+                value: 3,
+                message: "El nombre debe tener al menos 3 caracteres",
+              },
+            })}
+          />
+          <FontAwesomeIcon icon={faStore} size="2x" className={styles.icon} />
+        </label>
+        {errors.nombreMarca && (
+          <span className={styles.error}>{errors.nombreMarca.message}</span>
+        )}
+        <label>
+          <input
             type="email"
-            placeholder="Email de acceso.."
+            placeholder="Email de acceso..."
             className={
               touchedFields.email
                 ? errors.email
@@ -76,7 +102,7 @@ export default function FormRegistro() {
         <label>
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Nueva contraseña.."
+            placeholder="Nueva contraseña..."
             className={
               touchedFields.password
                 ? errors.password
