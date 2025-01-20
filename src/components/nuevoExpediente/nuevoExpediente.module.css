@@ -19,11 +19,14 @@
 }
 
 .imgMoney {
-  animation: spin 3.8s ease-in-out infinite;
+  animation: spin 6.5s ease-in-out infinite;
 }
 
 @keyframes spin {
   0% {
+    transform: rotateY(0deg);
+  }
+  30%{
     transform: rotateY(0deg);
   }
   100% {
