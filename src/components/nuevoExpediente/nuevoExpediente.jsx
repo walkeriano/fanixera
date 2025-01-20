@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./nuevoExpediente.module.css";
 import AuthContext from "@/state/auth/auth-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faStore, faAt, faFingerprint, faImage, faCamera,faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 export default function NuevoExpediente() {
   const { user } = useContext(AuthContext);
@@ -13,19 +13,35 @@ export default function NuevoExpediente() {
         <h2>
           Exclente! <span>Ahora puedes crear beneficios para tus clientes</span>
         </h2>
-        <p className={styles.pId}>Registra el expediente de tu marca para comenzar</p>
+        <p className={styles.pId}>
+          Registra el expediente de tu marca para comenzar
+        </p>
         <section className={styles.idExpediente}>
           <section className={styles.titleSection}>
             <h3>1. Identidad de marca</h3>
-            <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+            <FontAwesomeIcon icon={faFingerprint} size="2x" className={styles.icon} />
           </section>
           <section className={styles.boxVerifyUser}>
             <div className={styles.itemVerify}>
-              <p>Nombre:</p>
+              <div className={styles.flexDescription}>
+                <p>Nombre comercial</p>
+                <FontAwesomeIcon
+                  icon={faStore}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </div>
               <h3>{user?.email}</h3>
             </div>
             <div className={styles.itemVerify}>
-              <p>Email:</p>
+              <div className={styles.flexDescription}>
+                <p>Email de acceso</p>
+                <FontAwesomeIcon
+                  icon={faAt}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </div>
               <h3>{user?.email}</h3>
             </div>
           </section>
@@ -35,16 +51,17 @@ export default function NuevoExpediente() {
         <section className={styles.itemForm}>
           <section className={styles.titleSection}>
             <h3>1. Imagen de marca</h3>
-            <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+            <FontAwesomeIcon icon={faImage} size="2x" className={styles.icon} />
           </section>
           <section className={styles.imagePerfil}>
-            <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+            <FontAwesomeIcon icon={faCamera} size="2x" className={styles.icon} />
+            <p>Adjuntar aqui...</p>
           </section>
           <section className={styles.boxDetalles}>
             <div className={styles.notificación}>
               <h4>Campo vacío</h4>
               <FontAwesomeIcon
-                icon={faLink}
+                icon={faTriangleExclamation}
                 size="2x"
                 className={styles.icon}
               />

@@ -26,7 +26,11 @@ import {
   faEllipsis,
   faEyeSlash,
   faEye,
-  faStore
+  faStore,
+  faFingerprint,
+  faImage,
+  faCamera,
+  faTriangleExclamation
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -69,5 +73,9 @@ library.add(
   faEllipsis,
   faEyeSlash,
   faEye,
-  faStore
+  faStore,
+  faFingerprint,
+  faImage,
+  faCamera,
+  faTriangleExclamation
 );
