@@ -20,6 +20,7 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 
 export default function NuevoExpediente() {
   const { user } = useContext(AuthContext);
@@ -27,6 +28,7 @@ export default function NuevoExpediente() {
   return (
     <section className={styles.containerExpediente}>
       <section className={styles.identidadUsuario}>
+        <Image src="/mascot-blue.svg" alt="icon-mascot" width={140} height={140} className={styles.imgMoney} />
         <h2>
           Exclente! <span>Ahora puedes crear beneficios para tus clientes</span>
         </h2>
