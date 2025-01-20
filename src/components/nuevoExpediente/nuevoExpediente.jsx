@@ -28,7 +28,7 @@ export default function NuevoExpediente() {
   return (
     <section className={styles.containerExpediente}>
       <section className={styles.identidadUsuario}>
-        <Image src="/mascot-blue.png" alt="icon-mascot" width={140} height={140} className={styles.imgMoney} />
+        <Image src="/mascot-blue.png" alt="icon-mascot" width={160} height={160} className={styles.imgMoney} />
         <h2>
           Exclente! <span>Ahora puedes crear beneficios para tus clientes</span>
         </h2>

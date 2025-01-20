@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .identidadUsuario {
@@ -20,13 +20,14 @@
 
 .imgMoney {
   animation: spin 6.5s ease-in-out infinite;
+  margin-bottom: 10px;
 }
 
 @keyframes spin {
   0% {
     transform: rotateY(0deg);
   }
-  30%{
+  20% {
     transform: rotateY(0deg);
   }
   100% {
