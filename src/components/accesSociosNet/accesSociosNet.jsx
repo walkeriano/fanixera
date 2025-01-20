@@ -1,8 +1,11 @@
+import React, { useState } from "react";
 import styles from "./accesSociosNet.module.css";
 import Image from "next/image";
-import FormAccesSociosNet from "../formAccesSociosNet/formAccesSociosNet";
-
+import FormAccesSociosNet from "@/components/formAccesSociosNet/formAccesSociosNet";
+import FormRegistro from "@/components/formRegistro/formRegistro";
 export default function AccesSociosNet() {
+  const [perfilSesionUser, setPerfilSesionUser] = useState(true);
+
   return (
     <section className={styles.containerAccesSociosNet}>
       <section className={styles.containerTitle}>
@@ -13,7 +16,25 @@ export default function AccesSociosNet() {
         </div>
       </section>
       <section className={styles.containerAccesos}>
-        <FormAccesSociosNet />
+        <section className={styles.accesBtns}>
+          <button
+            onClick={() => setPerfilSesionUser(true)}
+            className={`${styles.btnAction} ${
+              perfilSesionUser ? styles.active : styles.inactive
+            }`}
+          >
+            Iniciar Sesion
+          </button>
+          <button
+            onClick={() => setPerfilSesionUser(false)}
+            className={`${styles.btnAction} ${
+              !perfilSesionUser ? styles.active : styles.inactive
+            }`}
+          >
+            Registro
+          </button>
+        </section>
+        {perfilSesionUser ? <FormAccesSociosNet /> : <FormRegistro />}
       </section>
     </section>
   );

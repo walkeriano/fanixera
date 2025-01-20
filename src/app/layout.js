@@ -1,5 +1,7 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import "../lib/fontawesome";
+import { AuthProvider } from "@/state/auth/auth-provider";
 
 const nunito = Nunito({
   subsets: ["latin"]
@@ -14,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={nunito.className}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
