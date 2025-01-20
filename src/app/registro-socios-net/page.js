@@ -2,13 +2,10 @@
 import React from "react";
 import styles from "./page.module.css";
 import Head from "next/head";
-import DashboardSociosNet from "@/components/dashboardSociosNet/dashboardSociosNet";
 import HeaderSesion from "@/components/headerSesion/headerSesion";
+import NuevoExpediente from "@/components/nuevoExpediente/nuevoExpediente";
 
-
-export default function PerfilSociosNet() {
-
-    
+export default function RegistroSociosNet() {
   return (
     <>
       <Head>
@@ -27,7 +24,8 @@ export default function PerfilSociosNet() {
       </Head>
       <main className={styles.main}>
         <HeaderSesion />
-        <DashboardSociosNet />
+        <NuevoExpediente />
+        <div className={styles.blurBlue}></div>
       </main>
     </>
   );

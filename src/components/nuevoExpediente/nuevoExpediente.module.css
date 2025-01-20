@@ -1,0 +1,178 @@
+.containerExpediente{
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+
+.identidadUsuario{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.identidadUsuario h2{
+    font-size: 7.2vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.identidadUsuario h2 span{
+    font-weight: 200;
+}
+
+.pId{
+    text-align: center;
+    width: 80%;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.idExpediente{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.boxForm{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.itemForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.titleSection{
+    border-bottom: 1px solid grey;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleSection h3{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.titleSection .icon{
+    font-size: 1.3rem;
+}
+
+.imagePerfil{
+    width: 40vw;
+    aspect-ratio: 1;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagePerfil .icon{
+    font-size: 2.0rem;
+}
+
+.boxDetalles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxDetalles p{
+    font-size: 0.8rem;
+    color: grey;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.notificación{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.notificación::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    aspect-ratio: 1;
+    background-color: red;
+    top: -7px;
+    transform: rotate(45deg);
+}
+
+
+
+.notificación h4{
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.notificación .icon{
+    font-size: 1.2rem;
+}
+
+.boxVerifyUser{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.itemVerify{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.itemVerify p{
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.itemVerify h3{
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}

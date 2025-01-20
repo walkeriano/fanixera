@@ -5,7 +5,7 @@ import AuthContext from "@/state/auth/auth-context";
 import styles from "./formRegistro.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowRight,
+  faArrowUpRightFromSquare,
   faAt,
   faEyeSlash,
   faEye,
@@ -142,7 +142,7 @@ export default function FormRegistro() {
         <button type="submit" className={styles.btnAction}>
           Registrar
           <FontAwesomeIcon
-            icon={faArrowRight}
+            icon={faArrowUpRightFromSquare}
             size="2x"
             className={styles.icon}
           />
