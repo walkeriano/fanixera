@@ -28,7 +28,7 @@ export default function NuevoExpediente() {
   return (
     <section className={styles.containerExpediente}>
       <section className={styles.identidadUsuario}>
-        <Image src="/mascot-blue.png" alt="icon-mascot" width={160} height={160} className={styles.imgMoney} />
+        <Image src="/mascot-blue.png" alt="icon-mascot" width={180} height={180} className={styles.imgMoney} />
         <h2>
           Exclente! <span>Ahora puedes crear beneficios para tus clientes</span>
         </h2>
@@ -47,23 +47,25 @@ export default function NuevoExpediente() {
           <section className={styles.boxVerifyUser}>
             <div className={styles.itemVerify}>
               <div className={styles.flexDescription}>
-                <p>Nombre comercial</p>
-                <FontAwesomeIcon
+              <FontAwesomeIcon
                   icon={faStore}
                   size="2x"
                   className={styles.icon}
                 />
+                <p>Nombre comercial</p>
+                
               </div>
               <h3>{user?.email}</h3>
             </div>
             <div className={styles.itemVerify}>
               <div className={styles.flexDescription}>
-                <p>Email de acceso</p>
-                <FontAwesomeIcon
+              <FontAwesomeIcon
                   icon={faAt}
                   size="2x"
                   className={styles.icon}
                 />
+                <p>Email de acceso</p>
+                
               </div>
               <h3>{user?.email}</h3>
             </div>

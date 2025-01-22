@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
-  margin-top: 40px;
+  margin-top: 5vh;
 }
 
 .identidadUsuario {
@@ -15,12 +15,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 45px;
 }
 
 .imgMoney {
   animation: spin 6.5s ease-in-out infinite;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 @keyframes spin {
@@ -35,13 +35,14 @@
   }
 }
 
-.identidadUsuario h2 {
-  font-size: 7.2vw;
+.identidadUsuario h2{
+  font-size: 6.2vw;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
   line-height: 1.1;
   text-align: center;
+  width: 82%;
 }
 
 .identidadUsuario h2 span {
@@ -51,8 +52,8 @@
 .pId {
   text-align: center;
   width: 80%;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+  font-size: 4.7vw;
+  letter-spacing: 1px;
   line-height: 1.1;
   color: grey;
 }
@@ -122,13 +123,15 @@
 }
 
 .titleSection h3 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .titleSection .icon {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  margin-top: -5px;
 }
 
 .imagePerfil {
@@ -209,7 +212,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 70px;
+  margin-bottom: 40px;
 }
 
 .itemVerify {
@@ -223,24 +227,28 @@
 
 .flexDescription {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   color: grey;
 }
 
 .flexDescription p {
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .flexDescription .icon {
-  font-size: 1rem;
+  font-size: 2.2rem;
 }
 
 .itemVerify h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
+  margin-top: 10px;
 }
 
 .flexInputs {
