@@ -72,10 +72,10 @@ export default function NuevoExpediente() {
           </section>
         </section>
       </section>
-      <section className={styles.boxForm}>
+      <form className={styles.boxForm}>
         <section className={styles.itemForm}>
           <section className={styles.titleSection}>
-            <h3>2. Logotipo de marca</h3>
+            <h3>2. Imagen de perfil</h3>
             <FontAwesomeIcon icon={faImage} size="2x" className={styles.icon} />
           </section>
           <section className={styles.imagePerfil}>
@@ -171,7 +171,15 @@ export default function NuevoExpediente() {
             </label>
           </section>
         </section>
-      </section>
+        <button type="submit" className={styles.btnSendExpediente}>
+          Registrar expediente
+          <FontAwesomeIcon
+            icon={faStore}
+            size="2x"
+            className={styles.icon}
+          />
+        </button>
+      </form>
     </section>
   );
 }

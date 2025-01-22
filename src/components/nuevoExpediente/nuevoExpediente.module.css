@@ -110,17 +110,7 @@
   border-radius: 50px;
 }
 
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 
 .titleSection h3 {
   font-size: 0.9rem;
@@ -135,7 +125,7 @@
 }
 
 .imagePerfil {
-  width: 40vw;
+  width: 50vw;
   aspect-ratio: 1;
   background-color: #0d0d0d;
   border-radius: 50%;
@@ -151,12 +141,12 @@
 .imagePerfil p {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  color: #212121;
+  color: #2d2d2d;
 }
 
 .imagePerfil .icon {
-  font-size: 2.3rem;
-  color: #212121;
+  font-size: 2rem;
+  color: #2d2d2d;
 }
 
 .boxDetalles {
@@ -230,7 +220,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 15px;
   color: grey;
 }
 
@@ -312,4 +302,42 @@
   transition: background-color 5000s ease-in-out 0s;
   font-size: 16px;
   letter-spacing: 0.5px;
+}
+
+
+.btnSendExpediente{
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 250% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+}
+
+.btnSendExpediente .icon{
+  font-size: 1.2rem;
+}
+
+
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
