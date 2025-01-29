@@ -35,7 +35,7 @@
   }
 }
 
-.identidadUsuario h2{
+.identidadUsuario h2 {
   font-size: 6.2vw;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -109,8 +109,6 @@
   bottom: 0px;
   border-radius: 50px;
 }
-
-
 
 .titleSection h3 {
   font-size: 0.9rem;
@@ -304,8 +302,7 @@
   letter-spacing: 0.5px;
 }
 
-
-.btnSendExpediente{
+.btnSendExpediente {
   height: 70px;
   width: 100vw;
   display: flex;
@@ -324,11 +321,9 @@
   animation: moveGradient 4s ease-in-out infinite;
 }
 
-.btnSendExpediente .icon{
+.btnSendExpediente .icon {
   font-size: 1.2rem;
 }
-
-
 
 @keyframes moveGradient {
   0% {
