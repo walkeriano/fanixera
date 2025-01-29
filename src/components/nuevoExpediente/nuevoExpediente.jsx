@@ -27,6 +27,36 @@ export default function NuevoExpediente() {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, errors, loading, success, error, onSubmit } =
     useSubmitExpediente(user);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageError, setImageError] = useState("");
+  const [imageSuccess, setImageSuccess] = useState("");
+
+  const onImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    // Resetear mensajes previos
+    setImageError("");
+    setImageSuccess("");
+
+    // Validar formato y tamaño
+    const validTypes = ["image/jpeg", "image/png"];
+    if (!validTypes.includes(file.type)) {
+      setImageError("Formato no válido. Solo se permiten imágenes JPG o PNG.");
+      return;
+    }
+    if (file.size > 1024 * 1024) {
+      setImageError("El tamaño máximo permitido es 1MB.");
+      return;
+    }
+
+    // Archivo válido
+    setSelectedImage(file);
+    setImagePreview(URL.createObjectURL(file));
+    setImageSuccess("Imagen adjuntada correctamente.");
+  };
 
   return (
     <section className={styles.containerExpediente}>
@@ -85,25 +115,43 @@ export default function NuevoExpediente() {
             <h3>2. Imagen de perfil</h3>
             <FontAwesomeIcon icon={faImage} size="2x" className={styles.icon} />
           </section>
-          <section className={styles.imagePerfil}>
-            <input type="file" {...register("image", { required: true })} />
+          <label htmlFor="imageProfile" className={styles.imagePerfil}>
+            {imagePreview && ( // Renderizar la vista previa si existe
+              <div className={styles.imagePreview}>
+                <Image src={imagePreview} alt="Vista previa" fill={true} />
+              </div>
+            )}
+            <input
+              type="file"
+              id="imageProfile"
+              accept="image/*"
+              {...register("imageProfile", { required: true })}
+              onChange={onImageChange}
+              hidden
+            />
             <FontAwesomeIcon
               icon={faCamera}
               size="2x"
               className={styles.icon}
             />
             <p>Adjuntar aqui...</p>
-          </section>
+          </label>
           <section className={styles.boxDetalles}>
             <div className={styles.notificación}>
-              <h4>Campo vacío</h4>
-              {errors.image && <p>Este campo es obligatorio.</p>}
+              <h4>
+                {imageError
+                  ? imageError
+                  : imageSuccess
+                  ? imageSuccess
+                  : "Campo vacío"}
+              </h4>
               <FontAwesomeIcon
                 icon={faTriangleExclamation}
                 size="2x"
                 className={styles.icon}
               />
             </div>
+            {errors.image && <p>Este campo es obligatorio.</p>}
             <p>Formato JPG o PNG</p>
             <p>Tamaño máx. 1MB</p>
           </section>
@@ -135,20 +183,32 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </label>
-            {errors.ruc && <p>{errors.ruc.message}</p>}
+            {errors.ruc && (
+              <p className={styles.error}>{errors.ruc.message}*</p>
+            )}
             <label>
-              <input
-                {...register("categoria", { required: true })}
-                placeholder="Categoría..."
-              />
+              <select
+                {...register("categoria", {
+                  required: "Este campo es obligatorio",
+                })}
+              >
+                <option value="">Selecciona una categoría...</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="moda">Moda</option>
+                <option value="salud">Salud</option>
+                <option value="gastronomia">Gastronomía</option>
+                <option value="educacion">Educación</option>
+              </select>
               <FontAwesomeIcon
                 icon={faLink}
                 size="2x"
                 className={styles.icon}
               />
             </label>
-            {errors.categoria && <p>Este campo es obligatorio.</p>}
-            <label>
+            {errors.categoria && (
+              <p className={styles.error}>Este campo es obligatorio*</p>
+            )}
+            <label className={styles.descripcion}>
               <input
                 {...register("descripcion", { required: true })}
                 placeholder="Descripción..."
@@ -159,7 +219,9 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </label>
-            {errors.descripcion && <p>Este campo es obligatorio.</p>}
+            {errors.descripcion && (
+              <p className={styles.error}>Este campo es obligatorio*</p>
+            )}
           </section>
         </section>
         <section className={styles.itemForm}>
@@ -191,7 +253,9 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </label>
-            {errors.sitioWeb && <p>{errors.sitioWeb.message}</p>}
+            {errors.sitioWeb && (
+              <p className={styles.error}>{errors.sitioWeb.message}*</p>
+            )}
             <label>
               <input
                 type="text"
@@ -211,7 +275,9 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </label>
-            {errors.facebook && <p>{errors.facebook.message}</p>}
+            {errors.facebook && (
+              <p className={styles.error}>{errors.facebook.message}*</p>
+            )}
             <label>
               <input
                 type="text"
@@ -231,7 +297,9 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </label>
-            {errors.instagram && <p>{errors.instagram.message}</p>}
+            {errors.instagram && (
+              <p className={styles.error}>{errors.instagram.message}*</p>
+            )}
             <label>
               <input
                 type="text"
@@ -251,7 +319,9 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </label>
-            {errors.tiktok && <p>{errors.tiktok.message}</p>}
+            {errors.tiktok && (
+              <p className={styles.error}>{errors.tiktok.message}*</p>
+            )}
           </section>
         </section>
         {success && <p>¡Expediente registrado con éxito!</p>}

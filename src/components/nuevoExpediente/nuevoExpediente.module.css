@@ -134,6 +134,7 @@
   border: 1px solid #212121;
   margin-top: 50px;
   gap: 10px;
+  position: relative;
 }
 
 .imagePerfil p {
@@ -145,6 +146,20 @@
 .imagePerfil .icon {
   font-size: 2rem;
   color: #2d2d2d;
+}
+
+.imagePreview{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.imagePreview img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .boxDetalles {
@@ -240,13 +255,19 @@
 }
 
 .flexInputs {
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 30px;
   margin-top: 25px;
+}
+
+.flexInputs .error{
+  color: yellow;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
 .flexInputs label {
@@ -271,6 +292,37 @@
   outline: none;
 }
 
+.flexInputs label select{
+  border: 1px solid #212121;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  border-radius: 50px;
+  padding: 0px 20px;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  outline: none;
+  appearance: none;
+}
+
+.flexInputs label select option{
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  font-size: 16px;
+  position: absolute;
+  top: 0px;
+}
+
+.flexInputs .descripcion{
+  height: 200px;
+}
+
+.flexInputs .descripcion input{
+  border-radius: 25px;
+}
+
 .flexInputs label .icon {
   position: absolute;
   right: 20px;
@@ -280,6 +332,24 @@
 
 .flexInputs label input::placeholder {
   color: #333333;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.flexInputs label select:hover,
+.flexInputs label select:focus,
+.flexInputs label select:active {
+  border: 1px solid #006fff;
+}
+
+.flexInputs label select:-webkit-autofill,
+.flexInputs label select:-webkit-autofill:hover,
+.flexInputs label select:-webkit-autofill:focus,
+.flexInputs label select:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important; /* Cambia el color del texto */
+  -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
+  box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
   font-size: 16px;
   letter-spacing: 0.5px;
 }
