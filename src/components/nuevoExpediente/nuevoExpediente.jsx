@@ -14,6 +14,7 @@ import {
   faListOl,
   faCommentMedical,
   faLocationArrow,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -31,6 +32,7 @@ export default function NuevoExpediente() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageError, setImageError] = useState("");
   const [imageSuccess, setImageSuccess] = useState("");
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
 
   const onImageChange = (e) => {
     const file = e.target.files[0];
@@ -44,18 +46,18 @@ export default function NuevoExpediente() {
     // Validar formato y tamaño
     const validTypes = ["image/jpeg", "image/png"];
     if (!validTypes.includes(file.type)) {
-      setImageError("Formato no válido. Solo se permiten imágenes JPG o PNG.");
+      setImageError("Formato inválido, solo JPG o PNG");
       return;
     }
     if (file.size > 1024 * 1024) {
-      setImageError("El tamaño máximo permitido es 1MB.");
+      setImageError("El tamaño máximo permitido es 1MB");
       return;
     }
 
     // Archivo válido
     setSelectedImage(file);
     setImagePreview(URL.createObjectURL(file));
-    setImageSuccess("Imagen adjuntada correctamente.");
+    setImageSuccess("Imagen adjuntada correctamente");
   };
 
   return (
@@ -191,8 +193,12 @@ export default function NuevoExpediente() {
                 {...register("categoria", {
                   required: "Este campo es obligatorio",
                 })}
+                className={`${styles.selectInput} ${
+                  categoriaSeleccionada ? styles.selected : ""
+                }`}
+                onChange={(e) => setCategoriaSeleccionada(e.target.value)}
               >
-                <option value="">Selecciona una categoría...</option>
+                <option value="">Seleccionar categoría...</option>
                 <option value="tecnologia">Tecnología</option>
                 <option value="moda">Moda</option>
                 <option value="salud">Salud</option>
@@ -200,7 +206,7 @@ export default function NuevoExpediente() {
                 <option value="educacion">Educación</option>
               </select>
               <FontAwesomeIcon
-                icon={faLink}
+                icon={faChevronDown}
                 size="2x"
                 className={styles.icon}
               />

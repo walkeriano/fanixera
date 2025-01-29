@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import Head from "next/head";
 import DashboardSociosNet from "@/components/dashboardSociosNet/dashboardSociosNet";
 import HeaderSesion from "@/components/headerSesion/headerSesion";
-
+import Footer from "@/components/footer/footer";
 
 export default function PerfilSociosNet() {
 
@@ -28,6 +28,8 @@ export default function PerfilSociosNet() {
       <main className={styles.main}>
         <HeaderSesion />
         <DashboardSociosNet />
+        <Footer />
+        <div className={styles.blurBlue}></div>
       </main>
     </>
   );

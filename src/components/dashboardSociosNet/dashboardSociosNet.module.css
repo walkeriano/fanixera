@@ -1,4 +1,56 @@
-.containerDashboard{
-    border: 1px solid red;
-    color: white;
+.containerDashboard {
+  color: white;
+  width: 90%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttonPannel {
+  width: 90%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sec {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-top: 2px solid #0049ff;
+  border-bottom: 2px solid #0049ff;
+  background-color: #0048ff29;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.active {
+  background: linear-gradient(#0049ff, #0048ff3c);
+  font-weight: 600;
+  cursor: default;
+}
+
+.inactive {
+  border-top: 2px solid #0048ff8a;
+  border-bottom: 2px solid #0048ff8a;
+  color: rgba(255, 255, 255, 0.739);
+}
+
+.inactive:hover {
+  border-top: 2px solid #0049ff;
+  border-bottom: 2px solid #0049ff;
 }

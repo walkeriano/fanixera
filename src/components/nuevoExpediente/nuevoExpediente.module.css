@@ -135,6 +135,7 @@
   margin-top: 50px;
   gap: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .imagePerfil p {
@@ -203,6 +204,7 @@
 .notificación h4 {
   font-size: 1rem;
   z-index: 1;
+  text-align: center;
 }
 
 .notificación .icon {
@@ -292,7 +294,7 @@
   outline: none;
 }
 
-.flexInputs label select{
+.flexInputs label .selectInput{
   border: 1px solid #212121;
   width: 100%;
   height: 100%;
@@ -304,15 +306,16 @@
   letter-spacing: 0.5px;
   outline: none;
   appearance: none;
+  cursor: pointer;
 }
 
-.flexInputs label select option{
-  background-color: #fff;
-  color: #333;
+.flexInputs label .selected{
+  color: white;
+}
+
+.flexInputs label .selectInput option{
   padding: 10px;
   font-size: 16px;
-  position: absolute;
-  top: 0px;
 }
 
 .flexInputs .descripcion{
@@ -336,16 +339,16 @@
   letter-spacing: 0.5px;
 }
 
-.flexInputs label select:hover,
-.flexInputs label select:focus,
-.flexInputs label select:active {
+.flexInputs label .selectInput:hover,
+.flexInputs label .selectInput:focus,
+.flexInputs label .selectInput:active {
   border: 1px solid #006fff;
 }
 
-.flexInputs label select:-webkit-autofill,
-.flexInputs label select:-webkit-autofill:hover,
-.flexInputs label select:-webkit-autofill:focus,
-.flexInputs label select:-webkit-autofill:active {
+.flexInputs label .selectInput:-webkit-autofill,
+.flexInputs label .selectInput:-webkit-autofill:hover,
+.flexInputs label .selectInput:-webkit-autofill:focus,
+.flexInputs label .selectInput:-webkit-autofill:active {
   -webkit-text-fill-color: white !important; /* Cambia el color del texto */
   -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
   box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
