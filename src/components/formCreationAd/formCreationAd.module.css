@@ -1,0 +1,159 @@
+.containerForm {
+  border: 1px solid red;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.generalInfoAd {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.generalInfoAd h3 {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.generalInfoAd label {
+  background-color: grey;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  padding-right: 10px;
+  border-radius: 50px;
+}
+
+.generalInfoAd label input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding-left: 15px;
+  font-size: 16px;
+  color: white;
+  outline: none;
+}
+
+.generalInfoAd label .icon {
+  font-size: 1.1rem;
+}
+
+.tiempoExposicion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid red;
+}
+
+.tiempoExposicion h3 {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.itemTiempo {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.boxInputsDates {
+  border: 1px solid red;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.boxInputsDates input {
+  width: 50%;
+  height: 100%;
+  border: none;
+}
+
+.boxInputsDates span {
+  width: 2px;
+  height: 85%;
+  background-color: red;
+}
+
+.alertMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.alertMessage p {
+  font-size: 0.9rem;
+}
+
+.alertMessage .icon {
+  font-size: 1.2rem;
+}
+
+.imagesFormatAds {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imagesFormatAds h3 {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.containerImageAd {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.detallesFormat{
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.fileImageAd{
+    border: 1px solid red;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

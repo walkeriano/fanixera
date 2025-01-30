@@ -7,6 +7,7 @@ import {
     faFolderPlus
 } from "@fortawesome/free-solid-svg-icons";
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
+import FormCreationAd from "@/components/formCreationAd/formCreationAd";
 
 
 export default function DashboardSociosNet(){
@@ -43,7 +44,7 @@ export default function DashboardSociosNet(){
                 Crear nuevo
               </section>
             </section>
-            {change ? <AllAdsBrand/> : <div>hello fucking world</div>}
+            {change ? <AllAdsBrand/> : <FormCreationAd/>}
         </section>
     )
 }
