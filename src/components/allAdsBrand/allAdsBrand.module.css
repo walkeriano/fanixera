@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  margin-top: 20px;
 }
 
 .itemAdBrand {
@@ -19,7 +19,7 @@
   background-color: #0048ff1d;
   border-radius: 25px;
   backdrop-filter: blur(7px);
-  gap: 10px;
+  gap: 20px;
 }
 
 .imgAdCard {
@@ -48,18 +48,10 @@
 
 .divactive {
   width: 100%;
-  height: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-}
-
-.divactive h3 {
-  width: 90%;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .btnExpandir {
@@ -93,11 +85,13 @@
   gap: 15px;
 }
 
-.divinactive h3 {
+.titleCard {
   width: 90%;
+  height: 40px;
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .detallesAd {
@@ -181,69 +175,167 @@
 }
 
 .validacionUsuarios {
-    background-color: #0048ff29;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 45px;
-    border-radius: 20px 20px 0px 0px;
-    padding: 0px 15px;
+  background-color: #0048ff29;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+  padding: 15px 0px;
+  gap: 15px;
+}
 
-    & span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
+.totalStock{
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
 
-      & .icon {
-        font-size: 0.8rem;
-      }
+.titleStock{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
-      & h3 {
-        font-size: 0.8rem;
-      }
-    }
+.inputBuscador{
+  border: 1px solid red;
+  width: 90%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-    & p {
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-  }
+.inputBuscador input{
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+}
 
-  .listadoUsuarios {
-    width: 100%;
-    height: 110px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 0px 0px 20px 20px;
+.btnSearch{
+  position: absolute;
+  right: 2px;
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+}
 
-    & span {
-      border-bottom: 1px solid #0049ff;
-      width: 90%;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+.btnSearch .icon{
+  font-size: 1.2rem;
+}
 
-      & p {
-        font-size: 0.8rem;
-        text-transform: capitalize;
-        letter-spacing: 0.5px;
-        font-weight: 300;
-      }
+.aceptUsers{
+  border: 1px solid red;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
 
-      & div:nth-child(2) {
-        height: 10px;
-        width: 10px;
-        background-color: rgb(0, 201, 0);
-        border: none;
-        border-radius: 50%;
-      }
-    }
-  }
+.resultSearch{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.resultSearch p{
+  font-size: 0.9rem;
+}
+
+.btnActions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btnActions button{
+  font-size: 0.8rem;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: 1px solid white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.listadoUsuarios {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 0px 0px 20px 20px;
+  gap: 10px;
+  padding: 20px;
+}
+
+.listadoUsuarios h4{
+  font-size: 0.9rem;
+  border: 1px solid red;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.itemUserApproved{
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.itemUserApproved p{
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.itemUserApproved p:nth-child(1){
+  border: 1px solid red;
+  width: 50%;
+}
+
+.itemUserApproved p:nth-child(2){
+  border: 1px solid red;
+  width: 40%;
+}
+
+.itemUserApproved button{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+}
+
+.itemUserApproved button .icon{
+  font-size: 1rem;
+  color: white;
+}
 
 .interes {
   border: 1px solid #0049ff;
@@ -253,175 +345,74 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
 
-  & section:first-child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    background-color: #0048ff29;
-    height: 225px;
-    border-radius: 20px 20px 0px 0px;
+.titleInteres {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: #0048ff29;
+  border-radius: 20px 20px 0px 0px;
+  padding: 15px 5%;
+}
 
-    & div:nth-child(1) {
-      width: 90%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+.titleSection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
-      & span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
+.titleSection .icon{
+  font-size: 1rem;
+}
 
-        & h3 {
-          font-size: 0.9rem;
-          color: white;
-        }
-      }
+.allResult{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      & p {
-        font-size: 1rem;
-        font-weight: bold;
-      }
-    }
+.allResult{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
-    & div:nth-child(2) {
-      width: 85%;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 50px;
-      position: relative;
+.allResult .icon{
+  font-size: 1rem;
+}
 
-      & input {
-        width: 100%;
-        height: 100%;
-        border-radius: 50px;
-        border: 2px solid #0080ff;
-        outline: none;
-        padding-left: 20px;
-        background-color: #0048ff60;
-        color: white;
-      }
+.userInteres {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  padding: 0px 20px;
+}
 
-      & input::placeholder {
-        color: white;
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-      }
+.userItem{
+  border-bottom: 1px solid red;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-      & .btnSearch {
-        width: 45px;
-        height: 45px;
-        border: none;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 0px;
-        background-color: #0080ff;
-        color: white;
-
-        & .icon {
-          font-size: 1.2rem;
-        }
-      }
-    }
-
-    & div:nth-child(3) {
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      & div:first-child {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        & p {
-          font-size: 0.9rem;
-          letter-spacing: 0.5px;
-          font-weight: 300;
-        }
-
-        & h4 {
-          font-size: 0.9rem;
-          letter-spacing: 1px;
-          width: 100%;
-          text-align: center;
-        }
-      }
-
-      & div:last-child {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-
-        & button {
-          position: relative;
-          padding: 7px 15px;
-          border-radius: 50px;
-          font-size: 0.9rem;
-          border: none;
-          background-color: #0080ff;
-          color: white;
-          letter-spacing: 0.5px;
-        }
-      }
-    }
-  }
-
-  & section:last-child {
-    width: 100%;
-    height: 200px;
-    border: none;
-    border-radius: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: transparent;
-    gap: 0px;
-    padding-top: 15px;
-
-    & .title {
-      font-size: 0.8rem;
-      width: 100%;
-      font-weight: 400;
-    }
-
-    & div {
-      width: 100%;
-      height: 45px;
-      border-bottom: 1px solid #0049ff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      & p {
-        font-size: 0.9rem;
-      }
-
-      & span {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: rgb(0, 201, 0);
-      }
-    }
-  }
+.userItem p{
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
 }
 
 .btnMinimizar {

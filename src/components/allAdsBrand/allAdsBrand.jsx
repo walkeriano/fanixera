@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./allAdsBrand.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,34 +10,32 @@ import {
   faXmark,
   faUser,
   faMagnifyingGlass,
+  faArrowRightArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 export default function AllAdsBrand() {
-    const [expand, setExpand] = useState(true);
-
-
-
+  const [expand, setExpand] = useState(true);
 
   return (
     <section className={styles.containerAllBrand}>
-      <div
-        onClick={() => setExpand((prev) => !prev)}
-        className={styles.itemAdBrand}
-      >
+      <div className={styles.itemAdBrand}>
         <section className={styles.imgAdCard}>
           <Image
-            src="/images/art-2.jpg"
+            src="/prom.png"
             alt="image-promcard"
             fill={true}
             className={styles.img}
           />
         </section>
+        <h3 className={styles.titleCard}>2 x 1 en combos hamburgesas para todos listos</h3>
         <section className={styles.expandContainer}>
           {expand ? (
             <div className={styles.divactive}>
-              <h3>2 x 1 en combos hamburgesas para todos listos</h3>
-              <section onClick={() => setExpand(false)} className={styles.btnExpandir}>
+              <section
+                onClick={() => setExpand(false)}
+                className={styles.btnExpandir}
+              >
                 <FontAwesomeIcon
                   icon={faCaretDown}
                   size="2x"
@@ -53,7 +51,6 @@ export default function AllAdsBrand() {
             </div>
           ) : (
             <div className={styles.divinactive}>
-              <h3>2 x 1 en combos hamburgesas para todos listos</h3>
               <section className={styles.detallesAd}>
                 <div className={styles.itemDetalle}>
                   <FontAwesomeIcon
@@ -112,19 +109,19 @@ export default function AllAdsBrand() {
               </section>
               <section className={styles.beneficiarios}>
                 <section className={styles.validacionUsuarios}>
-                  <div>
-                    <span>
+                  <section className={styles.totalStock}>
+                    <div className={styles.titleStock}>
                       <Image
-                        src="/icons/mascot.svg"
+                        src="/mascot-blue.png"
                         alt="icon-logo-fani"
                         width={30}
                         height={30}
                       />
-                      <h3>Stock promcards</h3>
-                    </span>
+                      <h3>Stock disponible</h3>
+                    </div>
                     <p>12/56</p>
-                  </div>
-                  <div>
+                  </section>
+                  <section className={styles.inputBuscador}>
                     <input type="text" placeholder="Ingresar codigo" />
                     <button className={styles.btnSearch}>
                       <FontAwesomeIcon
@@ -133,50 +130,69 @@ export default function AllAdsBrand() {
                         className={styles.icon}
                       />
                     </button>
-                  </div>
-                  <div>
-                    <div>
-                      <p>Validación de usuario:</p>
+                  </section>
+                  <section className={styles.aceptUsers}>
+                    <div className={styles.resultSearch}>
+                      <p>Resultado de busqueda:</p>
                       <h4>Fernando Gutierrez Guzman</h4>
                     </div>
-                    <div>
+                    <div className={styles.btnActions}>
                       <button>Aprobar</button>
                       <button>Denegar</button>
                     </div>
-                  </div>
+                  </section>
                 </section>
                 <section className={styles.listadoUsuarios}>
-                  <p className={styles.title}>Usuarios aprobados:</p>
                   <div>
+                    <h4>Usuarios aprobados:</h4>
+                  </div>
+                  <div className={styles.itemUserApproved}>
                     <p>alexander walker</p>
-                    <span></span>
+                    <p>12:10 pm</p>
+                    <button>
+                      <FontAwesomeIcon
+                        icon={faXmark}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                    </button>
                   </div>
                 </section>
               </section>
               <section className={styles.interes}>
-                <div>
-                  <span>
+                <section className={styles.titleInteres}>
+                  <div className={styles.titleSection}>
                     <FontAwesomeIcon
                       icon={faUser}
                       size="2x"
                       className={styles.icon}
                     />
                     <h3>Nivel de Interés</h3>
-                  </span>
-                  <p>1234</p>
-                </div>
-                <div>
-                  <span>
+                  </div>
+                  <div className={styles.allResult}>
+                    <p>1234</p>
+                    <FontAwesomeIcon
+                      icon={faArrowRightArrowLeft}
+                      size="2x"
+                      className={styles.icon}
+                    />
+                  </div>
+                </section>
+                <section className={styles.userInteres}>
+                  <div className={styles.userItem}>
                     <p>alexander walker</p>
-                    <div></div>
-                  </span>
-                  <span>
+                    <p>12:10 pm</p>
+                  </div>
+                  <div className={styles.userItem}>
                     <p>alexander walker</p>
-                    <div></div>
-                  </span>
-                </div>
+                    <p>12:10 pm</p>
+                  </div>
+                </section>
               </section>
-              <section className={styles.btnMinimizar}>
+              <section
+                onClick={() => setExpand(true)}
+                className={styles.btnMinimizar}
+              >
                 <FontAwesomeIcon
                   icon={faCaretDown}
                   size="2x"
