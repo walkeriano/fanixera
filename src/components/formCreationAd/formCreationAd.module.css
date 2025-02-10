@@ -15,12 +15,11 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  border: 1px solid red;
 }
 
 .titleAreaForm{
   width: 100%;
-  height: 50px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,11 +41,11 @@
   width: 90%;
   text-transform: uppercase;
   font-size: 1rem;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .titleAreaForm .icon{
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .boxFormGeneral{
@@ -131,27 +130,50 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
+  margin-top: 25px;
 }
 
-.itemTiempo p {
-  font-size: 0.9rem;
+.titleBoxTiempo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.titleBoxTiempo .icon{
+  font-size: 1.2rem;
+}
+
+.titleBoxTiempo p {
+  font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-left: 25px;
 }
 
 .boxInputsDates {
   width: 100%;
-  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
 }
 
-.boxInputsDates input {
+.boxInputsDates label{
   width: 50%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+.boxInputsDates label input {
+  width: 100%;
   height: 100%;
   background-color: #0d0d0d;
   border: 1px solid #212121;
@@ -159,22 +181,39 @@
   text-align: center;
   border-radius: 50px;
   letter-spacing: 0.5px;
-  font-size: 0.8rem;
+  font-size: 16px;
+  outline: none;
+}
+
+.boxInputsDates label input::-webkit-calendar-picker-indicator{
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .alertMessage {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 10px;
+  margin-top: 20px;
+  border: 1px solid rgb(147, 147, 0);
+  background-color: rgb(29, 29, 0);
+  width: 100%;
+  height: 50px;
+  border-radius: 0px 50px 50px 50px;
 }
 
 .alertMessage p {
   font-size: 0.9rem;
+  color: yellow;
+  letter-spacing: 0.5px;
 }
 
 .alertMessage .icon {
   font-size: 1.2rem;
+  color: yellow;
 }
 
 .imagesFormatAds {

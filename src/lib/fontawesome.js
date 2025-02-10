@@ -38,7 +38,11 @@ import {
   faFolderOpen,
   faFolderPlus,
   faCircleInfo,
-  faPassport
+  faPassport,
+  faBullhorn,
+  faArrowsToEye,
+  faCirclePlay,
+  faCircleStop,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -93,5 +97,9 @@ library.add(
   faFolderOpen,
   faFolderPlus,
   faCircleInfo,
-  faPassport
+  faPassport,
+  faBullhorn,
+  faArrowsToEye,
+  faCirclePlay,
+  faCircleStop
 );

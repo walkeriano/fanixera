@@ -9,6 +9,10 @@ import {
   faCircleInfo,
   faCommentMedical,
   faPassport,
+  faBullhorn,
+  faArrowsToEye,
+  faCirclePlay,
+  faCircleStop
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import VisualizerCard from "@/components/visualizerCard/visualizerCard";
@@ -78,14 +82,13 @@ export default function FormCreationAd() {
     >
       <section className={styles.generalInfoAd}>
         <section className={styles.titleAreaForm}>
-          <h3>1. Datos generales</h3>
+          <h3>1. Detalles comerciales</h3>
           <FontAwesomeIcon
-            icon={faPassport}
+            icon={faBullhorn}
             size="2x"
             className={styles.icon}
           />
         </section>
-
         <section className={styles.boxFormGeneral}>
           <label htmlFor="">
             <input
@@ -139,34 +142,57 @@ export default function FormCreationAd() {
       </section>
       <section className={styles.tiempoExposicion}>
         <section className={styles.titleAreaForm}>
-          <h3>1. Datos generales</h3>
+          <h3>2. Tiempo de exposición</h3>
           <FontAwesomeIcon
-            icon={faPassport}
+            icon={faArrowsToEye}
             size="2x"
             className={styles.icon}
           />
         </section>
         <section className={styles.itemTiempo}>
-          <p>Inicia:</p>
+          <div className={styles.titleBoxTiempo}>
+            <p>Inicia</p>
+            <FontAwesomeIcon
+              icon={faCirclePlay}
+              size="2x"
+              className={styles.icon}
+            />
+          </div>
+
           <div className={styles.boxInputsDates}>
-            <input {...register("startDate")} type="date" />
-            <input {...register("startTime")} type="time" />
+            <label>
+              <input {...register("startDate")} type="date" />
+            </label>
+            <label>
+              <input {...register("startTime")} type="time" />
+            </label>
           </div>
         </section>
         <section className={styles.itemTiempo}>
-          <p>Termina:</p>
+          <div className={styles.titleBoxTiempo}>
+            <p>Termina</p>
+            <FontAwesomeIcon
+              icon={faCircleStop}
+              size="2x"
+              className={styles.icon}
+            />
+          </div>
           <div className={styles.boxInputsDates}>
-            <input {...register("endDate")} type="date" />
-            <input {...register("endTime")} type="time" />
+            <label>
+              <input {...register("endDate")} type="date" />
+            </label>
+            <label>
+              <input {...register("endTime")} type="time" />
+            </label>
           </div>
         </section>
         <section className={styles.alertMessage}>
+          <p>Duración máxima de 15 días</p>
           <FontAwesomeIcon
             icon={faTriangleExclamation}
             size="2x"
             className={styles.icon}
           />
-          <p>Tiempo máximo de 5 días - 52 horas</p>
         </section>
       </section>
       <section className={styles.imagesFormatAds}>
