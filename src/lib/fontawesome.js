@@ -36,7 +36,9 @@ import {
   faCommentMedical,
   faLocationArrow,
   faFolderOpen,
-  faFolderPlus
+  faFolderPlus,
+  faCircleInfo,
+  faPassport
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -89,5 +91,7 @@ library.add(
   faCommentMedical,
   faLocationArrow,
   faFolderOpen,
-  faFolderPlus
+  faFolderPlus,
+  faCircleInfo,
+  faPassport
 );

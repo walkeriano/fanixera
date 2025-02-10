@@ -14,17 +14,51 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  border: 1px solid red;
 }
 
-.generalInfoAd h3 {
+.titleAreaForm{
   width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.titleAreaForm::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0px;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+}
+
+.titleAreaForm h3 {
+  width: 90%;
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 1px;
 }
 
-.generalInfoAd label {
+.titleAreaForm .icon{
+  font-size: 1.3rem;
+}
+
+.boxFormGeneral{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.boxFormGeneral label {
   background-color: #0d0d0d;
   border: 1px solid #212121;
   width: 100%;
@@ -36,7 +70,7 @@
   position: relative;
 }
 
-.generalInfoAd label input {
+.boxFormGeneral label input {
   height: 100%;
   width: 100%;
   background-color: transparent;
@@ -49,22 +83,22 @@
   letter-spacing: 0.5px;
 }
 
-.generalInfoAd label input::placeholder {
+.boxFormGeneral label input::placeholder {
   color: #333333;
   font-size: 16px;
   letter-spacing: 0.5px;
 }
 
-.generalInfoAd label input:hover,
-.generalInfoAd label input:focus,
-.generalInfoAd label input:active {
+.boxFormGeneral label input:hover,
+.boxFormGeneral label input:focus,
+.boxFormGeneral label input:active {
   border: 1px solid #006fff;
 }
 
-.generalInfoAd label input:-webkit-autofill,
-.generalInfoAd label input:-webkit-autofill:hover,
-.generalInfoAd label input:-webkit-autofill:focus,
-.generalInfoAd label input:-webkit-autofill:active {
+.boxFormGeneral label input:-webkit-autofill,
+.boxFormGeneral label input:-webkit-autofill:hover,
+.boxFormGeneral label input:-webkit-autofill:focus,
+.boxFormGeneral label input:-webkit-autofill:active {
   -webkit-text-fill-color: white !important; /* Cambia el color del texto */
   -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
   box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
@@ -73,7 +107,7 @@
   letter-spacing: 0.5px;
 }
 
-.generalInfoAd label .icon {
+.boxFormGeneral label .icon {
   position: absolute;
   right: 20px;
   font-size: 1.4rem;
@@ -89,12 +123,7 @@
   gap: 20px;
 }
 
-.tiempoExposicion h3 {
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
+
 
 .itemTiempo {
   width: 100%;
@@ -154,15 +183,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
+  border: 1px solid red;
 }
 
-.imagesFormatAds h3 {
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
 
 .containerImageAd {
   width: 100%;
@@ -170,7 +194,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 100px;
+  border: 1px solid red;
 }
 
 .flexAddImage {
@@ -180,6 +205,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 30px;
+  border: 1px solid red;
 }
 
 .detallesFormat {
@@ -218,6 +244,12 @@
   justify-content: center;
   border-radius: 30px;
   gap: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.fileImageAd:hover{
+  border: 1px solid #006fff;
 }
 
 .fileImageAd .icon {
@@ -231,6 +263,13 @@
   color: #212121;
 }
 
+.previewContainer{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
 .stockRegister {
   width: 100%;
   display: flex;
@@ -240,12 +279,6 @@
   gap: 45px;
 }
 
-.stockRegister h3 {
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
 
 .stockInput {
   display: flex;
@@ -275,6 +308,11 @@
   outline: none;
   border-radius: 20px;
   color: white;
+  font-size: 2.5rem;
+}
+
+.stockInput label input:hover{
+  border: 1px solid #006fff;
 }
 
 .stockInput label input::placeholder {
@@ -296,6 +334,11 @@
   font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.stockIlimitado:hover{
+  border: 1px solid #006fff;
 }
 
 .stockIlimitado .icon {
@@ -333,116 +376,4 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-.visualizerCard {
-  background-color: rgb(28, 28, 28);
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 20px;
-  border-radius: 25px;
-  padding: 20px;
-}
-
-.titleSectionCard{
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.titleSectionCard .icon{
-  font-size: 1.0rem;
-}
-
-.titleSectionCard h3 {
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.flexImagesContainer {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 30px;
-}
-
-.imgCardVisual {
-  position: relative;
-  width: 150px;
-  height: 300px;
-  background-color: black;
-  border-radius: 20px;
-}
-
-.imgCardVisualTwo {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  background-color: black;
-  border-radius: 20px;
-}
-
-.imgCardVisual img:first-child {
-  position: absolute;
-  z-index: 1;
-  bottom: 5px;
-  left: 5px;
-  border-radius: 50%;
-}
-
-.imgCardVisual img:last-child {
-  border-radius: 15px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.imgCardVisualTwo img:first-child {
-  position: absolute;
-  z-index: 1;
-  bottom: 5px;
-  left: 5px;
-  border-radius: 50%;
-}
-
-.imgCardVisualTwo img:last-child {
-  border-radius: 15px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.infoCard {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.infoCard h2 {
-  font-size: 1.2rem;
-  width: 100%;
-}
-
-.infoCard h3 {
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  width: 100%;
-}
-
-.itemInfo{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

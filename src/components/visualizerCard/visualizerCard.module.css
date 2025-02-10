@@ -1,0 +1,138 @@
+.visualizerCard {
+  background-color:rgba(0, 0, 0, 0.444);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 25px;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.titleSectionCard {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.titleSectionCard .icon {
+  font-size: 1rem;
+}
+
+.titleSectionCard h3 {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.flexImagesContainer {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+}
+
+.imgCardVisual {
+  position: relative;
+  width: 150px;
+  height: 300px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.214), rgba(38, 38, 38, 0.56),rgba(0, 0, 0, 0.214));
+  border-radius: 20px;
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  border: 1px solid rgb(62, 62, 62);
+}
+
+.imgCardVisualTwo {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.214), rgba(38, 38, 38, 0.56),rgba(0, 0, 0, 0.214));
+  border-radius: 20px;
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  border: 1px solid rgb(62, 62, 62);
+}
+
+
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.imgCardVisual .imgProfile {
+  position: absolute;
+  z-index: 1;
+  bottom: 15px;
+  left: 15px;
+  border-radius: 50%;
+  outline: 2px solid black;
+}
+
+.imgCardVisual .imgAnuncio {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgCardVisualTwo .imgProfile {
+  position: absolute;
+  z-index: 1;
+  bottom: 15px;
+  left: 15px;
+  border-radius: 50%;
+  outline: 2px solid black;
+}
+
+.imgCardVisualTwo .imgAnuncio {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoCard {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.itemInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.itemInfo h3{
+    color: grey;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+}
+
+.itemInfo p {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
