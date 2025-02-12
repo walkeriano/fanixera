@@ -34,7 +34,7 @@ const useSubmitExpediente = (user) => {
       // Crear datos a guardar
       const expedienteData = {
         ruc: data.ruc,
-        categoria: data.categoria,
+        category: data.categoria,
         descripcion: data.descripcion,
         contacto: {
           sitioWeb: data.sitioWeb,

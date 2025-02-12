@@ -190,7 +190,7 @@ export default function NuevoExpediente() {
             )}
             <label>
               <select
-                {...register("categoria", {
+                {...register("category", {
                   required: "Este campo es obligatorio",
                 })}
                 className={`${styles.selectInput} ${
