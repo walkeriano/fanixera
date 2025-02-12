@@ -233,6 +233,7 @@
   align-items: center;
   justify-content: center;
   gap: 100px;
+  margin-top: 20px;
 }
 
 .flexAddImage {
@@ -241,7 +242,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 70px;
 }
 
 .detallesFormat {
@@ -250,7 +251,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .titleSectionImage {
@@ -261,12 +262,49 @@
   gap: 10px;
 }
 
+.titleSectionImage h4{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.titleSectionImage p{
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+
 .iconInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;
+}
+
+.extraFormats{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
+  margin-top: 20px;
+}
+
+.extraFormats h4{
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: grey;
+  font-weight: 200;
+}
+
+.extraFormats p{
+  color: grey;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  font-weight: 200;
 }
 
 .fileImageAd {
@@ -322,7 +360,7 @@
   align-items: center;
   justify-self: center;
   gap: 20px;
-  width: 80%;
+  width: 100%;
 }
 
 .stockInput label {
@@ -331,7 +369,15 @@
   justify-content: center;
   gap: 20px;
   width: 100%;
-  height: 120px;
+  height: 150px;
+  background-color: #0d0d0d;
+  border: 1px solid #212121;
+  border-radius: 100px;
+  padding: 20px;
+}
+
+.stockInput label:hover{
+  border: 1px solid #006fff;
 }
 
 .stockInput label input {
@@ -339,27 +385,25 @@
   height: 100%;
   align-items: center;
   text-align: center;
-  background-color: #0d0d0d;
-  border: 1px solid #212121;
   outline: none;
-  border-radius: 20px;
+  border: none;
+  background-color: transparent;
   color: white;
-  font-size: 2.5rem;
+  font-size: 4rem;
 }
 
-.stockInput label input:hover{
-  border: 1px solid #006fff;
-}
+
 
 .stockInput label input::placeholder {
   font-size: 1rem;
   letter-spacing: 0.5px;
+  font-size:4rem;
 }
 
 .stockIlimitado {
+  padding: 0px 25px;
   background-color: #0d0d0d;
   border: 1px solid #212121;
-  width: 100%;
   height: 50px;
   border-radius: 50px;
   color: white;
@@ -378,7 +422,7 @@
 }
 
 .stockIlimitado .icon {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .btnAddBeneficio {

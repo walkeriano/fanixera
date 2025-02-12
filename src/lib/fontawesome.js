@@ -43,6 +43,9 @@ import {
   faArrowsToEye,
   faCirclePlay,
   faCircleStop,
+  faImages,
+  faMoneyBillTransfer,
+  faInfinity,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -101,5 +104,8 @@ library.add(
   faBullhorn,
   faArrowsToEye,
   faCirclePlay,
-  faCircleStop
+  faCircleStop,
+  faImages,
+  faMoneyBillTransfer,
+  faInfinity
 );

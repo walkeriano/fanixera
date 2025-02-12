@@ -12,7 +12,10 @@ import {
   faBullhorn,
   faArrowsToEye,
   faCirclePlay,
-  faCircleStop
+  faCircleStop,
+  faImages,
+  faMoneyBillTransfer,
+  faInfinity
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import VisualizerCard from "@/components/visualizerCard/visualizerCard";
@@ -140,6 +143,132 @@ export default function FormCreationAd() {
           </label>
         </section>
       </section>
+      <section className={styles.imagesFormatAds}>
+        <section className={styles.titleAreaForm}>
+          <h3>2. Contenido visual</h3>
+          <FontAwesomeIcon
+            icon={faImages}
+            size="2x"
+            className={styles.icon}
+          />
+        </section>
+        <section className={styles.containerImageAd}>
+          <section className={styles.flexAddImage}>
+            <section className={styles.detallesFormat}>
+              <div className={styles.titleSectionImage}>
+                <h4>Vista principal</h4>
+                <p>Formato: Vertical</p>
+              </div>
+              <div className={styles.iconInfo}>
+                <Image
+                  src="/format-hz.svg"
+                  alt="hello world"
+                  width={100}
+                  height={190}
+                />
+                <div className={styles.extraFormats}>
+                  <h4>350 px - 840 px</h4>
+                  <p>Tamaño máximo 1MB</p>
+                </div>
+              </div>
+            </section>
+            <label htmlFor="imageOne" className={styles.fileImageAd}>
+              <input
+                type="file"
+                id="imageOne"
+                accept="image/*"
+                hidden
+                onChange={handleImage1Change}
+              />
+              {previewImage1 ? (
+                <Image
+                  src={previewImage1}
+                  alt="Imagen subida 1"
+                  fill={true}
+                  className={styles.previewContainer}
+                />
+              ) : null}
+              <FontAwesomeIcon
+                icon={faTriangleExclamation}
+                size="2x"
+                className={styles.icon}
+              />
+              <p>Adjuntar imagen...</p>
+            </label>
+          </section>
+          <section className={styles.flexAddImage}>
+            <section className={styles.detallesFormat}>
+              <div className={styles.titleSectionImage}>
+                <h4>Vista detalle</h4>
+                <p>Formato: Cuadrado</p>
+              </div>
+              <div className={styles.iconInfo}>
+                <Image
+                  src="/format-vr.svg"
+                  alt="hello world"
+                  width={150}
+                  height={150}
+                />
+                <div className={styles.extraFormats}>
+                  <h4>840 px - 840 px</h4>
+                  <p>Tamaño máximo 1MB</p>
+                </div>
+              </div>
+            </section>
+            <label htmlFor="imageTwo" className={styles.fileImageAd}>
+              <input
+                type="file"
+                id="imageTwo"
+                accept="image/*"
+                onChange={handleImage2Change}
+                hidden
+              />
+              {previewImage2 ? (
+                <Image
+                  src={previewImage2}
+                  alt="Imagen subida 2"
+                  fill={true}
+                  className={styles.previewContainer}
+                />
+              ) : null}
+              <FontAwesomeIcon
+                icon={faTriangleExclamation}
+                size="2x"
+                className={styles.icon}
+              />
+              <p>Adjuntar imagen...</p>
+            </label>
+          </section>
+        </section>
+      </section>
+      <section className={styles.stockRegister}>
+        <section className={styles.titleAreaForm}>
+          <h3>3. Stock de beneficios</h3>
+          <FontAwesomeIcon
+            icon={faMoneyBillTransfer}
+            size="2x"
+            className={styles.icon}
+          />
+        </section>
+        <section className={styles.stockInput}>
+          <label>
+            <input
+              {...register("stock")}
+              type="number"
+              placeholder="00"
+            />
+            <Image src="/mascot-white.png" alt="mascot-tomi" width={80} height={80} />
+          </label>
+          <button className={styles.stockIlimitado}>
+            <FontAwesomeIcon
+              icon={faInfinity}
+              size="2x"
+              className={styles.icon}
+            />
+            Stock ilimitado
+          </button>
+        </section>
+      </section>
       <section className={styles.tiempoExposicion}>
         <section className={styles.titleAreaForm}>
           <h3>2. Tiempo de exposición</h3>
@@ -193,132 +322,6 @@ export default function FormCreationAd() {
             size="2x"
             className={styles.icon}
           />
-        </section>
-      </section>
-      <section className={styles.imagesFormatAds}>
-        <section className={styles.titleAreaForm}>
-          <h3>1. Datos generales</h3>
-          <FontAwesomeIcon
-            icon={faPassport}
-            size="2x"
-            className={styles.icon}
-          />
-        </section>
-        <section className={styles.containerImageAd}>
-          <section className={styles.flexAddImage}>
-            <section className={styles.detallesFormat}>
-              <div className={styles.titleSectionImage}>
-                <h4>Formato vertical</h4>
-                <p>Wall principal</p>
-              </div>
-              <div className={styles.iconInfo}>
-                <Image
-                  src="/format-hz.svg"
-                  alt="hello world"
-                  width={60}
-                  height={120}
-                />
-                <p>350px - 840px</p>
-                <p>Tamaño máximo 1mb</p>
-              </div>
-            </section>
-            <label htmlFor="imageOne" className={styles.fileImageAd}>
-              <input
-                type="file"
-                id="imageOne"
-                accept="image/*"
-                hidden
-                onChange={handleImage1Change}
-              />
-              {previewImage1 ? (
-                <Image
-                  src={previewImage1}
-                  alt="Imagen subida 1"
-                  fill={true}
-                  className={styles.previewContainer}
-                />
-              ) : null}
-              <FontAwesomeIcon
-                icon={faTriangleExclamation}
-                size="2x"
-                className={styles.icon}
-              />
-              <p>Adjuntar imagen...</p>
-            </label>
-          </section>
-          <section className={styles.flexAddImage}>
-            <section className={styles.detallesFormat}>
-              <div className={styles.titleSectionImage}>
-                <h4>Formato vertical</h4>
-                <p>wall principal</p>
-              </div>
-              <div className={styles.iconInfo}>
-                <Image
-                  src="/format-vr.svg"
-                  alt="hello world"
-                  width={80}
-                  height={80}
-                />
-                <p>350px - 840px</p>
-                <p>Tamaño máximo 1mb</p>
-              </div>
-            </section>
-            <label htmlFor="imageTwo" className={styles.fileImageAd}>
-              <input
-                type="file"
-                id="imageTwo"
-                accept="image/*"
-                onChange={handleImage2Change}
-                hidden
-              />
-              {previewImage2 ? (
-                <Image
-                  src={previewImage2}
-                  alt="Imagen subida 2"
-                  fill={true}
-                  className={styles.previewContainer}
-                />
-              ) : null}
-              <FontAwesomeIcon
-                icon={faTriangleExclamation}
-                size="2x"
-                className={styles.icon}
-              />
-              <p>Adjuntar imagen...</p>
-            </label>
-          </section>
-        </section>
-      </section>
-      <section className={styles.stockRegister}>
-        <section className={styles.titleAreaForm}>
-          <h3>1. Datos generales</h3>
-          <FontAwesomeIcon
-            icon={faPassport}
-            size="2x"
-            className={styles.icon}
-          />
-        </section>
-        <section className={styles.stockInput}>
-          <label>
-            <input
-              {...register("stock")}
-              type="number"
-              placeholder="escribir aqui..."
-            />
-            <FontAwesomeIcon
-              icon={faFolderOpen}
-              size="2x"
-              className={styles.icon}
-            />
-          </label>
-          <button className={styles.stockIlimitado}>
-            <FontAwesomeIcon
-              icon={faFolderOpen}
-              size="2x"
-              className={styles.icon}
-            />
-            Stock ilimitado
-          </button>
         </section>
       </section>
       <VisualizerCard formValues={formValues} />
