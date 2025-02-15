@@ -112,18 +112,19 @@ export default function AllAdsBrand() {
                   <section className={styles.totalStock}>
                     <div className={styles.titleStock}>
                       <Image
-                        src="/mascot-blue.png"
+                        src="/mascot-white.png"
                         alt="icon-logo-fani"
-                        width={30}
-                        height={30}
+                        width={120}
+                        height={120}
                       />
-                      <h3>Stock disponible</h3>
+                      <h3>Validación de stock</h3>
                     </div>
-                    <p>12/56</p>
+                    <h4>Disponible: 12/56</h4>
                   </section>
                   <section className={styles.inputBuscador}>
                     <input type="text" placeholder="Ingresar codigo" />
                     <button className={styles.btnSearch}>
+                      Buscar
                       <FontAwesomeIcon
                         icon={faMagnifyingGlass}
                         size="2x"
