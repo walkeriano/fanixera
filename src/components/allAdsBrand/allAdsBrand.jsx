@@ -18,7 +18,7 @@ import {
   faUserShield,
   faArrowUpShortWide,
   faInbox,
-  faEllipsis
+  faEllipsis,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
@@ -205,17 +205,36 @@ export default function AllAdsBrand() {
                       />
                     </div>
                   </section>
-                  <div className={styles.itemUserApproved}>
-                    <p>alexander walker</p>
-                    <p>12:10 pm</p>
-                    <button>
-                      <FontAwesomeIcon
-                        icon={faEllipsis}
-                        size="2x"
-                        className={styles.icon}
-                      />
-                    </button>
-                  </div>
+                  <section className={styles.flexAllUsers}>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
+                      <p>12:10 pm</p>
+                    </div>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
+                      <p>12:10 pm</p>
+                    </div>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
+                      <p>12:10 pm</p>
+                    </div>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
+                      <p>12:10 pm</p>
+                    </div>
+                  </section>
                 </section>
                 <section className={styles.interes}>
                   <section className={styles.titleInteres}>

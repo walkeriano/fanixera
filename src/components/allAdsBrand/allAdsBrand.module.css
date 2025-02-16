@@ -416,7 +416,7 @@
 
 .listadoUsuarios {
   width: 90%;
-  height: 200px;
+  height: 235px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -448,33 +448,9 @@
   font-weight: 300;
   text-transform: capitalize;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
-.itemUserApproved p:nth-child(1){
-  width: 50%;
-}
-
-.itemUserApproved p:nth-child(2){
-  width: 40%;
-}
-
-.itemUserApproved button{
-  width: 45px;
-  height: 25px;
-  border-radius: 50px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
-  animation: moveGradient 4s ease-in-out infinite;
-}
-
-.itemUserApproved button .icon{
-  font-size: 1.5rem;
-  color: white;
-}
 
 .interes {
   border: 1px solid #212121;
@@ -497,6 +473,52 @@
   border-radius: 20px 20px 0px 0px;
   padding: 15px 5%;
 }
+
+.flexAllUsers{
+  width: 90%;
+  height: 150px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  gap: 15px;
+}
+
+.itemUserApproved{
+  height: 100%;
+  min-width: 30%;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  gap: 12px;
+}
+
+.itemUserApproved h4{
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.itemUserApproved p{
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.boxPerfilImage{
+  position: relative;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.boxPerfilImage img{
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 
 .titleSection{
   display: flex;
