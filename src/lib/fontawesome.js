@@ -50,6 +50,8 @@ import {
   faTrashCan,
   faUsersViewfinder,
   faArrowTrendUp,
+  faArrowUpShortWide,
+  faInbox,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -117,4 +119,6 @@ library.add(
   faUsersViewfinder,
   faUserSecret,
   faArrowTrendUp,
+  faArrowUpShortWide,
+  faInbox
 );

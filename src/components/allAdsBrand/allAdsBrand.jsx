@@ -15,6 +15,9 @@ import {
   faTrashCan,
   faUsersViewfinder,
   faArrowTrendUp,
+  faUserShield,
+  faArrowUpShortWide,
+  faInbox
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
@@ -186,7 +189,7 @@ export default function AllAdsBrand() {
                   <section className={styles.titleInteres}>
                     <div className={styles.titleSection}>
                       <FontAwesomeIcon
-                        icon={faArrowRightArrowLeft}
+                        icon={faUserShield}
                         size="2x"
                         className={styles.icon}
                       />
@@ -195,7 +198,7 @@ export default function AllAdsBrand() {
                     <div className={styles.allResult}>
                       <p>1234</p>
                       <FontAwesomeIcon
-                        icon={faUser}
+                        icon={faArrowUpShortWide}
                         size="2x"
                         className={styles.icon}
                       />
@@ -217,7 +220,7 @@ export default function AllAdsBrand() {
                   <section className={styles.titleInteres}>
                     <div className={styles.titleSection}>
                       <FontAwesomeIcon
-                        icon={faUser}
+                        icon={faInbox}
                         size="2x"
                         className={styles.icon}
                       />
