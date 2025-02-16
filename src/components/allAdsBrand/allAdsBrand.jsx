@@ -307,20 +307,22 @@ export default function AllAdsBrand() {
               </section>
               <section className={styles.containerActions}>
                 <button>
-                  Suspender temporalmente
                   <FontAwesomeIcon
                     icon={faPowerOff}
                     size="2x"
                     className={styles.icon}
                   />
+                  <p>Suspender temporalmente</p>
+                  
                 </button>
                 <button>
-                  Eliminar beneficio
                   <FontAwesomeIcon
                     icon={faTrashCan}
                     size="2x"
                     className={styles.icon}
                   />
+                  <p>Eliminar beneficio</p>
+                  
                 </button>
               </section>
               <section
@@ -332,7 +334,7 @@ export default function AllAdsBrand() {
                   size="2x"
                   className={styles.icon}
                 />
-                <p>Minimizar ventana</p>
+                <p>Ocultar información</p>
                 <FontAwesomeIcon
                   icon={faCaretDown}
                   size="2x"
