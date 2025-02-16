@@ -29,6 +29,24 @@ export default function AllAdsBrand() {
     <section className={styles.containerAllBrand}>
       <div className={styles.itemAdBrand}>
         <section className={styles.imgAdCard}>
+          <section className={styles.interes}>
+            <div className={styles.titleSection}>
+              <FontAwesomeIcon
+                icon={faUsersViewfinder}
+                size="2x"
+                className={styles.icon}
+              />
+              <h3>Visibilidad</h3>
+            </div>
+            <div className={styles.allResult}>
+              <p>1234</p>
+              <FontAwesomeIcon
+                icon={faArrowTrendUp}
+                size="2x"
+                className={styles.icon}
+              />
+            </div>
+          </section>
           <Image
             src="/prom.png"
             alt="image-promcard"
@@ -236,7 +254,7 @@ export default function AllAdsBrand() {
                     </div>
                   </section>
                 </section>
-                <section className={styles.interes}>
+                <section className={styles.listadoUsuarios}>
                   <section className={styles.titleInteres}>
                     <div className={styles.titleSection}>
                       <FontAwesomeIcon
@@ -255,43 +273,33 @@ export default function AllAdsBrand() {
                       />
                     </div>
                   </section>
-                  <section className={styles.userInteres}>
-                    <div className={styles.userItem}>
-                      <p>alexander walker</p>
+                  <section className={styles.flexAllUsers}>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
                       <p>12:10 pm</p>
                     </div>
-                    <div className={styles.userItem}>
-                      <p>alexander walker</p>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
                       <p>12:10 pm</p>
                     </div>
-                  </section>
-                </section>
-                <section className={styles.interes}>
-                  <section className={styles.titleInteres}>
-                    <div className={styles.titleSection}>
-                      <FontAwesomeIcon
-                        icon={faUsersViewfinder}
-                        size="2x"
-                        className={styles.icon}
-                      />
-                      <h3>Visibilidad</h3>
-                    </div>
-                    <div className={styles.allResult}>
-                      <p>1234</p>
-                      <FontAwesomeIcon
-                        icon={faArrowTrendUp}
-                        size="2x"
-                        className={styles.icon}
-                      />
-                    </div>
-                  </section>
-                  <section className={styles.userInteres}>
-                    <div className={styles.userItem}>
-                      <p>alexander walker</p>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
                       <p>12:10 pm</p>
                     </div>
-                    <div className={styles.userItem}>
-                      <p>alexander walker</p>
+                    <div className={styles.itemUserApproved}>
+                      <div className={styles.boxPerfilImage}>
+                        <Image src="/prom.png" alt="image-user" fill={true} />
+                      </div>
+                      <h4>alexander walker</h4>
                       <p>12:10 pm</p>
                     </div>
                   </section>
@@ -315,7 +323,6 @@ export default function AllAdsBrand() {
                   />
                 </button>
               </section>
-
               <section
                 onClick={() => setExpand(true)}
                 className={styles.btnMinimizar}
