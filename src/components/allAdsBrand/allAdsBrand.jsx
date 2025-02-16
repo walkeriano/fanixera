@@ -17,7 +17,8 @@ import {
   faArrowTrendUp,
   faUserShield,
   faArrowUpShortWide,
-  faInbox
+  faInbox,
+  faEllipsis
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
@@ -209,7 +210,7 @@ export default function AllAdsBrand() {
                     <p>12:10 pm</p>
                     <button>
                       <FontAwesomeIcon
-                        icon={faXmark}
+                        icon={faEllipsis}
                         size="2x"
                         className={styles.icon}
                       />
