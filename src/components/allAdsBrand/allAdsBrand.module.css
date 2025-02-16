@@ -172,7 +172,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid #212121;
   border-radius: 20px;
   margin-top: 25px;
 }
@@ -189,6 +188,7 @@
   border-radius: 20px;
   padding: 45px 0px 0px 0px;
   gap: 35px;
+  border: none;
 }
 
 .totalStock{
@@ -336,6 +336,7 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  outline: 2px solid white;
 }
 
 .userPerfil h4{
@@ -369,7 +370,7 @@
   font-size: 0.9rem;
   width: 50%;
   height: 70px;
-  border: 4px solid white;
+  border: 0px solid white;
   letter-spacing: 1px;
   text-transform: uppercase;
   background-color: rgba(255, 255, 255, 0.861);
@@ -414,15 +415,16 @@
 }
 
 .listadoUsuarios {
-  width: 100%;
+  width: 90%;
   height: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  border-radius: 0px 0px 20px 20px;
+  border-radius:20px;
   gap: 10px;
-  padding: 20px;
+  border: 1px solid #212121;
+  margin-top: 30px;
 }
 
 .listadoUsuarios h4{
@@ -474,11 +476,12 @@
 .interes {
   border: 1px solid #212121;
   border-radius: 20px;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .titleInteres {
@@ -554,7 +557,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0px 15px;
-  width: 100%;
+  width: 90%;
   height: 30px;
   background-color: #0048ff72;
   border: 1px solid #0049ff;
@@ -585,4 +588,40 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+
+.containerActions{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.containerActions button{
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(255, 166, 0, 0.48);
+  border: 1px solid orange;
+  color: white;
+}
+
+.containerActions button .icon{
+  font-size: 1.1rem;
+}
+
+.containerActions button:last-child{
+  background-color: rgba(255, 0, 0, 0.493);
+  border: 1px solid red;
 }

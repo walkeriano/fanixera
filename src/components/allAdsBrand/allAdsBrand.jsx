@@ -11,6 +11,10 @@ import {
   faUser,
   faMagnifyingGlass,
   faArrowRightArrowLeft,
+  faPowerOff,
+  faTrashCan,
+  faUsersViewfinder,
+  faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
@@ -141,7 +145,7 @@ export default function AllAdsBrand() {
                         <section className={styles.userPerfil}>
                           <div className={styles.boxImage}>
                             <Image
-                              src="/user.png"
+                              src="/prom.png"
                               alt="icon-user"
                               fill={true}
                             />
@@ -179,9 +183,24 @@ export default function AllAdsBrand() {
                   </section>
                 </section>
                 <section className={styles.listadoUsuarios}>
-                  <div>
-                    <h4>Usuarios aprobados:</h4>
-                  </div>
+                  <section className={styles.titleInteres}>
+                    <div className={styles.titleSection}>
+                      <FontAwesomeIcon
+                        icon={faArrowRightArrowLeft}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                      <h3>Aprobados</h3>
+                    </div>
+                    <div className={styles.allResult}>
+                      <p>1234</p>
+                      <FontAwesomeIcon
+                        icon={faUser}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                    </div>
+                  </section>
                   <div className={styles.itemUserApproved}>
                     <p>alexander walker</p>
                     <p>12:10 pm</p>
@@ -194,37 +213,86 @@ export default function AllAdsBrand() {
                     </button>
                   </div>
                 </section>
-              </section>
-              <section className={styles.interes}>
-                <section className={styles.titleInteres}>
-                  <div className={styles.titleSection}>
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      size="2x"
-                      className={styles.icon}
-                    />
-                    <h3>Nivel de Interés</h3>
-                  </div>
-                  <div className={styles.allResult}>
-                    <p>1234</p>
-                    <FontAwesomeIcon
-                      icon={faArrowRightArrowLeft}
-                      size="2x"
-                      className={styles.icon}
-                    />
-                  </div>
+                <section className={styles.interes}>
+                  <section className={styles.titleInteres}>
+                    <div className={styles.titleSection}>
+                      <FontAwesomeIcon
+                        icon={faUser}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                      <h3>Reservas</h3>
+                    </div>
+                    <div className={styles.allResult}>
+                      <p>1234</p>
+                      <FontAwesomeIcon
+                        icon={faArrowRightArrowLeft}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                    </div>
+                  </section>
+                  <section className={styles.userInteres}>
+                    <div className={styles.userItem}>
+                      <p>alexander walker</p>
+                      <p>12:10 pm</p>
+                    </div>
+                    <div className={styles.userItem}>
+                      <p>alexander walker</p>
+                      <p>12:10 pm</p>
+                    </div>
+                  </section>
                 </section>
-                <section className={styles.userInteres}>
-                  <div className={styles.userItem}>
-                    <p>alexander walker</p>
-                    <p>12:10 pm</p>
-                  </div>
-                  <div className={styles.userItem}>
-                    <p>alexander walker</p>
-                    <p>12:10 pm</p>
-                  </div>
+                <section className={styles.interes}>
+                  <section className={styles.titleInteres}>
+                    <div className={styles.titleSection}>
+                      <FontAwesomeIcon
+                        icon={faUsersViewfinder}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                      <h3>Visibilidad</h3>
+                    </div>
+                    <div className={styles.allResult}>
+                      <p>1234</p>
+                      <FontAwesomeIcon
+                        icon={faArrowTrendUp}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                    </div>
+                  </section>
+                  <section className={styles.userInteres}>
+                    <div className={styles.userItem}>
+                      <p>alexander walker</p>
+                      <p>12:10 pm</p>
+                    </div>
+                    <div className={styles.userItem}>
+                      <p>alexander walker</p>
+                      <p>12:10 pm</p>
+                    </div>
+                  </section>
                 </section>
               </section>
+              <section className={styles.containerActions}>
+                <button>
+                  Suspender temporalmente
+                  <FontAwesomeIcon
+                    icon={faPowerOff}
+                    size="2x"
+                    className={styles.icon}
+                  />
+                </button>
+                <button>
+                  Eliminar beneficio
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    size="2x"
+                    className={styles.icon}
+                  />
+                </button>
+              </section>
+
               <section
                 onClick={() => setExpand(true)}
                 className={styles.btnMinimizar}

@@ -46,6 +46,10 @@ import {
   faImages,
   faMoneyBillTransfer,
   faInfinity,
+  faPowerOff,
+  faTrashCan,
+  faUsersViewfinder,
+  faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -107,5 +111,10 @@ library.add(
   faCircleStop,
   faImages,
   faMoneyBillTransfer,
-  faInfinity
+  faInfinity,
+  faPowerOff,
+  faTrashCan,
+  faUsersViewfinder,
+  faUserSecret,
+  faArrowTrendUp,
 );
