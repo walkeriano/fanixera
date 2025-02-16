@@ -28,7 +28,9 @@ export default function AllAdsBrand() {
             className={styles.img}
           />
         </section>
-        <h3 className={styles.titleCard}>2 x 1 en combos hamburgesas para todos listos</h3>
+        <h3 className={styles.titleCard}>
+          2 x 1 en combos hamburgesas para todos listos
+        </h3>
         <section className={styles.expandContainer}>
           {expand ? (
             <div className={styles.divactive}>
@@ -41,7 +43,7 @@ export default function AllAdsBrand() {
                   size="2x"
                   className={styles.icon}
                 />
-                <p>expandir ventana</p>
+                <p>Ver más información</p>
                 <FontAwesomeIcon
                   icon={faCaretDown}
                   size="2x"
@@ -114,15 +116,15 @@ export default function AllAdsBrand() {
                       <Image
                         src="/mascot-white.png"
                         alt="icon-logo-fani"
-                        width={120}
-                        height={120}
+                        width={150}
+                        height={150}
                       />
                       <h3>Validación de stock</h3>
                     </div>
                     <h4>Disponible: 12/56</h4>
                   </section>
                   <section className={styles.inputBuscador}>
-                    <input type="text" placeholder="Ingresar codigo" />
+                    <input type="text" placeholder="Código de usuario..." />
                     <button className={styles.btnSearch}>
                       Buscar
                       <FontAwesomeIcon
@@ -134,12 +136,45 @@ export default function AllAdsBrand() {
                   </section>
                   <section className={styles.aceptUsers}>
                     <div className={styles.resultSearch}>
-                      <p>Resultado de busqueda:</p>
-                      <h4>Fernando Gutierrez Guzman</h4>
+                      <p>Identidad de usuario:</p>
+                      <section className={styles.userBeneficer}>
+                        <section className={styles.userPerfil}>
+                          <div className={styles.boxImage}>
+                            <Image
+                              src="/user.png"
+                              alt="icon-user"
+                              fill={true}
+                            />
+                          </div>
+                          <h4>Fernando Gutierrez Guzman</h4>
+                        </section>
+                        <section className={styles.nombresUser}>
+                          <p>fernando@gmail.com</p>
+                          <p>993 744 958</p>
+                        </section>
+                      </section>
                     </div>
                     <div className={styles.btnActions}>
-                      <button>Aprobar</button>
-                      <button>Denegar</button>
+                      <button>
+                        Aprobar
+                        <span>
+                          <FontAwesomeIcon
+                            icon={faXmark}
+                            size="2x"
+                            className={styles.icon}
+                          />
+                        </span>
+                      </button>
+                      <button>
+                        Denegar
+                        <span>
+                          <FontAwesomeIcon
+                            icon={faXmark}
+                            size="2x"
+                            className={styles.icon}
+                          />
+                        </span>
+                      </button>
                     </div>
                   </section>
                 </section>
