@@ -1,5 +1,5 @@
 import styles from "./formCreationAd.module.css";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -32,25 +32,29 @@ export default function FormCreationAd() {
   // Obtener los valores del formulario que necesitamos mostrar en el visualizador
   const formValues = watch();
 
-  useEffect(() => {
-    if (formValues.image1 instanceof File) {
-      const imageUrl = URL.createObjectURL(formValues.image1);
+  const handleImage1Change = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
       setPreviewImage1(imageUrl);
-      return () => URL.revokeObjectURL(imageUrl); // 🔹 Liberar memoria al desmontar
+      setValue("image1", file);
     } else {
-      setPreviewImage1(formValues.image1 || null);
+      setPreviewImage1(null); // Asegurar null en lugar de ""
+      setValue("image1", null);
     }
-  }, [formValues.image1]);
+  };
 
-  useEffect(() => {
-    if (formValues.image2 instanceof File) {
-      const imageUrl = URL.createObjectURL(formValues.image2);
+  const handleImage2Change = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
       setPreviewImage2(imageUrl);
-      return () => URL.revokeObjectURL(imageUrl); // 🔹 Liberar memoria al desmontar
+      setValue("image2", file);
     } else {
-      setPreviewImage2(formValues.image2 || null);
+      setPreviewImage2(null); // Asegurar null en lugar de ""
+      setValue("image2", null);
     }
-  }, [formValues.image2]);
+  };
 
   const handleFormSubmit = async (data) => {
     const success = await onSubmit(data);

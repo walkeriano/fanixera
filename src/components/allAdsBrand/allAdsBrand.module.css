@@ -5,6 +5,59 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  gap: 35px;
+}
+
+.flextitleGeneral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.titleContainer {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.titleFunction {
+  width: 85%;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+}
+
+.titleFunction h3 {
+  font-size: 1rem;
+  width: 65%;
+  letter-spacing: 0.5px;
+}
+
+.totalCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.totalCards p {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.totalCards .icon {
+  font-size: 0.9rem;
 }
 
 .itemAdBrand {
@@ -13,10 +66,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0d0d0d51;
   border-radius: 25px;
-  backdrop-filter: blur(7px);
-  gap: 20px;
+  gap: 5px;
 }
 
 .imgAdCard {
@@ -28,6 +79,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .imgAdCard .img {
@@ -42,6 +94,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
 }
 
 .divactive {
@@ -89,6 +142,21 @@
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.descriptionCard {
+  width: 85%;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: grey;
+  line-height: 1.2;
+  font-weight: 200;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .detallesAd {
@@ -191,7 +259,7 @@
   border: none;
 }
 
-.totalStock{
+.totalStock {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -200,12 +268,12 @@
   gap: 5px;
 }
 
-.totalStock h4{
+.totalStock h4 {
   font-size: 1rem;
   letter-spacing: 1px;
 }
 
-.titleStock{
+.titleStock {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,7 +281,7 @@
   gap: 50px;
 }
 
-.titleStock img{
+.titleStock img {
   animation: spin 6.5s ease-in-out infinite;
 }
 
@@ -229,14 +297,14 @@
   }
 }
 
-.titleStock h3{
+.titleStock h3 {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
 }
 
-.inputBuscador{
+.inputBuscador {
   width: 90%;
   height: 55px;
   display: flex;
@@ -245,7 +313,7 @@
   position: relative;
 }
 
-.inputBuscador input{
+.inputBuscador input {
   width: 100%;
   height: 100%;
   border-radius: 50px;
@@ -256,12 +324,12 @@
   background-color: black;
   color: white;
 }
-.inputBuscador input::placeholder{
+.inputBuscador input::placeholder {
   font-size: 16px;
   letter-spacing: 1px;
 }
 
-.btnSearch{
+.btnSearch {
   position: absolute;
   right: 7px;
   border-radius: 50px;
@@ -272,7 +340,7 @@
   gap: 10px;
   height: 42px;
   padding: 0px 15px;
-  font-size:16px;
+  font-size: 16px;
   letter-spacing: 1px;
   color: white;
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
@@ -280,11 +348,11 @@
   animation: moveGradient 4s ease-in-out infinite;
 }
 
-.btnSearch .icon{
+.btnSearch .icon {
   font-size: 1.2rem;
 }
 
-.aceptUsers{
+.aceptUsers {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -293,7 +361,7 @@
   gap: 15px;
 }
 
-.resultSearch{
+.resultSearch {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -301,12 +369,12 @@
   gap: 25px;
 }
 
-.resultSearch p{
+.resultSearch p {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
 
-.userBeneficer{
+.userBeneficer {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -315,7 +383,7 @@
   gap: 10px;
 }
 
-.userPerfil{
+.userPerfil {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -323,7 +391,7 @@
   gap: 20px;
 }
 
-.boxImage{
+.boxImage {
   width: 170px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -331,7 +399,7 @@
   background-color: black;
 }
 
-.boxImage img{
+.boxImage img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -339,13 +407,13 @@
   outline: 2px solid white;
 }
 
-.userPerfil h4{
+.userPerfil h4 {
   font-size: 1.2rem;
   letter-spacing: 1px;
   font-weight: 700;
 }
 
-.nombresUser{
+.nombresUser {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -353,12 +421,12 @@
   gap: 10px;
 }
 
-.nombresUser p{
+.nombresUser p {
   font-size: 1rem;
   letter-spacing: 0.5px;
 }
 
-.btnActions{
+.btnActions {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,7 +434,7 @@
   width: 90%;
 }
 
-.btnActions button{
+.btnActions button {
   font-size: 0.9rem;
   width: 50%;
   height: 70px;
@@ -384,15 +452,15 @@
   outline: none;
 }
 
-.btnActions button:first-child{
+.btnActions button:first-child {
   border-radius: 30px 0px 0px 0px;
 }
 
-.btnActions button:last-child{
+.btnActions button:last-child {
   border-radius: 0px 30px 0px 0px;
 }
 
-.btnActions button span{
+.btnActions button span {
   width: 35px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -401,15 +469,15 @@
   justify-content: center;
 }
 
-.btnActions button:first-child span{
+.btnActions button:first-child span {
   background-color: rgb(0, 160, 0);
 }
 
-.btnActions button:last-child span{
+.btnActions button:last-child span {
   background-color: red;
 }
 
-.btnActions button .icon{
+.btnActions button .icon {
   font-size: 1.4rem;
   color: white;
 }
@@ -421,19 +489,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-radius:20px;
+  border-radius: 20px;
   gap: 10px;
   border: 1px solid #212121;
   margin-top: 30px;
 }
 
-.listadoUsuarios h4{
+.listadoUsuarios h4 {
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-.itemUserApproved{
+.itemUserApproved {
   width: 90%;
   height: 40px;
   display: flex;
@@ -443,14 +511,13 @@
   border-bottom: 1px solid #212121;
 }
 
-.itemUserApproved p{
+.itemUserApproved p {
   font-size: 0.9rem;
   font-weight: 300;
   text-transform: capitalize;
   letter-spacing: 0.5px;
   text-align: center;
 }
-
 
 .interes {
   width: 90%;
@@ -481,7 +548,7 @@
   padding: 15px 5%;
 }
 
-.flexAllUsers{
+.flexAllUsers {
   width: 90%;
   height: 150px;
   margin-top: 5px;
@@ -492,7 +559,7 @@
   gap: 15px;
 }
 
-.itemUserApproved{
+.itemUserApproved {
   height: 100%;
   min-width: 30%;
   background-color: #212121;
@@ -504,58 +571,55 @@
   gap: 12px;
 }
 
-.itemUserApproved h4{
+.itemUserApproved h4 {
   font-size: 0.9rem;
   text-align: center;
 }
 
-.itemUserApproved p{
+.itemUserApproved p {
   font-size: 0.8rem;
   font-weight: 200;
 }
 
-.boxPerfilImage{
+.boxPerfilImage {
   position: relative;
   width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;
 }
 
-.boxPerfilImage img{
+.boxPerfilImage img {
   border-radius: 50%;
   object-fit: cover;
 }
 
-
-.titleSection{
+.titleSection {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.titleSection .icon{
+.titleSection .icon {
   font-size: 1rem;
 }
 
-.allResult{
+.allResult {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.allResult{
+.allResult {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.allResult .icon{
+.allResult .icon {
   font-size: 1rem;
 }
-
-
 
 .btnMinimizar {
   display: flex;
@@ -569,7 +633,6 @@
   border-radius: 50px;
 }
 
-
 .btnMinimizar p {
   font-size: 0.8rem;
   text-transform: capitalize;
@@ -580,8 +643,6 @@
   font-size: 0.9rem;
   transform: rotate(-180deg);
 }
-
-
 
 @keyframes moveGradient {
   0% {
@@ -595,8 +656,7 @@
   }
 }
 
-
-.containerActions{
+.containerActions {
   width: 90%;
   display: flex;
   align-items: center;
@@ -605,7 +665,7 @@
   margin-top: 10px;
 }
 
-.containerActions button{
+.containerActions button {
   width: 50%;
   height: 120px;
   border-radius: 25px;
@@ -619,18 +679,18 @@
   color: white;
 }
 
-.containerActions button p{
+.containerActions button p {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   width: 65%;
   line-height: 1.2;
 }
 
-.containerActions button .icon{
+.containerActions button .icon {
   font-size: 1.7rem;
 }
 
-.containerActions button:last-child{
+.containerActions button:last-child {
   background-color: rgba(255, 0, 0, 0.493);
   border: 1px solid red;
 }

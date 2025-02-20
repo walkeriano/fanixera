@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretDown,
   faCalendarCheck,
-  faFlagCheckered,
+  faTurnDown,
   faClockRotateLeft,
   faLocationCrosshairs,
   faXmark,
-  faUser,
+  faCalendarXmark,
   faMagnifyingGlass,
   faArrowRightArrowLeft,
   faPowerOff,
@@ -41,6 +41,21 @@ export default function AllAdsBrand() {
 
   return (
     <section className={styles.containerAllBrand}>
+      <section className={styles.flextitleGeneral}>
+        <h2 className={styles.titleContainer}>Buzón de beneficios</h2>
+        <section className={styles.titleFunction}>
+          
+          <h3>Total disponibles</h3>
+          <div className={styles.totalCards}>
+            <p>{promotions?.length}</p>
+            <FontAwesomeIcon
+              icon={faTurnDown}
+              size="2x"
+              className={styles.icon}
+            />
+          </div>
+        </section>
+      </section>
       {promotions.map((promotion) => (
         <div key={promotion.id} className={styles.itemAdBrand}>
           <section className={styles.imgAdCard}>
@@ -69,9 +84,11 @@ export default function AllAdsBrand() {
               className={styles.img}
             />
           </section>
-          <h3 className={styles.titleCard}>
-            {promotion?.title}
-          </h3>
+          <h3 className={styles.titleCard}>{promotion?.title}</h3>
+          <p className={styles.descriptionCard}>
+            dasjdlkasjdlajskldjsaklds djkslaj jdkslajdjsakdjk slajdklsadasdsa
+            dsadsadas dsadsadsa dsadsadas fdfdsf fdsfdsfds
+          </p>
           <section className={styles.expandContainer}>
             {expand ? (
               <div className={styles.divactive}>
@@ -97,28 +114,6 @@ export default function AllAdsBrand() {
                 <section className={styles.detallesAd}>
                   <div className={styles.itemDetalle}>
                     <FontAwesomeIcon
-                      icon={faCalendarCheck}
-                      size="2x"
-                      className={styles.icon}
-                    />
-                    <span>
-                      <p>Duración:</p>
-                      <p>10/12/24 - 12/12/12</p>
-                    </span>
-                  </div>
-                  <div className={styles.itemDetalle}>
-                    <FontAwesomeIcon
-                      icon={faFlagCheckered}
-                      size="2x"
-                      className={styles.icon}
-                    />
-                    <span>
-                      <p>Válido en:</p>
-                      <p>Local y on line</p>
-                    </span>
-                  </div>
-                  <div className={styles.itemDetalle}>
-                    <FontAwesomeIcon
                       icon={faClockRotateLeft}
                       size="2x"
                       className={styles.icon}
@@ -130,13 +125,39 @@ export default function AllAdsBrand() {
                   </div>
                   <div className={styles.itemDetalle}>
                     <FontAwesomeIcon
+                      icon={faCalendarCheck}
+                      size="2x"
+                      className={styles.icon}
+                    />
+                    <span>
+                      <p>Inicia:</p>
+                      <p>
+                        {promotion?.startDate} / {promotion?.startTime}
+                      </p>
+                    </span>
+                  </div>
+                  <div className={styles.itemDetalle}>
+                    <FontAwesomeIcon
+                      icon={faCalendarXmark}
+                      size="2x"
+                      className={styles.icon}
+                    />
+                    <span>
+                      <p>Termina:</p>
+                      <p>
+                        {promotion?.endDate} / {promotion?.endTime}
+                      </p>
+                    </span>
+                  </div>
+                  <div className={styles.itemDetalle}>
+                    <FontAwesomeIcon
                       icon={faLocationCrosshairs}
                       size="2x"
                       className={styles.icon}
                     />
                     <span>
                       <p>Ubicación:</p>
-                      <p>San miguel, Lima - Peru.</p>
+                      <p>{promotion?.ubication}</p>
                     </span>
                   </div>
                 </section>

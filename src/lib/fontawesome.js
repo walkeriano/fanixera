@@ -4,6 +4,7 @@ import {
   faUser,
   faArrowRightArrowLeft,
   faCalendarCheck,
+  faCalendarXmark,
   faChevronDown,
   faFlagCheckered,
   faClockRotateLeft,
@@ -52,6 +53,7 @@ import {
   faArrowTrendUp,
   faArrowUpShortWide,
   faInbox,
+  faTurnDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -120,5 +122,7 @@ library.add(
   faUserSecret,
   faArrowTrendUp,
   faArrowUpShortWide,
-  faInbox
+  faInbox,
+  faCalendarXmark,
+  faTurnDown,
 );
