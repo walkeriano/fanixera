@@ -12,7 +12,12 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function VerifiedBrand({ user }) {
+export default function VerifiedBrand({ user, loadingUserData }) {
+
+  if (loadingUserData) {
+    return <p className={styles.loading}>Cargando datos de la marca...</p>; // Reemplázalo con un Skeleton si lo prefieres
+  }
+
   return (
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
@@ -20,7 +25,7 @@ export default function VerifiedBrand({ user }) {
         <span></span>
       </section>
       <section className={styles.infoBrand}>
-        <p>{user?.expediente.category}</p>
+        <p>{user?.expediente?.category}</p>
         <h3>{user?.nombreMarca}</h3>
         <section className={styles.channelBtns}>
           <Link className={styles.linkWebsite} href="/">

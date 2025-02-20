@@ -38,19 +38,21 @@ const handleFirebaseError = (error) => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadingUserData, setLoadingUserData] = useState(false); // Para Firestore
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
+        setLoadingUserData(true); // Inicia la carga de datos Firestore
         const userRef = doc(db, "users", user.uid);
         const userSnap = await getDoc(userRef);
-  
+
         if (userSnap.exists()) {
           setUser({
             uid: user.uid,
             email: user.email,
             nombreMarca: userSnap.data().nombreMarca,
-            expediente: userSnap.data().expediente || null, // Agregar expediente
+            expediente: userSnap.data().expediente || null, // Expediente puede tardar más
           });
         } else {
           setUser({
@@ -60,12 +62,15 @@ export const AuthProvider = ({ children }) => {
             expediente: null,
           });
         }
+
+        setLoadingUserData(false); // Datos de Firestore cargados
       } else {
         setUser(null);
+        setLoadingUserData(false);
       }
       setLoading(false);
     });
-  
+
     return () => unsubscribe();
   }, []);
 
@@ -74,7 +79,7 @@ export const AuthProvider = ({ children }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Obtener nombreMarca desde Firestore
+      setLoadingUserData(true); // Indicamos que estamos cargando datos de Firestore
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
 
@@ -82,10 +87,12 @@ export const AuthProvider = ({ children }) => {
         setUser({
           uid: user.uid,
           email: user.email,
-          nombreMarca: userSnap.data().nombreMarca, 
+          nombreMarca: userSnap.data().nombreMarca,
+          expediente: userSnap.data().expediente || null,
         });
       }
 
+      setLoadingUserData(false); // Datos listos
       return userCredential;
     } catch (error) {
       throw new Error(handleFirebaseError(error));
@@ -123,7 +130,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, register, login, logout }}>
+    <AuthContext.Provider value={{ user, setUser, register, login, logout, loadingUserData }}>
       {loading ? <Loading/> : children}
     </AuthContext.Provider>
   );

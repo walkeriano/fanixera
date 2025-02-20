@@ -13,11 +13,11 @@ import AuthContext from "@/state/auth/auth-context";
 
 export default function DashboardSociosNet(){
     const [change, setChange] = useState(true);
-    const { user } = useContext(AuthContext);
+    const { user, loadingUserData } = useContext(AuthContext);
 
     return(
         <section className={styles.containerDashboard}>
-            <VerifiedBrand user={user}/>
+            <VerifiedBrand user={user} loadingUserData={loadingUserData}/>
             <section className={styles.buttonPannel}>
               <section
                 onClick={() => setChange(true)}
