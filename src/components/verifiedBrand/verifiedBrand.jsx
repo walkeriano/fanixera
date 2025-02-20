@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function VerifiedBrand({ user, loadingUserData }) {
-
   if (loadingUserData) {
     return <p className={styles.loading}>Cargando datos de la marca...</p>; // Reemplázalo con un Skeleton si lo prefieres
   }
@@ -21,7 +20,7 @@ export default function VerifiedBrand({ user, loadingUserData }) {
   return (
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
-        <Image src="/prom.png" alt="img-perfil-marca" fill="true" />
+        <img src={user?.expediente?.imageUrl} alt="img-perfil-marca" />
         <span></span>
       </section>
       <section className={styles.infoBrand}>
