@@ -26,7 +26,7 @@ export default function DashboardSociosNet() {
             size="2x"
             className={styles.icon}
           />
-          Crear nuevo
+          Creador
         </section>
         <section
           onClick={() => setChange(true)}

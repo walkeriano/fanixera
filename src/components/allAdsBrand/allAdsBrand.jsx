@@ -44,7 +44,6 @@ export default function AllAdsBrand() {
       <section className={styles.flextitleGeneral}>
         <h2 className={styles.titleContainer}>Buzón de beneficios</h2>
         <section className={styles.titleFunction}>
-          
           <h3>Total disponibles</h3>
           <div className={styles.totalCards}>
             <p>{promotions?.length}</p>
