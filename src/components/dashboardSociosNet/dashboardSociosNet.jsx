@@ -8,14 +8,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
 import FormCreationAd from "@/components/formCreationAd/formCreationAd";
+import AuthContext from "@/state/auth/auth-context";
 
 
 export default function DashboardSociosNet(){
     const [change, setChange] = useState(true);
+    const { user } = useContext(AuthContext);
 
     return(
         <section className={styles.containerDashboard}>
-            <VerifiedBrand />
+            <VerifiedBrand user={user}/>
             <section className={styles.buttonPannel}>
               <section
                 onClick={() => setChange(true)}
@@ -28,7 +30,7 @@ export default function DashboardSociosNet(){
                   size="2x"
                   className={styles.icon}
                 />
-                bandeja
+                Bandeja
               </section>
               <section
                 onClick={() => setChange(false)}

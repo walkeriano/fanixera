@@ -1,22 +1,44 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db } from "../../../firebase-config"; // Asegúrate de importar la configuración de Firestore // Asegúrate de importar tu configuración de Firebase aquí
+import AuthContext from "@/state/auth/auth-context";
 
-const useSubmitExpediente = (user) => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+const useSubmitExpediente = () => {
+  const { user, setUser } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+  } = useForm();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
 
   // Función para subir una imagen a Firebase Storage
   const uploadImage = async (file) => {
-    const storage = getStorage();
-    const storageRef = ref(storage, `expedientes/${user.uid}/${file.name}`);
+    if (!file) {
+      throw new Error("No se ha seleccionado una imagen");
+    }
 
-    await uploadBytes(storageRef, file);
-    return await getDownloadURL(storageRef);
+    try {
+      const storage = getStorage();
+      const storageRef = ref(storage, `expedientes/${user.uid}/${file.name}`);
+
+      // Subir archivo a Firebase Storage
+      const snapshot = await uploadBytes(storageRef, file);
+
+      // Obtener URL de descarga
+      const downloadURL = await getDownloadURL(snapshot.ref);
+      return downloadURL;
+    } catch (error) {
+      console.error("Error al subir la imagen:", error);
+      throw error;
+    }
   };
 
   const onSubmit = async (data) => {
@@ -25,16 +47,18 @@ const useSubmitExpediente = (user) => {
     setError(null);
 
     try {
-      // Subir imagen al Storage si existe
+      console.log("Datos recibidos en onSubmit:", data);
+
       let imageUrl = "";
-      if (data.image && data.image[0]) {
-        imageUrl = await uploadImage(data.image[0]);
+      if (data.imageProfile instanceof File) { // 👈 Validación corregida
+        console.log("Subiendo imagen...");
+        imageUrl = await uploadImage(data.imageProfile);
+        console.log("Imagen subida correctamente:", imageUrl);
       }
 
-      // Crear datos a guardar
       const expedienteData = {
         ruc: data.ruc,
-        category: data.categoria,
+        category: data.category,
         descripcion: data.descripcion,
         contacto: {
           sitioWeb: data.sitioWeb,
@@ -46,15 +70,25 @@ const useSubmitExpediente = (user) => {
         createdAt: new Date(),
       };
 
-      // Guardar en Firestore en el documento del usuario
+      console.log("Guardando expediente en Firestore...", expedienteData);
+
       const userDocRef = doc(db, "users", user.uid);
       await setDoc(userDocRef, { expediente: expedienteData }, { merge: true });
 
+      console.log("Expediente guardado correctamente en Firestore");
+
+      setUser((prevUser) => ({
+        ...prevUser,
+        expediente: expedienteData,
+      }));
+
       setSuccess(true);
-      reset(); // Resetea el formulario después del envío
+      reset();
     } catch (err) {
-      console.error("Error al enviar el expediente:", err);
-      setError("Hubo un error al enviar el expediente. Por favor, inténtalo de nuevo.");
+      console.error("Error en el envío del expediente:", err);
+      setError(
+        "Hubo un error al enviar el expediente. Por favor, inténtalo de nuevo."
+      );
     } finally {
       setLoading(false);
     }
@@ -68,6 +102,7 @@ const useSubmitExpediente = (user) => {
     success,
     error,
     onSubmit,
+    setValue,
   };
 };
 

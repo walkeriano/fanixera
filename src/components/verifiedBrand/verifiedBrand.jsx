@@ -12,7 +12,7 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function VerifiedBrand() {
+export default function VerifiedBrand({ user }) {
   return (
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
@@ -20,8 +20,8 @@ export default function VerifiedBrand() {
         <span></span>
       </section>
       <section className={styles.infoBrand}>
-        <p>Restaurante</p>
-        <h3>Kentucky Fried Chicken</h3>
+        <p>{user?.expediente.category}</p>
+        <h3>{user?.nombreMarca}</h3>
         <section className={styles.channelBtns}>
           <Link className={styles.linkWebsite} href="/">
             kfcperu.com

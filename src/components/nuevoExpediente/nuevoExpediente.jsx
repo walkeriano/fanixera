@@ -26,7 +26,7 @@ import useSubmitExpediente from "@/state/hook/useSubmitExpediente";
 
 export default function NuevoExpediente() {
   const { user } = useContext(AuthContext);
-  const { register, handleSubmit, errors, loading, success, error, onSubmit } =
+  const { register, handleSubmit, errors, loading, success, error, onSubmit, setValue } =
     useSubmitExpediente(user);
   const [imagePreview, setImagePreview] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -36,12 +36,7 @@ export default function NuevoExpediente() {
 
   const onImageChange = (e) => {
     const file = e.target.files[0];
-
     if (!file) return;
-
-    // Resetear mensajes previos
-    setImageError("");
-    setImageSuccess("");
 
     // Validar formato y tamaño
     const validTypes = ["image/jpeg", "image/png"];
@@ -55,9 +50,11 @@ export default function NuevoExpediente() {
     }
 
     // Archivo válido
-    setSelectedImage(file);
     setImagePreview(URL.createObjectURL(file));
     setImageSuccess("Imagen adjuntada correctamente");
+
+    // 👇 Registrar manualmente el archivo en react-hook-form
+    setValue("imageProfile", file);
   };
 
   return (
@@ -95,7 +92,7 @@ export default function NuevoExpediente() {
                 />
                 <p>Nombre comercial</p>
               </div>
-              <h3>{user?.email}</h3>
+              <h3>{user?.nombreMarca}</h3>
             </div>
             <div className={styles.itemVerify}>
               <div className={styles.flexDescription}>
@@ -127,7 +124,6 @@ export default function NuevoExpediente() {
               type="file"
               id="imageProfile"
               accept="image/*"
-              {...register("imageProfile", { required: true })}
               onChange={onImageChange}
               hidden
             />
@@ -153,7 +149,7 @@ export default function NuevoExpediente() {
                 className={styles.icon}
               />
             </div>
-            {errors.image && <p>Este campo es obligatorio.</p>}
+            {errors.imageProfile && <p>Este campo es obligatorio.</p>}
             <p>Formato JPG o PNG</p>
             <p>Tamaño máx. 1MB</p>
           </section>

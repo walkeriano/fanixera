@@ -40,20 +40,52 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        setUser(user);
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+  
+        if (userSnap.exists()) {
+          setUser({
+            uid: user.uid,
+            email: user.email,
+            nombreMarca: userSnap.data().nombreMarca,
+            expediente: userSnap.data().expediente || null, // Agregar expediente
+          });
+        } else {
+          setUser({
+            uid: user.uid,
+            email: user.email,
+            nombreMarca: null,
+            expediente: null,
+          });
+        }
       } else {
         setUser(null);
       }
       setLoading(false);
     });
+  
     return () => unsubscribe();
   }, []);
 
   const login = async (email, password) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Obtener nombreMarca desde Firestore
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        setUser({
+          uid: user.uid,
+          email: user.email,
+          nombreMarca: userSnap.data().nombreMarca, 
+        });
+      }
+
       return userCredential;
     } catch (error) {
       throw new Error(handleFirebaseError(error));
@@ -72,14 +104,17 @@ export const AuthProvider = ({ children }) => {
   const register = async ({ email, password, nombreMarca }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const userId = userCredential.user.uid; 
+      const userId = userCredential.user.uid;
 
-      
+      // Guardar en Firestore
       await setDoc(doc(db, "users", userId), {
-        email: email,
-        nombreMarca: nombreMarca,
+        email,
+        nombreMarca,
         createdAt: new Date(),
       });
+
+      // Guardar en el contexto
+      setUser({ uid: userId, email, nombreMarca });
 
       return userCredential;
     } catch (error) {
@@ -88,7 +123,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, register, login, logout }}>
+    <AuthContext.Provider value={{ user, setUser, register, login, logout }}>
       {loading ? <Loading/> : children}
     </AuthContext.Provider>
   );

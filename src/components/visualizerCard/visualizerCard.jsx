@@ -29,8 +29,12 @@ export default function VisualizerCard({ formValues }) {
             className={styles.imgProfile}
           />
           {formValues.image1 ? (
-            <Image
-              src={formValues.image1}
+            <img
+              src={
+                typeof formValues.image1 === "string"
+                  ? formValues.image1
+                  : URL.createObjectURL(formValues.image1)
+              }
               alt="Imagen adjunta"
               width={30}
               height={30}
@@ -47,8 +51,12 @@ export default function VisualizerCard({ formValues }) {
             className={styles.imgProfile}
           />
           {formValues.image2 ? (
-            <Image
-              src={formValues.image2}
+            <img
+              src={
+                typeof formValues.image2 === "string"
+                  ? formValues.image2
+                  : URL.createObjectURL(formValues.image2)
+              }
               alt="Imagen adjunta"
               width={30}
               height={30}

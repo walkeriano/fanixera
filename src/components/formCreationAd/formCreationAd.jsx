@@ -1,5 +1,5 @@
 import styles from "./formCreationAd.module.css";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,44 +15,42 @@ import {
   faCircleStop,
   faImages,
   faMoneyBillTransfer,
-  faInfinity
+  faInfinity,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import VisualizerCard from "@/components/visualizerCard/visualizerCard";
 import usePromotionsForm from "@/state/hook/usePromotionsForm";
+import AuthContext from "@/state/auth/auth-context";
 
 export default function FormCreationAd() {
   const { register, handleSubmit, setValue, reset, watch } = useForm();
-  const { onSubmit, loading } = usePromotionsForm();
+  const { user } = useContext(AuthContext);
+  const { onSubmit, loading } = usePromotionsForm(user);
   const [previewImage1, setPreviewImage1] = useState(null);
   const [previewImage2, setPreviewImage2] = useState(null);
 
   // Obtener los valores del formulario que necesitamos mostrar en el visualizador
   const formValues = watch();
 
-  const handleImage1Change = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
+  useEffect(() => {
+    if (formValues.image1 instanceof File) {
+      const imageUrl = URL.createObjectURL(formValues.image1);
       setPreviewImage1(imageUrl);
-      setValue("image1", imageUrl); // Guarda la URL en el formulario
+      return () => URL.revokeObjectURL(imageUrl); // 🔹 Liberar memoria al desmontar
     } else {
-      setPreviewImage1(null);
-      setValue("image1", null);
+      setPreviewImage1(formValues.image1 || null);
     }
-  };
+  }, [formValues.image1]);
 
-  const handleImage2Change = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
+  useEffect(() => {
+    if (formValues.image2 instanceof File) {
+      const imageUrl = URL.createObjectURL(formValues.image2);
       setPreviewImage2(imageUrl);
-      setValue("image2", imageUrl); // Guarda la URL en el formulario
+      return () => URL.revokeObjectURL(imageUrl); // 🔹 Liberar memoria al desmontar
     } else {
-      setPreviewImage2(null);
-      setValue("image2", null);
+      setPreviewImage2(formValues.image2 || null);
     }
-  };
+  }, [formValues.image2]);
 
   const handleFormSubmit = async (data) => {
     const success = await onSubmit(data);
@@ -146,11 +144,7 @@ export default function FormCreationAd() {
       <section className={styles.imagesFormatAds}>
         <section className={styles.titleAreaForm}>
           <h3>2. Contenido visual</h3>
-          <FontAwesomeIcon
-            icon={faImages}
-            size="2x"
-            className={styles.icon}
-          />
+          <FontAwesomeIcon icon={faImages} size="2x" className={styles.icon} />
         </section>
         <section className={styles.containerImageAd}>
           <section className={styles.flexAddImage}>
@@ -180,14 +174,13 @@ export default function FormCreationAd() {
                 hidden
                 onChange={handleImage1Change}
               />
-              {previewImage1 ? (
-                <Image
+              {previewImage1 && (
+                <img
                   src={previewImage1}
                   alt="Imagen subida 1"
-                  fill={true}
                   className={styles.previewContainer}
                 />
-              ) : null}
+              )}
               <FontAwesomeIcon
                 icon={faTriangleExclamation}
                 size="2x"
@@ -223,14 +216,13 @@ export default function FormCreationAd() {
                 onChange={handleImage2Change}
                 hidden
               />
-              {previewImage2 ? (
-                <Image
+              {previewImage2 && (
+                <img
                   src={previewImage2}
                   alt="Imagen subida 2"
-                  fill={true}
                   className={styles.previewContainer}
                 />
-              ) : null}
+              )}
               <FontAwesomeIcon
                 icon={faTriangleExclamation}
                 size="2x"
@@ -252,12 +244,13 @@ export default function FormCreationAd() {
         </section>
         <section className={styles.stockInput}>
           <label>
-            <input
-              {...register("stock")}
-              type="number"
-              placeholder="00"
+            <input {...register("stock")} type="number" placeholder="00" />
+            <Image
+              src="/mascot-white.png"
+              alt="mascot-tomi"
+              width={80}
+              height={80}
             />
-            <Image src="/mascot-white.png" alt="mascot-tomi" width={80} height={80} />
           </label>
           <button className={styles.stockIlimitado}>
             <FontAwesomeIcon
