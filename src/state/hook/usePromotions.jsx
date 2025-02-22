@@ -15,12 +15,13 @@ const usePromotions = (selectedCategory) => {
       try {
         const q = query(
           collection(db, "promotions"),
-          where("user.category", "==", selectedCategory)
+          where("user.expediente.category", "==", selectedCategory)
         );
         const querySnapshot = await getDocs(q);
         const promotionsList = querySnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data(),
+          image1:doc.data().image1,
+          imageUrl: doc.data().user.expediente.imageUrl,
         }));
         setPromotions(promotionsList);
       } catch (err) {

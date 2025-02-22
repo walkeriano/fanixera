@@ -1,11 +1,9 @@
 import styles from "./detalleBeneficio.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLink,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
-export default function DetalleBeneficio() {
+export default function DetalleBeneficio({ promotion }) {
   return (
     <section className={styles.detalleBeneficioContainer}>
       <section className={styles.titleSection}>
@@ -15,17 +13,30 @@ export default function DetalleBeneficio() {
         </div>
       </section>
       <section className={styles.flexInfo}>
-        <section className={styles.infoAll}>
-          <h5>hello motherfucker dsadsadsa dsads</h5>
-          <div className={styles.moreDetails}>
-            <p>lune</p>
-            <p>lunes</p>
-            <p>martes</p>
-            <p>martes</p>
-          </div>
-        </section>
         <section className={styles.boxImage}>
-          <Image src="/prom.png" alt="image-beneficio" fill={true} />
+          <Image
+            src={promotion?.image1 || "/prom.png"}
+            alt="image-beneficio"
+            fill={true}
+          />
+        </section>
+        <section className={styles.infoAll}>
+          <h3>{promotion?.title}</h3>
+          <h4>{promotion?.description}</h4>
+          <section className={styles.moreDetails}>
+            <div className={styles.infoDatoCard}>
+              <p>Empieza:</p>
+              <p>{promotion?.startDate}</p>
+            </div>
+            <div className={styles.infoDatoCard}>
+              <p>Termina:</p>
+              <p>{promotion?.endDate}</p>
+            </div>
+            <div className={styles.infoDatoCard}>
+              <p>Ubicación:</p>
+              <p>{promotion?.ubication}</p>
+            </div>
+          </section>
         </section>
       </section>
     </section>

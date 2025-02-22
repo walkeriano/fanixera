@@ -7,12 +7,12 @@ import {
   faArrowRightArrowLeft,
   faCalendarCheck,
   faChevronDown,
-  faFlagCheckered,
+  faCalendarXmark,
   faClockRotateLeft,
   faLocationCrosshairs,
   faExpand,
   faLayerGroup,
-  faBookmark
+  faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import useDetailPromotion from "@/state/hook/useDetailPromotion";
 import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
@@ -33,22 +33,23 @@ export default function InfoCard({ id }) {
       <section className={styles.partOne}>
         <section className={styles.marcaDatos}>
           <div className={styles.imgBox}>
-            <Image src={promotion?.user.image} alt="icon-user" fill={true} />
+            <Image
+              src={promotion?.user.expediente.imageUrl || "/prom.png"}
+              alt="icon-user"
+              fill={true}
+            />
           </div>
-          <h3>{promotion?.user.brandName}</h3>
+          <h3>{promotion?.user.nombreMarca}</h3>
         </section>
         <Image
-          src="/prom.png"
+          src={promotion?.image1 || "/prom.png"}
           alt="image-promo"
           fill={true}
           className={styles.imgPromo}
         />
       </section>
       <section className={styles.partTwo}>
-        <h2>
-          {promotion?.promcardName} dasdasdasd asdsdsa adasdsa dasdasdsa
-          dsadsadsadsadsadsadsadasdsadsadsasdsadsa
-        </h2>
+        <h2>{promotion?.title}</h2>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
@@ -59,7 +60,7 @@ export default function InfoCard({ id }) {
               />
               <p>Stock</p>
             </div>
-            <h3>50/150</h3>
+            <h3>50/{promotion?.stock}</h3>
           </section>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
@@ -88,58 +89,39 @@ export default function InfoCard({ id }) {
       <section className={styles.partTre}>
         <section className={styles.itemInfo}>
           <FontAwesomeIcon
-            icon={faFlagCheckered}
-            size="2x"
-            className={styles.icon}
-          />
-          <section className={styles.infoGeneralDato}>
-            <div className={styles.flexDatoTitle}>
-              <p>Válidez</p>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                size="2x"
-                className={styles.icon}
-              />
-            </div>
-            <p className={styles.datoInfo}>Online y tienda</p>
-          </section>
-        </section>
-        <span></span>
-        <section className={styles.itemInfo}>
-          <FontAwesomeIcon
             icon={faCalendarCheck}
             size="2x"
             className={styles.icon}
           />
           <section className={styles.infoGeneralDato}>
             <div className={styles.flexDatoTitle}>
-              <p>Duración</p>
+              <p>Empieza</p>
               <FontAwesomeIcon
                 icon={faChevronDown}
                 size="2x"
                 className={styles.icon}
               />
             </div>
-            <p className={styles.datoInfo}>12/21/25</p>
+            <p className={styles.datoInfo}>{promotion?.startDate}</p>
           </section>
         </section>
         <span></span>
         <section className={styles.itemInfo}>
           <FontAwesomeIcon
-            icon={faClockRotateLeft}
+            icon={faCalendarXmark}
             size="2x"
             className={styles.icon}
           />
           <section className={styles.infoGeneralDato}>
             <div className={styles.flexDatoTitle}>
-              <p>Atención</p>
+              <p>Termina</p>
               <FontAwesomeIcon
                 icon={faChevronDown}
                 size="2x"
                 className={styles.icon}
               />
             </div>
-            <p className={styles.datoInfo}>12/21/25</p>
+            <p className={styles.datoInfo}>{promotion?.endDate}</p>
           </section>
         </section>
         <span></span>
@@ -158,7 +140,7 @@ export default function InfoCard({ id }) {
                 className={styles.icon}
               />
             </div>
-            <p className={styles.datoInfo}>Vilanova i la grel...</p>
+            <p className={styles.datoInfo}>{promotion?.ubication}</p>
           </section>
         </section>
       </section>
@@ -177,7 +159,7 @@ export default function InfoCard({ id }) {
         )}
       </section>
       <VerifiedBrand />
-      <DetalleBeneficio />
+      <DetalleBeneficio promotion={promotion} />
       <LogicMain />
     </section>
   );

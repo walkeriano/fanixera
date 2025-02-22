@@ -64,10 +64,9 @@
 }
 
 .flexInfo {
-  width: 90%;
-  height: 160px;
+  width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 20px;
 }
@@ -77,18 +76,26 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.infoAll h5 {
+.infoAll h3 {
   width: 100%;
-  height: 50px;
   font-size: 1.1rem;
   line-height: 1.2;
   letter-spacing: 0.5px;
   text-transform: capitalize;
+  font-weight: 700;
+}
+.infoAll h4 {
+  width: 100%;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  font-weight: 200;
 }
 
 .moreDetails {
@@ -96,25 +103,37 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 5px;
-  height: 95px;
+  gap: 15px;
   width: 100%;
 }
 
-.moreDetails p {
+.infoDatoCard{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+
+.infoDatoCard p {
   color: grey;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: capitalize;
-  width: 100%;
   line-height: 1;
+}
+
+.infoDatoCard p:last-child {
+  color: white;
+  font-size: 0.9rem;
 }
 
 .boxImage {
   width: 40%;
-  height: 100%;
+  height: 200px;
   background-color: rgb(34, 34, 34);
-  border-radius: 15px;
   position: relative;
 }
 
@@ -122,5 +141,5 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 10px;
 }

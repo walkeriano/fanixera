@@ -43,7 +43,7 @@ export default function viewall({ selectedCategory, searchTerm }) {
     }, 500); // Duración de la animación (500ms)
   };
 
-  if (loading || searchLoading) return <LoadingBeneficios/>;
+  if (loading || searchLoading) return <LoadingBeneficios />;
   if (error || searchError) return <p>{error || searchError}</p>;
 
   if (shuffledPromotions.length === 0) {
@@ -67,17 +67,16 @@ export default function viewall({ selectedCategory, searchTerm }) {
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
-              src={promo?.squareImageUrl || "/prom.png"}
+              src={promo?.image1 || "/prom.png"}
               alt="image-marca"
               fill={true}
               className={styles.imgAd}
             />
             <div className={styles.boxImage}>
               <Image
-                src={promo?.user.image || "/prom.png"}
+                src={promo?.imageUrl || "/prom.png"}
                 alt="image-marca"
-                width={30}
-                height={30}
+                fill={true}
               />
             </div>
           </Link>
@@ -91,17 +90,16 @@ export default function viewall({ selectedCategory, searchTerm }) {
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
-              src={promo?.squareImageUrl || "/prom.png"}
+              src={promo?.image1 || "/prom.png"}
               alt="image-marca"
               fill={true}
               className={styles.imgAd}
             />
             <div className={styles.boxImage}>
               <Image
-                src={promo?.user.image || "/prom.png"}
+                src={promo?.imageUrl || "/prom.png"}
                 alt="image-marca"
-                width={30}
-                height={30}
+                fill={true}
               />
             </div>
           </Link>
@@ -115,17 +113,16 @@ export default function viewall({ selectedCategory, searchTerm }) {
             className={`${styles.boxad} ${animate ? styles.animate : ""}`}
           >
             <Image
-              src={promo?.squareImageUrl || "/prom.png"}
+              src={promo?.image1 || "/prom.png"}
               alt="image-marca"
               fill={true}
               className={styles.imgAd}
             />
             <div className={styles.boxImage}>
               <Image
-                src={promo?.user.image || "/prom.png"}
+                src={promo?.imageUrl || "/prom.png"}
                 alt="image-marca"
-                width={30}
-                height={30}
+                fill={true}
               />
             </div>
           </Link>
