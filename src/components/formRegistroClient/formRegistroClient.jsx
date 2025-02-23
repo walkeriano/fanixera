@@ -1,43 +1,51 @@
+import styles from "./formRegistroClient.module.css";
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import AuthContext from "@/state/auth/auth-context";
-import styles from "./formAccesSociosNet.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faAt,
   faEyeSlash,
   faEye,
+  faStore,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/navigation";
 
-export default function FormAccesSociosNet() {
-  const { login } = useContext(AuthContext);
-  const [error, setError] = useState(null);
+export default function FormRegistroClient() {
+  const { register: registerUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, touchedFields },
   } = useForm();
 
-  const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
+    setErrorMessage("");
     try {
-      await login(data.email, data.password);
-      router.push("/perfil-socios-net");
-    } catch (error) {
-      setError(error.message);
+      await registerUser({
+        email: data.email,
+        password: data.password,
+        nombreMarca: data.nombreMarca,
+        createdAt: new Date(),
+      });
+      console.log("Registro exitoso");
+      router.push("/registro-socios-net");
+    } catch (err) {
+      const error = handleFirebaseError(err);
+      setErrorMessage(error);
     }
   };
 
   return (
     <section className={styles.containerForm}>
       <section className={styles.titleAcces}>
-        <h2>Iniciar sesión</h2>
-        <p>Ingresar credenciales de marca</p>
+        <h2>Registro</h2>
+        <p>Crear credenciales</p>
       </section>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -46,6 +54,30 @@ export default function FormAccesSociosNet() {
         <label>
           <input
             type="text"
+            placeholder="Nombre de la marca..."
+            className={
+              touchedFields.nombreMarca
+                ? errors.nombreMarca
+                  ? styles.invalid
+                  : styles.valid
+                : ""
+            }
+            {...register("nombreMarca", {
+              required: "El nombre de la marca es obligatorio*",
+              minLength: {
+                value: 3,
+                message: "El nombre debe tener al menos 3 caracteres",
+              },
+            })}
+          />
+          <FontAwesomeIcon icon={faStore} size="2x" className={styles.icon} />
+        </label>
+        {errors.nombreMarca && (
+          <span className={styles.error}>{errors.nombreMarca.message}</span>
+        )}
+        <label>
+          <input
+            type="email"
             placeholder="Email de acceso..."
             className={
               touchedFields.email
@@ -55,7 +87,7 @@ export default function FormAccesSociosNet() {
                 : ""
             }
             {...register("email", {
-              required: "El email es obligatorio",
+              required: "El email es obligatorio*",
               pattern: {
                 value: /^\S+@\S+$/i,
                 message: "Email no es válido",
@@ -65,12 +97,12 @@ export default function FormAccesSociosNet() {
           <FontAwesomeIcon icon={faAt} size="2x" className={styles.icon} />
         </label>
         {errors.email && (
-          <span className={styles.error}>{errors.email.message}*</span>
+          <span className={styles.error}>{errors.email.message}</span>
         )}
         <label>
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Contraseña..."
+            placeholder="Nueva contraseña..."
             className={
               touchedFields.password
                 ? errors.password
@@ -79,7 +111,7 @@ export default function FormAccesSociosNet() {
                 : ""
             }
             {...register("password", {
-              required: "La contraseña es obligatoria",
+              required: "La contraseña es obligatoria*",
               minLength: {
                 value: 6,
                 message: "La contraseña debe tener al menos 6 caracteres",
@@ -91,25 +123,24 @@ export default function FormAccesSociosNet() {
             })}
           />
           <div
-            onClick={() => setShowPassword(!showPassword)}
             className={styles.btnShowPassword}
+            onClick={() => setShowPassword(!showPassword)} // Alterna la visibilidad
           >
             <FontAwesomeIcon
-              icon={showPassword ? faEye : faEyeSlash}
+              icon={showPassword ? faEyeSlash : faEye}
               size="2x"
               className={styles.iconPasword}
             />
           </div>
         </label>
+        {errors.password && (
+          <span className={styles.error}>{errors.password.message}</span>
+        )}
         <p className={styles.indication}>
           *Mínimo 6 carácteres entre números y letras
         </p>
-        {errors.password && (
-          <span className={styles.error}>{errors.password.message}*</span>
-        )}
-        {error && <span className={styles.error}>{error}</span>}
         <button type="submit" className={styles.btnAction}>
-          Ingresar
+          Registrar
           <FontAwesomeIcon
             icon={faArrowUpRightFromSquare}
             size="2x"

@@ -1,0 +1,161 @@
+.containerForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 120px;
+  gap: 30px;
+}
+
+.titleAcces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.titleAcces h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titleAcces p {
+  font-size: 1rem;
+  color: grey;
+  letter-spacing: 1px;
+}
+
+.formularioRegistro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  gap: 25px;
+}
+
+.formularioRegistro label {
+  border: 1px solid #212121;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0d0d0d;
+  border-radius: 50px;
+  position: relative;
+}
+
+.formularioRegistro label input {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 50px;
+  outline: none;
+  border: 1px solid transparent;
+  padding-left: 20px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.formularioRegistro label input::placeholder {
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.formularioRegistro label input:hover,
+.formularioRegistro label input:focus,
+.formularioRegistro label input:active {
+  border: 1px solid #006fff;
+}
+
+.formularioRegistro label input:-webkit-autofill,
+.formularioRegistro label input:-webkit-autofill:hover,
+.formularioRegistro label input:-webkit-autofill:focus,
+.formularioRegistro label input:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important; /* Cambia el color del texto */
+  -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
+  box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.formularioRegistro label .icon {
+  position: absolute;
+  right: 20px;
+  font-size: 1.4rem;
+}
+
+.btnShowPassword {
+  position: absolute;
+  right: 20px;
+}
+
+.btnShowPassword .iconPasword {
+  font-size: 1.3rem;
+}
+
+.formularioRegistro label .valid {
+  border: 1px solid #006fff;
+}
+
+.formularioRegistro label .invalid {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.btnAction {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnAction .icon {
+  font-size: 1.2rem;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.indication {
+  width: 80%;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.2;
+  color: grey;
+}

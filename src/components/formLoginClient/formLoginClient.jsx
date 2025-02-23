@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import styles from "./formLoginClient.module.css";
+import React, { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AuthContext from "@/state/auth/auth-context";
-import styles from "./formAccesSociosNet.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 
-export default function FormAccesSociosNet() {
+export default function FormLoginClient() {
   const { login } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -37,7 +37,7 @@ export default function FormAccesSociosNet() {
     <section className={styles.containerForm}>
       <section className={styles.titleAcces}>
         <h2>Iniciar sesión</h2>
-        <p>Ingresar credenciales de marca</p>
+        <p>Ingresar credenciales</p>
       </section>
       <form
         onSubmit={handleSubmit(onSubmit)}

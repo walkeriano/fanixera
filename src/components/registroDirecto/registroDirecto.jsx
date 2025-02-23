@@ -1,10 +1,20 @@
+import React, { useState } from "react";
 import styles from "./registroDirecto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserSecret, faBell, faUserShield, faUserPen } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserSecret,
+  faBell,
+  faUserShield,
+  faUserPen,
+} from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGooglePlusG } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import FormRegistroClient from "@/components/formRegistroClient/formRegistroClient";
+import FormLoginClient from "@/components/formLoginClient/formLoginClient";
 
 export default function RegistroDirecto() {
+  const [showLogin, setShowLogin] = useState(true);
+
   return (
     <section className={styles.boxRegistroDirecto}>
       <section className={styles.titleSection}>
@@ -26,25 +36,42 @@ export default function RegistroDirecto() {
       </section>
       <section className={styles.linkSection}>
         <Link href="/" className={styles.linkContactBrand}>
-          Utilizar Gmail
-          <FontAwesomeIcon icon={faGooglePlusG} size="2x" className={styles.icon} />
+          <FontAwesomeIcon
+            icon={faGooglePlusG}
+            size="2x"
+            className={styles.icon}
+          />
+          <p>Acceder con Gmail</p>
         </Link>
         <Link href="/" className={styles.linkContactBrand}>
-          Utilizar Facebook
           <FontAwesomeIcon
             icon={faFacebook}
             size="2x"
             className={styles.icon}
           />
+          <p>Acceder con Facebook</p>
         </Link>
-        <Link href="/" className={styles.linkContactBrand}>
-          Iniciar sesión
-          <FontAwesomeIcon icon={faUserShield} size="2x" className={styles.icon} />
-        </Link>
-        <Link href="/" className={styles.linkContactBrand}>
-          Registrarme
-          <FontAwesomeIcon icon={faUserPen} size="2x" className={styles.icon} />
-        </Link>
+      </section>
+      <section className={styles.containerAccesos}>
+        <section className={styles.accesBtns}>
+          <button
+            onClick={() => setShowLogin(true)}
+            className={`${styles.btnAction} ${
+              showLogin ? styles.active : styles.inactive
+            }`}
+          >
+            Iniciar Sesion
+          </button>
+          <button
+            onClick={() => setShowLogin(false)}
+            className={`${styles.btnAction} ${
+              !showLogin ? styles.active : styles.inactive
+            }`}
+          >
+            Registro
+          </button>
+        </section>
+        {showLogin ? <FormLoginClient /> : <FormRegistroClient />}
       </section>
     </section>
   );
