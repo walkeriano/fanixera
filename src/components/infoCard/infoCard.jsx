@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./infoCard.module.css";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,10 +18,11 @@ import useDetailPromotion from "@/state/hook/useDetailPromotion";
 import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
 import DetalleBeneficio from "@/components/detalleBeneficio/detalleBeneficio";
 import LogicMain from "@/components/logicMain/logicMain";
+import AuthContext from "@/state/auth/auth-context";
 
 export default function InfoCard({ id }) {
   const [showTyc, setShowTyc] = useState(true);
-
+  const { user } = useContext(AuthContext);
   const { promotion, loading, error } = useDetailPromotion(id);
 
   if (loading) return <p>Cargando detalles de la promoción...</p>;
@@ -158,9 +159,8 @@ export default function InfoCard({ id }) {
           <section onClick={() => setShowTyc(true)}>todos los detalles</section>
         )}
       </section>
-      <VerifiedBrand />
+      {user ? <VerifiedBrand promotion={promotion} user={user} /> : <LogicMain />}
       <DetalleBeneficio promotion={promotion} />
-      <LogicMain />
     </section>
   );
 }

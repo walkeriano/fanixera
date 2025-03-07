@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useCopyUserToClients from "@/state/hook/useCopyUserToClients";
 
-export default function VerifiedBrand() {
+export default function VerifiedBrand({ user, promotion }) {
   const { copyUserData, loading, success, error, qrCode, promotionUrl } =
     useCopyUserToClients(); // Usamos la URL directamente desde el hook
 
@@ -25,7 +25,11 @@ export default function VerifiedBrand() {
           className={styles.logoIcon}
         />
         <section className={styles.imgBrand}>
-          <img src="/prom.png" alt="img-perfil-marca" />
+          <Image
+            src={promotion?.user?.expediente?.imageUrl || "/prom.png"}
+            alt="image-beneficio"
+            fill={true}
+          />
           <span></span>
         </section>
         <section className={styles.imgBrand}>
@@ -35,9 +39,9 @@ export default function VerifiedBrand() {
       </section>
       <section className={styles.infoBrand}>
         <p>Enlace de</p>
-        <h3>Fridays Perú</h3>
+        <h3>{promotion?.user?.nombreMarca}</h3>
         <p>Beneficiario</p>
-        <h3>Alexander Walker</h3>
+        <h3>{user?.nombreMarca}</h3>
         <div className={styles.userVerficate}>
           <h4>Identidad confirmada</h4>
           <FontAwesomeIcon
@@ -47,7 +51,6 @@ export default function VerifiedBrand() {
           />
         </div>
       </section>
-
       {success ? (
         <div className={styles.qrSection}>
           <p>¡Usuario guardado con éxito!</p>
@@ -84,7 +87,6 @@ export default function VerifiedBrand() {
           />
         </section>
       )}
-
       {error && <p>{error}</p>}
     </section>
   );
