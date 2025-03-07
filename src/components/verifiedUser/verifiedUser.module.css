@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 55px;
-  gap: 25px;
+  gap: 35px;
   border: 1px solid red;
 }
 
@@ -65,14 +65,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-top: 15px;
+  gap: 7px;
 }
 
 .infoBrand p {
   font-size: 1rem;
   color: grey;
   letter-spacing: 1px;
+  line-height: 1;
+  font-weight: 300;
 }
 
 .infoBrand h3 {
@@ -80,4 +81,24 @@
   letter-spacing: 1px;
   text-transform: capitalize;
   color: white;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+
+.editData{
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  background-color: #0d0d0d;
+  color: white;
+  font-weight: 700;
+}
+
+.editData .icon{
+  font-size: 1.2rem;
+  margin-left: 10px;
 }

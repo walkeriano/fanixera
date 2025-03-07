@@ -31,7 +31,7 @@ const getFirebaseErrorMessage = (error) => {
 };
 
 const handleFirebaseError = (error) => {
-  console.error("Firebase error:", error); 
+  console.error("Firebase error:", error);
   return getFirebaseErrorMessage(error);
 };
 
@@ -42,18 +42,24 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      console.log("Usuario autenticado:", user); // <--- Ver si Firebase lo detecta
+
       if (user) {
-        setLoadingUserData(true); // Inicia la carga de datos Firestore
+        setLoadingUserData(true);
+
         const userRef = doc(db, "users", user.uid);
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
-          setUser({
+          const userData = {
             uid: user.uid,
             email: user.email,
-            nombreMarca: userSnap.data().nombreMarca,
-            expediente: userSnap.data().expediente || null, // Expediente puede tardar más
-          });
+            nombreMarca: userSnap.data().nombreMarca || null,
+            expediente: userSnap.data().expediente || null,
+          };
+
+          console.log("Datos del usuario desde Firestore:", userData); // <--- Ver si se obtienen los datos de Firestore
+          setUser(userData);
         } else {
           setUser({
             uid: user.uid,
@@ -63,8 +69,9 @@ export const AuthProvider = ({ children }) => {
           });
         }
 
-        setLoadingUserData(false); // Datos de Firestore cargados
+        setLoadingUserData(false);
       } else {
+        console.log("No hay usuario autenticado."); // <--- Ver si Firebase dice que no hay usuario
         setUser(null);
         setLoadingUserData(false);
       }
@@ -76,7 +83,11 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       setLoadingUserData(true); // Indicamos que estamos cargando datos de Firestore
@@ -102,7 +113,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await signOut(auth);
-      setUser(null); 
+      setUser(null);
     } catch (error) {
       throw new Error("Error durante el cierre de sesión. Inténtalo de nuevo.");
     }
@@ -110,7 +121,11 @@ export const AuthProvider = ({ children }) => {
 
   const register = async ({ email, password, nombreMarca }) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const userId = userCredential.user.uid;
 
       // Guardar en Firestore
@@ -130,8 +145,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, register, login, logout, loadingUserData }}>
-      {loading ? <Loading/> : children}
+    <AuthContext.Provider
+      value={{ user, setUser, register, login, logout, loadingUserData }}
+    >
+      {console.log("AuthContext user:", user)}
+      {loading || loadingUserData ? <Loading /> : children}
     </AuthContext.Provider>
   );
 };

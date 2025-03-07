@@ -5,7 +5,7 @@ import Head from "next/head";
 import HeaderSesion from "@/components/headerSesion/headerSesion";
 import Footer from "@/components/footer/footer";
 import VerifiedUser from "@/components/verifiedUser/verifiedUser";
-import AllAdsClient from "@/components/allAdsClient/allAdsClient";
+import AllAdsClient from "@/components/allAdsBrand/allAdsClient";
 
 export default function PerfilUsuario() {
 

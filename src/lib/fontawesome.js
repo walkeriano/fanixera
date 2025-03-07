@@ -2,6 +2,7 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faUser,
+  faGears,
   faArrowRightArrowLeft,
   faCalendarCheck,
   faCalendarXmark,
@@ -125,4 +126,5 @@ library.add(
   faInbox,
   faCalendarXmark,
   faTurnDown,
+  faGears,
 );

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { db } from "../../../firebase-config"; // Asegúrate de importar correctamente la referencia a tu firebase
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, getDoc } from "firebase/firestore";
 import AuthContext from "@/state/auth/auth-context";
 
 export default function useUserPromotions() {
@@ -26,12 +26,30 @@ export default function useUserPromotions() {
 
         const querySnapshot = await getDocs(q);
 
-        const promotionsData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+        const promotionsData = [];
 
-        setPromotions(promotionsData); // Guardamos las promociones en el estado
+        // Recorrer cada promoción
+        for (const docSnapshot of querySnapshot.docs) {
+          const promotionData = docSnapshot.data();
+          const promotionId = docSnapshot.id;
+
+          // Obtener los clientes de la subcolección 'clients' de la promoción actual
+          const clientsRef = collection(db, "promotions", promotionId, "clients");
+          const clientsSnapshot = await getDocs(clientsRef);
+          const clientsList = clientsSnapshot.docs.map(clientDoc => ({
+            id: clientDoc.id,
+            ...clientDoc.data(),
+          }));
+
+          // Agregar los clientes a la promoción
+          promotionsData.push({
+            id: promotionId,
+            ...promotionData,
+            clients: clientsList, // Añadir la lista de clientes a la promoción
+          });
+        }
+
+        setPromotions(promotionsData); // Guardamos las promociones con sus clientes
       } catch (err) {
         setError("Error al obtener las promociones");
         console.error(err);

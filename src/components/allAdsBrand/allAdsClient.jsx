@@ -22,7 +22,7 @@ import {
 import Image from "next/image";
 import useUserPromotions from "@/state/hook/useUserPromotions";
 
-export default function AllAdsBrand() {
+export default function AllAdsClient() {
   const [expand, setExpand] = useState(true);
   const { promotions, loading, error } = useUserPromotions();
 
@@ -41,9 +41,8 @@ export default function AllAdsBrand() {
   return (
     <section className={styles.containerAllBrand}>
       <section className={styles.flextitleGeneral}>
-        <h2 className={styles.titleContainer}>Buzón de beneficios</h2>
         <section className={styles.titleFunction}>
-          <h3>Total disponibles</h3>
+          <h3>Beneficios reservados</h3>
           <div className={styles.totalCards}>
             <p>{promotions?.length}</p>
             <FontAwesomeIcon
@@ -307,29 +306,36 @@ export default function AllAdsBrand() {
                         />
                       </div>
                     </section>
-                    {promotion.clients.length > 0 ? (
-                      <section className={styles.flexAllUsers}>
-                        {promotion.clients.map((client) => (
-                          <div
-                            key={client.id}
-                            className={styles.itemUserApproved}
-                          >
-                            <div className={styles.boxPerfilImage}>
-                              <Image
-                                src="/prom.png"
-                                alt="image-user"
-                                fill={true}
-                              />
-                            </div>
-                            <h4>{client?.email}</h4>
-                            <p>{client?.nombreMarca}</p>
-                            <p>12:10 pm</p>
-                          </div>
-                        ))}
-                      </section>
-                    ) : (
-                      <p>No hay clientes registrados.</p>
-                    )}
+                    <section className={styles.flexAllUsers}>
+                      <div className={styles.itemUserApproved}>
+                        <div className={styles.boxPerfilImage}>
+                          <Image src="/prom.png" alt="image-user" fill={true} />
+                        </div>
+                        <h4>alexander walker</h4>
+                        <p>12:10 pm</p>
+                      </div>
+                      <div className={styles.itemUserApproved}>
+                        <div className={styles.boxPerfilImage}>
+                          <Image src="/prom.png" alt="image-user" fill={true} />
+                        </div>
+                        <h4>alexander walker</h4>
+                        <p>12:10 pm</p>
+                      </div>
+                      <div className={styles.itemUserApproved}>
+                        <div className={styles.boxPerfilImage}>
+                          <Image src="/prom.png" alt="image-user" fill={true} />
+                        </div>
+                        <h4>alexander walker</h4>
+                        <p>12:10 pm</p>
+                      </div>
+                      <div className={styles.itemUserApproved}>
+                        <div className={styles.boxPerfilImage}>
+                          <Image src="/prom.png" alt="image-user" fill={true} />
+                        </div>
+                        <h4>alexander walker</h4>
+                        <p>12:10 pm</p>
+                      </div>
+                    </section>
                   </section>
                 </section>
                 <section className={styles.containerActions}>
