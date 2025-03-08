@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUserSecret,
   faShieldHalved,
   faLink,
-  faQrcode,
+  faArrowUpFromBracket,
+  faStarHalfStroke,
   faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import useCopyUserToClients from "@/state/hook/useCopyUserToClients";
@@ -87,7 +87,7 @@ export default function VerifiedBrand({ user, promotion }) {
               >
                 <p>{loading ? "Guardando..." : "Reservar"}</p>
                 <FontAwesomeIcon
-                  icon={faUserSecret}
+                  icon={faStarHalfStroke}
                   size="2x"
                   className={styles.icon}
                 />

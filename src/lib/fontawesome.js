@@ -56,6 +56,7 @@ import {
   faInbox,
   faTurnDown,
   faQrcode,
+  faStarHalfStroke,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -129,4 +130,5 @@ library.add(
   faTurnDown,
   faGears,
   faQrcode,
+  faStarHalfStroke,
 );
