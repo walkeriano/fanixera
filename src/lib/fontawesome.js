@@ -55,6 +55,7 @@ import {
   faArrowUpShortWide,
   faInbox,
   faTurnDown,
+  faQrcode,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -127,4 +128,5 @@ library.add(
   faCalendarXmark,
   faTurnDown,
   faGears,
+  faQrcode,
 );

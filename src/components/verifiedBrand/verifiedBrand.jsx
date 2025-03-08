@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserSecret,
   faShieldHalved,
+  faLink,
+  faQrcode,
+  faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import useCopyUserToClients from "@/state/hook/useCopyUserToClients";
 
@@ -16,14 +19,11 @@ export default function VerifiedBrand({ user, promotion }) {
 
   return (
     <section className={styles.containerBrand}>
+      <section className={styles.titleBrand}>
+        <h2>Enlace de beneficio</h2>
+        <p>Reservar lugar</p>
+      </section>
       <section className={styles.flexBeneficios}>
-        <Image
-          src="/mascot-blue.png"
-          alt="logo-tomi-cibermarketing"
-          width={65}
-          height={65}
-          className={styles.logoIcon}
-        />
         <section className={styles.imgBrand}>
           <Image
             src={promotion?.user?.expediente?.imageUrl || "/prom.png"}
@@ -32,18 +32,72 @@ export default function VerifiedBrand({ user, promotion }) {
           />
           <span></span>
         </section>
+        <div className={styles.boxIcon}>
+          <FontAwesomeIcon icon={faLink} size="2x" className={styles.icon} />
+        </div>
         <section className={styles.imgBrand}>
-          <img src="/prom.png" alt="img-perfil-marca" />
+          <Image
+            src={promotion?.user?.expediente?.imageUrl || "/prom.png"}
+            alt="image-beneficio"
+            fill={true}
+          />
           <span></span>
         </section>
       </section>
       <section className={styles.infoBrand}>
-        <p>Enlace de</p>
-        <h3>{promotion?.user?.nombreMarca}</h3>
-        <p>Beneficiario</p>
-        <h3>{user?.nombreMarca}</h3>
+        <section className={styles.enlaceFlex}>
+          <section className={styles.itemAction}>
+            <h3>{promotion?.user?.nombreMarca}</h3>
+            <p>Marca</p>
+          </section>
+          <section className={styles.itemAction}>
+            <h3>{user?.nombreMarca}</h3>
+            <p>Usuario</p>
+          </section>
+        </section>
+        <section className={styles.containerActiveButton}>
+          {success ? (
+            <div className={styles.qrSection}>
+              <img
+                src={qrCode}
+                alt="Código QR del usuario"
+                className={styles.qrCode}
+              />
+              <div className={styles.qrLink}>
+                {promotionUrl ? (
+                  <Link href={promotionUrl} className={styles.linkAcces}>
+                    Abrir reserva
+                    <FontAwesomeIcon
+                      icon={faArrowUpRightFromSquare}
+                      size="2x"
+                      className={styles.iconTre}
+                    />
+                  </Link>
+                ) : (
+                  <p>Generando...</p>
+                )}
+              </div>
+            </div>
+          ) : (
+            <section className={styles.containerIntro}>
+              <section
+                onClick={copyUserData}
+                disabled={loading}
+                className={styles.buttonGenerar}
+              >
+                <p>{loading ? "Guardando..." : "Reservar"}</p>
+                <FontAwesomeIcon
+                  icon={faUserSecret}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </section>
+            </section>
+          )}
+        </section>
+        {error && <p>{error}</p>}
         <div className={styles.userVerficate}>
-          <h4>Identidad confirmada</h4>
+          <h4>Enlace seguro</h4>
           <FontAwesomeIcon
             icon={faShieldHalved}
             size="2x"
@@ -51,43 +105,6 @@ export default function VerifiedBrand({ user, promotion }) {
           />
         </div>
       </section>
-      {success ? (
-        <div className={styles.qrSection}>
-          <p>¡Usuario guardado con éxito!</p>
-          <div>
-            <h4>Escanea el Código QR para verificar la identidad:</h4>
-            <img
-              src={qrCode}
-              alt="Código QR del usuario"
-              className={styles.qrCode}
-            />
-          </div>
-
-          {/* Usamos la URL generada en el hook */}
-          <div className={styles.qrLink}>
-            <p>Accede a la página de tu QR:</p>
-            {promotionUrl ? (
-              <Link href={promotionUrl}>Ver mi QR</Link>
-            ) : (
-              <p>Generando enlace...</p>
-            )}
-          </div>
-        </div>
-      ) : (
-        <section
-          onClick={copyUserData}
-          disabled={loading}
-          className={styles.buttonGenerar}
-        >
-          <p>{loading ? "Guardando..." : "Generar ahora"}</p>
-          <FontAwesomeIcon
-            icon={faUserSecret}
-            size="2x"
-            className={styles.icon}
-          />
-        </section>
-      )}
-      {error && <p>{error}</p>}
     </section>
   );
 }
