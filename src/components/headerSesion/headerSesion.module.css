@@ -1,27 +1,180 @@
-.headerSesionContainer{
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
+.headerSesionContainer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
 }
 
-.boxOutSesion{
-    background-color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.boxOutSesion {
+  background-color: black;
+  border: none;
+  height: 30px;
+  padding: 0px 15px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
-.boxOutSesion .icon{
-    font-size: 1.1rem;
+.boxOutSesion .icon {
+  font-size: 1.1rem;
+}
+
+.sectionbtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btnmenu {
+  height: 30px;
+  background-color: black;
+  padding: 0px 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btnmenu .icon {
+  font-size: 1.7rem;
+}
+
+.btnmenu:hover,
+.btnSearchOn:hover,
+.btnSearchOff:hover,
+.boxOutSesion:hover {
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+}
+
+.menuShow {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 10;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  gap: 30px;
+  padding-left: 10%;
+}
+
+.linkDirect {
+  color: white;
+  text-decoration: none;
+  font-size: 7vw;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  width: 80%;
+  line-height: 1.1;
+  animation: introMenu 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  z-index: 1;
+}
+
+.linkDirect:hover {
+  border-bottom: 2px solid white;
+}
+
+.linkDirect .icon {
+  font-size: 1.3rem;
+}
+
+.imgbgmenu {
+  position: absolute;
+  width: 100%;
+  height: 320px;
+  top: -30px;
+  right: -30px;
+  opacity: 0.2;
+}
+
+.imgbgmenu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right;
+}
+
+.btnCloseMenu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.btnCloseMenu .icon {
+  color: white;
+  font-size: 2rem;
+}
+
+.legal {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.legal div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.legal div p {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+.legal div h4 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

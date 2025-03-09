@@ -7,8 +7,6 @@ import {
   faArrowUpRightFromSquare,
   faDeleteLeft,
   faEllipsis,
-  faMagnifyingGlass,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function HeaderDetalle() {
