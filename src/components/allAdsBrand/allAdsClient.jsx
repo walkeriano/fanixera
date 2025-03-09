@@ -75,7 +75,7 @@ export default function AllAdsClient() {
               </div>
             </section>
             <Image
-              src={promotion?.image1}
+              src={promotion?.image1 || "/prom.png"}
               alt="image-promcard"
               fill={true}
               className={styles.img}

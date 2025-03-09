@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
 import styles from "./verifiedUser.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGears, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGears,
+  faUser,
+  faHandPointer,
+} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import AllAdsClient from "@/components/allAdsBrand/allAdsClient";
 import FormEditPerfil from "@/components/formEditPerfil/formEditPerfil";
@@ -15,9 +19,16 @@ export default function VerifiedUser() {
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
         {editPerfil && (
-          <button className={styles.editImgProfile}>Editar imagen</button>
+          <button className={styles.editImgProfile}>
+            <FontAwesomeIcon icon={faHandPointer} size="2x" className={styles.icon} />
+            Editar imagen
+          </button>
         )}
-        <Image src="/prom.png" alt="img-perfil-marca" fill={true} />
+        <Image
+          src={user?.imageUrl || "/prom.png"}
+          alt="img-perfil-marca"
+          fill={true}
+        />
         <span></span>
       </section>
       {editPerfil ? (

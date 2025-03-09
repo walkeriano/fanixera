@@ -58,6 +58,7 @@ import {
   faQrcode,
   faStarHalfStroke,
   faRetweet,
+  faHandPointer,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -133,4 +134,5 @@ library.add(
   faQrcode,
   faStarHalfStroke,
   faRetweet,
+  faHandPointer
 );

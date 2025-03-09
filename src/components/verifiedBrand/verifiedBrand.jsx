@@ -80,6 +80,13 @@ export default function VerifiedBrand({ user, promotion }) {
             </div>
           ) : (
             <section className={styles.containerIntro}>
+              <div className={styles.boxImage}>
+                <Image
+                  src="/mascot-blue.png"
+                  alt="icon"
+                  fill={true}
+                />
+              </div>
               <section
                 onClick={copyUserData}
                 disabled={loading}
