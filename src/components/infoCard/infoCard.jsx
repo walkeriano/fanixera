@@ -1,22 +1,28 @@
 import React, { useState, useContext } from "react";
 import styles from "./infoCard.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUser,
   faArrowRightArrowLeft,
+  faGlobe,
   faCalendarCheck,
   faChevronDown,
   faCalendarXmark,
-  faClockRotateLeft,
   faLocationCrosshairs,
   faExpand,
   faLayerGroup,
   faBookmark,
+  faUsersViewfinder,
+  faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 import useDetailPromotion from "@/state/hook/useDetailPromotion";
 import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
-import DetalleBeneficio from "@/components/detalleBeneficio/detalleBeneficio";
 import LogicMain from "@/components/logicMain/logicMain";
 import AuthContext from "@/state/auth/auth-context";
 
@@ -28,19 +34,29 @@ export default function InfoCard({ id }) {
   if (loading) return <p>Cargando detalles de la promoción...</p>;
   if (error) return <p>{error}</p>;
   if (!promotion) return <p>No se encontraron detalles de la promoción</p>;
-
+  if (promotion.length === 0) {
+    return <p>No has creado promociones aún.</p>;
+  }
   return (
     <section className={styles.allInfoCard}>
       <section className={styles.partOne}>
-        <section className={styles.marcaDatos}>
-          <div className={styles.imgBox}>
-            <Image
-              src={promotion?.user.expediente.imageUrl || "/prom.png"}
-              alt="icon-user"
-              fill={true}
+        <section className={styles.marcaViews}>
+          <div className={styles.titleSection}>
+            <FontAwesomeIcon
+              icon={faUsersViewfinder}
+              size="2x"
+              className={styles.icon}
+            />
+            <h3>Visibilidad</h3>
+          </div>
+          <div className={styles.allResult}>
+            <p>1234</p>
+            <FontAwesomeIcon
+              icon={faArrowTrendUp}
+              size="2x"
+              className={styles.icon}
             />
           </div>
-          <h3>{promotion?.user.nombreMarca}</h3>
         </section>
         <Image
           src={promotion?.image1 || "/prom.png"}
@@ -51,6 +67,49 @@ export default function InfoCard({ id }) {
       </section>
       <section className={styles.partTwo}>
         <h2>{promotion?.title}</h2>
+        <h4 className={styles.descriptionText}>{promotion?.description}</h4>
+        <section className={styles.marcaDatos}>
+          <section className={styles.perfilBrand}>
+            <div className={styles.imgBox}>
+              <Image
+                src={promotion?.user.expediente.imageUrl || "/prom.png"}
+                alt="icon-user"
+                fill={true}
+              />
+            </div>
+            <h3>{promotion?.user.nombreMarca}</h3>
+          </section>
+          <section className={styles.linkFlex}>
+            <Link href="/">
+              <FontAwesomeIcon
+                icon={faGlobe}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link href="/">
+              <FontAwesomeIcon
+                icon={faTiktok}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link href="/">
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link href="/">
+              <FontAwesomeIcon
+                icon={faFacebook}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+          </section>
+        </section>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
@@ -159,8 +218,11 @@ export default function InfoCard({ id }) {
           <section onClick={() => setShowTyc(true)}>todos los detalles</section>
         )}
       </section>
-      {user ? <VerifiedBrand promotion={promotion} user={user} /> : <LogicMain />}
-      <DetalleBeneficio promotion={promotion} />
+      {user ? (
+        <VerifiedBrand promotion={promotion} user={user} />
+      ) : (
+        <LogicMain />
+      )}
     </section>
   );
 }

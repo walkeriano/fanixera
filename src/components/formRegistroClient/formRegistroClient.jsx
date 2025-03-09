@@ -9,7 +9,7 @@ import {
   faAt,
   faEyeSlash,
   faEye,
-  faStore,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function FormRegistroClient() {
@@ -34,7 +34,6 @@ export default function FormRegistroClient() {
         createdAt: new Date(),
       });
       console.log("Registro exitoso");
-      router.push("/registro-socios-net");
     } catch (err) {
       const error = handleFirebaseError(err);
       setErrorMessage(error);
@@ -54,7 +53,7 @@ export default function FormRegistroClient() {
         <label>
           <input
             type="text"
-            placeholder="Nombre de la marca..."
+            placeholder="Nombre de usuario..."
             className={
               touchedFields.nombreMarca
                 ? errors.nombreMarca
@@ -70,7 +69,7 @@ export default function FormRegistroClient() {
               },
             })}
           />
-          <FontAwesomeIcon icon={faStore} size="2x" className={styles.icon} />
+          <FontAwesomeIcon icon={faUser} size="2x" className={styles.icon} />
         </label>
         {errors.nombreMarca && (
           <span className={styles.error}>{errors.nombreMarca.message}</span>

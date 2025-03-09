@@ -4,18 +4,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 25px;
 }
 
 .titleBrand {
-  border: 1px solid red;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 .titleBrand h2 {
