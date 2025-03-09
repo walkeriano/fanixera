@@ -1,0 +1,99 @@
+.containerFormEditPerfil {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerFormEditPerfil form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.containerFormEditPerfil form label {
+  width: 100%;
+  height: 50px;
+  background-color: #0d0d0d;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #212121;
+}
+
+.containerFormEditPerfil form label input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  padding: 0px 15px;
+}
+
+.containerFormEditPerfil form label input::placeholder {
+  font-size: 16px;
+  color: #333333;
+  letter-spacing: 0.5px;
+}
+
+.containerFormEditPerfil form label input:hover,
+.containerFormEditPerfil form label input:focus,
+.containerFormEditPerfil form label input:active {
+  border: 1px solid #006fff;
+}
+
+.containerFormEditPerfil form label input:-webkit-autofill,
+.containerFormEditPerfil form label input:-webkit-autofill:hover,
+.containerFormEditPerfil form label input:-webkit-autofill:focus,
+.containerFormEditPerfil form label input:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important; /* Cambia el color del texto */
+  -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
+  box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.containerFormEditPerfil form button {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 50px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 17s linear infinite;
+  color: white;
+  cursor: pointer;
+}
+
+.containerFormEditPerfil form button .icon {
+  font-size: 1.3rem;
+}
+
+/* Definimos la animación */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

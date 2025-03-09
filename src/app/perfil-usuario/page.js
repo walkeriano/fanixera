@@ -5,11 +5,9 @@ import Head from "next/head";
 import HeaderSesion from "@/components/headerSesion/headerSesion";
 import Footer from "@/components/footer/footer";
 import VerifiedUser from "@/components/verifiedUser/verifiedUser";
-import AllAdsClient from "@/components/allAdsBrand/allAdsClient";
+
 
 export default function PerfilUsuario() {
-
-    
   return (
     <>
       <Head>
@@ -29,7 +27,6 @@ export default function PerfilUsuario() {
       <main className={styles.main}>
         <HeaderSesion />
         <VerifiedUser />
-        <AllAdsClient />
         <Footer />
         <div className={styles.blurBlue}></div>
       </main>

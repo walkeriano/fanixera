@@ -6,7 +6,6 @@
   justify-content: center;
   margin-top: 55px;
   gap: 35px;
-  border: 1px solid red;
 }
 
 .imgBrand {
@@ -19,6 +18,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.editImgProfile{
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  width: 100%;
+  height: 50%;
+  border-radius: 0px 0px 200px 200px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.716);
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
 .imgBrand img {
@@ -61,11 +75,12 @@
 }
 
 .infoBrand {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 10px;
 }
 
 .infoBrand p {
@@ -89,16 +104,22 @@
 .editData{
   padding: 10px 15px;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: none;
+  border: 1px solid transparent;
   background-color: #0d0d0d;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .editData .icon{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-left: 10px;
+}
+
+
+.editData:hover{
+  border: 1px solid rgb(55, 55, 55);
 }

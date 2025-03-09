@@ -81,7 +81,7 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
                 className={styles.icon}
               />
             </Link>
-            <Link href="/" className={styles.linkDirect}>
+            <Link href="/perfil-usuario" className={styles.linkDirect}>
               mi perfil
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
