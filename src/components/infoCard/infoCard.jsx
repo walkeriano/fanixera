@@ -66,8 +66,6 @@ export default function InfoCard({ id }) {
         />
       </section>
       <section className={styles.partTwo}>
-        <h2>{promotion?.title}</h2>
-        <h4 className={styles.descriptionText}>{promotion?.description}</h4>
         <section className={styles.marcaDatos}>
           <section className={styles.perfilBrand}>
             <div className={styles.imgBox}>
@@ -110,6 +108,8 @@ export default function InfoCard({ id }) {
             </Link>
           </section>
         </section>
+        <h2>{promotion?.title}</h2>
+        <h4 className={styles.descriptionText}>{promotion?.description}</h4>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>

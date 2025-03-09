@@ -44,7 +44,6 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
                 />
               </button>
             )}
-
             <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
               <FontAwesomeIcon
                 icon={faEllipsis}

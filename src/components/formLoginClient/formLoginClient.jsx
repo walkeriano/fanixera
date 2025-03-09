@@ -9,7 +9,6 @@ import {
   faEyeSlash,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/navigation";
 
 export default function FormLoginClient() {
   const { login } = useContext(AuthContext);
@@ -22,12 +21,10 @@ export default function FormLoginClient() {
     formState: { errors, touchedFields },
   } = useForm();
 
-  const router = useRouter();
 
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
-      router.push("/perfil-socios-net");
     } catch (error) {
       setError(error.message);
     }

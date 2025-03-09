@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./dashboardSociosNet.module.css";
-import VerifiedUser from "@/components/verifiedUser/verifiedUser";
+import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderOpen, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
@@ -13,7 +13,6 @@ export default function DashboardSociosNet() {
 
   return (
     <section className={styles.containerDashboard}>
-      <VerifiedUser user={user} loadingUserData={loadingUserData} />
       <section className={styles.buttonPannel}>
         <section
           onClick={() => setChange(false)}

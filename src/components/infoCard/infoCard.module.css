@@ -4,13 +4,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 15px;
   position: sticky;
 }
 
 .partOne {
   width: 100%;
-  height: 65vh;
+  height: 70vh;
   border-radius: 25px 25px 0px 0px;
   position: relative;
   display: flex;
@@ -90,25 +90,29 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
+  height: 40px;
   gap: 5px;
+  background-color: #0d0d0d;
+  border-radius: 50px;
+  margin-bottom: 10px;
 }
 
 .perfilBrand{
+  height: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  background-color: rgba(0, 0, 0, 0.398);
-  padding-right: 10px;
-  border-radius: 50px;
   backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding-left: 5px;
 }
 
 .perfilBrand h3 {
-  max-width: 120px;
+  width: 65%;
   font-size: 0.9rem;
   letter-spacing: 1px;
   overflow: hidden;
@@ -118,7 +122,7 @@
 }
 
 .imgBox {
-  width: 35px;
+  width: 30px;
   aspect-ratio: 1;
   background-color: black;
   border-radius: 50%;
@@ -139,7 +143,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 }
 
 .linkFlex a{
@@ -147,7 +150,6 @@
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: rgba(0, 0, 0, 0.398);
   border-radius: 50%;
   height: 40px;
   aspect-ratio: 1;
@@ -182,6 +184,7 @@
   font-size: 6.6vw;
   letter-spacing: 1px;
   text-transform: capitalize;
+  font-weight: 700;
 }
 
 .partTwo .descriptionText{
@@ -190,6 +193,7 @@
   line-height: 1;
   color: rgb(156, 156, 156);
   width: 100%;
+  font-weight: 500;
 }
 
 .boxDatosRelevantes {

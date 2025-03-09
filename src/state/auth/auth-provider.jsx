@@ -148,7 +148,6 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{ user, setUser, register, login, logout, loadingUserData }}
     >
-      {console.log("AuthContext user:", user)}
       {loading || loadingUserData ? <Loading /> : children}
     </AuthContext.Provider>
   );
