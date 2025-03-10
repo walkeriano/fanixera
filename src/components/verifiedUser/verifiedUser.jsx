@@ -5,6 +5,8 @@ import {
   faGears,
   faUser,
   faHandPointer,
+  faFolderOpen,
+  faFolderPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import AllAdsClient from "@/components/allAdsBrand/allAdsClient";
@@ -13,6 +15,7 @@ import AuthContext from "@/state/auth/auth-context";
 
 export default function VerifiedUser() {
   const [editPerfil, setEditPerfil] = useState(false);
+  const [change, setChange] = useState(false);
   const { user } = useContext(AuthContext);
 
   return (
@@ -20,7 +23,11 @@ export default function VerifiedUser() {
       <section className={styles.imgBrand}>
         {editPerfil && (
           <button className={styles.editImgProfile}>
-            <FontAwesomeIcon icon={faHandPointer} size="2x" className={styles.icon} />
+            <FontAwesomeIcon
+              icon={faHandPointer}
+              size="2x"
+              className={styles.icon}
+            />
             Editar imagen
           </button>
         )}
@@ -57,7 +64,35 @@ export default function VerifiedUser() {
           </>
         )}
       </button>
-      <AllAdsClient />
+      <section className={styles.buttonPannel}>
+        <section
+          onClick={() => setChange(false)}
+          className={`${styles.sec} ${
+            !change ? styles.active : styles.inactive
+          }`}
+        >
+          <FontAwesomeIcon
+            icon={faFolderPlus}
+            size="2x"
+            className={styles.icon}
+          />
+          Mis reservas
+        </section>
+        <section
+          onClick={() => setChange(true)}
+          className={`${styles.sec} ${
+            change ? styles.active : styles.inactive
+          }`}
+        >
+          <FontAwesomeIcon
+            icon={faFolderOpen}
+            size="2x"
+            className={styles.icon}
+          />
+          Historial
+        </section>
+      </section>
+      {change ? <p>hello world</p> : <AllAdsClient />}
     </section>
   );
 }

@@ -39,7 +39,7 @@ export default function HeaderSesion() {
                 size="2x"
                 className={styles.icon}
               />
-              Cerrar sesion
+              Salir
             </button>
             <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
               <FontAwesomeIcon

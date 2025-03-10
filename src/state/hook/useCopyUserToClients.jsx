@@ -29,6 +29,7 @@ const useCopyUserToClients = () => {
     }
   }, [pathname, user, loadingUserData]); // Asegurar que el efecto se ejecuta cuando `user` cambie
 
+
   // Función para generar el QR
   const generateQrCode = (url) => {
     return new Promise((resolve, reject) => {
