@@ -40,72 +40,65 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [loadingUserData, setLoadingUserData] = useState(false); // Para Firestore
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      console.log("Usuario autenticado:", user); // <--- Ver si Firebase lo detecta
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    console.log("Usuario autenticado:", user);
 
-      if (user) {
-        setLoadingUserData(true);
-
-        const userRef = doc(db, "users", user.uid);
-        const userSnap = await getDoc(userRef);
-
-        if (userSnap.exists()) {
-          const userData = {
-            uid: user.uid,
-            email: user.email,
-            nombreMarca: userSnap.data().nombreMarca || null,
-            expediente: userSnap.data().expediente || null,
-          };
-
-          console.log("Datos del usuario desde Firestore:", userData); // <--- Ver si se obtienen los datos de Firestore
-          setUser(userData);
-        } else {
-          setUser({
-            uid: user.uid,
-            email: user.email,
-            nombreMarca: null,
-            expediente: null,
-          });
+    if (user) {
+      setLoadingUserData(true);
+      const fetchUserData = async () => {
+        try {
+          const userRef = doc(db, "users", user.uid);
+          const userSnap = await getDoc(userRef);
+          setUser(userSnap.exists()
+            ? { uid: user.uid, email: user.email, ...userSnap.data() }
+            : { uid: user.uid, email: user.email, nombreMarca: null, expediente: null }
+          );
+        } catch (error) {
+          console.error("Error al obtener datos del usuario:", error);
+        } finally {
+          setLoadingUserData(false);
         }
+      };
 
-        setLoadingUserData(false);
-      } else {
-        console.log("No hay usuario autenticado."); // <--- Ver si Firebase dice que no hay usuario
-        setUser(null);
-        setLoadingUserData(false);
-      }
-      setLoading(false);
-    });
+      fetchUserData();
+    } else {
+      setUser(null);
+      setLoadingUserData(false);
+    }
+    setLoading(false);
+  });
 
-    return () => unsubscribe();
-  }, []);
+  return () => unsubscribe();
+}, []);
 
   const login = async (email, password) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      setLoadingUserData(true); // Indicamos que estamos cargando datos de Firestore
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-
-      if (userSnap.exists()) {
-        setUser({
-          uid: user.uid,
-          email: user.email,
-          nombreMarca: userSnap.data().nombreMarca,
-          expediente: userSnap.data().expediente || null,
-        });
+  
+      setLoadingUserData(true);
+      try {
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+  
+        if (userSnap.exists()) {
+          setUser({
+            uid: user.uid,
+            email: user.email,
+            nombreMarca: userSnap.data().nombreMarca,
+            expediente: userSnap.data().expediente || null,
+          });
+        }
+      } catch (error) {
+        console.error("Error al obtener datos de usuario:", error);
+      } finally {
+        setLoadingUserData(false);
       }
-
-      setLoadingUserData(false); // Datos listos
+  
       return userCredential;
     } catch (error) {
+      setLoadingUserData(false);
       throw new Error(handleFirebaseError(error));
     }
   };
@@ -121,25 +114,27 @@ export const AuthProvider = ({ children }) => {
 
   const register = async ({ email, password, nombreMarca }) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const userId = userCredential.user.uid;
-
-      // Guardar en Firestore
-      await setDoc(doc(db, "users", userId), {
-        email,
-        nombreMarca,
-        createdAt: new Date(),
-      });
-
-      // Guardar en el contexto
-      setUser({ uid: userId, email, nombreMarca });
-
+  
+      setLoadingUserData(true);
+      try {
+        await setDoc(doc(db, "users", userId), {
+          email,
+          nombreMarca,
+          createdAt: new Date(),
+        });
+  
+        setUser({ uid: userId, email, nombreMarca });
+      } catch (error) {
+        console.error("Error al registrar usuario:", error);
+      } finally {
+        setLoadingUserData(false);
+      }
+  
       return userCredential;
     } catch (error) {
+      setLoadingUserData(false);
       throw new Error(handleFirebaseError(error));
     }
   };
@@ -148,7 +143,7 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{ user, setUser, register, login, logout, loadingUserData }}
     >
-      {loading || loadingUserData ? <Loading /> : children}
+      {(loading || loadingUserData) ? <Loading /> : children}
     </AuthContext.Provider>
   );
 };
