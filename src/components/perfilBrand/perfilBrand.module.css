@@ -20,7 +20,7 @@
   justify-content: center;
 }
 
-.editImgProfile{
+.editImgProfile {
   position: absolute;
   z-index: 1;
   bottom: 0px;
@@ -40,7 +40,7 @@
   gap: 10px;
 }
 
-.editImgProfile:hover{
+.editImgProfile:hover {
   background-color: black;
 }
 
@@ -53,7 +53,7 @@
   border: 2px solid black;
 }
 
-.editImgProfile .icon{
+.editImgProfile .icon {
   font-size: 1.2rem;
 }
 
@@ -113,7 +113,6 @@
   font-weight: 700;
 }
 
-
 .editData {
   width: 50px;
   aspect-ratio: 1;
@@ -135,87 +134,68 @@
   justify-content: center;
 }
 
-.activeEdit{
+.active{
     background-color: red;
 }
 
-.editData .icon{
+.editData .icon {
   font-size: 1.4rem;
 }
 
-
-.editData:hover{
+.editData:hover {
   border: 1px solid rgb(55, 55, 55);
 }
 
-
-.buttonPannel {
-  width: 90%;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 35px;
+.flexSocialChannel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-.buttonPannel .sec:first-child{
-  border-radius: 25px 0px 0px 25px;
+.websiteLink{
+    text-decoration: none;
+    background-color: #0d0d0d;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
-.buttonPannel .sec:last-child{
-  border-radius: 0px 25px 25px 0px;
+.websiteLink p{
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
-.sec {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  border-top: 2px solid #0049ff;
-  border-bottom: 2px solid #0049ff;
-  background-color: #0048ff29;
-  backdrop-filter: blur(5px);
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  cursor: pointer;
+.websiteLink .icon{
+    font-size: 1.2rem;
 }
 
-.sec .icon{
-  font-size: 1.4rem;
+.chanels{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-.active {
-  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
-  animation: moveGradienTwo 4s ease-in-out infinite;
-  font-weight: 600;
-  cursor: default;
+.chanels a{
+    background-color: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
 
-.inactive {
-  border-top: 2px solid #0048ff29;
-  border-bottom: 2px solid #0048ff29;
-  color: rgba(255, 255, 255, 0.739);
+.chanels a .icon{
+    font-size: 1.3rem;
+    color: white;
 }
 
-.inactive:hover {
-  border-top: 2px solid #0049ff;
-  border-bottom: 2px solid #0049ff;
-}
-
-@keyframes moveGradienTwo {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}

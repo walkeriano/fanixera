@@ -31,7 +31,7 @@ export default function FormRegistroClient() {
         email: data.email,
         password: data.password,
         nombreMarca: data.nombreMarca,
-        createdAt: new Date(),
+        userType: "client",
       });
       console.log("Registro exitoso");
     } catch (err) {

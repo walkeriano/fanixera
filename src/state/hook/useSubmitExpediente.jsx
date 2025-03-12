@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db } from "../../../firebase-config"; // Asegúrate de importar la configuración de Firestore // Asegúrate de importar tu configuración de Firebase aquí
@@ -8,6 +8,7 @@ import AuthContext from "@/state/auth/auth-context";
 
 const useSubmitExpediente = () => {
   const { user, setUser } = useContext(AuthContext);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -84,6 +85,7 @@ const useSubmitExpediente = () => {
 
       setSuccess(true);
       reset();
+      router.push("/perfil-socios-net");
     } catch (err) {
       console.error("Error en el envío del expediente:", err);
       setError(

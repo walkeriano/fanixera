@@ -1,13 +1,30 @@
 "use client";
+import React, { useEffect, useContext } from "react";
+import { useRouter } from "next/navigation";
+import AuthContext from "@/state/auth/auth-context";
 import styles from "./page.module.css";
 import Head from "next/head";
-import Header from "@/components/header/header";
+import HeaderDetalle from "@/components/headerDetalle/headerDetalle";
 import AccesSociosNet from "@/components/accesSociosNet/accesSociosNet";
 import BeneficiosSociosNet from "@/components/beneficiosSociosNet/beneficiosSociosNet";
 import MarcasAsociadas from "@/components/marcasAsociadas/marcasAsociadas";
 import CallToAction from "@/components/callToAction/callToAction";
 import Footer from "@/components/footer/footer";
+
 export default function SociosNet() {
+  const { user } = useContext(AuthContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      if (user.userType === "brand") {
+        router.push("/perfil-socios-net");
+      } else if (user.userType === "client") {
+        console.log("Usuario tipo cliente: no redirigiendo.");
+      }
+    }
+  }, [user, router]);
+
   return (
     <>
       <Head>
@@ -52,7 +69,7 @@ export default function SociosNet() {
         <link rel="canonical" href="https://quesadacoach.com" />
       </Head>
       <main className={styles.main}>
-        <Header />
+        <HeaderDetalle />
         <AccesSociosNet />
         <BeneficiosSociosNet />
         <MarcasAsociadas />

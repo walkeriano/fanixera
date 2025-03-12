@@ -31,7 +31,7 @@ export default function FormRegistro() {
         email: data.email,
         password: data.password,
         nombreMarca: data.nombreMarca,
-        createdAt: new Date(),
+        userType: "brand",
       });
       console.log("Registro exitoso");
       router.push("/registro-socios-net");

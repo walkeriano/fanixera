@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import styles from "./dashboardSociosNet.module.css";
-import VerifiedBrand from "@/components/verifiedBrand/verifiedBrand";
+import PerfilBrand from "@/components/perfilBrand/perfilBrand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderOpen, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
 import FormCreationAd from "@/components/formCreationAd/formCreationAd";
-import AuthContext from "@/state/auth/auth-context";
 
 export default function DashboardSociosNet() {
   const [change, setChange] = useState(false);
-  const { user, loadingUserData } = useContext(AuthContext);
 
   return (
     <section className={styles.containerDashboard}>
+      <PerfilBrand />
       <section className={styles.buttonPannel}>
         <section
           onClick={() => setChange(false)}

@@ -6,31 +6,28 @@
 }
 
 .containerFormEditPerfil form {
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .containerFormEditPerfil form label {
-  width: 100%;
-  height: 50px;
-  background-color: #0d0d0d;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #212121;
+  width: 85%;
+  text-align: left;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
 }
 
-.containerFormEditPerfil form label input {
+.containerFormEditPerfil form input {
   width: 100%;
-  height: 100%;
-  border: none;
+  height: 50px;
+  border: 1px solid #212121;
   outline: none;
-  background-color: transparent;
+  background-color: #0d0d0d;
   color: white;
   font-size: 16px;
   letter-spacing: 0.5px;
@@ -38,22 +35,22 @@
   padding: 0px 15px;
 }
 
-.containerFormEditPerfil form label input::placeholder {
+.containerFormEditPerfil form input::placeholder {
   font-size: 16px;
   color: #333333;
   letter-spacing: 0.5px;
 }
 
-.containerFormEditPerfil form label input:hover,
-.containerFormEditPerfil form label input:focus,
-.containerFormEditPerfil form label input:active {
+.containerFormEditPerfil form input:hover,
+.containerFormEditPerfil form input:focus,
+.containerFormEditPerfil form input:active {
   border: 1px solid #006fff;
 }
 
-.containerFormEditPerfil form label input:-webkit-autofill,
-.containerFormEditPerfil form label input:-webkit-autofill:hover,
-.containerFormEditPerfil form label input:-webkit-autofill:focus,
-.containerFormEditPerfil form label input:-webkit-autofill:active {
+.containerFormEditPerfil form input:-webkit-autofill,
+.containerFormEditPerfil form input:-webkit-autofill:hover,
+.containerFormEditPerfil form input:-webkit-autofill:focus,
+.containerFormEditPerfil form input:-webkit-autofill:active {
   -webkit-text-fill-color: white !important; /* Cambia el color del texto */
   -webkit-box-shadow: 0 0 0px 1000px #0048ff00 inset !important; /* Fondo blanco para el campo */
   box-shadow: 0 0 0px 1000px #0048ff00 inset !important;
@@ -79,6 +76,7 @@
   animation: moveGradient 17s linear infinite;
   color: white;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .containerFormEditPerfil form button .icon {

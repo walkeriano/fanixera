@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .btnmenu {
@@ -172,6 +172,24 @@
 .legal div h4{
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+.imgUserAuth{
+  position: relative;
+  width: 37px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgUserAuth img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Definimos la animación */

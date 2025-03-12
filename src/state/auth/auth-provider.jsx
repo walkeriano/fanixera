@@ -88,6 +88,7 @@ useEffect(() => {
             email: user.email,
             nombreMarca: userSnap.data().nombreMarca,
             expediente: userSnap.data().expediente || null,
+            userType: userSnap.data().userType,
           });
         }
       } catch (error) {
@@ -112,7 +113,7 @@ useEffect(() => {
     }
   };
 
-  const register = async ({ email, password, nombreMarca }) => {
+  const register = async ({ email, password, nombreMarca, userType }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const userId = userCredential.user.uid;
@@ -122,10 +123,11 @@ useEffect(() => {
         await setDoc(doc(db, "users", userId), {
           email,
           nombreMarca,
+          userType,
           createdAt: new Date(),
         });
   
-        setUser({ uid: userId, email, nombreMarca });
+        setUser({ uid: userId, email, nombreMarca, userType });
       } catch (error) {
         console.error("Error al registrar usuario:", error);
       } finally {

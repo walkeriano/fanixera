@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import styles from "./verifiedUser.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGears,
+  faXmark,
+  faPencil,
   faUser,
-  faHandPointer,
   faFolderOpen,
   faFolderPlus,
 } from "@fortawesome/free-solid-svg-icons";
@@ -21,13 +21,25 @@ export default function VerifiedUser() {
   return (
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
-        {editPerfil && (
-          <button className={styles.editImgProfile}>
+        <button
+          onClick={() => setEditPerfil((prev) => !prev)}
+          className={`${styles.editData} ${
+            editPerfil ? styles.activeEdit : ""
+          }`}
+        >
+          {editPerfil ? (
+            <FontAwesomeIcon icon={faXmark} size="2x" className={styles.icon} />
+          ) : (
             <FontAwesomeIcon
-              icon={faHandPointer}
+              icon={faPencil}
               size="2x"
               className={styles.icon}
             />
+          )}
+        </button>
+        {editPerfil && (
+          <button className={styles.editImgProfile}>
+            <FontAwesomeIcon icon={faUser} size="2x" className={styles.icon} />
             Editar imagen
           </button>
         )}
@@ -48,22 +60,7 @@ export default function VerifiedUser() {
           <p>San miguel, Lima</p>
         </section>
       )}
-      <button
-        onClick={() => setEditPerfil((prev) => !prev)}
-        className={styles.editData}
-      >
-        {editPerfil ? (
-          <>
-            Volver al perfil
-            <FontAwesomeIcon icon={faUser} size="2x" className={styles.icon} />
-          </>
-        ) : (
-          <>
-            Editar perfil
-            <FontAwesomeIcon icon={faGears} size="2x" className={styles.icon} />
-          </>
-        )}
-      </button>
+
       <section className={styles.buttonPannel}>
         <section
           onClick={() => setChange(false)}

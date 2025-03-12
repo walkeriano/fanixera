@@ -60,6 +60,7 @@ import {
   faRetweet,
   faHandPointer,
   faGlobe,
+  faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -137,4 +138,5 @@ library.add(
   faRetweet,
   faHandPointer,
   faGlobe,
+  faPencil,
 );

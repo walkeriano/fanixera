@@ -6,18 +6,12 @@ export default function FormEditPerfil({ user }) {
   return (
     <section className={styles.containerFormEditPerfil}>
       <form action="">
-        <label htmlFor="">
-          <input type="text" placeholder={user?.nombreMarca} />
-        </label>
-        <label htmlFor="">
-          <input type="number" placeholder="998 475 547" />
-        </label>
-        <label htmlFor="">
-          <input type="email" placeholder={user?.email} />
-        </label>
-        <label htmlFor="">
-          <input type="text" placeholder="San miguel" />
-        </label>
+        <label htmlFor="">Nombre de usuario:</label>
+        <input type="text" placeholder={user?.nombreMarca} />
+        <label htmlFor="">Nº de Teléfono:</label>
+        <input type="number" placeholder={user?.email} />
+        <label htmlFor="">Ubicación:</label>
+        <input type="text" placeholder="San miguel" />
         <button>
           Actualizar datos
           <FontAwesomeIcon icon={faRetweet} size="2x" className={styles.icon} />

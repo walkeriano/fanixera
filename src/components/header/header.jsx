@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "@/state/auth/auth-context";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header({ showSearch, setShowSearch, resetSearch }) {
+  const { user } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(true);
 
   const toggleSearch = () => {
@@ -27,6 +29,15 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
+            {user && (
+              <Link className={styles.imgUserAuth} href={user?.userType === "brand" ? "/perfil-socios-net" : "/perfil-usuario"}>
+                <img
+                  src={user?.expediente?.imageUrl || "/prom.png"}
+                  alt="Foto de perfil usuario"
+                  fill={true}
+                />
+              </Link>
+            )}
             {showSearch ? (
               <div onClick={toggleSearch} className={styles.btnSearchOn}>
                 <FontAwesomeIcon
