@@ -21,6 +21,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import useUserPromotions from "@/state/hook/useUserPromotions";
+import QrButton from "@/components/qrButton/qrButton";
 
 export default function AllAdsBrand() {
   const [expand, setExpand] = useState(true);
@@ -194,6 +195,7 @@ export default function AllAdsBrand() {
                         />
                       </button>
                     </section>
+                    <QrButton />
                     <section className={styles.aceptUsers}>
                       <div className={styles.resultSearch}>
                         <p>Identidad de usuario:</p>

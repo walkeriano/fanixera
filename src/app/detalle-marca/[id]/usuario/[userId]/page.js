@@ -1,6 +1,8 @@
 "use client";
 import { useParams } from "next/navigation"; // Importamos useParams en lugar de useRouter
+import styles from "../../page.module.css";
 import usePromotionUserData from "@/state/hook/usePromotionUserData"; // Usamos el custom hook optimizado
+import Image from "next/image";
 
 const UserPromotionPage = () => {
   const { id: promotionId, userId } = useParams(); // Extraemos los parámetros de la URL correctamente
@@ -15,7 +17,7 @@ const UserPromotionPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className={styles.viewBenefit}>
       <h1>Promoción: {promotion?.title}</h1>
       <h2>Marca: {promotion?.user?.nombreMarca}</h2>
       <h2>Usuario Beneficiario: {userData?.nombreMarca}</h2>
@@ -32,6 +34,7 @@ const UserPromotionPage = () => {
         <h3>Información del usuario:</h3>
         <p>Email: {userData?.email}</p>
         <p>Teléfono: {userData?.expediente?.category}</p>
+        <img src={promotion?.user?.expediente?.imageUrl} alt="imagen perfil usuario" />
       </div>
 
       {/* Mostrar el QR si está generado */}

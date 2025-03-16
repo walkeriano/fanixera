@@ -407,22 +407,23 @@ export default function FormCreationAd() {
         </section>
         <section className={styles.stockInput}>
           <label>
-            <input
-              {...register("stock", {
-                required: "El stock es obligatorio",
-                min: { value: 1, message: "El stock debe ser al menos 1" },
-                validate: (value) =>
-                  isUnlimited || parseInt(value) >= 1 || "Stock inválido",
-              })}
-              type="text"
-              placeholder="00"
-              disabled={isUnlimited}
-            />
-            {isUnlimited && (
+            {isUnlimited ? (
               <FontAwesomeIcon
                 icon={faInfinity}
                 size="2x"
                 className={styles.iconUnlimited}
+              />
+            ) : (
+              <input
+                {...register("stock", {
+                  required: "El stock es obligatorio",
+                  min: { value: 1, message: "El stock debe ser al menos 1" },
+                  validate: (value) =>
+                    isUnlimited || parseInt(value) >= 1 || "Stock inválido",
+                })}
+                type="text"
+                placeholder="00"
+                disabled={isUnlimited}
               />
             )}
             <Image
