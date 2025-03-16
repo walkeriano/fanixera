@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
-export default function VisualizerCard({ formValues }) {
+export default function VisualizerCard({ formValues, user }) {
   return (
     <section className={styles.visualizerCard}>
       <div className={styles.titleSectionCard}>
@@ -22,7 +22,7 @@ export default function VisualizerCard({ formValues }) {
       <section className={styles.flexImagesContainer}>
         <div className={styles.imgCardVisualTwo}>
           <Image
-            src="/prom.png"
+            src={user?.expediente?.imageUrl || "/prom.png"}
             alt="image-card"
             width={30}
             height={30}
@@ -44,7 +44,7 @@ export default function VisualizerCard({ formValues }) {
         </div>
         <div className={styles.imgCardVisual}>
           <Image
-            src="/prom.png"
+            src={user?.expediente?.imageUrl || "/prom.png"}
             alt="image-card"
             width={30}
             height={30}
@@ -91,13 +91,13 @@ export default function VisualizerCard({ formValues }) {
         <div className={styles.itemInfo}>
           <h3>Tiempo del inicio:</h3>
           <p>
-            {formValues.startDate} / {formValues.startTime}
+            {formValues.startDate || "00-00-00"} / {formValues.startTime || "00:00"}
           </p>
         </div>
         <div className={styles.itemInfo}>
           <h3>Tiempo del final:</h3>
           <p>
-            {formValues.endDate} / {formValues.endTime}
+            {formValues.endDate || "00-00-00"} / {formValues.endTime || "00:00"}
           </p>
         </div>
       </section>

@@ -44,6 +44,7 @@ export default function usePromotionsForm(user) {
         endDate: data.endDate,
         endTime: data.endTime,
         stock: data.stock,
+        onStock: 0,
         image1: imageUrls.image1 || null,
         image2: imageUrls.image2 || null,
         createdAt: new Date(),

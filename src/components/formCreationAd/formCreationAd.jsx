@@ -23,11 +23,31 @@ import usePromotionsForm from "@/state/hook/usePromotionsForm";
 import AuthContext from "@/state/auth/auth-context";
 
 export default function FormCreationAd() {
-  const { register, handleSubmit, setValue, reset, watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
   const { user } = useContext(AuthContext);
   const { onSubmit, loading } = usePromotionsForm(user);
   const [previewImage1, setPreviewImage1] = useState(null);
   const [previewImage2, setPreviewImage2] = useState(null);
+  const [isUnlimited, setIsUnlimited] = useState(false);
+
+  const today = new Date().toISOString().split("T")[0];
+
+  const getMaxDate = (date) => {
+    if (!date) return new Date(today).setDate(new Date(today).getDate() + 15);
+    return new Date(date).setDate(new Date(date).getDate() + 15);
+  };
+
+  const handleUnlimitedStock = () => {
+    setIsUnlimited((prev) => !prev);
+    setValue("stock", isUnlimited ? "" : "ilimitado"); // Alternar entre vacío e ilimitado
+  };
 
   // Obtener los valores del formulario que necesitamos mostrar en el visualizador
   const formValues = watch();
@@ -111,7 +131,7 @@ export default function FormCreationAd() {
         <section className={styles.boxFormGeneral}>
           <label htmlFor="">
             <input
-              {...register("title")}
+              {...register("title", { required: "El título es obligatorio" })}
               type="text"
               placeholder="Titulo beneficio..."
             />
@@ -121,11 +141,16 @@ export default function FormCreationAd() {
               className={styles.icon}
             />
           </label>
-          <label htmlFor="">
-            <input
-              {...register("description")}
+          {errors.title && (
+            <p className={styles.error}>{errors.title.message}*</p>
+          )}
+          <label htmlFor="" className={styles.descriptionBox}>
+            <textarea
+              {...register("description", {
+                required: "La descripción es obligatoria",
+              })}
               type="text"
-              placeholder="Descripción beneficio..."
+              placeholder="Descripción del beneficio..."
             />
             <FontAwesomeIcon
               icon={faCommentMedical}
@@ -133,21 +158,14 @@ export default function FormCreationAd() {
               className={styles.icon}
             />
           </label>
-          <label htmlFor="">
-            <input
-              {...register("ubication")}
-              type="text"
-              placeholder="Ubicación..."
-            />
-            <FontAwesomeIcon
-              icon={faLocationCrosshairs}
-              size="2x"
-              className={styles.icon}
-            />
-          </label>
-          <label htmlFor="">
-            <input
-              {...register("terminosCondiciones")}
+          {errors.description && (
+            <p className={styles.error}>{errors.description.message}*</p>
+          )}
+          <label htmlFor="" className={styles.descriptionBox}>
+            <textarea
+              {...register("terminosCondiciones", {
+                required: "Los términos son obligatorios",
+              })}
               type="text"
               placeholder="Términos y Condiciones..."
             />
@@ -157,11 +175,138 @@ export default function FormCreationAd() {
               className={styles.icon}
             />
           </label>
+          {errors.terminosCondiciones && (
+            <p className={styles.error}>
+              {errors.terminosCondiciones.message}*
+            </p>
+          )}
+          <label htmlFor="">
+            <input
+              {...register("ubication", {
+                required: "La ubicación es obligatoria",
+              })}
+              type="text"
+              placeholder="Ubicación..."
+            />
+            <FontAwesomeIcon
+              icon={faLocationCrosshairs}
+              size="2x"
+              className={styles.icon}
+            />
+          </label>
+          {errors.ubication && (
+            <p className={styles.error}>{errors.ubication.message}*</p>
+          )}
+        </section>
+      </section>
+      <section className={styles.tiempoExposicion}>
+        <section className={styles.titleAreaForm}>
+          <h3>2. Tiempo de exposición</h3>
+          <FontAwesomeIcon
+            icon={faArrowsToEye}
+            size="2x"
+            className={styles.icon}
+          />
+        </section>
+        <section className={styles.itemTiempo}>
+          <div className={styles.titleBoxTiempo}>
+            <p>Inicia</p>
+            <FontAwesomeIcon
+              icon={faCirclePlay}
+              size="2x"
+              className={styles.icon}
+            />
+          </div>
+          <div className={styles.boxInputsDates}>
+            <label>
+              <input
+                {...register("startDate", {
+                  required: "Incompleto",
+                })}
+                type="date"
+                min={today}
+              />
+              {errors.startDate && (
+                <p className={styles.error}>{errors.startDate.message}*</p>
+              )}
+            </label>
+            <label>
+              <input
+                {...register("startTime", {
+                  required: "Incompleto",
+                })}
+                type="time"
+              />
+              {errors.startTime && (
+                <p className={styles.error}>{errors.startTime.message}*</p>
+              )}
+            </label>
+          </div>
+        </section>
+        <section className={styles.itemTiempo}>
+          <div className={styles.titleBoxTiempo}>
+            <p>Termina</p>
+            <FontAwesomeIcon
+              icon={faCircleStop}
+              size="2x"
+              className={styles.icon}
+            />
+          </div>
+          <div className={styles.boxInputsDates}>
+            <label>
+              <input
+                {...register("endDate", {
+                  required: "Incompleto",
+                  validate: (value) => {
+                    const startDate = watch("startDate");
+                    const maxDate = new Date(getMaxDate(startDate))
+                      .toISOString()
+                      .split("T")[0];
+                    if (!startDate)
+                      return "Seleccione primero la fecha de inicio";
+                    if (value < startDate)
+                      return "Debe ser mayor o igual a la fecha de inicio";
+                    if (value > maxDate) return "Máximo 15 días de duración";
+                    return true;
+                  },
+                })}
+                type="date"
+                min={watch("startDate") || today}
+                max={
+                  new Date(getMaxDate(watch("startDate")))
+                    .toISOString()
+                    .split("T")[0]
+                }
+              />
+              {errors.endDate && (
+                <p className={styles.error}>{errors.endDate.message}*</p>
+              )}
+            </label>
+            <label>
+              <input
+                {...register("endTime", {
+                  required: "Incompleto",
+                })}
+                type="time"
+              />
+              {errors.endTime && (
+                <p className={styles.error}>{errors.endTime.message}*</p>
+              )}
+            </label>
+          </div>
+        </section>
+        <section className={styles.alertMessage}>
+          <p>Duración máxima de 15 días</p>
+          <FontAwesomeIcon
+            icon={faTriangleExclamation}
+            size="2x"
+            className={styles.icon}
+          />
         </section>
       </section>
       <section className={styles.imagesFormatAds}>
         <section className={styles.titleAreaForm}>
-          <h3>2. Contenido visual</h3>
+          <h3>3. Contenido visual</h3>
           <FontAwesomeIcon icon={faImages} size="2x" className={styles.icon} />
         </section>
         <section className={styles.containerImageAd}>
@@ -253,7 +398,7 @@ export default function FormCreationAd() {
       </section>
       <section className={styles.stockRegister}>
         <section className={styles.titleAreaForm}>
-          <h3>3. Stock de beneficios</h3>
+          <h3>4. Stock de beneficios</h3>
           <FontAwesomeIcon
             icon={faMoneyBillTransfer}
             size="2x"
@@ -262,7 +407,24 @@ export default function FormCreationAd() {
         </section>
         <section className={styles.stockInput}>
           <label>
-            <input {...register("stock")} type="number" placeholder="00" />
+            <input
+              {...register("stock", {
+                required: "El stock es obligatorio",
+                min: { value: 1, message: "El stock debe ser al menos 1" },
+                validate: (value) =>
+                  isUnlimited || parseInt(value) >= 1 || "Stock inválido",
+              })}
+              type="text"
+              placeholder="00"
+              disabled={isUnlimited}
+            />
+            {isUnlimited && (
+              <FontAwesomeIcon
+                icon={faInfinity}
+                size="2x"
+                className={styles.iconUnlimited}
+              />
+            )}
             <Image
               src="/mascot-white.png"
               alt="mascot-tomi"
@@ -270,72 +432,26 @@ export default function FormCreationAd() {
               height={80}
             />
           </label>
-          <button className={styles.stockIlimitado}>
+          <button
+            type="button"
+            className={`${styles.stockIlimitado} ${
+              isUnlimited ? styles.active : ""
+            }`}
+            onClick={handleUnlimitedStock}
+          >
             <FontAwesomeIcon
               icon={faInfinity}
               size="2x"
               className={styles.icon}
             />
-            Stock ilimitado
+            {isUnlimited ? "Definir manualmente" : "Stock ilimitado"}
           </button>
+          {errors.stock && (
+            <p className={styles.error}>{errors.stock.message}*</p>
+          )}
         </section>
       </section>
-      <section className={styles.tiempoExposicion}>
-        <section className={styles.titleAreaForm}>
-          <h3>2. Tiempo de exposición</h3>
-          <FontAwesomeIcon
-            icon={faArrowsToEye}
-            size="2x"
-            className={styles.icon}
-          />
-        </section>
-        <section className={styles.itemTiempo}>
-          <div className={styles.titleBoxTiempo}>
-            <p>Inicia</p>
-            <FontAwesomeIcon
-              icon={faCirclePlay}
-              size="2x"
-              className={styles.icon}
-            />
-          </div>
-
-          <div className={styles.boxInputsDates}>
-            <label>
-              <input {...register("startDate")} type="date" />
-            </label>
-            <label>
-              <input {...register("startTime")} type="time" />
-            </label>
-          </div>
-        </section>
-        <section className={styles.itemTiempo}>
-          <div className={styles.titleBoxTiempo}>
-            <p>Termina</p>
-            <FontAwesomeIcon
-              icon={faCircleStop}
-              size="2x"
-              className={styles.icon}
-            />
-          </div>
-          <div className={styles.boxInputsDates}>
-            <label>
-              <input {...register("endDate")} type="date" />
-            </label>
-            <label>
-              <input {...register("endTime")} type="time" />
-            </label>
-          </div>
-        </section>
-        <section className={styles.alertMessage}>
-          <p>Duración máxima de 15 días</p>
-          <FontAwesomeIcon
-            icon={faTriangleExclamation}
-            size="2x"
-            className={styles.icon}
-          />
-        </section>
-      </section>
-      <VisualizerCard formValues={formValues} />
+      <VisualizerCard formValues={formValues} user={user} />
       <button
         type="submit"
         disabled={loading}

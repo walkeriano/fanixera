@@ -92,12 +92,12 @@
 .titleAreaForm h3 {
   width: 90%;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 2px;
 }
 
 .titleAreaForm .icon{
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .boxFormGeneral{
@@ -120,6 +120,7 @@
   border-radius: 50px;
   position: relative;
 }
+
 
 .boxFormGeneral label input {
   height: 100%;
@@ -165,6 +166,52 @@
   color: grey;
 }
 
+.boxFormGeneral .error{
+  font-size: 0.9rem;
+  color: yellow;
+  font-weight: 200;
+  width: 85%;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+.boxFormGeneral .descriptionBox{
+  height: 180px;
+  border-radius: 20px;
+}
+
+.boxFormGeneral .descriptionBox .icon{
+  top: 15px;
+  right: 15px;
+}
+
+.boxFormGeneral .descriptionBox textarea{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  padding: 15px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  outline: none;
+  font-family: "Helvetica", sans-serif;
+  resize: none;
+}
+
+.boxFormGeneral .descriptionBox textarea::placeholder{
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.boxFormGeneral .descriptionBox textarea:hover,
+.boxFormGeneral .descriptionBox textarea:focus,
+.boxFormGeneral .descriptionBox textarea:active {
+  border: 1px solid #006fff;
+}
+
 .tiempoExposicion {
   width: 100%;
   display: flex;
@@ -173,8 +220,6 @@
   justify-content: center;
   gap: 20px;
 }
-
-
 
 .itemTiempo {
   width: 100%;
@@ -216,17 +261,26 @@
 
 .boxInputsDates label{
   width: 50%;
-  height: 65px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
+  gap: 15px;
 }
 
+.boxInputsDates label .error{
+  font-size: 0.9rem;
+  color: yellow;
+  font-weight: 200;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
 
 .boxInputsDates label input {
   width: 100%;
-  height: 100%;
+  height: 65px;
   background-color: #0d0d0d;
   border: 1px solid #212121;
   color: white;
@@ -242,6 +296,12 @@
   width: 100%;
   height: 100%;
   position: absolute;
+}
+
+.boxInputsDates label input:hover,
+.boxInputsDates label input:focus,
+.boxInputsDates label input:active {
+  border: 1px solid #006fff;
 }
 
 .alertMessage {
@@ -394,6 +454,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 30px;
+  position: absolute;
 }
 
 .stockRegister {
@@ -413,6 +474,15 @@
   justify-self: center;
   gap: 20px;
   width: 100%;
+}
+
+.stockInput .error{
+  font-size: 0.9rem;
+  color: yellow;
+  font-weight: 200;
+  width: 85%;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .stockInput label {
@@ -475,6 +545,11 @@
 
 .stockIlimitado .icon {
   font-size: 1.3rem;
+}
+
+.stockIlimitado.active{
+  background-color: #006fff;
+  border: 1px solid #006fff;
 }
 
 .btnAddBeneficio {

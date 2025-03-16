@@ -195,11 +195,11 @@ export default function NuevoExpediente() {
                 onChange={(e) => setCategoriaSeleccionada(e.target.value)}
               >
                 <option value="">Seleccionar categoría...</option>
-                <option value="tecnologia">Tecnología</option>
-                <option value="moda">Moda</option>
-                <option value="salud">Salud</option>
-                <option value="gastronomia">Gastronomía</option>
-                <option value="educacion">Educación</option>
+                <option value="Entretenimiento">Entretenimiento</option>
+                <option value="Sexual">Sexual</option>
+                <option value="Salud">Salud</option>
+                <option value="Gastronomia">Gastronomía</option>
+                <option value="Educacion">Educación</option>
               </select>
               <FontAwesomeIcon
                 icon={faChevronDown}

@@ -31,7 +31,7 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
           <>
             {user && (
               <Link className={styles.imgUserAuth} href={user?.userType === "brand" ? "/perfil-socios-net" : "/perfil-usuario"}>
-                <img
+                <Image
                   src={user?.expediente?.imageUrl || "/prom.png"}
                   alt="Foto de perfil usuario"
                   fill={true}
