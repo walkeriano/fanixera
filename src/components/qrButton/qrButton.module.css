@@ -1,0 +1,31 @@
+.containerScanner{
+    background-color: black;
+    width: 85%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 25px;
+    clip-path: fill-box;
+}
+
+.camSpace{
+    width: 100%;
+    height: 100%;
+}
+
+.containerScanner button{
+    padding: 0px 30px;
+    height: 45px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+    background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+    animation: moveGradient 4s ease-in-out infinite;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}

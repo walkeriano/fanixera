@@ -9,7 +9,6 @@ import {
   faLocationCrosshairs,
   faXmark,
   faCalendarXmark,
-  faMagnifyingGlass,
   faArrowRightArrowLeft,
   faPowerOff,
   faTrashCan,
@@ -180,65 +179,11 @@ export default function AllAdsBrand() {
                           width={150}
                           height={150}
                         />
-                        <h3>Validación de stock</h3>
+                        <h3>Validación de usuario</h3>
                       </div>
                       <h4>Disponible: 12/56</h4>
                     </section>
-                    <section className={styles.inputBuscador}>
-                      <input type="text" placeholder="Código de usuario..." />
-                      <button className={styles.btnSearch}>
-                        Buscar
-                        <FontAwesomeIcon
-                          icon={faMagnifyingGlass}
-                          size="2x"
-                          className={styles.icon}
-                        />
-                      </button>
-                    </section>
                     <QrButton />
-                    <section className={styles.aceptUsers}>
-                      <div className={styles.resultSearch}>
-                        <p>Identidad de usuario:</p>
-                        <section className={styles.userBeneficer}>
-                          <section className={styles.userPerfil}>
-                            <div className={styles.boxImage}>
-                              <Image
-                                src="/prom.png"
-                                alt="icon-user"
-                                fill={true}
-                              />
-                            </div>
-                            <h4>Fernando Gutierrez Guzman</h4>
-                          </section>
-                          <section className={styles.nombresUser}>
-                            <p>fernando@gmail.com</p>
-                            <p>993 744 958</p>
-                          </section>
-                        </section>
-                      </div>
-                      <div className={styles.btnActions}>
-                        <button>
-                          Aprobar
-                          <span>
-                            <FontAwesomeIcon
-                              icon={faXmark}
-                              size="2x"
-                              className={styles.icon}
-                            />
-                          </span>
-                        </button>
-                        <button>
-                          Denegar
-                          <span>
-                            <FontAwesomeIcon
-                              icon={faXmark}
-                              size="2x"
-                              className={styles.icon}
-                            />
-                          </span>
-                        </button>
-                      </div>
-                    </section>
                   </section>
                   <section className={styles.listadoUsuarios}>
                     <section className={styles.titleInteres}>
