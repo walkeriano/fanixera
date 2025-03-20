@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTurnDown,
+  faChevronDown,
   faTriangleExclamation,
   faLocationCrosshairs,
   faCircleInfo,
@@ -106,18 +106,17 @@ export default function FormCreationAd() {
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       <section className={styles.flextitleGeneral}>
-        <h2 className={styles.titleContainer}>Creador de beneficios</h2>
-        <section className={styles.titleFunction}>
-          <h3>Total disponibles</h3>
-          <div className={styles.totalCards}>
-            <p>156</p>
-            <FontAwesomeIcon
-              icon={faTurnDown}
-              size="2x"
-              className={styles.icon}
-            />
-          </div>
-        </section>
+        <h2 className={styles.titleContainer}>
+          Crea beneficios libres para atraer clientes
+        </h2>
+        <div className={styles.subtitleContainer}>
+          <p>Completar formulario</p>
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            size="2x"
+            className={styles.icon}
+          />
+        </div>
       </section>
       <section className={styles.generalInfoAd}>
         <section className={styles.titleAreaForm}>

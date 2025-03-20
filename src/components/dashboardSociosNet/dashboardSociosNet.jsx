@@ -4,7 +4,7 @@ import AuthContext from "@/state/auth/auth-context";
 import styles from "./dashboardSociosNet.module.css";
 import PerfilBrand from "@/components/perfilBrand/perfilBrand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolderOpen, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFolderOpen, faFolderPlus,  faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
 import FormCreationAd from "@/components/formCreationAd/formCreationAd";
 
@@ -28,11 +28,11 @@ export default function DashboardSociosNet() {
               }`}
             >
               <FontAwesomeIcon
-                icon={faFolderPlus}
+                icon={faScrewdriverWrench}
                 size="2x"
                 className={styles.icon}
               />
-              Creador
+              Crear
             </section>
             <section
               onClick={() => setChange(true)}

@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 }
 
 .buttonPannel {
@@ -19,11 +18,11 @@
 }
 
 .buttonPannel .sec:first-child{
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .buttonPannel .sec:last-child{
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .sec {
@@ -32,22 +31,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  border-top: 2px solid #0049ff;
-  border-bottom: 2px solid #0049ff;
+  gap: 10px;
   background-color: #0048ff29;
-  backdrop-filter: blur(5px);
   color: white;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   cursor: pointer;
   font-weight: 700;
   cursor: pointer;
+  border-radius: 50px;
 }
 
 .sec .icon{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .active {
@@ -59,14 +56,13 @@
 }
 
 .inactive {
-  border-top: 2px solid #0048ff29;
-  border-bottom: 2px solid #0048ff29;
-  color: rgba(255, 255, 255, 0.739);
+  color: rgba(255, 255, 255, 0.584);
+  background-color: transparent;
+  font-weight: 300;
 }
 
 .inactive:hover {
-  border-top: 2px solid #0049ff;
-  border-bottom: 2px solid #0049ff;
+  color: white;
 }
 
 @keyframes moveGradient {

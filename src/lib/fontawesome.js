@@ -61,6 +61,7 @@ import {
   faHandPointer,
   faGlobe,
   faPencil,
+  faScrewdriverWrench
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -139,4 +140,5 @@ library.add(
   faHandPointer,
   faGlobe,
   faPencil,
+  faScrewdriverWrench
 );
