@@ -1,24 +1,29 @@
-import React, { useEffect, useContext, useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useContext } from "react";
 import AuthContext from "@/state/auth/auth-context";
 import styles from "./dashboardSociosNet.module.css";
 import PerfilBrand from "@/components/perfilBrand/perfilBrand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolderOpen, faFolderPlus,  faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFolderOpen,
+  faScrewdriverWrench,
+} from "@fortawesome/free-solid-svg-icons";
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
 import FormCreationAd from "@/components/formCreationAd/formCreationAd";
+import useUserProfile from "@/state/hook/useUserProfile";
 
 export default function DashboardSociosNet() {
+  const { user } = useContext(AuthContext);
   const [change, setChange] = useState(false);
-  const [viewPerfil, setViewPerfil] = useState(false);
+  const { userData, loading, error } = useUserProfile();
 
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!userData) return <p>No se encontró el perfil.</p>;
 
   return (
     <section className={styles.containerDashboard}>
-      <PerfilBrand />
-      {viewPerfil ? (
-        <AllAdsBrand />
-      ) : (
+      <PerfilBrand userData={userData} />
+      {user ? (
         <>
           <section className={styles.buttonPannel}>
             <section
@@ -48,8 +53,14 @@ export default function DashboardSociosNet() {
               Beneficios
             </section>
           </section>
-          {change ? <AllAdsBrand /> : <FormCreationAd />}
+          {change ? (
+            <AllAdsBrand nombreMarca={userData?.nombreMarca} />
+          ) : (
+            <FormCreationAd />
+          )}
         </>
+      ) : (
+        <p>promociones de marca para usuario</p>
       )}
     </section>
   );

@@ -155,7 +155,7 @@
   justify-content: center;
   gap: 7px;
   color: grey;
-  margin-top: 12px;
+  margin-top: 45px;
 }
 
 .userVerficate h4 {
@@ -248,13 +248,13 @@
 .containerActiveButton::after {
   content: "";
   position: absolute;
-  width: 105%;
-  height: 105%;
+  width: 104%;
+  height: 104%;
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveBg 4s ease-in-out infinite;
   z-index: -1;
-  border-radius: 26px;
+  border-radius: 26px 26px 0px 0px;
 }
 
 .containerIntro {
@@ -271,7 +271,6 @@
   aspect-ratio: 1;
   position: absolute;
   animation: spin 6.5s ease-in-out infinite;
-  top: 20px;
 }
 
 
@@ -313,7 +312,7 @@
   gap: 10px;
   position: absolute;
   z-index: 100;
-  bottom: -1px;
+  bottom: -50px;
   border-radius: 0px 0px 20px 20px;
 }
 

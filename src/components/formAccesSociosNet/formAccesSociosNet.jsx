@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AuthContext from "@/state/auth/auth-context";
+import { useRouter } from "next/navigation";
 import styles from "./formAccesSociosNet.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,12 +10,12 @@ import {
   faEyeSlash,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/navigation";
 
 export default function FormAccesSociosNet() {
-  const { login } = useContext(AuthContext);
+  const { login, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -22,16 +23,20 @@ export default function FormAccesSociosNet() {
     formState: { errors, touchedFields },
   } = useForm();
 
-  const router = useRouter();
-
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
-      router.push("/perfil-socios-net");
     } catch (error) {
       setError(error.message);
     }
   };
+
+  // Redirigir al perfil cuando user y nombreMarca estén disponibles
+  useEffect(() => {
+    if (user && user.nombreMarca) {
+      router.push(`/perfil-socios-net/${user.nombreMarca}`);
+    }
+  }, [user, router]);
 
   return (
     <section className={styles.containerForm}>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styles from "./perfilBrand.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,15 +15,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
 import FormEditBrand from "@/components/formEditPerfil/formEditBrand";
-import AuthContext from "@/state/auth/auth-context";
 
-export default function PerfilBrand() {
-  const { user, loadingUserData } = useContext(AuthContext);
+export default function PerfilBrand({ userData }) {
   const [editPerfil, setEditPerfil] = useState(false);
-
-  if (loadingUserData) {
-    return <Loading />;
-  }
 
   return (
     <section className={styles.containerBrand}>
@@ -93,20 +87,20 @@ export default function PerfilBrand() {
           </button>
         )}
         <Image
-          src={user?.expediente?.imageUrl || "/prom.png"}
+          src={userData?.expediente?.imageUrl || "/prom.png"}
           alt="img-perfil-marca"
           fill={true}
         />
         <span></span>
       </section>
       {editPerfil ? (
-        <FormEditBrand user={user} />
+        <FormEditBrand userData={userData} />
       ) : (
         <section className={styles.infoBrand}>
-          <h3>{user?.nombreMarca}</h3>
-          <p>{user?.expediente?.category}</p>
-          <p>{user?.email}</p>
-          <p>{user?.expediente?.ruc}</p>
+          <h3>{userData?.nombreMarca}</h3>
+          <p>{userData?.expediente?.category}</p>
+          <p>{userData?.email}</p>
+          <p>{userData?.expediente?.ruc}</p>
         </section>
       )}
     </section>

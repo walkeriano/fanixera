@@ -67,7 +67,10 @@ export default function InfoCard({ id }) {
       </section>
       <section className={styles.partTwo}>
         <section className={styles.marcaDatos}>
-          <section className={styles.perfilBrand}>
+          <Link
+            href={`/perfil-socios-net/${promotion?.user?.nombreMarca}`}
+            className={styles.perfilBrand}
+          >
             <div className={styles.imgBox}>
               <Image
                 src={promotion?.user.expediente.imageUrl || "/prom.png"}
@@ -76,30 +79,40 @@ export default function InfoCard({ id }) {
               />
             </div>
             <h3>{promotion?.user.nombreMarca}</h3>
-          </section>
+          </Link>
           <section className={styles.linkFlex}>
-            <Link href="/">
+            <Link
+              href={promotion?.user?.expediente?.contacto?.sitioWeb}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon
                 icon={faGlobe}
                 size="2x"
                 className={styles.icon}
               />
             </Link>
-            <Link href="/">
+            <Link href={promotion?.user?.expediente?.contacto?.tiktok}
+              target="_blank"
+              rel="noopener noreferrer">
               <FontAwesomeIcon
                 icon={faTiktok}
                 size="2x"
                 className={styles.icon}
               />
             </Link>
-            <Link href="/">
+            <Link href={promotion?.user?.expediente?.contacto?.instagram}
+              target="_blank"
+              rel="noopener noreferrer">
               <FontAwesomeIcon
                 icon={faInstagram}
                 size="2x"
                 className={styles.icon}
               />
             </Link>
-            <Link href="/">
+            <Link href={promotion?.user?.expediente?.contacto?.facebook}
+              target="_blank"
+              rel="noopener noreferrer">
               <FontAwesomeIcon
                 icon={faFacebook}
                 size="2x"

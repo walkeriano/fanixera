@@ -1,18 +1,14 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../../firebase-config"; // Asegúrate de importar correctamente la referencia a tu firebase
-import { collection, query, where, getDocs, getDoc } from "firebase/firestore";
-import AuthContext from "@/state/auth/auth-context";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
-export default function useUserPromotions() {
-  const { user } = useContext(AuthContext); // Obtener el usuario del contexto
+export default function useUserPromotions(nombreMarca) {
   const [promotions, setPromotions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!user) {
-      return; // Si no hay un usuario autenticado, no hacemos nada
-    }
+    if (!nombreMarca) return; // Evita ejecutar si el nombreMarca no está definido
 
     const fetchPromotions = async () => {
       setLoading(true);
@@ -21,11 +17,10 @@ export default function useUserPromotions() {
       try {
         const q = query(
           collection(db, "promotions"),
-          where("user.nombreMarca", "==", user.nombreMarca) // Filtramos por el campo nombreMarca dentro del mapa "user"
+          where("user.nombreMarca", "==", nombreMarca) // Filtramos por nombreMarca recibido como prop
         );
 
         const querySnapshot = await getDocs(q);
-
         const promotionsData = [];
 
         // Recorrer cada promoción
@@ -59,7 +54,7 @@ export default function useUserPromotions() {
     };
 
     fetchPromotions(); // Llamamos a la función para obtener las promociones
-  }, [user]); // Volver a ejecutar cuando el usuario cambie
+  }, [nombreMarca]); // Se ejecuta cuando cambia nombreMarca
 
   return { promotions, loading, error };
 }

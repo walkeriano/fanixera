@@ -1,7 +1,4 @@
 "use client";
-import React, { useEffect, useContext } from "react";
-import { useRouter } from "next/navigation";
-import AuthContext from "@/state/auth/auth-context";
 import styles from "./page.module.css";
 import Head from "next/head";
 import DashboardSociosNet from "@/components/dashboardSociosNet/dashboardSociosNet";
@@ -9,18 +6,8 @@ import HeaderSesion from "@/components/headerSesion/headerSesion";
 import Footer from "@/components/footer/footer";
 
 export default function PerfilSociosNet() {
-  const { user } = useContext(AuthContext);
-  const router = useRouter();
 
-  useEffect(() => {
-    if (user) {
-      if (user.userType === "client") {
-        router.replace("/"); // Redirige al home si es client
-      }
-    } else {
-      router.replace("/"); // Redirige al home si no hay usuario autenticado
-    }
-  }, [user, router]);
+
 
   return (
     <>

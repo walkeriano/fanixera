@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function HeaderSesion() {
-  const { logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(true);
   const router = useRouter();
 
@@ -29,18 +29,23 @@ export default function HeaderSesion() {
 
   return (
     <section className={styles.headerSesionContainer}>
-      <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
+      <Link href="/">
+        <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
+      </Link>
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
-            <button className={styles.boxOutSesion} onClick={handleLogout}>
-              <FontAwesomeIcon
-                icon={faDeleteLeft}
-                size="2x"
-                className={styles.icon}
-              />
-              Salir
-            </button>
+            {user && (
+              <button className={styles.boxOutSesion} onClick={handleLogout}>
+                <FontAwesomeIcon
+                  icon={faDeleteLeft}
+                  size="2x"
+                  className={styles.icon}
+                />
+                Salir
+              </button>
+            )}
+
             <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
               <FontAwesomeIcon
                 icon={faEllipsis}

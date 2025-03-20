@@ -22,9 +22,9 @@ import Image from "next/image";
 import useUserPromotions from "@/state/hook/useUserPromotions";
 import QrButton from "@/components/qrButton/qrButton";
 
-export default function AllAdsBrand() {
+export default function AllAdsBrand({ nombreMarca }) {
   const [expand, setExpand] = useState(true);
-  const { promotions, loading, error } = useUserPromotions();
+  const { promotions, loading, error } = useUserPromotions(nombreMarca);
 
   if (loading) {
     return <p>Cargando promociones...</p>;
