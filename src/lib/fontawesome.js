@@ -61,9 +61,11 @@ import {
   faHandPointer,
   faGlobe,
   faPencil,
-  faScrewdriverWrench
+  faScrewdriverWrench,
+  faBagShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import {
+  faFacebookF,
   faFacebook,
   faInstagram,
   faTiktok,
@@ -77,6 +79,7 @@ config.autoAddCss = false; // Evita que FontAwesome inserte CSS automáticamente
 library.add(
   faUser,
   faFacebook,
+  faFacebookF,
   faArrowRightArrowLeft,
   faCalendarCheck,
   faChevronDown,
@@ -140,5 +143,6 @@ library.add(
   faHandPointer,
   faGlobe,
   faPencil,
-  faScrewdriverWrench
+  faScrewdriverWrench,
+  faBagShopping
 );

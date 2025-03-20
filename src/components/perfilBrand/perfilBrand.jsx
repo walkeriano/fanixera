@@ -6,10 +6,10 @@ import {
   faUser,
   faXmark,
   faPencil,
-  faLink,
+  faBagShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import {
-  faFacebook,
+  faFacebookF,
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
@@ -22,7 +22,7 @@ export default function PerfilBrand() {
   const [editPerfil, setEditPerfil] = useState(false);
 
   if (loadingUserData) {
-    return <Loading />; // Muestra un loader mientras se cargan los datos
+    return <Loading />;
   }
 
   return (
@@ -35,7 +35,7 @@ export default function PerfilBrand() {
           className={styles.linkCircle}
         >
           <FontAwesomeIcon
-            icon={faLink}
+            icon={faBagShopping}
             size="2x"
             className={styles.icon}
           />
@@ -47,7 +47,7 @@ export default function PerfilBrand() {
           className={styles.linkCircleTwo}
         >
           <FontAwesomeIcon
-            icon={faFacebook}
+            icon={faFacebookF}
             size="2x"
             className={styles.icon}
           />
