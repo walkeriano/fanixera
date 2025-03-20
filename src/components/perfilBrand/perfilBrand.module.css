@@ -25,7 +25,7 @@
 .linkCircleTre,
 .linkCircleFor {
   position: absolute;
-  right: -25px;
+  right: -8vw;
   top: -10px;
   z-index: 1;
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
@@ -42,17 +42,17 @@
 
 .linkCircleTwo{
   top: 40px;
-  right: -60px;
+  right: -14vw;
 }
 
 .linkCircleTre{
-  top: 100px;
-  right: -73px;
+  top: 95px;
+  right: -16vw;
 }
 
 .linkCircleFor{
-  top: 160px;
-  right: -70px;
+  top: 150px;
+  right: -13vw;
 }
 
 .linkCircle .icon,
