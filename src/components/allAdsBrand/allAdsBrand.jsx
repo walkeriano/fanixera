@@ -41,9 +41,9 @@ export default function AllAdsBrand() {
   return (
     <section className={styles.containerAllBrand}>
       <section className={styles.flextitleGeneral}>
-        <h2 className={styles.titleContainer}>Buzón de beneficios</h2>
+        <h2 className={styles.titleContainer}>Beneficios abiertos</h2>
         <section className={styles.titleFunction}>
-          <h3>Total disponibles</h3>
+          <h3>Total disponibles:</h3>
           <div className={styles.totalCards}>
             <p>{promotions?.length}</p>
             <FontAwesomeIcon

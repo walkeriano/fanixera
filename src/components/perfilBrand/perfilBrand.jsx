@@ -28,6 +28,50 @@ export default function PerfilBrand() {
   return (
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
+        <Link
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkCircle}
+        >
+          <FontAwesomeIcon
+            icon={faLink}
+            size="2x"
+            className={styles.icon}
+          />
+        </Link>
+        <Link
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkCircleTwo}
+        >
+          <FontAwesomeIcon
+            icon={faFacebook}
+            size="2x"
+            className={styles.icon}
+          />
+        </Link>
+        <Link
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkCircleTre}
+        >
+          <FontAwesomeIcon
+            icon={faInstagram}
+            size="2x"
+            className={styles.icon}
+          />
+        </Link>
+        <Link
+          href="/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.linkCircleFor}
+        >
+          <FontAwesomeIcon icon={faTiktok} size="2x" className={styles.icon} />
+        </Link>
         <button
           onClick={() => setEditPerfil((prev) => !prev)}
           className={`${styles.editData} ${editPerfil ? styles.active : ""}`}
@@ -63,56 +107,6 @@ export default function PerfilBrand() {
           <p>{user?.expediente?.category}</p>
           <p>{user?.email}</p>
           <p>{user?.expediente?.ruc}</p>
-          <section className={styles.flexSocialChannel}>
-            <Link
-              className={styles.websiteLink}
-              href="/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p>website.com</p>
-              <FontAwesomeIcon
-                icon={faLink}
-                size="2x"
-                className={styles.icon}
-              />
-            </Link>
-            <div className={styles.chanels}>
-              <Link
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faFacebook}
-                  size="2x"
-                  className={styles.icon}
-                />
-              </Link>
-              <Link
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  size="2x"
-                  className={styles.icon}
-                />
-              </Link>
-              <Link
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faTiktok}
-                  size="2x"
-                  className={styles.icon}
-                />
-              </Link>
-            </div>
-          </section>
         </section>
       )}
     </section>
