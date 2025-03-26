@@ -20,10 +20,13 @@ export default function DashboardSociosNet() {
   if (error) return <p>Error: {error}</p>;
   if (!userData) return <p>No se encontró el perfil.</p>;
 
+  // Verificar si el usuario autenticado es dueño de la marca actual
+  const isOwner = user?.nombreMarca === userData?.nombreMarca;
+
   return (
     <section className={styles.containerDashboard}>
       <PerfilBrand userData={userData} />
-      {user ? (
+      {isOwner ? (
         <>
           <section className={styles.buttonPannel}>
             <section
@@ -60,7 +63,7 @@ export default function DashboardSociosNet() {
           )}
         </>
       ) : (
-        <p>promociones de marca para usuario</p>
+        <p>visualización para clientes normales</p>
       )}
     </section>
   );

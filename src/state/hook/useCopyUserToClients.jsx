@@ -1,58 +1,37 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { doc, getDoc, setDoc, getDocs, collection } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase-config";
 import AuthContext from "@/state/auth/auth-context";
-import QRCode from "qrcode"; // Importamos la librería para generar el QR
+import QRCode from "qrcode";
 
 const useCopyUserToClients = () => {
-  const { user, loadingUserData } = useContext(AuthContext); // Obtenemos también la bandera de carga de datos
+  const { user, loadingUserData } = useContext(AuthContext);
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [promotionId, setPromotionId] = useState(null);
-  const [qrCode, setQrCode] = useState(null); // Guardaremos la imagen del QR aquí
-  const [promotionUrl, setPromotionUrl] = useState(null); // Almacenamos la URL generada aquí
+  const [qrCode, setQrCode] = useState(null);
+  const [promotionUrl, setPromotionUrl] = useState(null);
 
   useEffect(() => {
-    if (!user || loadingUserData) return; // Esperar a que el usuario esté listo
+    if (!user || loadingUserData || !pathname) return;
 
-    if (pathname) {
-      const pathSegments = pathname.split("/");
-      const idFromUrl = pathSegments[pathSegments.length - 1];
-      if (idFromUrl) {
-        setPromotionId(idFromUrl);
-      } else {
-        setError("ID de promoción no encontrado.");
-      }
-    }
-  }, [pathname, user, loadingUserData]); // Asegurar que el efecto se ejecuta cuando `user` cambie
+    const idFromUrl = pathname.split("/").pop();
+    idFromUrl ? setPromotionId(idFromUrl) : setError("ID de promoción no encontrado.");
+  }, [pathname, user, loadingUserData]);
 
-
-  // Función para generar el QR
-  const generateQrCode = (url) => {
+  const generateQrCode = useCallback((url) => {
     return new Promise((resolve, reject) => {
       QRCode.toDataURL(url, (err, qrCodeData) => {
-        if (err) {
-          reject("Error al generar el código QR");
-        } else {
-          resolve(qrCodeData); // Devuelve la URL de la imagen QR
-        }
+        err ? reject("Error al generar el código QR") : resolve(qrCodeData);
       });
     });
-  };
+  }, []);
 
   const copyUserData = async () => {
-    console.log("Estado actual del usuario en copyUserData:", user); // <--- Verificar si el usuario está disponible
-
-    if (loadingUserData) {
-      setError("Esperando datos del usuario...");
-      return;
-    }
-
-    if (!user || !user.uid) {
-      console.error("Error: user.uid no está disponible en copyUserData");
+    if (loadingUserData || !user?.uid) {
       setError("Usuario no autenticado o datos aún no cargados.");
       return;
     }
@@ -67,25 +46,22 @@ const useCopyUserToClients = () => {
     setSuccess(false);
 
     try {
-      // Verificamos si la promoción existe
       const promotionRef = doc(db, "promotions", promotionId);
       const promotionSnap = await getDoc(promotionRef);
+
       if (!promotionSnap.exists()) {
-        setError("La promoción no existe.");
-        return;
+        throw new Error("La promoción no existe.");
       }
 
-      // Verificamos si el usuario ya está en la subcolección "clients"
-      const clientsRef = collection(db, "promotions", promotionId, "clients");
-      const clientSnap = await getDocs(clientsRef);
-      const existingClient = clientSnap.docs.find((doc) => doc.id === user.uid);
+      // Verificar si el usuario ya está registrado en la promoción
+      const clientRef = doc(db, "promotions", promotionId, "clients", user.uid);
+      const existingClientSnap = await getDoc(clientRef);
 
-      if (existingClient) {
-        setError("El usuario ya está registrado en esta promoción.");
-        return;
+      if (existingClientSnap.exists()) {
+        throw new Error("El usuario ya está registrado en esta promoción.");
       }
 
-      // Obtener los datos del usuario
+      // Obtener datos del usuario
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
 
@@ -94,28 +70,23 @@ const useCopyUserToClients = () => {
       }
 
       const userData = userSnap.data();
-      console.log("Datos del usuario en Firestore:", userData); // <--- Verificar datos antes de guardar
 
-      // Creamos la URL única para el código QR
+      // Generar URL del QR
       const uniqueUrl = `${window.location.origin}/detalle-marca/${promotionId}/usuario/${user.uid}`;
-      console.log("URL generada para el QR:", uniqueUrl); // <--- Ver la URL final
-
-      // Generamos el QR con la URL única
       const qrCodeData = await generateQrCode(uniqueUrl);
-      setQrCode(qrCodeData);
 
-      // Guardamos en Firestore
-      const clientRef = doc(db, "promotions", promotionId, "clients", user.uid);
+      // Guardar usuario en la promoción
       await setDoc(clientRef, {
         ...userData,
         qrCode: qrCodeData,
+        status: "pendiente",
       });
 
-      // Actualizamos el estado de la URL de promoción
+      setQrCode(qrCodeData);
       setPromotionUrl(uniqueUrl);
       setSuccess(true);
     } catch (err) {
-      console.error("Error al copiar usuario a clients:", err);
+      console.error("Error:", err);
       setError(err.message || "Hubo un problema al guardar los datos.");
     } finally {
       setLoading(false);

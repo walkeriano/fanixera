@@ -26,8 +26,8 @@ const useSearchPromotions = (searchTerm) => {
         // Realizamos la consulta usando el término de búsqueda en minúsculas
         const q = query(
           promotionsRef,
-          where("promcardName", ">=", lowerCaseSearchTerm),
-          where("promcardName", "<=", lowerCaseSearchTerm + "\uf8ff")
+          where("title", ">=", lowerCaseSearchTerm),
+          where("title", "<=", lowerCaseSearchTerm + "\uf8ff")
         );
 
         const querySnapshot = await getDocs(q);

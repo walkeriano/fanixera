@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./allAdsBrand.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,6 +25,23 @@ import QrButton from "@/components/qrButton/qrButton";
 export default function AllAdsBrand({ nombreMarca }) {
   const [expand, setExpand] = useState(true);
   const { promotions, loading, error } = useUserPromotions(nombreMarca);
+
+    // Estado para los clientes pendientes y aprobados
+    const [clientsPendientes, setClientsPendientes] = useState([]);
+    const [clientsAprobados, setClientsAprobados] = useState([]);
+  
+    useEffect(() => {
+      if (promotions.length > 0) {
+        // Filtrar clientes pendientes y aprobados
+        const allClients = promotions.flatMap(promotion => promotion.clients || []);
+        const pendientes = allClients.filter(client => client.status === "pendiente");
+        const aprobados = allClients.filter(client => client.status === "aprobado");
+  
+        // Actualizar los estados
+        setClientsPendientes(pendientes);
+        setClientsAprobados(aprobados);
+      }
+    }, [promotions]);
 
   if (loading) {
     return <p>Cargando promociones...</p>;
@@ -196,7 +213,7 @@ export default function AllAdsBrand({ nombreMarca }) {
                         <h3>Aprobados</h3>
                       </div>
                       <div className={styles.allResult}>
-                        <p>1234</p>
+                        <p>{clientsAprobados?.length}</p>
                         <FontAwesomeIcon
                           icon={faArrowUpShortWide}
                           size="2x"
@@ -204,36 +221,29 @@ export default function AllAdsBrand({ nombreMarca }) {
                         />
                       </div>
                     </section>
-                    <section className={styles.flexAllUsers}>
-                      <div className={styles.itemUserApproved}>
-                        <div className={styles.boxPerfilImage}>
-                          <Image src="/prom.png" alt="image-user" fill={true} />
-                        </div>
-                        <h4>alexander walker</h4>
-                        <p>12:10 pm</p>
-                      </div>
-                      <div className={styles.itemUserApproved}>
-                        <div className={styles.boxPerfilImage}>
-                          <Image src="/prom.png" alt="image-user" fill={true} />
-                        </div>
-                        <h4>alexander walker</h4>
-                        <p>12:10 pm</p>
-                      </div>
-                      <div className={styles.itemUserApproved}>
-                        <div className={styles.boxPerfilImage}>
-                          <Image src="/prom.png" alt="image-user" fill={true} />
-                        </div>
-                        <h4>alexander walker</h4>
-                        <p>12:10 pm</p>
-                      </div>
-                      <div className={styles.itemUserApproved}>
-                        <div className={styles.boxPerfilImage}>
-                          <Image src="/prom.png" alt="image-user" fill={true} />
-                        </div>
-                        <h4>alexander walker</h4>
-                        <p>12:10 pm</p>
-                      </div>
-                    </section>
+                    {clientsAprobados.length > 0 ? (
+                      <section className={styles.flexAllUsers}>
+                        {clientsAprobados.map((client) => (
+                          <div
+                            key={client.id}
+                            className={styles.itemUserApproved}
+                          >
+                            <div className={styles.boxPerfilImage}>
+                              <Image
+                                src="/prom.png"
+                                alt="image-user"
+                                fill={true}
+                              />
+                            </div>
+                            <h4>{client?.email}</h4>
+                            <p>{client?.nombreMarca}</p>
+                            <p>12:10 pm</p>
+                          </div>
+                        ))}
+                      </section>
+                    ) : (
+                      <p>No hay clientes registrados.</p>
+                    )}
                   </section>
                   <section className={styles.listadoUsuarios}>
                     <section className={styles.titleInteres}>
@@ -246,7 +256,7 @@ export default function AllAdsBrand({ nombreMarca }) {
                         <h3>Reservas</h3>
                       </div>
                       <div className={styles.allResult}>
-                        <p>1234</p>
+                        <p>{clientsPendientes?.length}</p>
                         <FontAwesomeIcon
                           icon={faArrowRightArrowLeft}
                           size="2x"
@@ -254,9 +264,9 @@ export default function AllAdsBrand({ nombreMarca }) {
                         />
                       </div>
                     </section>
-                    {promotion.clients.length > 0 ? (
+                    {clientsPendientes.length > 0 ? (
                       <section className={styles.flexAllUsers}>
-                        {promotion.clients.map((client) => (
+                        {clientsPendientes.map((client) => (
                           <div
                             key={client.id}
                             className={styles.itemUserApproved}

@@ -15,7 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "firebase": "^11.1.0",
     "html5-qrcode": "^2.3.8",
-    "next": "15.1.2",
+    "next": "^15.2.4",
     "qrcode": "^1.5.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

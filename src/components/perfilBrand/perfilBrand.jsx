@@ -18,54 +18,63 @@ import FormEditBrand from "@/components/formEditPerfil/formEditBrand";
 
 export default function PerfilBrand({ userData }) {
   const [editPerfil, setEditPerfil] = useState(false);
+  console.log(userData);
 
   return (
     <section className={styles.containerBrand}>
       <section className={styles.imgBrand}>
-        <Link
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.linkCircle}
-        >
-          <FontAwesomeIcon
-            icon={faBagShopping}
-            size="2x"
-            className={styles.icon}
-          />
-        </Link>
-        <Link
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.linkCircleTwo}
-        >
-          <FontAwesomeIcon
-            icon={faFacebookF}
-            size="2x"
-            className={styles.icon}
-          />
-        </Link>
-        <Link
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.linkCircleTre}
-        >
-          <FontAwesomeIcon
-            icon={faInstagram}
-            size="2x"
-            className={styles.icon}
-          />
-        </Link>
-        <Link
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.linkCircleFor}
-        >
-          <FontAwesomeIcon icon={faTiktok} size="2x" className={styles.icon} />
-        </Link>
+        {!editPerfil && (
+          <>
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.linkCircle}
+            >
+              <FontAwesomeIcon
+                icon={faBagShopping}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.linkCircleTwo}
+            >
+              <FontAwesomeIcon
+                icon={faFacebookF}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.linkCircleTre}
+            >
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.linkCircleFor}
+            >
+              <FontAwesomeIcon
+                icon={faTiktok}
+                size="2x"
+                className={styles.icon}
+              />
+            </Link>
+          </>
+        )}
         <button
           onClick={() => setEditPerfil((prev) => !prev)}
           className={`${styles.editData} ${editPerfil ? styles.active : ""}`}
