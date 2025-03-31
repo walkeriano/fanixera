@@ -4,6 +4,7 @@ import { createContext } from "react";
 export const initialAuthState = {
   user: null, // Inicialmente, no hay usuario autenticado
   login: () => Promise.resolve(),
+  loginWithGoogle: () => Promise.resolve(),
   logout: () => Promise.resolve(),
   register: () => Promise.resolve(),
 };

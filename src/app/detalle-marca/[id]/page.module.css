@@ -49,7 +49,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px;
   color: white;
 }
 
@@ -62,6 +61,8 @@
   justify-content: space-between;
   border-radius: 50px;
   gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .flexTitleBrand h3 {
@@ -238,8 +239,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
+  gap: 25px;
+  margin-top: 50px;
 }
 
 .containerUserInfo h3{
@@ -362,6 +363,8 @@
   gap: 10px;
   background-color: rgb(30, 30, 30);
   border-radius: 25px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .timeDate p{

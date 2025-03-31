@@ -7,7 +7,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { auth, db } from "../../../firebase-config";
 import Loading from "@/components/loaderIntro/loaderIntro";
 
@@ -40,48 +43,101 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [loadingUserData, setLoadingUserData] = useState(false); // Para Firestore
 
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    console.log("Usuario autenticado:", user);
+  const router = useRouter();
 
-    if (user) {
-      setLoadingUserData(true);
-      const fetchUserData = async () => {
-        try {
-          const userRef = doc(db, "users", user.uid);
-          const userSnap = await getDoc(userRef);
-          setUser(userSnap.exists()
-            ? { uid: user.uid, email: user.email, ...userSnap.data() }
-            : { uid: user.uid, email: user.email, nombreMarca: null, expediente: null }
-          );
-        } catch (error) {
-          console.error("Error al obtener datos del usuario:", error);
-        } finally {
-          setLoadingUserData(false);
-        }
-      };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log("Usuario autenticado:", user);
 
-      fetchUserData();
-    } else {
-      setUser(null);
-      setLoadingUserData(false);
+      if (user) {
+        setLoadingUserData(true);
+        const fetchUserData = async () => {
+          try {
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+            setUser(
+              userSnap.exists()
+                ? { uid: user.uid, email: user.email, ...userSnap.data() }
+                : {
+                    uid: user.uid,
+                    email: user.email,
+                    nombreMarca: null,
+                    expediente: null,
+                  }
+            );
+          } catch (error) {
+            console.error("Error al obtener datos del usuario:", error);
+          } finally {
+            setLoadingUserData(false);
+          }
+        };
+
+        fetchUserData();
+      } else {
+        setUser(null);
+        setLoadingUserData(false);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const loginWithGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+  
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const firebaseUser = result.user;
+  
+      const userRef = doc(db, "users", firebaseUser.uid);
+      const userSnap = await getDoc(userRef);
+  
+      let userData;
+  
+      if (userSnap.exists()) {
+        // 📌 Usuario ya registrado → Solo obtenemos sus datos
+        userData = userSnap.data();
+      } else {
+        // 📌 Nuevo usuario → Guardamos en Firestore
+        userData = {
+          uid: firebaseUser.uid,
+          email: firebaseUser.email,
+          nombreMarca: firebaseUser.displayName || "Usuario sin nombre",
+          imageUrl: firebaseUser.photoURL || "/default-avatar.png",
+          userType: "client",
+          createdAt: new Date(),
+          cel: firebaseUser.phoneNumber || null,  // Añadimos el número de teléfono aquí
+        };
+  
+        await setDoc(userRef, userData);
+      }
+  
+      // 📌 Actualizamos el contexto con los nuevos datos
+      setUser(userData);
+  
+      // 📌 Redirigir al perfil del usuario con su UID
+      router.replace("/perfil-usuario");
+    } catch (error) {
+      console.error("Error en login con Google:", error.message);
+      throw new Error("No se pudo iniciar sesión con Google.");
     }
-    setLoading(false);
-  });
-
-  return () => unsubscribe();
-}, []);
+  };
 
   const login = async (email, password) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
-  
+
       setLoadingUserData(true);
       try {
         const userRef = doc(db, "users", user.uid);
         const userSnap = await getDoc(userRef);
-  
+
         if (userSnap.exists()) {
           setUser({
             uid: user.uid,
@@ -96,7 +152,7 @@ useEffect(() => {
       } finally {
         setLoadingUserData(false);
       }
-  
+
       return userCredential;
     } catch (error) {
       setLoadingUserData(false);
@@ -115,9 +171,13 @@ useEffect(() => {
 
   const register = async ({ email, password, nombreMarca, userType }) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const userId = userCredential.user.uid;
-  
+
       setLoadingUserData(true);
       try {
         await setDoc(doc(db, "users", userId), {
@@ -126,14 +186,14 @@ useEffect(() => {
           userType,
           createdAt: new Date(),
         });
-  
+
         setUser({ uid: userId, email, nombreMarca, userType });
       } catch (error) {
         console.error("Error al registrar usuario:", error);
       } finally {
         setLoadingUserData(false);
       }
-  
+
       return userCredential;
     } catch (error) {
       setLoadingUserData(false);
@@ -143,9 +203,17 @@ useEffect(() => {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, register, login, logout, loadingUserData }}
+      value={{
+        user,
+        setUser,
+        register,
+        login,
+        loginWithGoogle,
+        logout,
+        loadingUserData,
+      }}
     >
-      {(loading || loadingUserData) ? <Loading /> : children}
+      {loading || loadingUserData ? <Loading /> : children}
     </AuthContext.Provider>
   );
 };

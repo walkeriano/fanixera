@@ -58,13 +58,14 @@ export default function HeaderDetalle() {
                 className={styles.icon}
               />
             </Link>
-            <Link href="/perfil-usuario" className={styles.linkDirect}>
-              mi perfil
+            <Link href="/boveda" className={styles.linkDirect}>
+              bóveda
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
                 size="2x"
                 className={styles.icon}
               />
+              <span>reservas</span>
             </Link>
             <Link href="/socios-net" className={styles.linkDirect}>
               Socios Net
@@ -73,6 +74,7 @@ export default function HeaderDetalle() {
                 size="2x"
                 className={styles.icon}
               />
+              <span>empresas</span>
             </Link>
             <Link href="/" className={styles.linkDirect}>
               contacto

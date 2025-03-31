@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "@/state/auth/auth-context";
 import styles from "./registroDirecto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserSecret, faBell } from "@fortawesome/free-solid-svg-icons";
@@ -10,6 +11,7 @@ import FormLoginClient from "@/components/formLoginClient/formLoginClient";
 
 export default function RegistroDirecto() {
   const [showLogin, setShowLogin] = useState(true);
+  const { loginWithGoogle } = useContext(AuthContext);
 
   return (
     <section className={styles.boxRegistroDirecto}>
@@ -33,6 +35,7 @@ export default function RegistroDirecto() {
       <section className={styles.linkSection}>
         <button
           className={styles.linkContactBrand}
+          onClick={loginWithGoogle}
         >
           <FontAwesomeIcon
             icon={faGooglePlusG}

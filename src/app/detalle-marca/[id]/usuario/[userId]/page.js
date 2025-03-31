@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useParams, useRouter  } from "next/navigation"; // Importamos useParams en lugar de useRouter
+import { useParams, useRouter  } from "next/navigation";
 import styles from "../../page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,9 +15,9 @@ import Image from "next/image";
 import Footer from "@/components/footer/footer";
 
 const UserPromotionPage = () => {
-  const { id: promotionId, userId } = useParams(); // Extraemos los parámetros de la URL correctamente
+  const { id: promotionId, userId } = useParams(); 
 
-  // Usamos el custom hook optimizado con los parámetros de la URL
+
   const { promotion, userData, loading, error } = usePromotionUserData(
     promotionId,
     userId
@@ -27,38 +27,38 @@ const UserPromotionPage = () => {
     userId
   );
   const router = useRouter();
-  const [approvedMessage, setApprovedMessage] = useState(""); // Estado para el mensaje
+  const [approvedMessage, setApprovedMessage] = useState(""); 
   const [currentTime, setCurrentTime] = useState("");
 
-  // 🔹 Actualizar la hora en tiempo real cada segundo
+  
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setCurrentTime(now.toLocaleString()); // Formato legible según la configuración regional
+      setCurrentTime(now.toLocaleString()); 
     };
 
-    updateTime(); // Llamamos una vez al inicio
-    const interval = setInterval(updateTime, 1000); // Se actualiza cada segundo
+    updateTime(); 
+    const interval = setInterval(updateTime, 1000);
 
-    return () => clearInterval(interval); // Limpieza al desmontar
+    return () => clearInterval(interval); 
   }, []);
 
-  // 🔄 Actualizar el mensaje automáticamente al cargar la página
+
   useEffect(() => {
     if (userData?.status === "aprobado") {
       setApprovedMessage("Este usuario ya está aprobado");
     } else {
-      setApprovedMessage(""); // Limpiar mensaje si no está aprobado
+      setApprovedMessage(""); 
     }
   }, [userData?.status]);
 
   const handleApprove = async () => {
     if (userData?.status === "aprobado") return;
 
-    await approveUser(currentTime); // Enviar el tiempo actual
+    await approveUser(currentTime); 
     setApprovedMessage("Usuario aprobado correctamente.");
 
-    // 🔹 Redirigir al perfil de la marca después de aprobar
+  
     if (promotion?.user?.nombreMarca) {
       router.push(`/perfil-socios-net/${promotion?.user?.nombreMarca}`);
     }
@@ -148,7 +148,6 @@ const UserPromotionPage = () => {
         <p>Fecha y Hora actual:</p>
         <h4>{currentTime}</h4>
       </section>
-
       {approvedMessage ? (
         <div className={styles.approvedMessage}>
           <p>{approvedMessage}</p>
@@ -179,7 +178,6 @@ const UserPromotionPage = () => {
           </button>
         </section>
       )}
-
       <Footer />
       <div className={styles.blurBlue}></div>
     </section>
