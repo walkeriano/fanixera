@@ -5,8 +5,6 @@ import {
   faXmark,
   faPencil,
   faUser,
-  faFolderOpen,
-  faFolderPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import AllAdsClient from "@/components/allAdsBrand/allAdsClient";
@@ -15,7 +13,6 @@ import AuthContext from "@/state/auth/auth-context";
 
 export default function VerifiedUser() {
   const [editPerfil, setEditPerfil] = useState(false);
-  const [change, setChange] = useState(false);
   const { user } = useContext(AuthContext);
 
   return (
@@ -60,36 +57,7 @@ export default function VerifiedUser() {
           <p>San miguel, Lima</p>
         </section>
       )}
-
-      <section className={styles.buttonPannel}>
-        <section
-          onClick={() => setChange(false)}
-          className={`${styles.sec} ${
-            !change ? styles.active : styles.inactive
-          }`}
-        >
-          <FontAwesomeIcon
-            icon={faFolderPlus}
-            size="2x"
-            className={styles.icon}
-          />
-          Mis reservas
-        </section>
-        <section
-          onClick={() => setChange(true)}
-          className={`${styles.sec} ${
-            change ? styles.active : styles.inactive
-          }`}
-        >
-          <FontAwesomeIcon
-            icon={faFolderOpen}
-            size="2x"
-            className={styles.icon}
-          />
-          Historial
-        </section>
-      </section>
-      {change ? <p>hello world</p> : <AllAdsClient />}
+      <AllAdsClient />
     </section>
   );
 }

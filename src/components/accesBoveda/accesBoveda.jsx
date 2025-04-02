@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/navigation";
 import AuthContext from "@/state/auth/auth-context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGooglePlusG } from "@fortawesome/free-brands-svg-icons";
 import styles from "./accesBoveda.module.css";
 import Image from "next/image";
 import FormRegistroClient from "@/components/formRegistroClient/formRegistroClient";
@@ -9,7 +11,7 @@ import FormLoginClient from "@/components/formLoginClient/formLoginClient";
 export default function AccesBoveda() {
   const [perfilSesionUser, setPerfilSesionUser] = useState(true);
   const [loading, setLoading] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { user, loginWithGoogle } = useContext(AuthContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -32,6 +34,14 @@ export default function AccesBoveda() {
           <Image src="/mobile-pc.png" alt="banner-socios-net" fill={true} />
         </div>
       </section>
+      <button onClick={loginWithGoogle} className={styles.accesGmail}>
+        Acceder con gmail
+        <FontAwesomeIcon
+          icon={faGooglePlusG}
+          size="2x"
+          className={styles.icon}
+        />
+      </button>
       <section className={styles.containerAccesos}>
         {loading ? (
           <section className={styles.loadingContainer}>

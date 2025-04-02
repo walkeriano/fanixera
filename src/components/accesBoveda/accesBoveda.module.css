@@ -99,3 +99,20 @@
     }
   }
   
+
+  .accesGmail{
+    width: 80%;
+    height: 45px;
+    border-radius: 50px;
+    border: 1px solid red;
+    background-color: rgb(109, 0, 0);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .accesGmail .icon{
+    font-size: 1.5rem;
+  }

@@ -10,7 +10,7 @@
 
 .imgBrand {
   background-color: black;
-  width: 55%;
+  width: 52%;
   aspect-ratio: 1;
   border-radius: 50%;
   position: relative;
@@ -88,29 +88,36 @@
 }
 
 .infoBrand {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  text-align: center;
 }
 
 .infoBrand p {
+  width: 80%;
   font-size: 1rem;
   color: grey;
   letter-spacing: 1px;
   line-height: 1;
   font-weight: 300;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .infoBrand h3 {
+  width: 100%;
   font-size: 1.5rem;
   letter-spacing: 1px;
   text-transform: capitalize;
   color: white;
   margin-bottom: 10px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 
@@ -148,74 +155,3 @@
   border: 1px solid rgb(55, 55, 55);
 }
 
-
-.buttonPannel {
-  width: 90%;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 35px;
-}
-
-.buttonPannel .sec:first-child{
-  border-radius: 25px 0px 0px 25px;
-}
-
-.buttonPannel .sec:last-child{
-  border-radius: 0px 25px 25px 0px;
-}
-
-.sec {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  border-top: 2px solid #0049ff;
-  border-bottom: 2px solid #0049ff;
-  background-color: #0048ff29;
-  backdrop-filter: blur(5px);
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-.sec .icon{
-  font-size: 1.4rem;
-}
-
-.active {
-  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
-  animation: moveGradienTwo 4s ease-in-out infinite;
-  font-weight: 600;
-  cursor: default;
-}
-
-.inactive {
-  border-top: 2px solid #0048ff29;
-  border-bottom: 2px solid #0048ff29;
-  color: rgba(255, 255, 255, 0.739);
-}
-
-.inactive:hover {
-  border-top: 2px solid #0049ff;
-  border-bottom: 2px solid #0049ff;
-}
-
-@keyframes moveGradienTwo {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}

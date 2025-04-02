@@ -5,29 +5,23 @@ import {
   faCaretDown,
   faCalendarCheck,
   faTurnDown,
-  faClockRotateLeft,
+  faTriangleExclamation,
   faLocationCrosshairs,
   faXmark,
   faCalendarXmark,
-  faMagnifyingGlass,
-  faArrowRightArrowLeft,
-  faPowerOff,
-  faTrashCan,
   faUsersViewfinder,
   faArrowTrendUp,
-  faUserShield,
-  faArrowUpShortWide,
-  faInbox,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import useClientPromotions from "@/state/hook/useClientPromotions";
+import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
 export default function AllAdsClient() {
   const [expand, setExpand] = useState(true);
   const { promotions, loading, error } = useClientPromotions();
 
   if (loading) {
-    return <p>Cargando promociones...</p>;
+    return <LoaderSpecific/>;
   }
 
   if (error) {
@@ -35,22 +29,28 @@ export default function AllAdsClient() {
   }
 
   return (
-    <section className={styles.containerAllBrand}>
-      <section className={styles.flextitleGeneral}>
-        <section className={styles.titleFunction}>
-          <h3>Beneficios reservados</h3>
-          <div className={styles.totalCards}>
-            <p>{promotions?.length}</p>
-            <FontAwesomeIcon
-              icon={faTurnDown}
-              size="2x"
-              className={styles.icon}
-            />
-          </div>
-        </section>
+    <section className={styles.containerAllClient}>
+      <section className={styles.titleFunction}>
+        <h3>Beneficios reservados</h3>
+        <div className={styles.totalCards}>
+          <p>{promotions?.length}</p>
+          <FontAwesomeIcon
+            icon={faTurnDown}
+            size="2x"
+            className={styles.icon}
+          />
+        </div>
       </section>
       {promotions.length === 0 ? (
-        <p>no hay promociones</p>
+        <section className={styles.cardOut}>
+          <FontAwesomeIcon
+            icon={faTriangleExclamation}
+            size="2x"
+            className={styles.icon}
+          />
+          <p>No tienes beneficios reservados...</p>
+        </section>
+        
       ) : (
         <>
           {promotions.map((promotion) => (
