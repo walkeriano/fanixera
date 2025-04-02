@@ -5,14 +5,15 @@ import {
   faCaretDown,
   faCalendarCheck,
   faTurnDown,
-  faTriangleExclamation,
   faLocationCrosshairs,
   faXmark,
   faCalendarXmark,
   faUsersViewfinder,
   faArrowTrendUp,
+  faArrowUpRightFromSquare
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import Link from "next/link";
 import useClientPromotions from "@/state/hook/useClientPromotions";
 import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
@@ -21,7 +22,7 @@ export default function AllAdsClient() {
   const { promotions, loading, error } = useClientPromotions();
 
   if (loading) {
-    return <LoaderSpecific/>;
+    return <LoaderSpecific />;
   }
 
   if (error) {
@@ -43,14 +44,22 @@ export default function AllAdsClient() {
       </section>
       {promotions.length === 0 ? (
         <section className={styles.cardOut}>
-          <FontAwesomeIcon
-            icon={faTriangleExclamation}
-            size="2x"
-            className={styles.icon}
+          <Image
+            src="/mascot-blue.png"
+            width={110}
+            height={110}
+            alt="icon-mascot"
           />
-          <p>No tienes beneficios reservados...</p>
+          <p>Ya puedes empezar a reservar beneficios...</p>
+          <Link href="/" className={styles.btnRedirect}>
+            Iniciar ahora
+            <FontAwesomeIcon
+              icon={faArrowUpRightFromSquare}
+              size="2x"
+              className={styles.icon}
+            />
+          </Link>
         </section>
-        
       ) : (
         <>
           {promotions.map((promotion) => (
