@@ -14,7 +14,7 @@ export default function HeaderDetalle() {
 
   return (
     <section className={styles.containerHeaderDetalle}>
-      <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
+       <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
@@ -85,15 +85,10 @@ export default function HeaderDetalle() {
               />
             </Link>
             <div className={styles.imgbgmenu}>
-              <Image src="/window.svg" alt="icon-random" fill={true} />
+              <Image src="/mascot-blue.png" alt="icon-random" fill={true} />
             </div>
             <section className={styles.legal}>
-              <Image
-                src="/next.png"
-                width={85}
-                height={40}
-                alt="logo-fanixera"
-              />
+              <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
               <div>
                 <p>Desarrollado por:</p>
                 <h4>Tomi Cibermarketing S.A.C</h4>

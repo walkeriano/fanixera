@@ -118,15 +118,10 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
               />
             </Link>
             <div className={styles.imgbgmenu}>
-              <Image src="/window.svg" alt="icon-random" fill={true} />
+              <Image src="/mascot-blue.png" alt="icon-random" fill={true} />
             </div>
             <section className={styles.legal}>
-              <Image
-                src="/next.png"
-                width={85}
-                height={40}
-                alt="logo-fanixera"
-              />
+              <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
               <div>
                 <p>Desarrollado por:</p>
                 <h4>Tomi Cibermarketing S.A.C</h4>

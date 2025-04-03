@@ -30,7 +30,7 @@ export default function HeaderSesion() {
   return (
     <section className={styles.headerSesionContainer}>
       <Link href="/">
-        <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
+         <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
       </Link>
       <section className={styles.sectionbtns}>
         {showMenu ? (
@@ -112,12 +112,7 @@ export default function HeaderSesion() {
               <Image src="/mascot-blue.png" alt="icon-random" fill={true} />
             </div>
             <section className={styles.legal}>
-              <Image
-                src="/next.png"
-                width={85}
-                height={40}
-                alt="logo-fanixera"
-              />
+               <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
               <div>
                 <p>Desarrollado por:</p>
                 <h4>Tomi Cibermarketing S.A.C</h4>
