@@ -19,9 +19,9 @@
 }
 
 .titleBrand h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
@@ -121,7 +121,7 @@
 .enlaceFlex {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -142,11 +142,15 @@
 }
 
 .itemAction h3 {
+  width: 60%;
   font-size: 1.2rem;
   letter-spacing: 1px;
   text-transform: capitalize;
   color: white;
   font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .userVerficate {
@@ -155,19 +159,17 @@
   justify-content: center;
   gap: 7px;
   color: grey;
-  margin-top: 45px;
 }
 
 .userVerficate h4 {
   font-size: 1rem;
-  text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 1;
 }
 
 .userVerficate .icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .containerActiveButton {

@@ -13,15 +13,22 @@ import useCopyUserToClients from "@/state/hook/useCopyUserToClients";
 
 export default function VerifiedBrand({ user, promotion }) {
   const { copyUserData, loading, success, error, qrCode, promotionUrl } =
-    useCopyUserToClients(); // Usamos la URL directamente desde el hook
+    useCopyUserToClients();
 
   console.log("URL generada en <Link>:", promotionUrl);
 
   return (
     <section className={styles.containerBrand}>
       <section className={styles.titleBrand}>
-        <h2>Enlace de beneficio</h2>
-        <p>Reservar lugar</p>
+        <h2>Reserva de Beneficio</h2>
+        <div className={styles.userVerficate}>
+          <h4>Enlace seguro</h4>
+          <FontAwesomeIcon
+            icon={faShieldHalved}
+            size="2x"
+            className={styles.icon}
+          />
+        </div>
       </section>
       <section className={styles.flexBeneficios}>
         <section className={styles.imgBrand}>
@@ -37,7 +44,7 @@ export default function VerifiedBrand({ user, promotion }) {
         </div>
         <section className={styles.imgBrand}>
           <Image
-            src={promotion?.user?.expediente?.imageUrl || "/prom.png"}
+            src={user?.imageUrl || "/prom.png"}
             alt="image-beneficio"
             fill={true}
           />
@@ -81,11 +88,7 @@ export default function VerifiedBrand({ user, promotion }) {
           ) : (
             <section className={styles.containerIntro}>
               <div className={styles.boxImage}>
-                <Image
-                  src="/mascot-blue.png"
-                  alt="icon"
-                  fill={true}
-                />
+                <Image src="/mascot-blue.png" alt="icon" fill={true} />
               </div>
               <section
                 onClick={copyUserData}
@@ -103,14 +106,6 @@ export default function VerifiedBrand({ user, promotion }) {
           )}
         </section>
         {error && <p>{error}</p>}
-        <div className={styles.userVerficate}>
-          <h4>Enlace seguro</h4>
-          <FontAwesomeIcon
-            icon={faShieldHalved}
-            size="2x"
-            className={styles.icon}
-          />
-        </div>
       </section>
     </section>
   );

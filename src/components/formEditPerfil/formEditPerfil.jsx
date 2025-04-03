@@ -2,6 +2,7 @@ import styles from "./formEditPerfil.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 
+
 export default function FormEditPerfil({ user }) {
   return (
     <section className={styles.containerFormEditPerfil}>

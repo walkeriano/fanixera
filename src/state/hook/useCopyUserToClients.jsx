@@ -17,7 +17,6 @@ const useCopyUserToClients = () => {
 
   useEffect(() => {
     if (!user || loadingUserData || !pathname) return;
-
     const idFromUrl = pathname.split("/").pop();
     idFromUrl ? setPromotionId(idFromUrl) : setError("ID de promoción no encontrado.");
   }, [pathname, user, loadingUserData]);
@@ -35,53 +34,45 @@ const useCopyUserToClients = () => {
       setError("Usuario no autenticado o datos aún no cargados.");
       return;
     }
-
     if (!promotionId) {
       setError("ID de promoción no encontrado.");
       return;
     }
-
+    
     setLoading(true);
     setError(null);
     setSuccess(false);
-
+    
     try {
-      const promotionRef = doc(db, "promotions", promotionId);
-      const promotionSnap = await getDoc(promotionRef);
-
-      if (!promotionSnap.exists()) {
-        throw new Error("La promoción no existe.");
-      }
-
-      // Verificar si el usuario ya está registrado en la promoción
       const clientRef = doc(db, "promotions", promotionId, "clients", user.uid);
       const existingClientSnap = await getDoc(clientRef);
-
+      
       if (existingClientSnap.exists()) {
-        throw new Error("El usuario ya está registrado en esta promoción.");
+        // Si el usuario ya está registrado, simplemente obtenemos su QR
+        const existingData = existingClientSnap.data();
+        setQrCode(existingData.qrCode);
+        setPromotionUrl(`${window.location.origin}/detalle-marca/${promotionId}/usuario/${user.uid}`);
+        setSuccess(true);
+        setLoading(false);
+        return;
       }
-
-      // Obtener datos del usuario
+      
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
-
       if (!userSnap.exists()) {
         throw new Error("No se encontró la información del usuario.");
       }
-
+      
       const userData = userSnap.data();
-
-      // Generar URL del QR
       const uniqueUrl = `${window.location.origin}/detalle-marca/${promotionId}/usuario/${user.uid}`;
       const qrCodeData = await generateQrCode(uniqueUrl);
-
-      // Guardar usuario en la promoción
+      
       await setDoc(clientRef, {
         ...userData,
         qrCode: qrCodeData,
         status: "pendiente",
       });
-
+      
       setQrCode(qrCodeData);
       setPromotionUrl(uniqueUrl);
       setSuccess(true);
