@@ -10,6 +10,7 @@ import {
 import AllAdsBrand from "@/components/allAdsBrand/allAdsBrand";
 import FormCreationAd from "@/components/formCreationAd/formCreationAd";
 import useUserProfile from "@/state/hook/useUserProfile";
+import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
 export default function DashboardSociosNet() {
   const { user } = useContext(AuthContext);
@@ -63,7 +64,7 @@ export default function DashboardSociosNet() {
           )}
         </>
       ) : (
-        <p>visualización para clientes normales</p>
+        <AllAdsBrand nombreMarca={userData?.nombreMarca} />
       )}
     </section>
   );

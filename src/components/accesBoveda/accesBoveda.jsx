@@ -7,6 +7,7 @@ import styles from "./accesBoveda.module.css";
 import Image from "next/image";
 import FormRegistroClient from "@/components/formRegistroClient/formRegistroClient";
 import FormLoginClient from "@/components/formLoginClient/formLoginClient";
+import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
 export default function AccesBoveda() {
   const [perfilSesionUser, setPerfilSesionUser] = useState(true);
@@ -19,7 +20,7 @@ export default function AccesBoveda() {
       if (user.userType === "client") {
         router.replace("/perfil-usuario");
       } else if (user.userType === "brand") {
-        router.replace("/");
+        router.replace(`/boveda`);
       }
     }
     setLoading(false); // Desactiva el loading tras la verificación
@@ -34,40 +35,48 @@ export default function AccesBoveda() {
           <Image src="/mobile-pc.png" alt="banner-socios-net" fill={true} />
         </div>
       </section>
-      <button onClick={loginWithGoogle} className={styles.accesGmail}>
-        Acceder con gmail
-        <FontAwesomeIcon
-          icon={faGooglePlusG}
-          size="2x"
-          className={styles.icon}
-        />
-      </button>
       <section className={styles.containerAccesos}>
         {loading ? (
-          <section className={styles.loadingContainer}>
-            <h2>Cargando...</h2>
-          </section>
+          <LoaderSpecific />
         ) : (
           <>
-            <section className={styles.accesBtns}>
-              <button
-                onClick={() => setPerfilSesionUser(true)}
-                className={`${styles.btnAction} ${
-                  perfilSesionUser ? styles.active : styles.inactive
-                }`}
-              >
-                Iniciar Sesión
-              </button>
-              <button
-                onClick={() => setPerfilSesionUser(false)}
-                className={`${styles.btnAction} ${
-                  !perfilSesionUser ? styles.active : styles.inactive
-                }`}
-              >
-                Registro
-              </button>
-            </section>
-            {perfilSesionUser ? <FormLoginClient /> : <FormRegistroClient />}
+            {user && user.userType === "brand" ? (
+              <></>
+            ) : (
+              <>
+                <button onClick={loginWithGoogle} className={styles.accesGmail}>
+                  Acceder con google
+                  <FontAwesomeIcon
+                    icon={faGooglePlusG}
+                    size="2x"
+                    className={styles.icon}
+                  />
+                </button>
+                <section className={styles.accesBtns}>
+                  <button
+                    onClick={() => setPerfilSesionUser(true)}
+                    className={`${styles.btnAction} ${
+                      perfilSesionUser ? styles.active : styles.inactive
+                    }`}
+                  >
+                    Iniciar Sesión
+                  </button>
+                  <button
+                    onClick={() => setPerfilSesionUser(false)}
+                    className={`${styles.btnAction} ${
+                      !perfilSesionUser ? styles.active : styles.inactive
+                    }`}
+                  >
+                    Registro
+                  </button>
+                </section>
+                {perfilSesionUser ? (
+                  <FormLoginClient />
+                ) : (
+                  <FormRegistroClient />
+                )}
+              </>
+            )}
           </>
         )}
       </section>

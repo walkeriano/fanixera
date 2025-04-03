@@ -110,7 +110,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
   }
 
   .accesGmail .icon{

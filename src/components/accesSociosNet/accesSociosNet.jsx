@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "@/state/auth/auth-context";
 import styles from "./accesSociosNet.module.css";
 import Image from "next/image";
 import FormAccesSociosNet from "@/components/formAccesSociosNet/formAccesSociosNet";
 import FormRegistro from "@/components/formRegistro/formRegistro";
 export default function AccesSociosNet() {
   const [perfilSesionUser, setPerfilSesionUser] = useState(true);
+  const { user } = useContext(AuthContext);
 
   return (
     <section className={styles.containerAccesSociosNet}>
@@ -15,7 +17,10 @@ export default function AccesSociosNet() {
           <Image src="/mobile-pc.png" alt="banner-socios-net" fill={true} />
         </div>
       </section>
-      <section className={styles.containerAccesos}>
+      {user && user.userType === "client" ? (
+        <></>
+      ) : (
+        <section className={styles.containerAccesos}>
         <section className={styles.accesBtns}>
           <button
             onClick={() => setPerfilSesionUser(true)}
@@ -36,6 +41,7 @@ export default function AccesSociosNet() {
         </section>
         {perfilSesionUser ? <FormAccesSociosNet /> : <FormRegistro />}
       </section>
+      )}
     </section>
   );
 }

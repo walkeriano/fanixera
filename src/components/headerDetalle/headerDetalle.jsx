@@ -14,7 +14,10 @@ export default function HeaderDetalle() {
 
   return (
     <section className={styles.containerHeaderDetalle}>
-       <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+      <Link href="/" >
+      <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+      </Link>
+       
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
