@@ -35,7 +35,8 @@ export default function useClientPromotions() {
             clientPromotions.push({ 
               id: promotionId, 
               ...promotionData,
-              qrCode: clientData.qrCode // Agregar el código QR
+              qrCode: clientData.qrCode, // Agregar el código QR
+              promotionUrl: clientData.promotionUrl,
             });
           }
         }

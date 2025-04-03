@@ -38,41 +38,43 @@ const useCopyUserToClients = () => {
       setError("ID de promoción no encontrado.");
       return;
     }
-    
+  
     setLoading(true);
     setError(null);
     setSuccess(false);
-    
+  
     try {
       const clientRef = doc(db, "promotions", promotionId, "clients", user.uid);
       const existingClientSnap = await getDoc(clientRef);
-      
+  
       if (existingClientSnap.exists()) {
-        // Si el usuario ya está registrado, simplemente obtenemos su QR
+        // Si el usuario ya está registrado, simplemente obtenemos su QR y URL
         const existingData = existingClientSnap.data();
         setQrCode(existingData.qrCode);
-        setPromotionUrl(`${window.location.origin}/detalle-marca/${promotionId}/usuario/${user.uid}`);
+        setPromotionUrl(existingData.promotionUrl);  // Recuperamos la URL guardada
         setSuccess(true);
         setLoading(false);
         return;
       }
-      
+  
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
       if (!userSnap.exists()) {
         throw new Error("No se encontró la información del usuario.");
       }
-      
+  
       const userData = userSnap.data();
       const uniqueUrl = `${window.location.origin}/detalle-marca/${promotionId}/usuario/${user.uid}`;
       const qrCodeData = await generateQrCode(uniqueUrl);
-      
+  
+      // Guardamos tanto el código QR como la URL única en Firestore
       await setDoc(clientRef, {
         ...userData,
         qrCode: qrCodeData,
+        promotionUrl: uniqueUrl,  // Guardamos la URL única también
         status: "pendiente",
       });
-      
+  
       setQrCode(qrCodeData);
       setPromotionUrl(uniqueUrl);
       setSuccess(true);

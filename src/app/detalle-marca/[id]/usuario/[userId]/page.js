@@ -1,6 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useParams, useRouter  } from "next/navigation";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useRouter } from "next/navigation";
+import AuthContext from "@/state/auth/auth-context";
 import styles from "../../page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,9 +16,7 @@ import Image from "next/image";
 import Footer from "@/components/footer/footer";
 
 const UserPromotionPage = () => {
-  const { id: promotionId, userId } = useParams(); 
-
-
+  const { id: promotionId, userId } = useParams();
   const { promotion, userData, loading, error } = usePromotionUserData(
     promotionId,
     userId
@@ -26,39 +25,52 @@ const UserPromotionPage = () => {
     promotionId,
     userId
   );
+
   const router = useRouter();
-  const [approvedMessage, setApprovedMessage] = useState(""); 
+  const { user } = useContext(AuthContext);
+
+  const [approvedMessage, setApprovedMessage] = useState("");
   const [currentTime, setCurrentTime] = useState("");
+  const [isBeneficiary, setIsBeneficiary] = useState(false);
+  const [isCreator, setIsCreator] = useState(false);
 
-  
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleString()); 
-    };
+    // Solo ejecutamos la redirección si userData y promotion ya han sido cargados
+    if (userData && promotion) {
+      const esBeneficiario = user?.nombreMarca === userData?.nombreMarca;
+      const esCreador = user?.nombreMarca === promotion?.user?.nombreMarca;
+  
+      setIsBeneficiary(esBeneficiario);
+      setIsCreator(esCreador);
+  
+      // Redirigir solo si el usuario no es ni beneficiario ni creador
+      if (!esBeneficiario && !esCreador) {
+        router.push("/");
+      }
+    }
+  }, [user, userData, promotion, router]);
 
-    updateTime(); 
-    const interval = setInterval(updateTime, 1000);
-
-    return () => clearInterval(interval); 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
-
 
   useEffect(() => {
     if (userData?.status === "aprobado") {
       setApprovedMessage("Este usuario ya está aprobado");
     } else {
-      setApprovedMessage(""); 
+      setApprovedMessage("");
     }
   }, [userData?.status]);
 
   const handleApprove = async () => {
     if (userData?.status === "aprobado") return;
 
-    await approveUser(currentTime); 
+    await approveUser(currentTime);
     setApprovedMessage("Usuario aprobado correctamente.");
 
-  
     if (promotion?.user?.nombreMarca) {
       router.push(`/perfil-socios-net/${promotion?.user?.nombreMarca}`);
     }
@@ -144,39 +156,48 @@ const UserPromotionPage = () => {
           <p>Ciudad: San miguel</p>
         </section>
       </section>
-      <section className={styles.timeDate}>
-        <p>Fecha y Hora actual:</p>
-        <h4>{currentTime}</h4>
-      </section>
-      {approvedMessage ? (
-        <div className={styles.approvedMessage}>
-          <p>{approvedMessage}</p>
+      {isBeneficiary && (
+        <div className={styles.beneficiaryInfo}>
+          <p>¡Este es tu beneficio! Puedes verlo cuando quieras.</p>
         </div>
-      ) : (
-        <section className={styles.containerActions}>
-          <button
-            onClick={handleApprove}
-            disabled={approving}
-            className={
-              userData?.status === "aprobado" ? styles.disabledButton : ""
-            }
-          >
-            {approving ? "Aprobando..." : "Aprobar"}
-            <FontAwesomeIcon
-              icon={faCircleCheck}
-              size="2x"
-              className={styles.icon}
-            />
-          </button>
-          <button>
-            Denegar
-            <FontAwesomeIcon
-              icon={faCircleXmark}
-              size="2x"
-              className={styles.icon}
-            />
-          </button>
-        </section>
+      )}
+      {isCreator && (
+        <>
+          <section className={styles.timeDate}>
+            <p>Fecha y Hora actual:</p>
+            <h4>{currentTime}</h4>
+          </section>
+          {approvedMessage ? (
+            <div className={styles.approvedMessage}>
+              <p>{approvedMessage}</p>
+            </div>
+          ) : (
+            <section className={styles.containerActions}>
+              <button
+                onClick={handleApprove}
+                disabled={approving}
+                className={
+                  userData?.status === "aprobado" ? styles.disabledButton : ""
+                }
+              >
+                {approving ? "Aprobando..." : "Aprobar"}
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </button>
+              <button>
+                Denegar
+                <FontAwesomeIcon
+                  icon={faCircleXmark}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </button>
+            </section>
+          )}
+        </>
       )}
       <Footer />
       <div className={styles.blurBlue}></div>

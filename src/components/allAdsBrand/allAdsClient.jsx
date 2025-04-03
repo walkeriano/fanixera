@@ -10,7 +10,7 @@ import {
   faCalendarXmark,
   faUsersViewfinder,
   faArrowTrendUp,
-  faArrowUpRightFromSquare
+  faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,8 +18,23 @@ import useClientPromotions from "@/state/hook/useClientPromotions";
 import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
 export default function AllAdsClient() {
-  const [expand, setExpand] = useState(true);
   const { promotions, loading, error } = useClientPromotions();
+
+  // Usamos un Set para manejar los IDs de las promociones expandidas
+  const [expandedPromotions, setExpandedPromotions] = useState(new Set());
+
+  const toggleExpand = (promotionId) => {
+    // Alternamos el estado de expansión: si está en el Set lo quitamos, si no lo agregamos
+    setExpandedPromotions((prevState) => {
+      const newState = new Set(prevState);
+      if (newState.has(promotionId)) {
+        newState.delete(promotionId);
+      } else {
+        newState.add(promotionId);
+      }
+      return newState;
+    });
+  };
 
   if (loading) {
     return <LoaderSpecific />;
@@ -93,26 +108,7 @@ export default function AllAdsClient() {
               <h3 className={styles.titleCard}>{promotion?.title}</h3>
               <p className={styles.descriptionCard}>{promotion?.description}</p>
               <section className={styles.expandContainer}>
-                {expand ? (
-                  <div className={styles.divactive}>
-                    <section
-                      onClick={() => setExpand(false)}
-                      className={styles.btnExpandir}
-                    >
-                      <FontAwesomeIcon
-                        icon={faCaretDown}
-                        size="2x"
-                        className={styles.icon}
-                      />
-                      <p>Ver más información</p>
-                      <FontAwesomeIcon
-                        icon={faCaretDown}
-                        size="2x"
-                        className={styles.icon}
-                      />
-                    </section>
-                  </div>
-                ) : (
+                {expandedPromotions.has(promotion.id) ? (
                   <div className={styles.divinactive}>
                     <section className={styles.detallesAd}>
                       <div className={styles.itemDetalle}>
@@ -172,17 +168,24 @@ export default function AllAdsClient() {
                       ) : (
                         <p>No hay QR disponible</p>
                       )}
-                      <section className={styles.alertIdentified}>
-                        <FontAwesomeIcon
-                          icon={faUsersViewfinder}
-                          size="2x"
-                          className={styles.icon}
-                        />
-                        <p>Recuerda mostrar tu identificación</p>
-                      </section>
+                      {promotion.promotionUrl ? (
+                        <Link
+                          href={promotion?.promotionUrl}
+                          className={styles.alertIdentified}
+                        >
+                          <p>Abrir reserva</p>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            size="2x"
+                            className={styles.icon}
+                          />
+                        </Link>
+                      ) : (
+                        <p>No hay url disponible</p>
+                      )}
                     </section>
                     <section
-                      onClick={() => setExpand(true)}
+                      onClick={() => toggleExpand(promotion.id)}
                       className={styles.btnMinimizar}
                     >
                       <FontAwesomeIcon
@@ -191,6 +194,25 @@ export default function AllAdsClient() {
                         className={styles.icon}
                       />
                       <p>Ocultar información</p>
+                      <FontAwesomeIcon
+                        icon={faCaretDown}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                    </section>
+                  </div>
+                ) : (
+                  <div className={styles.divactive}>
+                    <section
+                      onClick={() => toggleExpand(promotion.id)}
+                      className={styles.btnExpandir}
+                    >
+                      <FontAwesomeIcon
+                        icon={faCaretDown}
+                        size="2x"
+                        className={styles.icon}
+                      />
+                      <p>Ver más información</p>
                       <FontAwesomeIcon
                         icon={faCaretDown}
                         size="2x"
