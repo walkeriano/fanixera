@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import AuthContext from "@/state/auth/auth-context";
 import { useRouter } from "next/navigation";
@@ -25,18 +25,14 @@ export default function FormAccesSociosNet() {
 
   const onSubmit = async (data) => {
     try {
-      await login(data.email, data.password);
+      const user = await login(data.email, data.password);
+      if (user?.nombreMarca) {
+        router.push(`/perfil-socios-net/${user.nombreMarca}`);
+      }
     } catch (error) {
       setError(error.message);
     }
   };
-
-  // Redirigir al perfil cuando user y nombreMarca estén disponibles
-  useEffect(() => {
-    if (user && user.nombreMarca) {
-      router.push(`/perfil-socios-net/${user.nombreMarca}`);
-    }
-  }, [user, router]);
 
   return (
     <section className={styles.containerForm}>

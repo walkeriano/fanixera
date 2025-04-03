@@ -85,7 +85,7 @@ const useSubmitExpediente = () => {
 
       setSuccess(true);
       reset();
-      router.push("/perfil-socios-net");
+      router.push(`/perfil-socios-net/${user?.nombreMarca}`);
     } catch (err) {
       console.error("Error en el envío del expediente:", err);
       setError(
