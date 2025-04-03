@@ -25,7 +25,7 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
 
   return (
     <section className={styles.header}>
-      <Image src="/next.png" width={100} height={45} alt="logo-fanixera" />
+      <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
