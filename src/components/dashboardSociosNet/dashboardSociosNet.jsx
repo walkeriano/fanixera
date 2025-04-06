@@ -17,7 +17,7 @@ export default function DashboardSociosNet() {
   const [change, setChange] = useState(false);
   const { userData, loading, error } = useUserProfile();
 
-  if (loading) return <p>Cargando...</p>;
+  if (loading) return <LoaderSpecific/>;
   if (error) return <p>Error: {error}</p>;
   if (!userData) return <p>No se encontró el perfil.</p>;
 
