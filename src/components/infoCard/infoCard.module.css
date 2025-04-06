@@ -25,30 +25,30 @@
   width: 100%;
   height: 35%;
   bottom: 0px;
-  border-radius: 0px 0px 30px 30px;
+  border-radius: 30px 30px 0px 0px;
 }
 
 .partOne .imgPromo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 30px;
+  border-radius: 30px 30px 0px 0px;
 }
 
-.marcaViews {
+.marcaDatos {
   position: absolute;
   z-index: 1;
-  bottom: 20px;
+  bottom: -20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 90%;
   height: 40px;
-  border-radius: 50px;
+  gap: 5px;
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveGradient 4s ease-in-out infinite;
-  padding: 0px 20px;
+  border-radius: 50px;
 }
 
 @keyframes moveGradient {
@@ -61,42 +61,6 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-
-.titleSection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.titleSection .icon {
-  font-size: 1rem;
-}
-
-.allResult {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.allResult .icon {
-  font-size: 1rem;
-}
-
-.marcaDatos {
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 40px;
-  gap: 5px;
-  background-color: #0d0d0d;
-  border-radius: 50px;
-  margin-bottom: 10px;
 }
 
 .perfilBrand{
@@ -167,12 +131,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
+  margin: 40px 0px 30px 0px;
 }
 
 .partTwo h2 {
   width: 100%;
-  display: -webkit-box;
   display: flex; /* Propiedad estándar */
   -webkit-box-orient: vertical;
   box-orient: vertical; /* Propiedad estándar */
@@ -180,7 +144,7 @@
   line-clamp: 3; /* Propiedad estándar */
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.1; /* Ajusta según tu diseño */
+  line-height: 1.3; /* Ajusta según tu diseño */
   max-height: calc(1.5em * 3); /* Ajusta si cambias la line-height */
   word-break: break-word;
   font-size: 6.6vw;
@@ -192,10 +156,10 @@
 .partTwo .descriptionText{
   font-size: 1.1rem;
   letter-spacing: 0.5px;
-  line-height: 1;
+  line-height: 1.3;
   color: rgb(156, 156, 156);
   width: 100%;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .boxDatosRelevantes {
@@ -203,82 +167,93 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
+  gap: 20px;
 }
 
 .datoImportant {
-  height: 75px;
   width: 35%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .datoImportant h3 {
-  font-size: 1.3rem;
-  letter-spacing: 1px;
+  width: 100%;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
   line-height: 1;
-  color: rgb(156, 156, 156);
+  color: white;
+  font-weight: 700;
 }
 
 .titleBox {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 
 .titleBox p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1;
-  color: rgb(156, 156, 156);
+  color: grey;
+  font-weight: 500;
 }
 
 .titleBox .icon {
-  font-size: 1.5rem;
-  color: rgb(156, 156, 156);
+  font-size: 1.6rem;
+  color: grey;
   margin-top: -2px;
 }
 
-.partTre {
-  width: 90%;
-  height: 75px;
-  display: flex;
+.datoImportant:nth-child(1){
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  border-radius: 0px 20px 20px 20px;
+  padding: 15px;
   align-items: center;
-  justify-content: flex-start;
-  overflow: scroll;
-  margin-top: 10px;
-  background-color: #0d0d0d;
-  border-radius: 15px;
+  justify-content: center;
+  margin-right: 10px;
 }
 
-.partTre span {
-  border: 1px solid black;
-  height: 55%;
+.datoImportant:nth-child(1) .titleBox p{
+  color: white;
+}
+
+.partTre {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
 }
 
 .itemInfo {
-  min-width: 200px;
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  padding-left: 25px;
 }
 
 .itemInfo .icon {
   font-size: 2.0rem;
-  color: white;
+  color:grey;
 }
 
 .infoGeneralDato {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -294,20 +269,24 @@
 }
 
 .flexDatoTitle p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   line-height: 1;
-  color:white;
+  color:grey;
+  font-weight: 500;
 }
 
 .flexDatoTitle .icon {
   font-size: 0.7rem;
   line-height: 1;
+  color:grey;
 }
 
 .datoInfo {
-  font-size: 1rem;
+  width: 100%;
+  font-size: 1.1rem;
   letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .partFour {
@@ -328,11 +307,19 @@
   background-color: #0d0d0d;
 }
 
+.onTc{
+  width: 100%;
+  background-color: #0d0d0d;
+  padding: 20px;
+}
+
 .offTc p {
   font-size: 1rem;
   letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .offTc .icon {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
+  color: grey;
 }

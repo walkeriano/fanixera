@@ -4,17 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowRightArrowLeft,
+  faArrowUpWideShort,
   faGlobe,
   faCalendarCheck,
   faChevronDown,
   faCalendarXmark,
   faLocationCrosshairs,
   faExpand,
-  faLayerGroup,
-  faBookmark,
-  faUsersViewfinder,
-  faArrowTrendUp,
+  faCirclePlus,
+  faStarHalfStroke,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -40,32 +38,6 @@ export default function InfoCard({ id }) {
   return (
     <section className={styles.allInfoCard}>
       <section className={styles.partOne}>
-        <section className={styles.marcaViews}>
-          <div className={styles.titleSection}>
-            <FontAwesomeIcon
-              icon={faUsersViewfinder}
-              size="2x"
-              className={styles.icon}
-            />
-            <h3>Visibilidad</h3>
-          </div>
-          <div className={styles.allResult}>
-            <p>1234</p>
-            <FontAwesomeIcon
-              icon={faArrowTrendUp}
-              size="2x"
-              className={styles.icon}
-            />
-          </div>
-        </section>
-        <Image
-          src={promotion?.image1 || "/prom.png"}
-          alt="image-promo"
-          fill={true}
-          className={styles.imgPromo}
-        />
-      </section>
-      <section className={styles.partTwo}>
         <section className={styles.marcaDatos}>
           <Link
             href={`/perfil-socios-net/${promotion?.user?.nombreMarca}`}
@@ -92,27 +64,33 @@ export default function InfoCard({ id }) {
                 className={styles.icon}
               />
             </Link>
-            <Link href={promotion?.user?.expediente?.contacto?.tiktok}
+            <Link
+              href={promotion?.user?.expediente?.contacto?.tiktok}
               target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon
                 icon={faTiktok}
                 size="2x"
                 className={styles.icon}
               />
             </Link>
-            <Link href={promotion?.user?.expediente?.contacto?.instagram}
+            <Link
+              href={promotion?.user?.expediente?.contacto?.instagram}
               target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon
                 icon={faInstagram}
                 size="2x"
                 className={styles.icon}
               />
             </Link>
-            <Link href={promotion?.user?.expediente?.contacto?.facebook}
+            <Link
+              href={promotion?.user?.expediente?.contacto?.facebook}
               target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon
                 icon={faFacebook}
                 size="2x"
@@ -121,15 +99,83 @@ export default function InfoCard({ id }) {
             </Link>
           </section>
         </section>
-        <h2>{promotion?.title}</h2>
-        <h4 className={styles.descriptionText}>{promotion?.description}</h4>
+        <Image
+          src={promotion?.image1 || "/prom.png"}
+          alt="image-promo"
+          fill={true}
+          className={styles.imgPromo}
+        />
+      </section>
+      <section className={styles.partTwo}>
+        <h2>hamburguesas 2x1 toda la semana es hora {promotion?.title}</h2>
+        <h4 className={styles.descriptionText}>
+          {promotion?.description} aprovecha ahora y adquiere 5 hamburgesas
+          royal + 5 bebidas hasta las 5 pm.
+        </h4>
+        <section className={styles.partTre}>
+          <section className={styles.itemInfo}>
+            <FontAwesomeIcon
+              icon={faCalendarCheck}
+              size="2x"
+              className={styles.icon}
+            />
+            <section className={styles.infoGeneralDato}>
+              <div className={styles.flexDatoTitle}>
+                <p>Empieza</p>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </div>
+              <p className={styles.datoInfo}>{promotion?.startDate}</p>
+            </section>
+          </section>
+          <section className={styles.itemInfo}>
+            <FontAwesomeIcon
+              icon={faCalendarXmark}
+              size="2x"
+              className={styles.icon}
+            />
+            <section className={styles.infoGeneralDato}>
+              <div className={styles.flexDatoTitle}>
+                <p>Termina</p>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </div>
+              <p className={styles.datoInfo}>{promotion?.endDate}</p>
+            </section>
+          </section>
+          <section className={styles.itemInfo}>
+            <FontAwesomeIcon
+              icon={faLocationCrosshairs}
+              size="2x"
+              className={styles.icon}
+            />
+            <section className={styles.infoGeneralDato}>
+              <div className={styles.flexDatoTitle}>
+                <p>Ubicación</p>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </div>
+              <p className={styles.datoInfo}>{promotion?.ubication}</p>
+            </section>
+          </section>
+        </section>
         <section className={styles.boxDatosRelevantes}>
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
-              <FontAwesomeIcon
-                icon={faLayerGroup}
-                size="2x"
-                className={styles.icon}
+              <Image
+                src="/mascot-white.png"
+                alt="mascot-tomi"
+                width={40}
+                height={40}
               />
               <p>Stock</p>
             </div>
@@ -138,7 +184,7 @@ export default function InfoCard({ id }) {
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
               <FontAwesomeIcon
-                icon={faBookmark}
+                icon={faStarHalfStroke}
                 size="2x"
                 className={styles.icon}
               />
@@ -149,7 +195,7 @@ export default function InfoCard({ id }) {
           <section className={styles.datoImportant}>
             <div className={styles.titleBox}>
               <FontAwesomeIcon
-                icon={faArrowRightArrowLeft}
+                icon={faArrowUpWideShort}
                 size="2x"
                 className={styles.icon}
               />
@@ -159,76 +205,21 @@ export default function InfoCard({ id }) {
           </section>
         </section>
       </section>
-      <section className={styles.partTre}>
-        <section className={styles.itemInfo}>
-          <FontAwesomeIcon
-            icon={faCalendarCheck}
-            size="2x"
-            className={styles.icon}
-          />
-          <section className={styles.infoGeneralDato}>
-            <div className={styles.flexDatoTitle}>
-              <p>Empieza</p>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                size="2x"
-                className={styles.icon}
-              />
-            </div>
-            <p className={styles.datoInfo}>{promotion?.startDate}</p>
-          </section>
-        </section>
-        <span></span>
-        <section className={styles.itemInfo}>
-          <FontAwesomeIcon
-            icon={faCalendarXmark}
-            size="2x"
-            className={styles.icon}
-          />
-          <section className={styles.infoGeneralDato}>
-            <div className={styles.flexDatoTitle}>
-              <p>Termina</p>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                size="2x"
-                className={styles.icon}
-              />
-            </div>
-            <p className={styles.datoInfo}>{promotion?.endDate}</p>
-          </section>
-        </section>
-        <span></span>
-        <section className={styles.itemInfo}>
-          <FontAwesomeIcon
-            icon={faLocationCrosshairs}
-            size="2x"
-            className={styles.icon}
-          />
-          <section className={styles.infoGeneralDato}>
-            <div className={styles.flexDatoTitle}>
-              <p>Ubicación</p>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                size="2x"
-                className={styles.icon}
-              />
-            </div>
-            <p className={styles.datoInfo}>{promotion?.ubication}</p>
-          </section>
-        </section>
-      </section>
+
       <section className={styles.partFour}>
         {showTyc ? (
           <section className={styles.offTc} onClick={() => setShowTyc(false)}>
             <p>Términos y condiciones</p>
             <FontAwesomeIcon
-              icon={faExpand}
+              icon={faCirclePlus}
               size="2x"
               className={styles.icon}
             />
           </section>
         ) : (
-          <section onClick={() => setShowTyc(true)}>todos los detalles</section>
+          <section onClick={() => setShowTyc(true)} className={styles.onTc}>
+            <p>todos los detalles</p>
+          </section>
         )}
       </section>
       {user ? (
