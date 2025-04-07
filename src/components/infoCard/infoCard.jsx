@@ -10,8 +10,8 @@ import {
   faChevronDown,
   faCalendarXmark,
   faLocationCrosshairs,
-  faExpand,
-  faCirclePlus,
+  faSquareCaretDown,
+  faCaretDown,
   faStarHalfStroke,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -211,14 +211,58 @@ export default function InfoCard({ id }) {
           <section className={styles.offTc} onClick={() => setShowTyc(false)}>
             <p>Términos y condiciones</p>
             <FontAwesomeIcon
-              icon={faCirclePlus}
+              icon={faSquareCaretDown}
               size="2x"
               className={styles.icon}
             />
           </section>
         ) : (
           <section onClick={() => setShowTyc(true)} className={styles.onTc}>
-            <p>todos los detalles</p>
+            <div className={styles.titleTyc} onClick={() => setShowTyc(true)}>
+              <h3>Términos y condiciones</h3>
+              <FontAwesomeIcon
+                icon={faSquareCaretDown}
+                size="2x"
+                className={styles.icon}
+              />
+            </div>
+            <span></span>
+            <p>
+              Ejemplos: También se conocen como condiciones de servicio,
+              condiciones de uso, EULA (Acuerdo de licencia de usuario final),
+              condiciones generales o notas legales. ¿Por qué son importantes?
+              Claran las condiciones de uso: Especifican cómo se puede usar el
+              servicio, las reglas de interacción entre usuarios y las reglas de
+              cancelación de cuentas. Ayudan a resolver problemas: Establecen un
+              marco legal para la resolución de conflictos. Protegen los
+              intereses de la empresa: Limitando su responsabilidad y
+              estableciendo las condiciones de uso. Protegen los derechos del
+              usuario: Asegurando que se cumplan las leyes y regulaciones
+              aplicables. ¿Qué deben incluir? Identificación de la empresa y
+              datos de contacto. Descripción del servicio. Información sobre
+              responsabilidad y descargos de responsabilidad. Información sobre
+              la garantía (en su caso). Existencia del derecho de desistimiento
+              (en su caso). Condiciones de entrega del producto/servicio (en su
+              caso). Condiciones de uso o de compra (por ejemplo, requisitos de
+              edad, restricciones geográficas). Información relativa a la
+              política de reembolsos, cambios o cese del servicio. Información
+              relativa a los métodos de pago (en su caso). Normas de conducta
+              del usuario. Resolución de conflictos. Legislación aplicable.
+              Derechos de propiedad intelectual.{" "}
+            </p>
+            <div className={styles.closingTyc} onClick={() => setShowTyc(true)}>
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                size="2x"
+                className={styles.icon}
+              />
+              <h3>Ocultar información</h3>
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                size="2x"
+                className={styles.icon}
+              />
+            </div>
           </section>
         )}
       </section>
