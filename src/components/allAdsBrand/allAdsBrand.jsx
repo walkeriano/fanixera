@@ -22,6 +22,7 @@ import Image from "next/image";
 import useUserPromotions from "@/state/hook/useUserPromotions";
 import QrButton from "@/components/qrButton/qrButton";
 import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
+import FirstAds from "@/components/firstAds/firstAds";
 
 export default function AllAdsBrand({ nombreMarca }) {
   const { promotions, loading, error } = useUserPromotions(nombreMarca);
@@ -74,7 +75,7 @@ export default function AllAdsBrand({ nombreMarca }) {
   }
 
   if (promotions.length === 0) {
-    return <p>No has creado promociones aún.</p>;
+    return <FirstAds/>;
   }
 
   return (
