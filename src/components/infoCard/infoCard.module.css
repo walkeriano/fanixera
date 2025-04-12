@@ -5,7 +5,6 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  position: sticky;
 }
 
 .partOne {
@@ -18,10 +17,10 @@
   justify-content: center;
 }
 
-.partOne::after{
+.partOne::after {
   content: "";
   position: absolute;
-  background: linear-gradient(#00000000,#000000a8,#000000);
+  background: linear-gradient(#00000000, #000000a8, #000000);
   width: 100%;
   height: 35%;
   bottom: 0px;
@@ -63,7 +62,7 @@
   }
 }
 
-.perfilBrand{
+.perfilBrand {
   height: 100%;
   width: 50%;
   display: flex;
@@ -105,13 +104,13 @@
   object-fit: cover;
 }
 
-.linkFlex{
+.linkFlex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.linkFlex a{
+.linkFlex a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,8 +120,16 @@
   aspect-ratio: 1;
 }
 
-.linkFlex a .icon{
+.linkFlex a .icon {
   font-size: 1.2rem;
+}
+
+.flexContainerViewall {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .partTwo {
@@ -153,7 +160,7 @@
   font-weight: 700;
 }
 
-.partTwo .descriptionText{
+.partTwo .descriptionText {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   line-height: 1.3;
@@ -198,7 +205,6 @@
   gap: 15px;
 }
 
-
 .titleBox p {
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -214,7 +220,7 @@
   margin-top: -2px;
 }
 
-.datoImportant:nth-child(1){
+.datoImportant:nth-child(1) {
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveGradient 4s ease-in-out infinite;
@@ -225,7 +231,7 @@
   margin-right: 10px;
 }
 
-.datoImportant:nth-child(1) .titleBox p{
+.datoImportant:nth-child(1) .titleBox p {
   color: white;
 }
 
@@ -248,8 +254,8 @@
 }
 
 .itemInfo .icon {
-  font-size: 2.0rem;
-  color:grey;
+  font-size: 2rem;
+  color: grey;
 }
 
 .infoGeneralDato {
@@ -272,14 +278,14 @@
   font-size: 1rem;
   letter-spacing: 0.5px;
   line-height: 1;
-  color:grey;
+  color: grey;
   font-weight: 500;
 }
 
 .flexDatoTitle .icon {
   font-size: 0.7rem;
   line-height: 1;
-  color:grey;
+  color: grey;
 }
 
 .datoInfo {
@@ -305,7 +311,6 @@
   padding: 0px 25px;
   border-radius: 100px;
   background-color: #0d0d0d;
-  
 }
 
 .offTc p {
@@ -319,12 +324,11 @@
   color: grey;
 }
 
-
-.onTc{
+.onTc {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   background-color: #0d0d0d;
   padding: 20px;
@@ -332,21 +336,21 @@
   gap: 20px;
 }
 
-.onTc span{
+.onTc span {
   width: 100%;
   height: 1px;
   background-color: rgb(41, 41, 41);
   border-radius: 10px;
 }
 
-.titleTyc{
+.titleTyc {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.titleTyc h3{
+.titleTyc h3 {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   font-weight: 500;
@@ -354,7 +358,7 @@
   align-content: center;
 }
 
-.titleTyc .icon{
+.titleTyc .icon {
   font-size: 1.4rem;
   color: grey;
   transform: rotate(180deg);
@@ -368,7 +372,7 @@
   line-height: 1.2;
 }
 
-.closingTyc{
+.closingTyc {
   width: 100%;
   height: 25px;
   display: flex;
@@ -379,12 +383,68 @@
   color: grey;
 }
 
-.closingTyc h3{
+.closingTyc h3 {
   font-size: 0.8rem;
   letter-spacing: 0.5px;
 }
 
-.closingTyc .icon{
+.closingTyc .icon {
   font-size: 1rem;
   transform: rotate(180deg);
+}
+
+@media (min-width: 600px) {
+  .allInfoCard {
+    width: 97%;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  .partOne {
+    width: 35%;
+    height: 85vh;
+    border-radius: 25px 25px 25px 25px;
+  }
+
+  .flexContainerViewall {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .partTwo {
+    margin: 25px 0px 20px 0px;
+  }
+
+  .partTwo h2 {
+    width: 100%;
+    line-height: 1.2; /* Ajusta según tu diseño */
+    font-size: 4vh;
+  }
+
+  .boxDatosRelevantes {
+    justify-content: flex-start;
+    gap: 35px;
+  }
+
+  .datoImportant {
+    width: auto;
+  }
+
+  .datoImportant:nth-child(1) {
+    margin-right: 0px;
+  }
+
+  .datoImportant:nth-child(1) .titleBox p {
+    color: white;
+  }
+}
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 1200px) {
 }
