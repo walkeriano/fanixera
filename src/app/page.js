@@ -33,8 +33,7 @@ export default function Home() {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>
-          Quesada Coach App - Planes de entrenamiento y nutrición personalizados
-          creados por expertos
+          Tomi Cibermarketing - Beneficios exclusivos para el día a día
         </title>
         <meta
           name="description"

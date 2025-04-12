@@ -26,16 +26,24 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
   return (
     <section className={styles.header}>
       <Link href="/">
-      <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+        <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
       </Link>
-      
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
             {user && (
-              <Link className={styles.imgUserAuth} href={user?.userType === "brand" ? `/perfil-socios-net/${user?.nombreMarca}`  : "/perfil-usuario"}>
+              <Link
+                className={styles.imgUserAuth}
+                href={
+                  user?.userType === "brand"
+                    ? `/perfil-socios-net/${user?.nombreMarca}`
+                    : "/perfil-usuario"
+                }
+              >
                 <Image
-                  src={user?.expediente?.imageUrl || user?.imageUrl || "/prom.png"}
+                  src={
+                    user?.expediente?.imageUrl || user?.imageUrl || "/prom.png"
+                  }
                   alt="Foto de perfil usuario"
                   fill={true}
                 />
@@ -124,7 +132,12 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
               <Image src="/mascot-blue.png" alt="icon-random" fill={true} />
             </div>
             <section className={styles.legal}>
-              <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+              <Image
+                src="/next.svg"
+                width={125}
+                height={45}
+                alt="logo-fanixera"
+              />
               <div>
                 <p>Desarrollado por:</p>
                 <h4>Tomi Cibermarketing S.A.C</h4>
