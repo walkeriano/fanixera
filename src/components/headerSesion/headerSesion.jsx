@@ -14,6 +14,7 @@ import {
 export default function HeaderSesion() {
   const { user, logout } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(true);
+  const [ toggleLogOut, setToggleLogOut] = useState(true);
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -45,7 +46,6 @@ export default function HeaderSesion() {
                 Salir
               </button>
             )}
-
             <div className={styles.btnmenu} onClick={() => setShowMenu(false)}>
               <FontAwesomeIcon
                 icon={faEllipsis}

@@ -136,3 +136,33 @@
   line-height: 1.2;
 }
 
+
+
+@media (min-width: 900px){
+  .visualizerCard {
+    background-color:rgba(0, 0, 0, 0.444);
+    width: 50%;
+    height: 73vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    border: 2px solid black;
+    outline: 2px solid black;
+    overflow-y: scroll;
+  }
+
+  .visualizerCard::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+  }
+  
+  .visualizerCard::-webkit-scrollbar-thumb {
+    background-color: rgb(21, 21, 21);
+    border-radius: 50px;
+  }
+  
+  .visualizerCard::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin: 25px;
+  }
+}

@@ -47,9 +47,9 @@ export default function AllAdsClient() {
   return (
     <section className={styles.containerAllClient}>
       <section className={styles.titleFunction}>
-        <h3>Beneficios reservados</h3>
+        <h3>Boveda disponible:</h3>
         <div className={styles.totalCards}>
-          <p>{promotions?.length}</p>
+          <p>{promotions?.length} Beneficios</p>
           <FontAwesomeIcon
             icon={faTurnDown}
             size="2x"
@@ -76,7 +76,7 @@ export default function AllAdsClient() {
           </Link>
         </section>
       ) : (
-        <>
+        <section className={styles.containerFlexAds}>
           {promotions.map((promotion) => (
             <div key={promotion.id} className={styles.itemAdBrand}>
               <section className={styles.imgAdCard}>
@@ -224,7 +224,7 @@ export default function AllAdsClient() {
               </section>
             </div>
           ))}
-        </>
+        </section>
       )}
     </section>
   );

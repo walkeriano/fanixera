@@ -28,7 +28,7 @@ export default function DashboardSociosNet() {
     <section className={styles.containerDashboard}>
       <PerfilBrand userData={userData} />
       {isOwner ? (
-        <>
+        <section className={styles.containerGeneralPerfil}>
           <section className={styles.buttonPannel}>
             <section
               onClick={() => setChange(false)}
@@ -62,7 +62,7 @@ export default function DashboardSociosNet() {
           ) : (
             <FormCreationAd />
           )}
-        </>
+        </section>
       ) : (
         <AllAdsBrand nombreMarca={userData?.nombreMarca} />
       )}

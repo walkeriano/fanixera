@@ -41,17 +41,17 @@
   color: white;
 }
 
-.linkCircleTwo{
+.linkCircleTwo {
   top: 40px;
   right: -14vw;
 }
 
-.linkCircleTre{
+.linkCircleTre {
   top: 95px;
   right: -16vw;
 }
 
-.linkCircleFor{
+.linkCircleFor {
   top: 150px;
   right: -13vw;
 }
@@ -93,7 +93,6 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-
 }
 
 .editImgProfile:hover {
@@ -139,7 +138,7 @@
     background-position: 100% 50%;
     border-radius: 45%;
   }
-  65%{
+  65% {
     transform: rotate(360deg);
     background-position: 100% 50%;
     border-radius: 50%;
@@ -215,4 +214,46 @@
 
 .editData:hover {
   border: 1px solid rgb(55, 55, 55);
+}
+
+@media (min-width: 900px) {
+  .containerBrand {
+    width: 30%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    gap: 50px;
+  }
+
+  .imgBrand {
+    width: 45%;
+    min-width: 195px;
+  }
+
+  .linkCircle,
+  .linkCircleTwo,
+  .linkCircleTre,
+  .linkCircleFor {
+    right: -5px;
+    top: -45px;
+  }
+
+  .linkCircleTwo {
+    top: -5px;
+    right: -45px;
+  }
+
+  .linkCircleTre {
+    top: 50px;
+    right: -65px;
+  }
+
+  .linkCircleFor {
+    top: 110px;
+    right: -60px;
+  }
 }

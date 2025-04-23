@@ -185,3 +185,11 @@
     background-position: 0% 50%;
   }
 }
+
+@media (min-width: 900px) {
+  .containerHeaderDetalle {
+    height: 12vh;
+    min-height: 65px;
+    padding: 0px 3%;
+  }
+}

@@ -12,7 +12,7 @@
   padding-bottom: 25px;
 }
 
-.containerAllBrand::before{
+.containerAllBrand::before {
   content: "";
   width: 100%;
   height: 50px;
@@ -32,6 +32,15 @@
   align-items: center;
   justify-content: center;
   gap: 35px;
+}
+
+.containerFlexAds {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
 }
 
 .flextitleGeneral {
@@ -61,14 +70,14 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-  background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
-  animation: moveGradient 4s ease-in-out infinite;
+  background-color: #0d0d0d;
+  border: 1px solid #212121;
 }
 
 .titleFunction h3 {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
+  cursor: default;
 }
 
 .totalCards {
@@ -82,6 +91,7 @@
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
+  cursor: default;
 }
 
 .totalCards .icon {
@@ -96,6 +106,7 @@
   justify-content: center;
   border-radius: 25px;
   gap: 5px;
+  padding-bottom: 5px;
 }
 
 .imgAdCard {
@@ -146,7 +157,8 @@
   cursor: pointer;
 }
 
-.btnExpandir:hover, .btnMinimizar:hover{
+.btnExpandir:hover,
+.btnMinimizar:hover {
   background-color: #212121;
 }
 
@@ -324,8 +336,6 @@
   letter-spacing: 1px;
   font-weight: 700;
 }
-
-
 
 .listadoUsuarios {
   width: 90%;
@@ -536,9 +546,7 @@
   border: 1px solid red;
 }
 
-
-
-.containerQr{
+.containerQr {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -548,7 +556,7 @@
   margin-top: 25px;
 }
 
-.boxQr{
+.boxQr {
   position: relative;
   width: 75%;
   aspect-ratio: 1;
@@ -559,20 +567,20 @@
   border-radius: 35px;
 }
 
-.boxQr img{
+.boxQr img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 30px;
 }
 
-.containerQr h3{
+.containerQr h3 {
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
-.alertIdentified{
+.alertIdentified {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -587,11 +595,11 @@
   text-decoration: none;
 }
 
-.alertIdentified .icon{
+.alertIdentified .icon {
   font-size: 1.3rem;
 }
 
-.alertIdentified p{
+.alertIdentified p {
   font-size: 1rem;
   text-align: center;
   line-height: 1.1;
@@ -599,7 +607,7 @@
   font-weight: 500;
 }
 
-.cardOut{
+.cardOut {
   background-color: #0d0d0d;
   width: 80%;
   display: flex;
@@ -611,11 +619,11 @@
   border-radius: 25px;
 }
 
-.cardOut img{
+.cardOut img {
   animation: spin 5.5s ease-in-out infinite;
 }
 
-.cardOut p{
+.cardOut p {
   font-size: 1rem;
   letter-spacing: 1px;
   width: 75%;
@@ -624,7 +632,7 @@
   color: #0080ff;
 }
 
-.btnRedirect{
+.btnRedirect {
   width: 80%;
   height: 45px;
   border: none;
@@ -637,11 +645,11 @@
   background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
   background-size: 150% 100%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
   animation: moveGradient 4s ease-in-out infinite;
-  color:white;
+  color: white;
   text-decoration: none;
 }
 
-.btnRedirect .icon{
+.btnRedirect .icon {
   font-size: 1.3rem;
 }
 
@@ -654,5 +662,111 @@
   }
   100% {
     transform: rotateY(360deg);
+  }
+}
+
+@media (min-width: 900px) {
+  .containerAllClient {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .containerFlexAds {
+    width: 100%;
+    gap: 30px;
+    flex-direction: row;
+    overflow-x: scroll;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-bottom: 25px;
+    position: relative;
+  }
+
+  .containerFlexAds::-webkit-scrollbar {
+    background-color: transparent;
+    height: 4px;
+    cursor: grab;
+  }
+
+  .containerFlexAds::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 72, 255, 0.358);
+    border-radius: 50px;
+    cursor: grab;
+  }
+
+  .containerFlexAds::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 72, 255, 0.728);
+  }
+
+  .containerFlexAds::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 255, 0.136);
+    margin: 3vw;
+  }
+
+  .itemAdBrand {
+    min-width: 20%;
+  }
+
+  .itemAdBrand:hover {
+    background-color: #0d0d0d;
+  }
+
+  .titleFunction {
+    width: 95%;
+    padding: 0px 20px;
+    height: 25px;
+    justify-content: space-between;
+  }
+
+  .titleFunction h3 {
+    font-size: 0.8rem;
+  }
+
+  .titleFunction h3 {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    cursor: default;
+  }
+
+  .totalCards {
+    gap: 8px;
+  }
+
+  .totalCards p {
+    font-size: 0.9rem;
+  }
+
+  .interes {
+    height: 35px;
+    bottom: 10px;
+  }
+
+  .titleSection h3{
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .titleSection .icon {
+    font-size: 0.9rem;
+  }
+
+  .allResult {
+    gap: 5px;
+  }
+
+  .allResult p{
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+
+  .allResult .icon {
+    font-size: 0.9rem;
   }
 }

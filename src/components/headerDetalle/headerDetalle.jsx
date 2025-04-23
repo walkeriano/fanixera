@@ -15,7 +15,7 @@ export default function HeaderDetalle() {
   return (
     <section className={styles.containerHeaderDetalle}>
       <Link href="/" >
-      <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+      <Image src="/next.svg" width={110} height={50} alt="logo-tomi-cibermarketing" />
       </Link>
        
       <section className={styles.sectionbtns}>
