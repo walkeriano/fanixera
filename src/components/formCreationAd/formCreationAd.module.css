@@ -634,14 +634,15 @@
 
 @media (min-width: 900px) {
   .containerForm {
-    width: 100%;
-    border-radius: 0px 35px 35px 35px;
-    padding-top: 35px;
-    padding-bottom: 20px;
+    width: 70%;
+    height: 100%;
+    border-radius: 35px;
+    padding-top: 0px;
+    gap: 20px;
   }
 
   .containerForm::before {
-    border-radius: 0px 35px 0px 0px;
+    display: none;
   }
 
   .flexBox {
@@ -649,7 +650,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
   }
 
   .formContainerGeneral {
@@ -658,16 +659,16 @@
     align-items: flex-start;
     justify-content: flex-start;
     overflow-y: scroll;
-    gap: 20px;
+    gap: 25px;
   }
 
   .formContainerGeneral::-webkit-scrollbar {
-    background-color: rgba(0, 0, 255, 0.136);
+    background-color: rgba(255, 255, 255, 0.044);
     width: 4px;
   }
 
   .formContainerGeneral::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 72, 255, 0.358);
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 50px;
   }
 
@@ -712,5 +713,11 @@
     gap: 20px;
     font-size: 0.9rem;
     margin-top: 0px;
+  }
+
+  .tiempoExposicion,
+  .imagesFormatAds,
+  .stockRegister {
+    width: 95%;
   }
 }

@@ -169,3 +169,42 @@
     background-position: 0% 50%;
   }
 }
+
+@media (min-width: 900px) {
+  .boxRegistroDirecto {
+    margin-top: 50px;
+  }
+
+  .titleSection h4 {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+
+  .titleSection p {
+    width: 55%;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  .linkSection {
+    width: 70%;
+    flex-direction: column;
+  }
+
+  .linkContactBrand {
+    height: 65px;
+    border-radius: 50px;
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .linkContactBrand p {
+    width: auto;
+    letter-spacing: 1px;
+  }
+
+  .linkContactBrand .icon {
+    font-size: 1.7rem;
+  }
+}

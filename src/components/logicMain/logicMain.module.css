@@ -66,3 +66,23 @@
   width: 100%;
   margin-bottom: 100px;
 }
+
+@media (min-width: 900px) {
+  .logicMainContainer {
+    width: 95%;
+    margin-top: 50px;
+  }
+
+  .titleSection h4 {
+    font-size: 1rem;
+  }
+
+  .boxSectionIcon .icon {
+    font-size: 1.4rem;
+  }
+
+  .containerLogic {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+}

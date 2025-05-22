@@ -192,4 +192,46 @@
     min-height: 65px;
     padding: 0px 3%;
   }
+  
+    .menuShow {
+    gap: 50px;
+  }
+
+  .linkDirect {
+    font-size: 3.2vw;
+    width: auto;
+  }
+
+  .linkDirect .icon {
+    font-size: 1.1rem;
+    position: absolute;
+    right: -35px;
+    top: 0px;
+  }
+
+  .linkDirect span {
+    font-size: 1.1rem;
+  }
+
+  .imgbgmenu {
+    width: 50%;
+    height: 80vh;
+    top: -20px;
+    right: -20px;
+    opacity: 0.4;
+  }
+
+  .legal {
+    bottom: 30px;
+    right: 40px;
+  }
+
+  .btnCloseMenu {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .btnCloseMenu:hover {
+    opacity: 1;
+  }
 }
