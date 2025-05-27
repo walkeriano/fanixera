@@ -15,11 +15,12 @@ import Link from "next/link";
 export default function Presentacion() {
   return (
     <section className={styles.presentacionBox}>
+
       <section className={styles.boxMockup}>
         <Image src="/mobile-pc.png" alt="mockup-tomi-cibermarketing" fill={true} />
       </section>
       <section className={styles.allInfo}>
-        <h1>Grandes beneficios para todos,<span> corre que se acaban!</span></h1>
+        <h1>Beneficios de tus marcas favoritas,<span> cuando más los necesitas!</span></h1>
         <p>
           Tomi Cibermarketing, es un sistema de beneficios que busca generar un
           fidelización entre la marca y sus consumidores, facilitando el acceso

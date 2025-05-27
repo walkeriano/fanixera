@@ -1,54 +1,161 @@
 .containerAccesSociosNet {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.containerAccesos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerTitle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.containerTitle h2 {
+  font-size: 6.7vw;
+  width: 80%;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.boxBanner {
+  width: 85%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.boxBanner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.accesBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  background-color: #0d0d0d;
+  border-radius: 50px;
+}
+
+.btnAction {
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.active {
+  background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
+  background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
+  animation: moveGradient 4s ease-in-out infinite;
+  color: white;
+  font-weight: 600;
+}
+
+.inactive {
+  background-color: transparent;
+  color: #777777;
+}
+
+.inactive:hover {
+  color: white;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.accesGmail {
+  width: 80%;
+  height: 45px;
+  border-radius: 50px;
+  border: 1px solid red;
+  background-color: rgb(109, 0, 0);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.accesGmail .icon {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .containerAccesSociosNet {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
     gap: 20px;
+    height: 85vh;
   }
-  
+
   .containerAccesos {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 50%;
   }
-  
+
   .containerTitle {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
+    width: 50%;
+    margin-top: 0px;
   }
-  
+
   .containerTitle h2 {
-    font-size: 6.7vw;
+    font-size: 1.8rem;
     width: 80%;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1.1;
-    letter-spacing: 1px;
   }
-  
+
+  .containerTitle p{
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+
   .boxBanner {
-    width: 85%;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    width: 65%;
   }
-  
-  .boxBanner img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+
+  .accesGmail {
+    width: auto;
+    padding: 0px 25px;
   }
-  
+
   .accesBtns {
     display: flex;
     align-items: center;
@@ -57,66 +164,9 @@
     background-color: #0d0d0d;
     border-radius: 50px;
   }
-  
+
   .btnAction {
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-weight: 300;
+    padding: 10px 20px;
+    font-size: 0.8rem;
   }
-  
-  .active {
-    background: linear-gradient(35deg, #0080ff, #0024d6, #9a00c4, #9d0054);
-    background-size: 180% 120%; /* Hacemos que el gradiente sea más ancho para permitir el desplazamiento */
-    animation: moveGradient 4s ease-in-out infinite;
-    color: white;
-    font-weight: 600;
-  }
-  
-  .inactive {
-    background-color: transparent;
-    color: #777777;
-  }
-  
-  .inactive:hover{
-      color: white;
-  }
-  
-  @keyframes moveGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-
-  .accesGmail{
-    width: 80%;
-    height: 45px;
-    border-radius: 50px;
-    border: 1px solid red;
-    background-color: rgb(109, 0, 0);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 25px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-  }
-
-  .accesGmail .icon{
-    font-size: 1.5rem;
-  }
+}

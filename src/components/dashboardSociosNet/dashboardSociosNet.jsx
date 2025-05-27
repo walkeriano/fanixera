@@ -14,10 +14,10 @@ import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
 export default function DashboardSociosNet() {
   const { user } = useContext(AuthContext);
-  const [change, setChange] = useState(false);
+  const [change, setChange] = useState(true);
   const { userData, loading, error } = useUserProfile();
 
-  if (loading) return <LoaderSpecific/>;
+  if (loading) return <LoaderSpecific />;
   if (error) return <p>Error: {error}</p>;
   if (!userData) return <p>No se encontró el perfil.</p>;
 
@@ -31,19 +31,6 @@ export default function DashboardSociosNet() {
         <section className={styles.containerGeneralPerfil}>
           <section className={styles.buttonPannel}>
             <section
-              onClick={() => setChange(false)}
-              className={`${styles.sec} ${
-                !change ? styles.active : styles.inactive
-              }`}
-            >
-              <FontAwesomeIcon
-                icon={faScrewdriverWrench}
-                size="2x"
-                className={styles.icon}
-              />
-              Crear
-            </section>
-            <section
               onClick={() => setChange(true)}
               className={`${styles.sec} ${
                 change ? styles.active : styles.inactive
@@ -55,6 +42,19 @@ export default function DashboardSociosNet() {
                 className={styles.icon}
               />
               Beneficios
+            </section>
+            <section
+              onClick={() => setChange(false)}
+              className={`${styles.sec} ${
+                !change ? styles.active : styles.inactive
+              }`}
+            >
+              <FontAwesomeIcon
+                icon={faScrewdriverWrench}
+                size="2x"
+                className={styles.icon}
+              />
+              Crear
             </section>
           </section>
           {change ? (
