@@ -83,82 +83,73 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  const loginWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-  
+const loginWithGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const firebaseUser = result.user;
+
+    const userRef = doc(db, "users", firebaseUser.uid);
+    const userSnap = await getDoc(userRef);
+
+    let userData;
+
+    if (userSnap.exists()) {
+      userData = userSnap.data();
+    } else {
+      userData = {
+        uid: firebaseUser.uid,
+        email: firebaseUser.email,
+        nombreMarca: firebaseUser.displayName || "Usuario sin nombre",
+        imageUrl: firebaseUser.photoURL || "/default-avatar.png",
+        userType: "client",
+        createdAt: new Date(),
+        cel: firebaseUser.phoneNumber || null,
+      };
+
+      await setDoc(userRef, userData);
+    }
+
+    setUser(userData);
+    return userData; // ⬅️ Importante: ahora devuelve el resultado
+  } catch (error) {
+    console.error("Error en login con Google:", error.message);
+    throw new Error("No se pudo iniciar sesión con Google.");
+  }
+};
+
+const login = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    setLoadingUserData(true);
     try {
-      const result = await signInWithPopup(auth, provider);
-      const firebaseUser = result.user;
-  
-      const userRef = doc(db, "users", firebaseUser.uid);
+      const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
-  
-      let userData;
-  
+
       if (userSnap.exists()) {
-        // 📌 Usuario ya registrado → Solo obtenemos sus datos
-        userData = userSnap.data();
-      } else {
-        // 📌 Nuevo usuario → Guardamos en Firestore
-        userData = {
-          uid: firebaseUser.uid,
-          email: firebaseUser.email,
-          nombreMarca: firebaseUser.displayName || "Usuario sin nombre",
-          imageUrl: firebaseUser.photoURL || "/default-avatar.png",
-          userType: "client",
-          createdAt: new Date(),
-          cel: firebaseUser.phoneNumber || null,  // Añadimos el número de teléfono aquí
+        const userData = {
+          uid: user.uid,
+          email: user.email,
+          ...userSnap.data(),
         };
-  
-        await setDoc(userRef, userData);
+        setUser(userData);
+        return userData; // ✅ ahora sí retorna datos útiles
       }
-  
-      // 📌 Actualizamos el contexto con los nuevos datos
-      setUser(userData);
-  
-      // 📌 Redirigir al perfil del usuario con su UID
-      router.replace("/perfil-usuario");
     } catch (error) {
-      console.error("Error en login con Google:", error.message);
-      throw new Error("No se pudo iniciar sesión con Google.");
-    }
-  };
-
-  const login = async (email, password) => {
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user;
-
-      setLoadingUserData(true);
-      try {
-        const userRef = doc(db, "users", user.uid);
-        const userSnap = await getDoc(userRef);
-
-        if (userSnap.exists()) {
-          setUser({
-            uid: user.uid,
-            email: user.email,
-            nombreMarca: userSnap.data().nombreMarca,
-            expediente: userSnap.data().expediente || null,
-            userType: userSnap.data().userType,
-          });
-        }
-      } catch (error) {
-        console.error("Error al obtener datos de usuario:", error);
-      } finally {
-        setLoadingUserData(false);
-      }
-
-      return userCredential;
-    } catch (error) {
+      console.error("Error al obtener datos de usuario:", error);
+    } finally {
       setLoadingUserData(false);
-      throw new Error(handleFirebaseError(error));
     }
-  };
+
+    return null; // si no existe en Firestore
+  } catch (error) {
+    setLoadingUserData(false);
+    throw new Error(handleFirebaseError(error));
+  }
+};
 
   const logout = async () => {
     try {

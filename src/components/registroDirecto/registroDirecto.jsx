@@ -33,6 +33,7 @@ export default function RegistroDirecto() {
         </p>
       </section>
       <section className={styles.linkSection}>
+        <p>Acceso rápido:</p>
         <button
           className={styles.linkContactBrand}
           onClick={loginWithGoogle}
@@ -42,16 +43,8 @@ export default function RegistroDirecto() {
             size="2x"
             className={styles.icon}
           />
-          <p>ingresar con gmail</p>
+          <p>Ingresar con gmail</p>
         </button>
-        <Link href="/" className={styles.linkContactBrand}>
-          <FontAwesomeIcon
-            icon={faFacebook}
-            size="2x"
-            className={styles.icon}
-          />
-          <p>Acceder con Facebook</p>
-        </Link>
       </section>
       <section className={styles.containerAccesos}>
         <section className={styles.accesBtns}>

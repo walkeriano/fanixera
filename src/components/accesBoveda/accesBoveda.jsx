@@ -26,6 +26,18 @@ export default function AccesBoveda() {
     setLoading(false); // Desactiva el loading tras la verificación
   }, [user, router]);
 
+  const handleGoogleLogin = async () => {
+  try {
+    const user = await loginWithGoogle();
+    if (user) {
+      router.replace("/perfil-usuario");
+    }
+  } catch (error) {
+    alert("Hubo un error al iniciar sesión con Google");
+    console.error(error);
+  }
+};
+
   return (
     <section className={styles.containerAccesSociosNet}>
       <section className={styles.containerTitle}>
@@ -44,7 +56,7 @@ export default function AccesBoveda() {
               <></>
             ) : (
               <>
-                <button onClick={loginWithGoogle} className={styles.accesGmail}>
+                <button onClick={handleGoogleLogin} className={styles.accesGmail}>
                   Acceder con google
                   <FontAwesomeIcon
                     icon={faGooglePlusG}
