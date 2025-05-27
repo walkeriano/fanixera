@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { doc, setDoc } from "firebase/firestore";
+import imageCompression from "browser-image-compression"; 
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db } from "../../../firebase-config"; // Asegúrate de importar la configuración de Firestore // Asegúrate de importar tu configuración de Firebase aquí
 import AuthContext from "@/state/auth/auth-context";
@@ -20,24 +21,26 @@ const useSubmitExpediente = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
 
-  // Función para subir una imagen a Firebase Storage
+  // 🗜️ Función para comprimir y subir imagen
   const uploadImage = async (file) => {
-    if (!file) {
-      throw new Error("No se ha seleccionado una imagen");
-    }
+    if (!file) throw new Error("No se ha seleccionado una imagen");
 
     try {
+      const options = {
+        maxSizeMB: 0.15, // ⬅️ Limita el peso a 150KB
+        useWebWorker: true,
+      };
+
+      const compressedFile = await imageCompression(file, options);
+      console.log(`Imagen comprimida: original ${file.size} bytes, comprimida ${compressedFile.size} bytes`);
       const storage = getStorage();
-      const storageRef = ref(storage, `expedientes/${user.uid}/${file.name}`);
-
-      // Subir archivo a Firebase Storage
-      const snapshot = await uploadBytes(storageRef, file);
-
-      // Obtener URL de descarga
+      const storageRef = ref(storage, `expedientes/${user.uid}/${compressedFile.name}`);
+      const snapshot = await uploadBytes(storageRef, compressedFile);
       const downloadURL = await getDownloadURL(snapshot.ref);
+
       return downloadURL;
     } catch (error) {
-      console.error("Error al subir la imagen:", error);
+      console.error("Error al comprimir o subir imagen:", error);
       throw error;
     }
   };

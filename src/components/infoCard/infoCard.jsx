@@ -40,7 +40,7 @@ export default function InfoCard({ id }) {
       <section className={styles.partOne}>
         <section className={styles.marcaDatos}>
           <Link
-            href={`/perfil-socios-net/${promotion?.user?.nombreMarca}`}
+            href={`/perfil-socios-net/${promotion?.user?.slug}`}
             className={styles.perfilBrand}
           >
             <div className={styles.imgBox}>
