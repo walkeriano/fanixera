@@ -27,7 +27,7 @@ export default function FormAccesSociosNet() {
     try {
       const user = await login(data.email, data.password);
       if (user?.nombreMarca) {
-        router.push(`/perfil-socios-net/${user.nombreMarca}`);
+        router.push(`/perfil-socios-net/${user.slug}`);
       }
     } catch (error) {
       setError(error.message);

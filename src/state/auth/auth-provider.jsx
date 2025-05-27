@@ -13,6 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 import { auth, db } from "../../../firebase-config";
 import Loading from "@/components/loaderIntro/loaderIntro";
+import { generarSlug } from "@/utils/slugify";
 
 const getFirebaseErrorMessage = (error) => {
   switch (error.code) {
@@ -169,16 +170,19 @@ const login = async (email, password) => {
       );
       const userId = userCredential.user.uid;
 
+      const slug = generarSlug(nombreMarca);
+
       setLoadingUserData(true);
       try {
         await setDoc(doc(db, "users", userId), {
           email,
           nombreMarca,
+          slug,
           userType,
           createdAt: new Date(),
         });
 
-        setUser({ uid: userId, email, nombreMarca, userType });
+        setUser({ uid: userId, email, nombreMarca, slug, userType });
       } catch (error) {
         console.error("Error al registrar usuario:", error);
       } finally {

@@ -10,52 +10,51 @@ const useUserProfile = () => {
   const params = useParams();
 
   useEffect(() => {
-      if (!params || !params.nombreMarca) return;
+    if (!params || !params.slug) return;
 
-      const nombreMarca = params.nombreMarca;
+    const slug = params.slug;
 
-      // Obtener datos guardados en localStorage
-      const storedBrands = JSON.parse(localStorage.getItem("brandsViews")) || [];
+    // Verificar si ya existe en localStorage
+    const storedBrands = JSON.parse(localStorage.getItem("brandsViews")) || [];
+    const cachedBrand = storedBrands.find((brand) => brand.slug === slug);
 
-      // Buscar si ya tenemos el perfil guardado
-      const cachedBrand = storedBrands.find(brand => brand.nombreMarca === nombreMarca);
-      
-      if (cachedBrand) {
-          console.log(`⚡ Cargando ${nombreMarca} desde localStorage`);
-          setUserData(cachedBrand);
-          setLoading(false);
-          return;
+    if (cachedBrand) {
+      console.log(`⚡ Cargando ${slug} desde localStorage`);
+      setUserData(cachedBrand);
+      setLoading(false);
+      return;
+    }
+
+    const fetchUserProfile = async () => {
+      try {
+        setLoading(true);
+
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("slug", "==", slug));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+          const userDoc = querySnapshot.docs[0].data();
+          setUserData(userDoc);
+
+          // Guardar en localStorage
+          const updatedBrands = [...storedBrands, userDoc];
+          localStorage.setItem("brandsViews", JSON.stringify(updatedBrands));
+          console.log(`✅ Guardado ${slug} en localStorage`);
+        } else {
+          setUserData(null);
+        }
+      } catch (err) {
+        setError("Error al obtener el perfil");
+      } finally {
+        setLoading(false);
       }
+    };
 
-      const fetchUserProfile = async () => {
-          try {
-              setLoading(true);
-              const usersRef = collection(db, "users");
-              const q = query(usersRef, where("nombreMarca", "==", nombreMarca));
-              const querySnapshot = await getDocs(q);
-
-              if (!querySnapshot.empty) {
-                  const userDoc = querySnapshot.docs[0].data();
-                  setUserData(userDoc);
-
-                  // Agregar la nueva marca a localStorage
-                  const updatedBrands = [...storedBrands, userDoc];
-                  localStorage.setItem("brandsViews", JSON.stringify(updatedBrands));
-                  console.log(`✅ Guardado ${nombreMarca} en localStorage`);
-              } else {
-                  setUserData(null);
-              }
-          } catch (err) {
-              setError("Error al obtener el perfil");
-          } finally {
-              setLoading(false);
-          }
-      };
-
-      fetchUserProfile();
+    fetchUserProfile();
   }, [params]);
 
   return { userData, loading, error };
 };
-  
-  export default useUserProfile;
+
+export default useUserProfile;
