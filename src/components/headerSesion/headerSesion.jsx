@@ -9,12 +9,15 @@ import {
   faArrowUpRightFromSquare,
   faDeleteLeft,
   faEllipsis,
+  faHouseUser,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function HeaderSesion() {
   const { user, logout } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(true);
-  const [ toggleLogOut, setToggleLogOut] = useState(true);
+  const [showOutSesion, setShowOutSesion] = useState(false);
+  const [toggleLogOut, setToggleLogOut] = useState(true);
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -31,13 +34,13 @@ export default function HeaderSesion() {
   return (
     <section className={styles.headerSesionContainer}>
       <Link href="/">
-         <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+        <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
       </Link>
       <section className={styles.sectionbtns}>
         {showMenu ? (
           <>
             {user && (
-              <button className={styles.boxOutSesion} onClick={handleLogout}>
+              <button className={styles.boxOutSesion} onClick={() => setShowOutSesion(true)}>
                 <FontAwesomeIcon
                   icon={faDeleteLeft}
                   size="2x"
@@ -112,10 +115,48 @@ export default function HeaderSesion() {
               <Image src="/mascot-blue.png" alt="icon-random" fill={true} />
             </div>
             <section className={styles.legal}>
-               <Image src="/next.svg" width={125} height={45} alt="logo-fanixera" />
+              <Image
+                src="/next.svg"
+                width={125}
+                height={45}
+                alt="logo-fanixera"
+              />
               <div>
                 <p>Desarrollado por:</p>
                 <h4>Tomi Cibermarketing S.A.C</h4>
+              </div>
+            </section>
+          </section>
+        )}
+
+        {showOutSesion && (
+          <section className={styles.showClosing}>
+            <section className={styles.containerActions}>
+              <span onClick={() => setShowOutSesion(false)}>
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  size="2x"
+                  className={styles.icon}
+                />
+              </span>
+              <h4>¿Seguro que deseas salir?</h4>
+              <div className={styles.btnFlex}>
+                <button onClick={handleLogout}>
+                  <FontAwesomeIcon
+                    icon={faDeleteLeft}
+                    size="2x"
+                    className={styles.icon}
+                  />
+                  Cerrar sesión
+                </button>
+                <Link href="/">
+                  <FontAwesomeIcon
+                    icon={faHouseUser}
+                    size="2x"
+                    className={styles.icon}
+                  />
+                  Ir al home
+                </Link>
               </div>
             </section>
           </section>

@@ -36,7 +36,7 @@ export default function Header({ showSearch, setShowSearch, resetSearch }) {
                 className={styles.imgUserAuth}
                 href={
                   user?.userType === "brand"
-                    ? `/perfil-socios-net/${user?.nombreMarca}`
+                    ? `/perfil-socios-net/${user?.slug}`
                     : "/perfil-usuario"
                 }
               >
