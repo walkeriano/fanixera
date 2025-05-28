@@ -98,7 +98,8 @@
   font-size: 0.8rem;
 }
 
-.itemAdBrand, .itemAdBrandTwo {
+.itemAdBrand,
+.itemAdBrandTwo {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -107,6 +108,10 @@
   border-radius: 25px;
   gap: 5px;
   padding-bottom: 5px;
+}
+
+.itemAdBrandTwo {
+  margin-bottom: 50px;
 }
 
 .imgAdCard,
@@ -655,6 +660,20 @@
   font-size: 1.3rem;
 }
 
+.sliderCardsBrand {
+  width: 100%;
+  gap: 100px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-bottom: 20px;
+  position: relative;
+}
+
 @keyframes spin {
   0% {
     transform: rotateY(0deg);
@@ -668,8 +687,7 @@
 }
 
 @media (min-width: 900px) {
-
-  .containerLoader{
+  .containerLoader {
     width: 70%;
     height: 87vh;
     display: flex;
@@ -724,15 +742,15 @@
     min-width: 20%;
   }
 
-  .itemAdBrandTwo{
+  .itemAdBrandTwo {
     min-width: 30%;
     cursor: pointer;
   }
 
-  .itemAdBrand:hover, .itemAdBrandTwo:hover {
+  .itemAdBrand:hover,
+  .itemAdBrandTwo:hover {
     background-color: #0d0d0d;
   }
-  
 
   .titleFunction {
     width: 95%;
@@ -805,6 +823,7 @@
     width: 100%;
     gap: 30px;
     display: flex;
+    flex-direction: row;
     overflow-x: scroll;
     align-items: flex-start;
     justify-content: flex-start;
