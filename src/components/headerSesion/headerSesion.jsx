@@ -128,7 +128,6 @@ export default function HeaderSesion() {
             </section>
           </section>
         )}
-
         {showOutSesion && (
           <section className={styles.showClosing}>
             <section className={styles.containerActions}>
