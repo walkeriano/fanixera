@@ -63,7 +63,11 @@ import {
   faPencil,
   faScrewdriverWrench,
   faBagShopping,
-  faHouseUser
+  faHouseUser,
+  faGift,
+  faCodeCommit,
+  faCodeCompare,
+  faCodePullRequest,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -146,5 +150,9 @@ library.add(
   faPencil,
   faScrewdriverWrench,
   faBagShopping,
-  faHouseUser
+  faHouseUser,
+  faGift,
+  faCodeCommit,
+  faCodeCompare,
+  faCodePullRequest,
 );
