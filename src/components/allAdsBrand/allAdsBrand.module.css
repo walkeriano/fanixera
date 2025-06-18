@@ -745,6 +745,8 @@
   .itemAdBrandTwo {
     min-width: 30%;
     cursor: pointer;
+    padding-bottom: 20px;
+    margin: 0px;
   }
 
   .itemAdBrand:hover,
@@ -836,6 +838,7 @@
   .sliderCardsBrand::-webkit-scrollbar {
     background-color: transparent;
     height: 4px;
+    width: 0px;
     cursor: grab;
   }
 
@@ -851,7 +854,7 @@
 
   .sliderCardsBrand::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 255, 0.136);
-    margin: 2vw;
+    margin: 4px;
   }
 
   .imgAdCardTwo {
