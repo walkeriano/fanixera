@@ -1,0 +1,30 @@
+.menuSection{
+    background-color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.menuSection div{
+    width: 75px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.menuSection div:hover{
+    background-color: rgba(0, 0, 0, 0.23);
+}
+
+.menuSection div:hover .icon{
+    opacity: 1;
+}
+
+.menuSection div .icon{
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
