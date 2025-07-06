@@ -1,14 +1,18 @@
 import styles from "./totalBeneficios.module.css";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faGift, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import usePromotions from "@/state/hook/usePromotionsAll";
+import LoaderSpecific from "@/components/loaderSpecific/loaderSpecific";
 
 export default function TotalBeneficios() {
+  const { promotions, loading } = usePromotions();
+
   return (
     <section className={styles.totalBeneficios}>
       <section className={styles.titleBox}>
         <div className={styles.titleDescription}>
-          <p>Nº de beneficios creados</p>
+          <p>Beneficios creados</p>
           <FontAwesomeIcon
             icon={faChevronDown}
             size="2x"
@@ -16,59 +20,46 @@ export default function TotalBeneficios() {
           />
         </div>
         <section className={styles.totalBox}>
-          <p>1400</p>
-          <FontAwesomeIcon icon={faUser} size="2x" className={styles.icon} />
+          <p>{promotions.length}</p>
+          <FontAwesomeIcon icon={faGift} size="2x" className={styles.icon} />
         </section>
       </section>
       <section className={styles.listItem}>
-        <section className={styles.itemBenefit}>
-          <div className={styles.imageBrand}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
+        {loading ? (
+          <div className={styles.boxLoading}>
+            <LoaderSpecific />
           </div>
-          <div className={styles.infoItem}>
-            <h4>2x1 en todas las zapatillas</h4>
-            <p>23:00 pm</p>
-          </div>
-          <div className={styles.imageContainer}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-        </section>
-        <section className={styles.itemBenefit}>
-          <div className={styles.imageBrand}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-          <div className={styles.infoItem}>
-            <h4>2x1 en todas las zapatillas</h4>
-            <p>23:00 pm</p>
-          </div>
-          <div className={styles.imageContainer}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-        </section>
-        <section className={styles.itemBenefit}>
-          <div className={styles.imageBrand}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-          <div className={styles.infoItem}>
-            <h4>2x1 en todas las zapatillas</h4>
-            <p>23:00 pm</p>
-          </div>
-          <div className={styles.imageContainer}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-        </section>
-        <section className={styles.itemBenefit}>
-          <div className={styles.imageBrand}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-          <div className={styles.infoItem}>
-            <h4>2x1 en todas las zapatillas</h4>
-            <p>23:00 pm</p>
-          </div>
-          <div className={styles.imageContainer}>
-            <Image src="/prom.png" alt="image-prom" fill={true} />
-          </div>
-        </section>
+        ) : promotions.length === 0 ? (
+          <p>No hay promociones.</p>
+        ) : (
+          promotions.map((promo) => (
+            <section key={promo.id} className={styles.itemBenefit}>
+              <div className={styles.imageBrand}>
+                <Image
+                  src={promo.user?.expediente?.imageUrl || "/prom.png"}
+                  alt="promo-brand"
+                  fill={true}
+                />
+              </div>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={promo.image1 || "/prom.png"}
+                  alt="promo-img"
+                  fill={true}
+                />
+              </div>
+              <div className={styles.infoItem}>
+                <h4>{promo.title || "Sin nombre"}</h4>
+                <p>
+                  {promo.startTime || "00:00"} / {promo.startDate || "00:00"}
+                </p>
+                <p>
+                  {promo.endTime || "00:00"} / {promo.endDate || "00:00"}
+                </p>
+              </div>
+            </section>
+          ))
+        )}
       </section>
     </section>
   );

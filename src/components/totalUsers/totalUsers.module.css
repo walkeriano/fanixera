@@ -78,47 +78,45 @@
   margin: 30px;
 }
 
-.itemBenefit {
+.itemUser {
   height: 100%;
   min-width: 35%;
   background-color: black;
-  border-radius: 25px;
+  border-radius: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;
   border: 1px solid transparent;
   cursor: pointer;
 }
 
-.itemBenefit:hover {
+.itemUser:hover {
   border: 1px solid rgb(66, 66, 66);
 }
 
-.imageContainer {
-  position: relative;
-  width: 100%;
-  height: 70%;
-}
-
-.imageContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-.imageBrand {
+.itemUser::after {
+  content: "";
   position: absolute;
-  width: 32px;
+  width: 6px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: green;
+  outline: 2px solid rgb(0, 174, 0);
+  top: 12px;
+  right: 12px;
+}
+
+.imageUser {
+  position: relative;
+  width: 80%;
   aspect-ratio: 1;
   z-index: 1;
-  top: 10px;
-  left: 10px;
 }
 
-.imageBrand img {
+.imageUser img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -126,9 +124,8 @@
   border: 2px solid black;
 }
 
-.infoItem {
+.infoItemUser {
   width: 100%;
-  height: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,10 +134,11 @@
   gap: 5px;
 }
 
-.infoItem h4 {
+.infoItemUser h4,
+.infoItemUser h3 {
   font-size: 0.9rem;
   width: 80%;
-  text-align: left;
+  text-align: center;
   color: white;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -148,11 +146,28 @@
   font-weight: 700;
 }
 
-.infoItem p {
+.infoItemUser h3 {
+  color: grey;
+}
+
+.infoContain {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.infoContain p {
   font-size: 0.7rem;
   width: 80%;
-  text-align: left;
+  text-align: center;
   color: grey;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .boxLoading {
@@ -166,5 +181,10 @@
 @media (max-width: 900px) {
   .totalBeneficios {
     width: 100%;
+  }
+
+  .listItem {
+    width: 100%;
+    height: 160px;
   }
 }

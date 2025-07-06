@@ -1,18 +1,24 @@
-.homePanelContainer{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
+.homePanelContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
-.flexContainer{
-    width: 90%;
-    height: 72%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+.flexContainer {
+  width: 90%;
+  height: 72%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .flexContainer {
+    align-items: flex-start;
+  }
 }

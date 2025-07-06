@@ -1,0 +1,46 @@
+.containerViewport {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  position: relative;
+}
+
+.titlePanel {
+  position: absolute;
+  top: -80px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.titlePanel h2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: white;
+  font-weight: 700;
+}
+
+.titlePanel p {
+  font-size: 0.9rem;
+  color: grey;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+  .containerViewport {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 85px;
+  }
+
+  .titlePanel {
+    top: 0px;
+  }
+}

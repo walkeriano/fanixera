@@ -1,0 +1,153 @@
+.containerList {
+  width: 45%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.flexTitleSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(53, 53, 53);
+  height: 50px;
+  gap: 10px;
+}
+
+.flexTitleSection div {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  border: 1px solid red;
+}
+
+.flexTitleSection div p {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.flexTitleSection div .icon {
+  font-size: 0.7rem;
+}
+
+.listAllItems {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.listAllItems::-webkit-scrollbar {
+  background-color: transparent;
+  width: 3px;
+}
+
+.listAllItems::-webkit-scrollbar-thumb {
+  background-color: rgb(47, 47, 47);
+  border-radius: 50px;
+}
+
+.listAllItems::-webkit-scrollbar-track {
+  background-color: rgb(21, 21, 21);
+  margin: 10px;
+}
+
+.itemList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 40px;
+  cursor: pointer;
+  border-radius: 50px;
+  gap: 10px;
+}
+
+.itemList:hover {
+  background-color: rgba(255, 255, 255, 0.061);
+}
+
+.imgBenefit {
+  min-width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 1px solid red;
+}
+
+.imgBenefit img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.imgBenefit h4 {
+  font-size: 0.9rem;
+  width: 65%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: grey;
+}
+
+.itemList p {
+  width: 35%;
+  text-align: left;
+  color: grey;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+.btnFlex {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.btnFlex button {
+  height: 25px;
+  padding: 0px 8px;
+  border-radius: 50px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #151515;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: rgb(163, 163, 163);
+  letter-spacing: 0.5px;
+}
+
+.btnFlex button .icon {
+  font-size: 0.9rem;
+  color: rgb(163, 163, 163);
+}
+
+
+@media (max-width: 900px) {
+  .containerList {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 150px;
+  }
+}
